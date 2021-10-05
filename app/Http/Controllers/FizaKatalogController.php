@@ -14,64 +14,58 @@ class FizaKatalogController extends Controller
      */
     public function index()
     {
-        $fizaKart = FizaKart::all();
-        return view ('1_kart.index',[
-            '$fizaKart'=>$fizaKart]);
+        $fizaKatalog = FizaKatalog::all();
+        return view ('1_katalog.index',[
+            '$fizaKatalog'=>$fizaKatalog]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return redirect('1_katalog.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $fizaKatalog = new FizaKatalog;
+
+        $fizaKatalog->katalog_kategori=$request->katalog_kategori;
+        $fizaKatalog->katalog_kumpulan=$request->katalog_kumpulan;
+        $fizaKatalog->katalog_jenis=$request->katalog_jenis;
+        $fizaKatalog->katalog_created_by=$request->katalog_created_by;
+        $fizaKatalog->user_id=$request->user_id;
+
+        $fizaKatalog->save();
+        return redirect('/fizaKatalog');
+    
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\FizaKatalog  $fizaKatalog
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(FizaKatalog $fizaKatalog)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\FizaKatalog  $fizaKatalog
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(FizaKatalog $fizaKatalog)
     {
-        //
+        $fizaKatalog = FizaKatalog::all();
+        return view ('1_katalog.edit',[
+            '$fizaKatalog'=>$fizaKatalog]);
+        
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\FizaKatalog  $fizaKatalog
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, FizaKatalog $fizaKatalog)
     {
-        //
+        $fizaKatalog->katalog_kategori=$request->katalog_kategori;
+        $fizaKatalog->katalog_kumpulan=$request->katalog_kumpulan;
+        $fizaKatalog->katalog_jenis=$request->katalog_jenis;
+        $fizaKatalog->katalog_updated_by=$request->katalog_updated_by;
+        $fizaKatalog->user_id=$request->user_id;
+
+        $url = '/fizaKatalog'.$fizaKatalog->id;
+        return redirect('/fizaKatalog');
+
     }
 
     /**
