@@ -16,7 +16,7 @@ class FizaArahanMemberhentikanController extends Controller
     {
         $fizaArahanMemberhentikan = FizaArahanMemberhentikan::all();
         return view ('1_arahan_berhenti.index',[
-            '$fizaArahanMemberhentikan'=>$fizaArahanMemberhentikan]);
+            'fizaArahanMemberhentikan'=>$fizaArahanMemberhentikan]);
     }
 
     /**

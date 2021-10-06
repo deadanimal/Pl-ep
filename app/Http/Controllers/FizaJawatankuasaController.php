@@ -12,7 +12,7 @@ class FizaJawatankuasaController extends Controller
     {
         $fizaJawatankuasa = FizaJawatankuasa::all();
         return view ('1_jawatankuasa.index',[
-            '$fizaJawatankuasa'=>$fizaJawatankuasa]);
+            'fizaJawatankuasa'=>$fizaJawatankuasa]);
     }
 
     /**
@@ -50,7 +50,7 @@ class FizaJawatankuasaController extends Controller
     {
         $fizaJawatankuasa = FizaJawatankuasa::all();
         return view ('1_jawatankuasa.edit',[
-            '$fizaJawatankuasa'=>$fizaJawatankuasa]);
+            'fizaJawatankuasa'=>$fizaJawatankuasa]);
     }
 
 

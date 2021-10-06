@@ -14,7 +14,10 @@ class FizaNotaMintaController extends Controller
      */
     public function index()
     {
-        //
+        $fizaNotaMinta = FizaNotaMinta::all();
+        return view ('1_nota_minta.index',[
+            'fizaNotaMinta'=>$fizaNotaMinta]);
+
     }
 
     /**
@@ -24,7 +27,7 @@ class FizaNotaMintaController extends Controller
      */
     public function create()
     {
-        //
+        return view('1_nota_minta.create');
     }
 
     /**
@@ -35,15 +38,28 @@ class FizaNotaMintaController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        
+        $fizaNotaMinta = new FizaNotaMinta;
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\FizaNotaMinta  $fizaNotaMinta
-     * @return \Illuminate\Http\Response
-     */
+        $fizaNotaMinta->pembekal_id=$request->pembekal_id;
+        $fizaNotaMinta->ro_kaedah=$request->ro_kaedah;
+        $fizaNotaMinta->ro_jenis_perolehan=$request->ro_jenis_perolehan;
+        $fizaNotaMinta->ro_tempoh_penghantaran=$request->ro_tempoh_penghantaran;
+        $fizaNotaMinta->ro_jumlah=$request->ro_jumlah;
+        $fizaNotaMinta->ro_pelulus=$request->ro_pelulus;
+        $fizaNotaMinta->ro_pelulus_catatan=$request->ro_pelulus_catatan;
+        $fizaNotaMinta->ro_pelulus_date=$request->ro_pelulus_date;
+        $fizaNotaMinta->ro_status=$request->ro_status;
+        $fizaNotaMinta->ro_created_by=$request->ro_created_by;
+        $fizaNotaMinta->kart_id=$request->kart_id;
+        $fizaNotaMinta->user_id=$request->user_id;
+
+        $fizaNotaMinta->save();
+        return redirect('/fizaNotaMinta');
+    }
+    
+
+
     public function show(FizaNotaMinta $fizaNotaMinta)
     {
         //
@@ -57,19 +73,28 @@ class FizaNotaMintaController extends Controller
      */
     public function edit(FizaNotaMinta $fizaNotaMinta)
     {
-        //
+        $fizaNotaMinta = FizaNotaMinta::all();
+        return view ('1_nota_minta.edit',[
+            'fizaNotaMinta'=>$fizaNotaMinta]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\FizaNotaMinta  $fizaNotaMinta
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, FizaNotaMinta $fizaNotaMinta)
     {
-        //
+        $fizaNotaMinta->pembekal_id=$request->pembekal_id;
+        $fizaNotaMinta->ro_kaedah=$request->ro_kaedah;
+        $fizaNotaMinta->ro_jenis_perolehan=$request->ro_jenis_perolehan;
+        $fizaNotaMinta->ro_tempoh_penghantaran=$request->ro_tempoh_penghantaran;
+        $fizaNotaMinta->ro_jumlah=$request->ro_jumlah;
+        $fizaNotaMinta->ro_pelulus=$request->ro_pelulus;
+        $fizaNotaMinta->ro_pelulus_catatan=$request->ro_pelulus_catatan;
+        $fizaNotaMinta->ro_pelulus_date=$request->ro_pelulus_date;
+        $fizaNotaMinta->ro_status=$request->ro_status;
+        $fizaNotaMinta->ro_updated_by=$request->ro_updated_by;
+        $fizaNotaMinta->kart_id=$request->kart_id;
+        $fizaNotaMinta->user_id=$request->user_id;
+
+        $url = '/fizaNotaMinta'.$fizaNotaMinta->id;
+        return redirect('/fizaNotaMinta');
     }
 
     /**

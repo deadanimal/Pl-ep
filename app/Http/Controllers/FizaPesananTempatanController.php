@@ -14,7 +14,9 @@ class FizaPesananTempatanController extends Controller
      */
     public function index()
     {
-        //
+                $fizaPesananTempatan = FizaPesananTempatan::all();
+        return view ('1_pesanan_tempatan.edit',[
+            'fizaPesananTempatan'=>$fizaPesananTempatan]);
     }
 
     /**
@@ -24,7 +26,7 @@ class FizaPesananTempatanController extends Controller
      */
     public function create()
     {
-        //
+        return view ('1_pesanan_tempatan.create');
     }
 
     /**
@@ -35,7 +37,24 @@ class FizaPesananTempatanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $fizaPesananTempatan = new FizaPesananTempatan;
+
+        $fizaPesananTempatan->user_id=$request->user_id;
+        $fizaPesananTempatan->pembekal_id=$request->pembekal_id;
+        $fizaPesananTempatan->pesanan_perihal=$request->pesanan_perihal;
+        $fizaPesananTempatan->pesanan_kategori_jenis_perolehan=$request->pesanan_kategori_jenis_perolehan;
+        $fizaPesananTempatan->pesanan_tempoh_penghantaran=$request->pesanan_tempoh_penghantaran;
+        $fizaPesananTempatan->pesanan_tarikh_mula=$request->pesanan_tarikh_mula;
+        $fizaPesananTempatan->pesanan_tarikh_akhir=$request->pesanan_tarikh_akhir;
+        $fizaPesananTempatan->pesanan_tarikh_lulus=$request->pesanan_tarikh_lulus;
+        $fizaPesananTempatan->pesanan_alamat_pengantaran=$request->pesanan_alamat_pengantaran;
+
+        $fizaPesananTempatan->kart_id=$request->kart_id;
+        $fizaPesananTempatan->pesanan_created_by =$request->pesanan_created_by;
+
+
+        $fizafizaPesananTempatan->save();
+        return redirect('/fizafizaPesananTempatan');
     }
 
     /**
@@ -69,7 +88,21 @@ class FizaPesananTempatanController extends Controller
      */
     public function update(Request $request, FizaPesananTempatan $fizaPesananTempatan)
     {
-        //
+        $fizaPesananTempatan->user_id=$request->user_id;
+        $fizaPesananTempatan->pembekal_id=$request->pembekal_id;
+        $fizaPesananTempatan->pesanan_perihal=$request->pesanan_perihal;
+        $fizaPesananTempatan->pesanan_kategori_jenis_perolehan=$request->pesanan_kategori_jenis_perolehan;
+        $fizaPesananTempatan->pesanan_tempoh_penghantaran=$request->pesanan_tempoh_penghantaran;
+        $fizaPesananTempatan->pesanan_tarikh_mula=$request->pesanan_tarikh_mula;
+        $fizaPesananTempatan->pesanan_tarikh_akhir=$request->pesanan_tarikh_akhir;
+        $fizaPesananTempatan->pesanan_tarikh_lulus=$request->pesanan_tarikh_lulus;
+        $fizaPesananTempatan->pesanan_alamat_pengantaran=$request->pesanan_alamat_pengantaran;
+
+        $fizaPesananTempatan->kart_id=$request->kart_id;
+        $fizaPesananTempatan->pesanan_updated_by =$request->pesanan_updated_by;
+
+        $url = '/fizaPesananTempatan'.$fizaPesananTempatan->id;
+        return redirect('/fizaPesananTempatan');
     }
 
     /**

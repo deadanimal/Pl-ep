@@ -12,7 +12,7 @@ class FizaItemInfoController extends Controller
     {
         $fizaItemInfo = FizaItemInfo::all();
         return view ('1_item_info.index',[
-            '$fizaItemInfo'=>$fizaItemInfo]);
+            'fizaItemInfo'=>$fizaItemInfo]);
     }
 
     /**
@@ -57,7 +57,7 @@ class FizaItemInfoController extends Controller
     {
          $fizaItemInfo = FizaItemInfo::all();
         return view ('1_item_info.edit',[
-            '$fizaItemInfo'=>$fizaItemInfo]);
+            'fizaItemInfo'=>$fizaItemInfo]);
     }
 
     /**

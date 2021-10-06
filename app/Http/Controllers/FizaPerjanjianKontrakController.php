@@ -14,7 +14,9 @@ class FizaPerjanjianKontrakController extends Controller
      */
     public function index()
     {
-        //
+        $fizaPerjanjianKontrak = FizaPerjanjianKontrak::all();
+        return view ('1_perjanjian_kontrak.index',[
+            'fizaPerjanjianKontrak'=>$fizaPerjanjianKontrak]);
     }
 
     /**
@@ -24,7 +26,7 @@ class FizaPerjanjianKontrakController extends Controller
      */
     public function create()
     {
-        //
+        return view ('1_perjanjian_kontrak.create');
     }
 
     /**
@@ -35,7 +37,24 @@ class FizaPerjanjianKontrakController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $fizaPerjanjianKontrak = new FizaPerjanjianKontrak;
+
+        $fizaPerjanjianKontrak->sst_id=$request->sst_id;
+        $fizaPerjanjianKontrak->kandungan_id=$request->kandungan_id;
+        $fizaPerjanjianKontrak->perjanjian_file=$request->perjanjian_file;
+        $fizaPerjanjianKontrak->perjanjian_pelulus=$request->perjanjian_pelulus;
+        $fizaPerjanjianKontrak->perjanjian_created_by=$request->perjanjian_created_by;
+
+        $fizaPerjanjianKontrak->perjanjian_catatan_pelulus=$request->perjanjian_catatan_pelulus;
+        $fizaPerjanjianKontrak->user_id=$request->user_id;
+        $fizaPerjanjianKontrak->pembekal_id=$request->pembekal_id;
+
+
+        $fizaPerjanjianKontrak->save();
+
+        return redirect('/fizaPerjanjianKontrak');
+
     }
 
     /**
@@ -57,7 +76,9 @@ class FizaPerjanjianKontrakController extends Controller
      */
     public function edit(FizaPerjanjianKontrak $fizaPerjanjianKontrak)
     {
-        //
+        $fizaPerjanjianKontrak = FizaPerjanjianKontrak::all();
+        return view ('1_perjanjian_kontrak.edit',[
+            'fizaPerjanjianKontrak'=>$fizaPerjanjianKontrak]);
     }
 
     /**
@@ -69,8 +90,21 @@ class FizaPerjanjianKontrakController extends Controller
      */
     public function update(Request $request, FizaPerjanjianKontrak $fizaPerjanjianKontrak)
     {
-        //
+        $fizaPerjanjianKontrak->sst_id=$request->sst_id;
+        $fizaPerjanjianKontrak->kandungan_id=$request->kandungan_id;
+        $fizaPerjanjianKontrak->perjanjian_file=$request->perjanjian_file;
+        $fizaPerjanjianKontrak->perjanjian_pelulus=$request->perjanjian_pelulus;
+        $fizaPerjanjianKontrak->perjanjian_created_by=$request->perjanjian_created_by;
+
+        $fizaPerjanjianKontrak->perjanjian_catatan_pelulus=$request->perjanjian_catatan_pelulus;
+        $fizaPerjanjianKontrak->user_id=$request->user_id;
+        $fizaPerjanjianKontrak->pembekal_id=$request->pembekal_id;
+
+        $url = '/fizaPerjanjianKontrak'.$fizaPerjanjianKontrak->id;
+        return redirect('/fizaPerjanjianKontrak');
     }
+
+
 
     /**
      * Remove the specified resource from storage.

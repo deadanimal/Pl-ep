@@ -16,7 +16,7 @@ class FizaInvoiceController extends Controller
     {
         $fizaInvoice = FizaInvoice::all();
         return view ('1_invoice.index',[
-            '$fizaInvoice'=>$fizaInvoice]);
+            'fizaInvoice'=>$fizaInvoice]);
     }
 
 
@@ -51,7 +51,7 @@ class FizaInvoiceController extends Controller
     {
         $fizaInvoice = FizaInvoice::all();
         return view ('1_invoice.edit',[
-            '$fizaInvoice'=>$fizaInvoice]);
+            'fizaInvoice'=>$fizaInvoice]);
     }
 
     public function update(Request $request, FizaInvoice $fizaInvoice)

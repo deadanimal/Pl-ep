@@ -14,9 +14,10 @@ class FizaPenandatanganKontrakController extends Controller
      */
     public function index()
     {
-        //
+        $fizaPenandatanganKontrak = FizaPenandatanganKontrak::all();
+        return view ('1_penandatangan_kontrak.index',[
+            'fizaPenandatanganKontrak'=>$fizaPenandatanganKontrak]);
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -24,7 +25,7 @@ class FizaPenandatanganKontrakController extends Controller
      */
     public function create()
     {
-        //
+        return view ('1_penandatangan_kontrak.create');
     }
 
     /**
@@ -35,7 +36,14 @@ class FizaPenandatanganKontrakController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $fizaPenandatanganKontrak = new FizaPenandatanganKontrak;
+
+
+
+
+        $fizaPenandatanganKontrak->save();
+        return redirect('/fizaPenandatanganKontrak');
+
     }
 
     /**
@@ -57,7 +65,7 @@ class FizaPenandatanganKontrakController extends Controller
      */
     public function edit(FizaPenandatanganKontrak $fizaPenandatanganKontrak)
     {
-        //
+        return view('1_penandatangan_kontrak.edit');
     }
 
     /**
@@ -69,7 +77,17 @@ class FizaPenandatanganKontrakController extends Controller
      */
     public function update(Request $request, FizaPenandatanganKontrak $fizaPenandatanganKontrak)
     {
-        //
+        $fizaPenandatanganKontrak->pembekal_id=$request->pembekal_id;
+        $fizaPenandatanganKontrak->user_id=$request->user_id;
+        $fizaPenandatanganKontrak->penandatangan_pihak=$request->penandatangan_pihak;
+        $fizaPenandatanganKontrak->perjanjian_id=$request->perjanjian_id;
+        $fizaPenandatanganKontrak->penandatangan_updated_by=$request->penandatangan_updated_by;
+
+
+        $url = '/fizaPenandatanganKontrak'.$fizaPenandatanganKontrak->id;
+        return redirect('/fizaPenandatanganKontrak');
+
+
     }
 
     /**

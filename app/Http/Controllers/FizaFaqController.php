@@ -12,7 +12,7 @@ class FizaFaqController extends Controller
     {
         $fizaFaq = FizaFaq::all();
         return view ('1_faq.index',[
-            '$fizaFaq'=>$fizaFaq]);
+            'fizaFaq'=>$fizaFaq]);
     }
 
     /**
@@ -36,7 +36,7 @@ class FizaFaqController extends Controller
         $fizaFaq->user_id =$request->user_id ;
 
         $fizaFaq->save();
-        return redirect('/fizaFaq')
+        return redirect('/fizaFaq');
     }
 
     public function show(FizaFaq $fizaFaq)
@@ -49,7 +49,7 @@ class FizaFaqController extends Controller
     {
         $fizaFaq = FizaFaq::all();
         return view ('1_faq.edit',[
-            '$fizaFaq'=>$fizaFaq]);
+            'fizaFaq'=>$fizaFaq]);
     }
 
     /**

@@ -14,7 +14,9 @@ class FizaNotificationCenterController extends Controller
      */
     public function index()
     {
-        //
+        $fizaNotificationCenter = FizaNotificationCenter::all();
+        return view ('1_notification_center.index',[
+            'fizaNotificationCenter'=>$fizaNotificationCenter]);
     }
 
     /**
@@ -24,7 +26,7 @@ class FizaNotificationCenterController extends Controller
      */
     public function create()
     {
-        //
+        return view('/fizaNotificationCenter');
     }
 
     /**
@@ -35,7 +37,19 @@ class FizaNotificationCenterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $fizaNotificationCenter = new FizaNotificationCenter;
+
+        $fizaNotificationCenter->noti_type=$request->noti_type;
+        $fizaNotificationCenter->noti_template=$request->noti_template;
+        $fizaNotificationCenter->noti_subject=$request->noti_subject;
+        $fizaNotificationCenter->noti_content=$request->noti_content;
+        $fizaNotificationCenter->noti_status=$request->noti_status;
+        $fizaNotificationCenter->noti_created_by=$request->noti_created_by;
+        $fizaNotificationCenter->user_id=$request->user_id;
+
+
+        $fizaNotificationCenter->save();
+        return redirect('/fizaNotificationCenter');
     }
 
     /**
@@ -57,19 +71,26 @@ class FizaNotificationCenterController extends Controller
      */
     public function edit(FizaNotificationCenter $fizaNotificationCenter)
     {
-        //
+        $fizaNotificationCenter = FizaNotificationCenter::all();
+        return view ('1_notification_center.edit',[
+            'fizaNotificationCenter'=>$fizaNotificationCenter]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\FizaNotificationCenter  $fizaNotificationCenter
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, FizaNotificationCenter $fizaNotificationCenter)
     {
-        //
+        $fizaNotificationCenter->noti_type=$request->noti_type;
+        $fizaNotificationCenter->noti_template=$request->noti_template;
+        $fizaNotificationCenter->noti_subject=$request->noti_subject;
+        $fizaNotificationCenter->noti_content=$request->noti_content;
+        $fizaNotificationCenter->noti_status=$request->noti_status;
+        $fizaNotificationCenter->noti_updated_by=$request->noti_updated_by;
+        $fizaNotificationCenter->user_id=$request->user_id;
+
+        $url = '/fizaNotificationCenter'.$fizaNotificationCenter->id;
+        return redirect('/fizaNotificationCenter');
+
+
     }
 
     /**

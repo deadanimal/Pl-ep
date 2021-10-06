@@ -14,7 +14,9 @@ class FizaPengesyoranController extends Controller
      */
     public function index()
     {
-        //
+        $fizaPengesyoran = FizaPengesyoran::all();
+        return view ('1_pengesyoran.index',[
+            'fizaPengesyoran'=>$fizaPengesyoran]);
     }
 
     /**
@@ -24,7 +26,7 @@ class FizaPengesyoranController extends Controller
      */
     public function create()
     {
-        //
+        return view ('1_pengesyoran.create');
     }
 
     /**
@@ -35,7 +37,27 @@ class FizaPengesyoranController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $fizaPengesyoran = new FizaPengesyoran;
+
+        $fizaPengesyoran->syor_mesyuarat_date=$request->syor_mesyuarat_date;
+        $fizaPengesyoran->syor_mesyuarat_place=$request->syor_mesyuarat_place;
+        $fizaPengesyoran->jawatankuasa_id=$request->jawatankuasa_id;
+        $fizaPengesyoran->syor_kertas_taklimat=$request->syor_kertas_taklimat;
+        $fizaPengesyoran->pembekal_id=$request->pembekal_id;
+
+        $fizaPengesyoran->syor_kedudukan_pembekal=$request->syor_kedudukan_pembekal;
+        $fizaPengesyoran->syor_catatan=$request->syor_catatan;
+        $fizaPengesyoran->sss_id=$request->sss_id;
+        $fizaPengesyoran->syor_jumlah_skor=$request->syor_jumlah_skor;
+        $fizaPengesyoran->syor_created_by=$request->syor_created_by;
+        $fizaPengesyoran->pst_id=$request->pst_id;
+        $fizaPengesyoran->spesifikasi_id=$request->spesifikasi_id;
+
+
+        $fizaPengesyoran->save();
+        return redirect('/fizaPengesyoran');
+
+
     }
 
     /**
@@ -57,7 +79,9 @@ class FizaPengesyoranController extends Controller
      */
     public function edit(FizaPengesyoran $fizaPengesyoran)
     {
-        //
+        $fizaPengesyoran = FizaPengesyoran::all();
+        return view ('1_pengesyoran.edit',[
+            'fizaPengesyoran'=>$fizaPengesyoran]);
     }
 
     /**
@@ -69,7 +93,23 @@ class FizaPengesyoranController extends Controller
      */
     public function update(Request $request, FizaPengesyoran $fizaPengesyoran)
     {
-        //
+        $fizaPengesyoran->syor_mesyuarat_date=$request->syor_mesyuarat_date;
+        $fizaPengesyoran->syor_mesyuarat_place=$request->syor_mesyuarat_place;
+        $fizaPengesyoran->jawatankuasa_id=$request->jawatankuasa_id;
+        $fizaPengesyoran->syor_kertas_taklimat=$request->syor_kertas_taklimat;
+        $fizaPengesyoran->pembekal_id=$request->pembekal_id;
+
+        $fizaPengesyoran->syor_kedudukan_pembekal=$request->syor_kedudukan_pembekal;
+        $fizaPengesyoran->syor_catatan=$request->syor_catatan;
+        $fizaPengesyoran->sss_id=$request->sss_id;
+        $fizaPengesyoran->syor_jumlah_skor=$request->syor_jumlah_skor;
+        $fizaPengesyoran->syor_created_by=$request->syor_created_by;
+        $fizaPengesyoran->pst_id=$request->pst_id;
+        $fizaPengesyoran->spesifikasi_id=$request->spesifikasi_id;
+
+        $url = '/fizaPengesyoran'.$fizaPengesyoran->id;
+        return redirect('/fizaPengesyoran');
+
     }
 
     /**

@@ -12,7 +12,7 @@ class FizaKartController extends Controller
     {
         $fizaKart = FizaKart::all();
         return view ('1_kart.index',[
-            '$fizaKart'=>$fizaKart]);
+            'fizaKart'=>$fizaKart]);
     }
 
 
@@ -60,7 +60,7 @@ class FizaKartController extends Controller
     {
         $fizaKart = FizaKart::all();
         return view ('1_kart.edit',[
-            '$fizaKart'=>$fizaKart]);
+            'fizaKart'=>$fizaKart]);
     }
 
  

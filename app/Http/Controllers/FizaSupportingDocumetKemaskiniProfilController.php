@@ -7,14 +7,12 @@ use Illuminate\Http\Request;
 
 class FizaSupportingDocumetKemaskiniProfilController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $fizaSupportingDocumetKemaskiniProfil = FizaSupportingDocumetKemaskiniProfil::all();
+        return view ('1_docs_update_profil.index',[
+            'fizaSupportingDocumetKemaskiniProfil'=>$fizaSupportingDocumetKemaskiniProfil]);
     }
 
     /**
@@ -24,18 +22,22 @@ class FizaSupportingDocumetKemaskiniProfilController extends Controller
      */
     public function create()
     {
-        //
+        return view ('1_docs_update_profil.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        $fizaSupportingDocumetKemaskiniProfil = new FizaSupportingDocumetKemaskiniProfil;
+
+        $fizaSupportingDocumetKemaskiniProfil->pkp_doc_name=$request->pkp_doc_name;
+        $fizaSupportingDocumetKemaskiniProfil->pkp_doc_catatan=$request->pkp_doc_catatan;
+        $fizaSupportingDocumetKemaskiniProfil->pkp_doc_status_terima=$request->pkp_doc_status_terima;
+        $fizaSupportingDocumetKemaskiniProfil->permohonan_id=$request->permohonan_id;
+        $fizaSupportingDocumetKemaskiniProfil->pkp_created_by=$request->pkp_created_by;
+
+        $fizaSupportingDocumetKemaskiniProfil->save();
+        return redirect('/fizaSupportingDocumetKemaskiniProfil');
     }
 
     /**
@@ -57,7 +59,9 @@ class FizaSupportingDocumetKemaskiniProfilController extends Controller
      */
     public function edit(FizaSupportingDocumetKemaskiniProfil $fizaSupportingDocumetKemaskiniProfil)
     {
-        //
+        $fizaSupportingDocumetKemaskiniProfil = FizaSupportingDocumetKemaskiniProfil::all();
+        return view ('1_docs_update_profil.edit',[
+            'fizaSupportingDocumetKemaskiniProfil'=>$fizaSupportingDocumetKemaskiniProfil]);
     }
 
     /**
@@ -69,7 +73,14 @@ class FizaSupportingDocumetKemaskiniProfilController extends Controller
      */
     public function update(Request $request, FizaSupportingDocumetKemaskiniProfil $fizaSupportingDocumetKemaskiniProfil)
     {
-        //
+        $fizaSupportingDocumetKemaskiniProfil->pkp_doc_name=$request->pkp_doc_name;
+        $fizaSupportingDocumetKemaskiniProfil->pkp_doc_catatan=$request->pkp_doc_catatan;
+        $fizaSupportingDocumetKemaskiniProfil->pkp_doc_status_terima=$request->pkp_doc_status_terima;
+        $fizaSupportingDocumetKemaskiniProfil->permohonan_id=$request->permohonan_id;
+        $fizaSupportingDocumetKemaskiniProfil->pkp_updated_by=$request->pkp_updated_by;
+
+        $url = '/fizaSupportingDocumetKemaskiniProfil'.$fizaSupportingDocumetKemaskiniProfil->id;
+        return redirect('/fizaSupportingDocumetKemaskiniProfil');
     }
 
     /**

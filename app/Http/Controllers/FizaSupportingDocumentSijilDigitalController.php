@@ -14,7 +14,9 @@ class FizaSupportingDocumentSijilDigitalController extends Controller
      */
     public function index()
     {
-        //
+        $fizaSupportingDocumentSijilDigital = FizaSupportingDocumentSijilDigital::all();
+        return view ('1_docs_sijil.index',[
+            'fizaSupportingDocumentSijilDigital'=>$fizaSupportingDocumentSijilDigital]);
     }
 
     /**
@@ -24,7 +26,8 @@ class FizaSupportingDocumentSijilDigitalController extends Controller
      */
     public function create()
     {
-        //
+
+        return view ('1_docs_sijil.index');
     }
 
     /**
@@ -35,7 +38,16 @@ class FizaSupportingDocumentSijilDigitalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $fizaSupportingDocumentSijilDigital = new FizaSupportingDocumentSijilDigital;
+
+        $fizaSupportingDocumentSijilDigital->sijil_id=$request->sijil_id;
+        $fizaSupportingDocumentSijilDigital->sd_name=$request->sd_name;
+        $fizaSupportingDocumentSijilDigital->sd_created_by=$request->sd_created_by;
+
+        $fizaSupportingDocumentSijilDigital->save();
+        return redirect('/fizaSupportingDocumentSijilDigital');
+    
+
     }
 
     /**
@@ -57,27 +69,23 @@ class FizaSupportingDocumentSijilDigitalController extends Controller
      */
     public function edit(FizaSupportingDocumentSijilDigital $fizaSupportingDocumentSijilDigital)
     {
-        //
+        $fizaSupportingDocumentSijilDigital = FizaSupportingDocumentSijilDigital::all();
+        return view ('1_docs_sijil.edit',[
+            'fizaSupportingDocumentSijilDigital'=>$fizaSupportingDocumentSijilDigital]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\FizaSupportingDocumentSijilDigital  $fizaSupportingDocumentSijilDigital
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, FizaSupportingDocumentSijilDigital $fizaSupportingDocumentSijilDigital)
     {
-        //
+        $fizaSupportingDocumentSijilDigital->sijil_id=$request->sijil_id;
+        $fizaSupportingDocumentSijilDigital->sd_name=$request->sd_name;
+        $fizaSupportingDocumentSijilDigital->sd_updated_by=$request->sd_updated_by;
+
+        $url = '/fizaSupportingDocumentSijilDigital'.$fizaSupportingDocumentSijilDigital->id;
+        return redirect('/fizaSupportingDocumentSijilDigital');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\FizaSupportingDocumentSijilDigital  $fizaSupportingDocumentSijilDigital
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(FizaSupportingDocumentSijilDigital $fizaSupportingDocumentSijilDigital)
     {
         //

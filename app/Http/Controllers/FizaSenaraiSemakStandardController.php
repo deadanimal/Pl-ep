@@ -14,7 +14,9 @@ class FizaSenaraiSemakStandardController extends Controller
      */
     public function index()
     {
-        //
+        $fizaSenaraiSemakStandard = FizaSenaraiSemakStandard::all();
+        return view ('senarai_semak.index',[
+            'fizaSenaraiSemakStandard'=>$fizaSenaraiSemakStandard]);
     }
 
     /**
@@ -24,7 +26,8 @@ class FizaSenaraiSemakStandardController extends Controller
      */
     public function create()
     {
-        //
+
+        return view ('senarai_semak.index');
     }
 
     /**
@@ -35,7 +38,18 @@ class FizaSenaraiSemakStandardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $fizaSenaraiSemakStandard = new FizaSenaraiSemakStandard;
+
+        $fizaSenaraiSemakStandard->spesifikasi_id=$request->spesifikasi_id;
+        $fizaSenaraiSemakStandard->sss_jenis_spesifikasi=$request->sss_jenis_spesifikasi;
+
+        $fizaSenaraiSemakStandard->sss__nama_doc=$request->sss__nama_doc;
+        $fizaSenaraiSemakStandard->sss_skor=$request->sss_skor;
+        $fizaSenaraiSemakStandard->sss_skor_maksima=$request->sss_skor_maksima;
+        $fizaSenaraiSemakStandard->sss_created_by=$request->sss_created_by;
+        $fizaSenaraiSemakStandard->sss_file =$request->sss_file ;//file
+        $fizaSenaraiSemakStandard->sss_status_pematuhan=$request->sss_status_pematuhan;
+
     }
 
     /**
@@ -57,7 +71,9 @@ class FizaSenaraiSemakStandardController extends Controller
      */
     public function edit(FizaSenaraiSemakStandard $fizaSenaraiSemakStandard)
     {
-        //
+        $fizaSenaraiSemakStandard = FizaSenaraiSemakStandard::all();
+        return view ('senarai_semak.edit',[
+            'fizaSenaraiSemakStandard'=>$fizaSenaraiSemakStandard]);
     }
 
     /**
@@ -69,7 +85,21 @@ class FizaSenaraiSemakStandardController extends Controller
      */
     public function update(Request $request, FizaSenaraiSemakStandard $fizaSenaraiSemakStandard)
     {
-        //
+        
+        $fizaSenaraiSemakStandard->spesifikasi_id=$request->spesifikasi_id;
+        $fizaSenaraiSemakStandard->sss_jenis_spesifikasi=$request->sss_jenis_spesifikasi;
+
+        $fizaSenaraiSemakStandard->sss__nama_doc=$request->sss__nama_doc;
+        $fizaSenaraiSemakStandard->sss_skor=$request->sss_skor;
+        $fizaSenaraiSemakStandard->sss_skor_maksima=$request->sss_skor_maksima;
+        $fizaSenaraiSemakStandard->sss_created_by=$request->sss_created_by;
+        $fizaSenaraiSemakStandard->sss_file =$request->sss_file ;//file
+        $fizaSenaraiSemakStandard->sss_status_pematuhan=$request->sss_status_pematuhan;
+
+
+        $fizaSenaraiSemakStandard->save();
+        return redirect('/fizaSenaraiSemakStandard');
+    
     }
 
     /**

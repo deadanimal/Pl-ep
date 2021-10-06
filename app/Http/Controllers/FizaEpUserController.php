@@ -12,7 +12,7 @@ class FizaEpUserController extends Controller
     {
         $fizaEpUser = FizaEpUser::all();
         return view ('1_user.index',[
-            '$fizaEpUser'=>$fizaEpUser]);
+            'fizaEpUser'=>$fizaEpUser]);
     }
 
 

@@ -14,28 +14,40 @@ class FizaPadananBayaranController extends Controller
      */
     public function index()
     {
-        //
+        $fizaPadananBayaran = FizaPadananBayaran::all();
+        return view ('1_padanan_bayaran.index',[
+            'fizaPadananBayaran'=>$fizaPadananBayaran]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+        return view ('1_padanan_bayaran.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        $fizaPadananBayaran = new FizaPadananBayaran;
+
+        $fizaPadananBayaran->pesanan_id=$request->pesanan_id;
+        $fizaPadananBayaran->sst_id=$request->sst_id;
+        $fizaPadananBayaran->pembekal_id=$request->pembekal_id;
+        $fizaPadananBayaran->padanan_perihal_pembayaran=$request->padanan_perihal_pembayaran;
+        $fizaPadananBayaran->padanan_jenis_potongan=$request->padanan_jenis_potongan;
+        $fizaPadananBayaran->padanan_perihal_potongan=$request->padanan_perihal_potongan;
+        $fizaPadananBayaran->padanan_klausa_rujukan=$request->padanan_klausa_rujukan;
+        $fizaPadananBayaran->padanan_cara_pembayaran=$request->padanan_cara_pembayaran;
+        $fizaPadananBayaran->padanan_kod_akaun=$request->padanan_kod_akaun;
+        $fizaPadananBayaran->padanan_amaun=$request->padanan_amaun;
+        $fizaPadananBayaran->padanan_created_by=$request->padanan_created_by;
+        $fizaPadananBayaran->user_id=$request->user_id;
+
+
+        $fizaPadananBayaran->save();
+        return redirect('/fizaPadananBayaran');
+
+
     }
 
     /**
@@ -49,27 +61,32 @@ class FizaPadananBayaranController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\FizaPadananBayaran  $fizaPadananBayaran
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(FizaPadananBayaran $fizaPadananBayaran)
     {
-        //
+        $fizaPadananBayaran = FizaPadananBayaran::all();
+        return view ('1_padanan_bayaran.edit',[
+            'fizaPadananBayaran'=>$fizaPadananBayaran]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\FizaPadananBayaran  $fizaPadananBayaran
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, FizaPadananBayaran $fizaPadananBayaran)
     {
-        //
+        $fizaPadananBayaran->pesanan_id=$request->pesanan_id;
+        $fizaPadananBayaran->sst_id=$request->sst_id;
+        $fizaPadananBayaran->pembekal_id=$request->pembekal_id;
+        $fizaPadananBayaran->padanan_perihal_pembayaran=$request->padanan_perihal_pembayaran;
+        $fizaPadananBayaran->padanan_jenis_potongan=$request->padanan_jenis_potongan;
+        $fizaPadananBayaran->padanan_perihal_potongan=$request->padanan_perihal_potongan;
+        $fizaPadananBayaran->padanan_klausa_rujukan=$request->padanan_klausa_rujukan;
+        $fizaPadananBayaran->padanan_cara_pembayaran=$request->padanan_cara_pembayaran;
+        $fizaPadananBayaran->padanan_kod_akaun=$request->padanan_kod_akaun;
+        $fizaPadananBayaran->padanan_amaun=$request->padanan_amaun;
+        $fizaPadananBayaran->padanan_updated_by=$request->padanan_updated_by;
+        $fizaPadananBayaran->user_id=$request->user_id;
+
+        $url = '/fizaPadananBayaran'.$fizaPadananBayaran->id;
+        return redirect('/fizaPadananBayaran');
     }
 
     /**

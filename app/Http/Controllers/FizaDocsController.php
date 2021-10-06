@@ -16,7 +16,7 @@ class FizaDocsController extends Controller
     {
         $fizaDocs = FizaDocs::all();
         return view ('1_docs.index',[
-            '$fizaDocs'=>$fizaDocs]);
+            'fizaDocs'=>$fizaDocs]);
     }
 
 
@@ -29,16 +29,14 @@ class FizaDocsController extends Controller
     public function store(Request $request)
     {
         $fizaDocs= new FizaDocs;
+
         $fizaDocs->doc_section=$request->doc_section;
         $fizaDocs->doc_name =$request->doc_name ;
         $fizaDocs->doc_description=$request->doc_description;
         $fizaDocs->doc_status=$request->doc_status;
         $fizaDocs->doc_created_by=$request->doc_created_by;
         $fizaDocs->user_id=$request->user_id;
-        $fizaDocs->doc_section=$request->doc_section;
-        $fizaDocs->doc_section=$request->doc_section;
-        $fizaDocs->doc_section=$request->doc_section;
-        $fizaDocs->doc_section=$request->doc_section;
+
          
 
         $fizaDocs->save();
@@ -65,27 +63,25 @@ class FizaDocsController extends Controller
      */
     public function edit(FizaDocs $fizaDocs)
     {
-        //
+        return view('1_docs.edit');
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\FizaDocs  $fizaDocs
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, FizaDocs $fizaDocs)
     {
-        //
+        $fizaDocs->doc_section=$request->doc_section;
+        $fizaDocs->doc_name =$request->doc_name ;
+        $fizaDocs->doc_description=$request->doc_description;
+        $fizaDocs->doc_status=$request->doc_status;
+        $fizaDocs->doc_updated_by=$request->doc_updated_by;
+        $fizaDocs->user_id=$request->user_id;
+
+        $url = '/fizaDocs'.$fizaDocs->id;
+        return redirect('/fizaDocs');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\FizaDocs  $fizaDocs
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(FizaDocs $fizaDocs)
     {
         //

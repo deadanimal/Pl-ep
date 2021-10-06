@@ -14,7 +14,9 @@ class FizaSijilDigitalController extends Controller
      */
     public function index()
     {
-        //
+        $fizaSijilDigital = FizaSijilDigital::all();
+        return view ('1_sijil_digital.index',[
+            'fizaSijilDigital'=>$fizaSijilDigital]);
     }
 
     /**
@@ -24,7 +26,7 @@ class FizaSijilDigitalController extends Controller
      */
     public function create()
     {
-        //
+        return view ('1_sijil_digital.index');
     }
 
     /**
@@ -35,7 +37,21 @@ class FizaSijilDigitalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $fizaSijilDigital->sijil_id=$request->sijil_id;
+        $fizaSijilDigital->user_id=$request->user_id;
+        $fizaSijilDigital->sijil_peranan=$request->sijil_peranan;
+        $fizaSijilDigital->sijil_doc_id=$request->sijil_doc_id;
+        $fizaSijilDigital->sijil_mode_yuran=$request->sijil_mode_yuran;
+
+        $fizaSijilDigital->sijil_yuran=$request->sijil_yuran;
+        $fizaSijilDigital->sijil_cbp=$request->sijil_cbp;
+        $fizaSijilDigital->sijil_jumlah_yuran=$request->sijil_jumlah_yuran;
+        $fizaSijilDigital->sijil_modsijil_yuran_statuse_yuran=$request->sijil_yuran_status;
+        $fizaSijilDigital->sijil_created_by=$request->sijil_created_by;
+
+        $fizaSijilDigital->save();
+        return redirect('/fizaSijilDigital');
     }
 
     /**
@@ -69,7 +85,20 @@ class FizaSijilDigitalController extends Controller
      */
     public function update(Request $request, FizaSijilDigital $fizaSijilDigital)
     {
-        //
+        $fizaSijilDigital->sijil_id=$request->sijil_id;
+        $fizaSijilDigital->user_id=$request->user_id;
+        $fizaSijilDigital->sijil_peranan=$request->sijil_peranan;
+        $fizaSijilDigital->sijil_doc_id=$request->sijil_doc_id;
+        $fizaSijilDigital->sijil_mode_yuran=$request->sijil_mode_yuran;
+
+        $fizaSijilDigital->sijil_yuran=$request->sijil_yuran;
+        $fizaSijilDigital->sijil_cbp=$request->sijil_cbp;
+        $fizaSijilDigital->sijil_jumlah_yuran=$request->sijil_jumlah_yuran;
+        $fizaSijilDigital->sijil_modsijil_yuran_statuse_yuran=$request->sijil_yuran_status;
+        $fizaSijilDigital->sijil_updated_by=$request->sijil_updated_by;
+
+        $url = '/fizaSijilDigital'.$fizaSijilDigital->id;
+        return redirect('/fizaSijilDigital');
     }
 
     /**

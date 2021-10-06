@@ -7,79 +7,86 @@ use Illuminate\Http\Request;
 
 class FizaPelanPerancanganPerolehanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $fizaPelanPerancanganPerolehan = FizaPelanPerancanganPerolehan::all();
+        return view ('1_pelan_perancangan.index',[
+            'fizaPelanPerancanganPerolehan'=>$fizaPelanPerancanganPerolehan]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+        return view ('/1_pelan_perancangan.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
-    }
+        $fizaPelanPerancanganPerolehan = new FizaPelanPerancanganPerolehan;
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\FizaPelanPerancanganPerolehan  $fizaPelanPerancanganPerolehan
-     * @return \Illuminate\Http\Response
-     */
+        $fizaPelanPerancanganPerolehan->pelan_jenis=$request->pelan_jenis;
+        $fizaPelanPerancanganPerolehan->pelan_year=$request->pelan_year;
+        $fizaPelanPerancanganPerolehan->pelan_title=$request->pelan_title;
+        $fizaPelanPerancanganPerolehan->pelan_description=$request->pelan_description;
+        $fizaPelanPerancanganPerolehan->pelan_category=$request->pelan_category;
+        $fizaPelanPerancanganPerolehan->pelan_method=$request->pelan_method;
+
+        $fizaPelanPerancanganPerolehan->pelan_invitation_date=$request->pelan_invitation_date;
+        $fizaPelanPerancanganPerolehan->pelan_estimated_amount=$request->pelan_estimated_amount;
+        $fizaPelanPerancanganPerolehan->pelan_catatan=$request->pelan_catatan;
+        $fizaPelanPerancanganPerolehan->pelan_status=$request->pelan_status;
+        $fizaPelanPerancanganPerolehan->pelan_pengesah=$request->pelan_pengesah;
+        $fizaPelanPerancanganPerolehan->pelan_catatan_pengesah=$request->pelan_catatan_pengesah;
+        $fizaPelanPerancanganPerolehan->pelan_pelulus=$request->pelan_pelulus;
+        $fizaPelanPerancanganPerolehan->pelan_catatan_pelulus=$request->pelan_catatan_pelulus;
+        $fizaPelanPerancanganPerolehan->pelan_created_by=$request->pelan_created_by;
+        $fizaPelanPerancanganPerolehan->user_id=$request->user_id;
+    }
+    
     public function show(FizaPelanPerancanganPerolehan $fizaPelanPerancanganPerolehan)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\FizaPelanPerancanganPerolehan  $fizaPelanPerancanganPerolehan
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(FizaPelanPerancanganPerolehan $fizaPelanPerancanganPerolehan)
     {
-        //
+        $fizaPelanPerancanganPerolehan = FizaPelanPerancanganPerolehan::all();
+        return view ('1_pelan_perancangan.edit',[
+            'fizaPelanPerancanganPerolehan'=>$fizaPelanPerancanganPerolehan]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\FizaPelanPerancanganPerolehan  $fizaPelanPerancanganPerolehan
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, FizaPelanPerancanganPerolehan $fizaPelanPerancanganPerolehan)
     {
-        //
+        $fizaPelanPerancanganPerolehan->pelan_jenis=$request->pelan_jenis;
+        $fizaPelanPerancanganPerolehan->pelan_year=$request->pelan_year;
+        $fizaPelanPerancanganPerolehan->pelan_title=$request->pelan_title;
+        $fizaPelanPerancanganPerolehan->pelan_description=$request->pelan_description;
+        $fizaPelanPerancanganPerolehan->pelan_category=$request->pelan_category;
+        $fizaPelanPerancanganPerolehan->pelan_method=$request->pelan_method;
+
+        $fizaPelanPerancanganPerolehan->pelan_invitation_date=$request->pelan_invitation_date;
+        $fizaPelanPerancanganPerolehan->pelan_estimated_amount=$request->pelan_estimated_amount;
+        $fizaPelanPerancanganPerolehan->pelan_catatan=$request->pelan_catatan;
+        $fizaPelanPerancanganPerolehan->pelan_status=$request->pelan_status;
+        $fizaPelanPerancanganPerolehan->pelan_pengesah=$request->pelan_pengesah;
+        $fizaPelanPerancanganPerolehan->pelan_catatan_pengesah=$request->pelan_catatan_pengesah;
+        $fizaPelanPerancanganPerolehan->pelan_pelulus=$request->pelan_pelulus;
+        $fizaPelanPerancanganPerolehan->pelan_catatan_pelulus=$request->pelan_catatan_pelulus;
+        $fizaPelanPerancanganPerolehan->pelan_created_by=$request->pelan_created_by;
+        $fizaPelanPerancanganPerolehan->user_id=$request->user_id;
+
+
+        $url = '/fizaPelanPerancanganPerolehan'.$fizaPelanPerancanganPerolehan->id;
+        return redirect('/fizaPelanPerancanganPerolehan');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\FizaPelanPerancanganPerolehan  $fizaPelanPerancanganPerolehan
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(FizaPelanPerancanganPerolehan $fizaPelanPerancanganPerolehan)
     {
-        //
+        
     }
 }

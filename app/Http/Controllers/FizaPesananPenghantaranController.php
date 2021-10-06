@@ -14,7 +14,9 @@ class FizaPesananPenghantaranController extends Controller
      */
     public function index()
     {
-        //
+        $fizaPesananPenghantaran = FizaPesananPenghantaran::all();
+        return view ('1_pesanan_penghantaran.index',[
+            'fizaPesananPenghantaran'=>$fizaPesananPenghantaran]);
     }
 
     /**
@@ -24,18 +26,27 @@ class FizaPesananPenghantaranController extends Controller
      */
     public function create()
     {
-        //
+        return view ('1_pesanan_penghantaran.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $fizaPesananPenghantaran = new FizaPesananPenghantaran;
+
+        $fizaPesananPenghantaran->user_id=$request->user_id;
+        $fizaPesananPenghantaran->pesanan_id=$request->pesanan_id;
+        $fizaPesananPenghantaran->pembekal_id=$request->pembekal_id;
+        $fizaPesananPenghantaran->sst_id=$request->sst_id;
+        $fizaPesananPenghantaran->penghantaran_kuantiti=$request->penghantaran_kuantiti;
+        $fizaPesananPenghantaran->penghantaran_date=$request->penghantaran_date;
+        $fizaPesananPenghantaran->penghantaran_created_by=$request->penghantaran_created_by;
+
+
+        $fizafizaPesananPenghantaran->save();
+        return redirect('/fizafizaPesananPenghantaran');
+
+
+        
     }
 
     /**
@@ -57,7 +68,9 @@ class FizaPesananPenghantaranController extends Controller
      */
     public function edit(FizaPesananPenghantaran $fizaPesananPenghantaran)
     {
-        //
+        $fizaPesananPenghantaran = FizaPesananPenghantaran::all();
+        return view ('1_pesanan_penghantaran.edit',[
+            'fizaPesananPenghantaran'=>$fizaPesananPenghantaran]);
     }
 
     /**
@@ -69,7 +82,20 @@ class FizaPesananPenghantaranController extends Controller
      */
     public function update(Request $request, FizaPesananPenghantaran $fizaPesananPenghantaran)
     {
-        //
+        
+
+        $fizaPesananPenghantaran->user_id=$request->user_id;
+        $fizaPesananPenghantaran->pesanan_id=$request->pesanan_id;
+        $fizaPesananPenghantaran->pembekal_id=$request->pembekal_id;
+        $fizaPesananPenghantaran->sst_id=$request->sst_id;
+        $fizaPesananPenghantaran->penghantaran_kuantiti=$request->penghantaran_kuantiti;
+        $fizaPesananPenghantaran->penghantaran_date=$request->penghantaran_date;
+        $fizaPesananPenghantaran->penghantaran_updated_by=$request->penghantaran_updated_by;
+
+
+        $url = '/fizaPesananPenghantaran'.$fizaPesananPenghantaran->id;
+        return redirect('/fizaPesananPenghantaran');
+
     }
 
     /**

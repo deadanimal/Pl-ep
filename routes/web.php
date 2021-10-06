@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Http\Controllers\FizaKodBidangController;
+Route::resource('/FizaKodBidang',FizaKodBidangController::class);
+
 
 Route::resource('/ArahanBerhenti', ArahanBerhentiController::class);
 Route::resource('/AuditLog', AuditLogController::class);

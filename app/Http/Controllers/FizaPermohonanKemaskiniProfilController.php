@@ -14,7 +14,9 @@ class FizaPermohonanKemaskiniProfilController extends Controller
      */
     public function index()
     {
-        //
+        $fizaPermohonanKemaskiniProfil = FizaPermohonanKemaskiniProfil::all();
+        return view ('1_kemaskini_profil.index',[
+            'fizaPermohonanKemaskiniProfil'=>$fizaPermohonanKemaskiniProfil]);
     }
 
     /**
@@ -24,7 +26,7 @@ class FizaPermohonanKemaskiniProfilController extends Controller
      */
     public function create()
     {
-        //
+        return view('1_kemaskini_profil.create');
     }
 
     /**
@@ -35,7 +37,16 @@ class FizaPermohonanKemaskiniProfilController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $fizaPermohonanKemaskiniProfil = new FizaPermohonanKemaskiniProfil;
+
+        $fizaPermohonanKemaskiniProfil->permohonan_description=$request->permohonan_description;
+        $fizaPermohonanKemaskiniProfil->pembekal_id=$request->pembekal_id;
+        $fizaPermohonanKemaskiniProfil->permohonan_created_by=$request->permohonan_created_by;
+        $fizaPermohonanKemaskiniProfil->katalog_created_by=$request->katalog_created_by;
+        $fizaPermohonanKemaskiniProfil->user_id=$request->user_id;
+
+        $fizaPermohonanKemaskiniProfil->save();
+        return redirect('/fizaPermohonanKemaskiniProfil');
     }
 
     /**
@@ -57,7 +68,9 @@ class FizaPermohonanKemaskiniProfilController extends Controller
      */
     public function edit(FizaPermohonanKemaskiniProfil $fizaPermohonanKemaskiniProfil)
     {
-        //
+        $fizaPermohonanKemaskiniProfil = FizaPermohonanKemaskiniProfil::all();
+        return view ('1_kemaskini_profil.edit',[
+            'fizaPermohonanKemaskiniProfil'=>$fizaPermohonanKemaskiniProfil]);
     }
 
     /**
@@ -69,7 +82,14 @@ class FizaPermohonanKemaskiniProfilController extends Controller
      */
     public function update(Request $request, FizaPermohonanKemaskiniProfil $fizaPermohonanKemaskiniProfil)
     {
-        //
+        $fizaPermohonanKemaskiniProfil->permohonan_description=$request->permohonan_description;
+        $fizaPermohonanKemaskiniProfil->pembekal_id=$request->pembekal_id;
+        $fizaPermohonanKemaskiniProfil->permohonan_created_by=$request->permohonan_created_by;
+        $fizaPermohonanKemaskiniProfil->katalog_updated_by=$request->katalog_updated_by;
+        $fizaPermohonanKemaskiniProfil->user_id=$request->user_id;
+
+        $url = '/fizaPermohonanKemaskiniProfil'.$fizaPermohonanKemaskiniProfil->id;
+        return redirect('/fizaPermohonanKemaskiniProfil');
     }
 
     /**

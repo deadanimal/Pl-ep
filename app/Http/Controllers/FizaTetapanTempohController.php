@@ -14,7 +14,9 @@ class FizaTetapanTempohController extends Controller
      */
     public function index()
     {
-        //
+        $fizaTetapanTempoh = FizaTetapanTempoh::all();
+        return view ('1_tetapan_tempoh.index',[
+            'fizaTetapanTempoh'=>$fizaTetapanTempoh]);
     }
 
     /**
@@ -24,52 +26,47 @@ class FizaTetapanTempohController extends Controller
      */
     public function create()
     {
-        //
+   
+        return view ('1_tetapan_tempoh.edit');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $fizaTetapanTempoh = new FizaTetapanTempoh;
+
+        $fizaTetapanTempoh->tempoh_type=$request->tempoh_type;
+        $fizaTetapanTempoh->tempoh_hari=$request->tempoh_hari;
+        $fizaTetapanTempoh->tempoh_created_by=$request->tempoh_created_by;
+        $fizaTetapanTempoh->user_id=$request->user_id;
+ 
+        $fizaTetapanTempoh->save();
+        return redirect('/fizaTetapanTempoh');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\FizaTetapanTempoh  $fizaTetapanTempoh
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(FizaTetapanTempoh $fizaTetapanTempoh)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\FizaTetapanTempoh  $fizaTetapanTempoh
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(FizaTetapanTempoh $fizaTetapanTempoh)
     {
-        //
+        $fizaTetapanTempoh = FizaTetapanTempoh::all();
+        return view ('1_tetapan_tempoh.edit',[
+            'fizaTetapanTempoh'=>$fizaTetapanTempoh]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\FizaTetapanTempoh  $fizaTetapanTempoh
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, FizaTetapanTempoh $fizaTetapanTempoh)
     {
-        //
+        $fizaTetapanTempoh->tempoh_type=$request->tempoh_type;
+        $fizaTetapanTempoh->tempoh_hari=$request->tempoh_hari;
+        $fizaTetapanTempoh->tempoh_created_by=$request->tempoh_created_by;
+        $fizaTetapanTempoh->user_id=$request->user_id;
+
+        $url = '/fizaTetapanTempoh'.$fizaTetapanTempoh->id;
+        return redirect('/fizaTetapanTempoh');
     }
 
     /**

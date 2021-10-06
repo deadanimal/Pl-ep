@@ -11,7 +11,7 @@ class FizaJadualPemenuhanController extends Controller
     {
         $fizaJadualPemenuhan = FizaJadualPemenuhan::all();
         return view ('1_jadual.index',[
-            '$fizaJadualPemenuhan'=>$fizaJadualPemenuhan]);
+            'fizaJadualPemenuhan'=>$fizaJadualPemenuhan]);
     }
 
 
@@ -55,7 +55,7 @@ class FizaJadualPemenuhanController extends Controller
     {
         $fizaJadualPemenuhan = FizaJadualPemenuhan::all();
         return view ('1_jadual.edit',[
-            '$fizaJadualPemenuhan'=>$fizaJadualPemenuhan]);
+            'fizaJadualPemenuhan'=>$fizaJadualPemenuhan]);
     }
 
     public function update(Request $request, FizaJadualPemenuhan $fizaJadualPemenuhan)

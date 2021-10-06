@@ -16,7 +16,7 @@ class FizaAuditPelanController extends Controller
     {
         $fizaAuditPelan = FizaAuditPelan::all();
         return view ('1_audit_pelan.index',[
-            '$fizaAuditPelan'=>$fizaAuditPelan]);
+            'fizaAuditPelan'=>$fizaAuditPelan]);
     }
 
     public function create()

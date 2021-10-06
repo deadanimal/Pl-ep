@@ -14,7 +14,9 @@ class FizaKehadiranTaklimatController extends Controller
      */
     public function index()
     {
-        //
+        $fizaKehadiran_Taklimat = FizaKehadiran_Taklimat::all();
+        return view ('1_kehadiran_taklimat.index',[
+            'fizaKehadiranTaklimat'=>$fizaKehadiranTaklimat]);
     }
 
     /**
@@ -24,18 +26,25 @@ class FizaKehadiranTaklimatController extends Controller
      */
     public function create()
     {
-        //
+        return view('/1_kehadiran_taklimat.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $fizaKehadiran_Taklimat = new FizaKehadiran_Taklimat;
+
+        $fizaKehadiran_Taklimat->pst_id=$request->pst_id;
+        $fizaKehadiran_Taklimat->pembekal_id=$request->pembekal_id;
+        $fizaKehadiran_Taklimat->kehadiran_nama=$request->kehadiran_nama;
+        $fizaKehadiran_Taklimat->kehadiran_pengenalan_no=$request->kehadiran_pengenalan_no;
+        $fizaKehadiran_Taklimat->kehadiran_no_tel=$request->kehadiran_no_tel;
+        $fizaKehadiran_Taklimat->kehadiran_email=$request->kehadiran_email;
+        $fizaKehadiran_Taklimat->kehadiran_status=$request->kehadiran_status;
+        $fizaKehadiran_Taklimat->kehadiran_link=$request->kehadiran_link;
+        $fizaKehadiran_Taklimat->kehadiran_created_by=$request->kehadiran_created_by;
+
+        $fizaKehadiran_Taklimat->save();
+        return redirect('/fizaKehadiranTaklimat');
     }
 
     /**
@@ -49,35 +58,31 @@ class FizaKehadiranTaklimatController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\FizaKehadiranTaklimat  $fizaKehadiranTaklimat
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(FizaKehadiranTaklimat $fizaKehadiranTaklimat)
     {
-        //
+        $fizaKehadiran_Taklimat = FizaKehadiran_Taklimat::all();
+        return view ('1_kehadiran_taklimat.edit',[
+            'fizaKehadiranTaklimat'=>$fizaKehadiranTaklimat]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\FizaKehadiranTaklimat  $fizaKehadiranTaklimat
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, FizaKehadiranTaklimat $fizaKehadiranTaklimat)
     {
-        //
+        $fizaKehadiran_Taklimat->pst_id=$request->pst_id;
+        $fizaKehadiran_Taklimat->pembekal_id=$request->pembekal_id;
+        $fizaKehadiran_Taklimat->kehadiran_nama=$request->kehadiran_nama;
+        $fizaKehadiran_Taklimat->kehadiran_pengenalan_no=$request->kehadiran_pengenalan_no;
+        $fizaKehadiran_Taklimat->kehadiran_no_tel=$request->kehadiran_no_tel;
+        $fizaKehadiran_Taklimat->kehadiran_email=$request->kehadiran_email;
+        $fizaKehadiran_Taklimat->kehadiran_status=$request->kehadiran_status;
+        $fizaKehadiran_Taklimat->kehadiran_link=$request->kehadiran_link;
+        $fizaKehadiran_Taklimat->kehadiran_updated_by=$request->kehadiran_updated_by;
+
+        $url = '/fizaKehadiran_Taklimat'.$fizaKehadiranTaklimat->id;
+        return redirect('/fizaKehadiranTaklimat');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\FizaKehadiranTaklimat  $fizaKehadiranTaklimat
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(FizaKehadiranTaklimat $fizaKehadiranTaklimat)
     {
         //

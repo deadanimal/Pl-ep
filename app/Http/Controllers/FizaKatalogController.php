@@ -16,12 +16,12 @@ class FizaKatalogController extends Controller
     {
         $fizaKatalog = FizaKatalog::all();
         return view ('1_katalog.index',[
-            '$fizaKatalog'=>$fizaKatalog]);
+            'fizaKatalog'=>$fizaKatalog]);
     }
 
     public function create()
     {
-        return redirect('1_katalog.create');
+        return view('1_katalog.create');
     }
 
     public function store(Request $request)
@@ -50,7 +50,7 @@ class FizaKatalogController extends Controller
     {
         $fizaKatalog = FizaKatalog::all();
         return view ('1_katalog.edit',[
-            '$fizaKatalog'=>$fizaKatalog]);
+            'fizaKatalog'=>$fizaKatalog]);
         
     }
 

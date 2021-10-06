@@ -14,70 +14,57 @@ class FizaLaporanController extends Controller
      */
     public function index()
     {
-        //
+        $fizaLaporan = FizaLaporan::all();
+        return view ('1_laporan.index',[
+            'fizaLaporan'=>$fizaLaporan]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+        return view('/1_laporan.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $fizaLaporan = new FizaLaporan;
+
+        $fizaLaporan->laporan_nama =$request->laporan_nama ;
+        $fizaLaporan->laporan_file=$request->laporan_file;
+        $fizaLaporan->laporan_modul=$request->laporan_modul;
+        $fizaLaporan->laporan_created_by=$request->laporan_created_by;
+        $fizaLaporan->perjanjian_id =$request->perjanjian_id ;
+
+        $fizaLaporan->save();
+        return redirect('/fizaLaporan');
+
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\FizaLaporan  $fizaLaporan
-     * @return \Illuminate\Http\Response
-     */
     public function show(FizaLaporan $fizaLaporan)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\FizaLaporan  $fizaLaporan
-     * @return \Illuminate\Http\Response
-     */
     public function edit(FizaLaporan $fizaLaporan)
     {
-        //
+        return view('/1_laporan.edit');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\FizaLaporan  $fizaLaporan
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, FizaLaporan $fizaLaporan)
     {
-        //
+        $fizaLaporan->laporan_nama =$request->laporan_nama ;
+        $fizaLaporan->laporan_file=$request->laporan_file;
+        $fizaLaporan->laporan_modul=$request->laporan_modul;
+        $fizaLaporan->laporan_updated_by=$request->laporan_updated_by;
+        $fizaLaporan->perjanjian_id =$request->perjanjian_id;
+
+
+        $url = '/fizaLaporan'.$fizaLaporan->id;
+        return redirect('/fizaLaporan');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\FizaLaporan  $fizaLaporan
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(FizaLaporan $fizaLaporan)
     {
         //

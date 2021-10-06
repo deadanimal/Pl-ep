@@ -14,17 +14,16 @@ class FizaPertanyaanItemController extends Controller
      */
     public function index()
     {
-        //
+        $fizaPertanyaanItem = FizaPertanyaanItem::all();
+        return view ('1_tanya_item.index',[
+            'fizaPertanyaanItem'=>$fizaPertanyaanItem]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+      
+        return view ('1_tanya_item.create');
     }
 
     /**
@@ -35,7 +34,26 @@ class FizaPertanyaanItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $fizaPertanyaanItem = new FizaPertanyaanItem;
+
+        $fizaPertanyaanItem->item_id=$request->item_id;
+        $fizaPertanyaanItem->user_id=$request->user_id;
+        $fizaPertanyaanItem->pembekal_id=$request->pembekal_id;
+        $fizaPertanyaanItem->tanya_kuantiti=$request->tanya_kuantiti;
+        $fizaPertanyaanItem->tanya_tempoh_penghantaran=$request->tanya_tempoh_penghantaran;
+
+        $fizaPertanyaanItem->tanya_jenis_perolehan=$request->tanya_jenis_perolehan;
+        $fizaPertanyaanItem->tanya_catatan1=$request->tanya_catatan1;
+        $fizaPertanyaanItem->tanya_ketersediaan_stok=$request->tanya_ketersediaan_stok;
+        $fizaPertanyaanItem->tanya_harga_baru=$request->tanya_harga_baru;
+        $fizaPertanyaanItem->tanya_status=$request->tanya_status;
+        $fizaPertanyaanItem->tanya_created_by=$request->tanya_created_by;
+
+
+
+        $fizaPertanyaanItem->save();
+        return redirect('/fizaPertanyaanItem');
+    
     }
 
     /**
@@ -57,19 +75,30 @@ class FizaPertanyaanItemController extends Controller
      */
     public function edit(FizaPertanyaanItem $fizaPertanyaanItem)
     {
-        //
+        $fizaPertanyaanItem = FizaPertanyaanItem::all();
+        return view ('1_tanya_item.edit',[
+            'fizaPertanyaanItem'=>$fizaPertanyaanItem]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\FizaPertanyaanItem  $fizaPertanyaanItem
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, FizaPertanyaanItem $fizaPertanyaanItem)
     {
-        //
+        
+        $fizaPertanyaanItem->item_id=$request->item_id;
+        $fizaPertanyaanItem->user_id=$request->user_id;
+        $fizaPertanyaanItem->pembekal_id=$request->pembekal_id;
+        $fizaPertanyaanItem->tanya_kuantiti=$request->tanya_kuantiti;
+        $fizaPertanyaanItem->tanya_tempoh_penghantaran=$request->tanya_tempoh_penghantaran;
+
+        $fizaPertanyaanItem->tanya_jenis_perolehan=$request->tanya_jenis_perolehan;
+        $fizaPertanyaanItem->tanya_catatan1=$request->tanya_catatan1;
+        $fizaPertanyaanItem->tanya_ketersediaan_stok=$request->tanya_ketersediaan_stok;
+        $fizaPertanyaanItem->tanya_harga_baru=$request->tanya_harga_baru;
+        $fizaPertanyaanItem->tanya_status=$request->tanya_status;
+        $fizaPertanyaanItem->tanya_updated_by=$request->tanya_updated_by;
+
+        $url = '/fizaPertanyaanItem'.$fizaPertanyaanItem->id;
+        return redirect('/fizaPertanyaanItem');
     }
 
     /**

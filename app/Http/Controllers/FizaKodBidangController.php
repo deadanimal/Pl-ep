@@ -4,80 +4,73 @@ namespace App\Http\Controllers;
 
 use App\Models\FizaKodBidang;
 use Illuminate\Http\Request;
+use App\Mail\SuratMainan;
+use Illuminate\Support\Facades\Mail;
 
 class FizaKodBidangController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        Mail::to('syafiza.senin@pipeline.com.my')->send(new SuratMainan);
+        $fizaKodBidang = FizaKodBidang::all();
+        // return view ('1_kod_bidang.index',[
+        //      'fizaKodBidang'=>$fizaKodBidang]);
+        dd('mainmain');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+
     public function create()
     {
-        //
+        return redirect('1_kod_bidang.create');
     }
+    
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        $fizaKodBidang = new FizaKodBidang;
+
+        $fizaKodBidang->kod_type =$request->kod_type ;
+        $fizaKodBidang->kod_category=$request->kod_category;
+        $fizaKodBidang->kod_pengkhususan=$request->kod_pengkhususan;
+        $fizaKodBidang->kod_description=$request->kod_description;
+        $fizaKodBidang->kod_created_by=$request->kod_created_by;
+
+
+        $fizaKodBidang->save();
+        return redirect('/fizaKodBidang');
+    
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\FizaKodBidang  $fizaKodBidang
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function show(FizaKodBidang $fizaKodBidang)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\FizaKodBidang  $fizaKodBidang
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(FizaKodBidang $fizaKodBidang)
     {
-        //
+        $fizaKodBidang = FizaKodBidang::all();
+        return view ('1_kod_bidang.edit',[
+            'fizaKodBidang'=>$fizaKodBidang]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\FizaKodBidang  $fizaKodBidang
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, FizaKodBidang $fizaKodBidang)
     {
-        //
+        
+        $fizaKodBidang->kod_type =$request->kod_type ;
+        $fizaKodBidang->kod_category=$request->kod_category;
+        $fizaKodBidang->kod_pengkhususan=$request->kod_pengkhususan;
+        $fizaKodBidang->kod_description=$request->kod_description;
+        $fizaKodBidang->kod_updated_by=$request->kod_updated_by;
+
+        $url = '/fizaKodBidang'.$fizaKodBidang->id;
+        return redirect('/fizaKodBidang');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\FizaKodBidang  $fizaKodBidang
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(FizaKodBidang $fizaKodBidang)
     {
         //

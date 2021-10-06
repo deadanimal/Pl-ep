@@ -7,69 +7,60 @@ use Illuminate\Http\Request;
 
 class FizaLaporanPelanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $fizaLaporanPelan = FizaLaporanPelan::all();
+        return view ('1_laporan_pelan.index',[
+            'fizaLaporanPelan'=>$fizaLaporanPelan]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view ('1_laporan_pelan.index');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        $fizaLaporanPelan = new FizaLaporanPelan;
+
+        $fizaLaporanPelan->laporan_pelan_nama=$request->laporan_pelan_nama;
+        $fizaLaporanPelan->laporan_pelan_modul=$request->laporan_pelan_modul;
+        $fizaLaporanPelan->laporan_file=$request->laporan_file;//file
+        $fizaLaporanPelan->laporan_created_by=$request->laporan_created_by;
+        $fizaLaporanPelan->pelan_id=$request->pelan_id;
+
+
+        $fizaLaporanPelan->save();
+        return redirect('/fizaLaporanPelan');
+    
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\FizaLaporanPelan  $fizaLaporanPelan
-     * @return \Illuminate\Http\Response
-     */
     public function show(FizaLaporanPelan $fizaLaporanPelan)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\FizaLaporanPelan  $fizaLaporanPelan
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(FizaLaporanPelan $fizaLaporanPelan)
     {
-        //
+        return view ('1_laporan_pelan.edit');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\FizaLaporanPelan  $fizaLaporanPelan
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, FizaLaporanPelan $fizaLaporanPelan)
     {
-        //
+        
+        $fizaLaporanPelan->laporan_pelan_nama=$request->laporan_pelan_nama;
+        $fizaLaporanPelan->laporan_pelan_modul=$request->laporan_pelan_modul;
+        $fizaLaporanPelan->laporan_file=$request->laporan_file;//file
+        $fizaLaporanPelan->laporan_created_by=$request->laporan_created_by;
+        $fizaLaporanPelan->pelan_id=$request->pelan_id;
+
+
+        $url = '/fizaLaporanPelan'.$fizaLaporanPelan->id;
+        return redirect('/fizaLaporanPelan');
     }
 
     /**

@@ -12,7 +12,7 @@ class FizaKandunganPerjanjianController extends Controller
     {
         $fizaKandunganPerjanjian = FizaKandunganPerjanjian::all();
         return view ('1_kandungan_perjanjian.index',[
-            '$fizaKandunganPerjanjian'=>$fizaKandunganPerjanjian]);
+            'fizaKandunganPerjanjian'=>$fizaKandunganPerjanjian]);
 
     }
 
@@ -44,7 +44,7 @@ class FizaKandunganPerjanjianController extends Controller
     {
         $fizaKandunganPerjanjian = FizaKandunganPerjanjian::all();
         return view ('1_kandungan_perjanjian.edit',[
-            '$fizaKandunganPerjanjian'=>$fizaKandunganPerjanjian]);
+            'fizaKandunganPerjanjian'=>$fizaKandunganPerjanjian]);
 
     }
 

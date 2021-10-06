@@ -14,7 +14,9 @@ class FizaPerincianPengiklananController extends Controller
      */
     public function index()
     {
-        //
+        $fizaPerincianPengiklanan = FizaPerincianPengiklanan::all();
+        return view ('1_perincian_iklan.index',[
+            'fizaPerincianPengiklanan'=>$fizaPerincianPengiklanan]);
     }
 
     /**
@@ -24,7 +26,7 @@ class FizaPerincianPengiklananController extends Controller
      */
     public function create()
     {
-        //
+        return view('1_perincian_iklan.create');
     }
 
     /**
@@ -35,15 +37,28 @@ class FizaPerincianPengiklananController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $fizaPerincianPengiklanan = new FizaPerincianPengiklanan;
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\FizaPerincianPengiklanan  $fizaPerincianPengiklanan
-     * @return \Illuminate\Http\Response
-     */
+        $fizaPerincianPengiklanan->iklan_date=$request->iklan_date;
+        $fizaPerincianPengiklanan->iklan_taklimat_date=$request->iklan_taklimat_date;
+        $fizaPerincianPengiklanan->iklan_taklimat_time=$request->iklan_taklimat_time;
+        $fizaPerincianPengiklanan->iklan_tempoh=$request->iklan_tempoh;
+        $fizaPerincianPengiklanan->iklan_last_date=$request->iklan_last_date;
+        $fizaPerincianPengiklanan->iklan_tempoh_sah_laku=$request->iklan_tempoh_sah_laku;
+        $fizaPerincianPengiklanan->iklan_sah_laku_tamat=$request->iklan_sah_laku_tamat;
+
+        $fizaPerincianPengiklanan->user_id=$request->user_id;
+        $fizaPerincianPengiklanan->iklan_created_by=$request->iklan_created_by;
+        $fizaPerincianPengiklanan->pst_id=$request->pst_id;
+        $fizaPerincianPengiklanan->iklan_id=$request->iklan_id;
+        $fizaPerincianPengiklanan->iklan_date=$request->iklan_date;
+
+        $url = '/fizaPerincianPengiklanan'.$fizaPerincianPengiklanan->id;
+        return redirect('/fizaPerincianPengiklanan');
+
+
+
+    }
     public function show(FizaPerincianPengiklanan $fizaPerincianPengiklanan)
     {
         //
@@ -57,19 +72,27 @@ class FizaPerincianPengiklananController extends Controller
      */
     public function edit(FizaPerincianPengiklanan $fizaPerincianPengiklanan)
     {
-        //
+        $fizaPerincianPengiklanan = FizaPerincianPengiklanan::all();
+        return view ('1_perincian_iklan.create',[
+            'fizaPerincianPengiklanan'=>$fizaPerincianPengiklanan]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\FizaPerincianPengiklanan  $fizaPerincianPengiklanan
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, FizaPerincianPengiklanan $fizaPerincianPengiklanan)
     {
-        //
+        $fizaPerincianPengiklanan->iklan_date=$request->iklan_date;
+        $fizaPerincianPengiklanan->iklan_taklimat_date=$request->iklan_taklimat_date;
+        $fizaPerincianPengiklanan->iklan_taklimat_time=$request->iklan_taklimat_time;
+        $fizaPerincianPengiklanan->iklan_tempoh=$request->iklan_tempoh;
+        $fizaPerincianPengiklanan->iklan_last_date=$request->iklan_last_date;
+        $fizaPerincianPengiklanan->iklan_tempoh_sah_laku=$request->iklan_tempoh_sah_laku;
+        $fizaPerincianPengiklanan->iklan_sah_laku_tamat=$request->iklan_sah_laku_tamat;
+
+        $fizaPerincianPengiklanan->user_id=$request->user_id;
+        $fizaPerincianPengiklanan->iklan_created_by=$request->iklan_created_by;
+        $fizaPerincianPengiklanan->pst_id=$request->pst_id;
+        $fizaPerincianPengiklanan->iklan_id=$request->iklan_id;
+        $fizaPerincianPengiklanan->iklan_date=$request->iklan_date;
+
     }
 
     /**
