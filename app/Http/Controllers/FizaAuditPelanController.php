@@ -61,8 +61,6 @@ class FizaAuditPelanController extends Controller
 
 
         $fizaArahanMemberhentikan->save();
-
-        $url = '/fizaAuditPelan/'.$fizaAuditPelan->id;
         return redirect('/fizaAuditPelan');
     }
 

@@ -39,7 +39,9 @@ class FizaEpUserController extends Controller
         $fizaEpUser->user_contact_no =$request->user_contact_no ;
         $fizaEpUser->user_fax_no =$request->user_fax_no ;
         
-        $fizaEpUser->user_image =$request->user_image ;//file
+        $user_image=$request->file('user_image')->store('user_img');
+        $fizaEpUser->user_image =$user_image ;//file
+
         $fizaEpUser->user_address  =$request->user_address  ;
         $fizaEpUser-> user_postalcode =$request-> user_postalcode ;
         $fizaEpUser->user_city =$request->user_city ;
@@ -82,7 +84,13 @@ class FizaEpUserController extends Controller
         $fizaEpUser->user_contact_no =$request->user_contact_no ;
         $fizaEpUser->user_fax_no =$request->user_fax_no ;
         
-        $fizaEpUser->user_image =$request->user_image ;//file
+        // $fizaEpUser->user_image =$request->user_image ;
+
+        if($request->hasFile('user_image')){
+            $user_image = $request->file('user_image')->store('user_img');
+            $fizaEpUser->user_image=$user_image;
+        }
+        
         $fizaEpUser->user_address  =$request->user_address  ;
         $fizaEpUser-> user_postalcode =$request-> user_postalcode ;
         $fizaEpUser->user_city =$request->user_city ;
@@ -92,7 +100,7 @@ class FizaEpUserController extends Controller
         $fizaEpUser->user_updated_by  =$request->user_created_by  ; 
         
 
-        $url = '/fizaEpUser'.$fizaEpUser->id;
+       $fizaEpUser->save();
         return redirect('/fizaEpUser');
     }
 

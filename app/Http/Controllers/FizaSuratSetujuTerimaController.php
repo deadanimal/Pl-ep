@@ -48,7 +48,10 @@ class FizaSuratSetujuTerimaController extends Controller
         $fizaSuratSetujuTerima->sst_semakan=$request->sst_semakan;
         $fizaSuratSetujuTerima->sst_sl1m=$request->sst_sl1m;
         $fizaSuratSetujuTerima->sst_pentadbir_kontrak=$request->sst_pentadbir_kontrak;
-        $fizaSuratSetujuTerima->sst_file=$request->sst_file;
+
+        $sst_file=$request->file('sst_file')->store('sst_file');
+        $fizaSuratSetujuTerima->sst_file=$sst_file;
+
         $fizaSuratSetujuTerima->sst_perjanjian=$request->sst_perjanjian;
         $fizaSuratSetujuTerima->katalog_kategori=$request->katalog_kategori;
 
@@ -112,7 +115,15 @@ class FizaSuratSetujuTerimaController extends Controller
         $fizaSuratSetujuTerima->sst_semakan=$request->sst_semakan;
         $fizaSuratSetujuTerima->sst_sl1m=$request->sst_sl1m;
         $fizaSuratSetujuTerima->sst_pentadbir_kontrak=$request->sst_pentadbir_kontrak;
-        $fizaSuratSetujuTerima->sst_file=$request->sst_file;
+
+        if($request->hasFile('sst_file')){
+        $sst_file=$request->file('sst_file')->store('sst_file');
+        $fizaSuratSetujuTerima->sst_file=$sst_file;
+        }
+
+        $sst_file=$request->file('sst_file')->store('sst_file');
+        $fizaSuratSetujuTerima->sst_file=$sst_file;
+     
         $fizaSuratSetujuTerima->sst_perjanjian=$request->sst_perjanjian;
         $fizaSuratSetujuTerima->katalog_kategori=$request->katalog_kategori;
 
@@ -141,7 +152,7 @@ class FizaSuratSetujuTerimaController extends Controller
         $fizaSuratSetujuTerima->jadual_id=$request->jadual_id;
         $fizaSuratSetujuTerima->niat_id=$request->niat_id;
 
-        $url = '/fizaSuratSetujuTerima'.$fizaSuratSetujuTerima->id;
+        $fizaSuratSetujuTerima->save();
         return redirect('/fizaSuratSetujuTerima');
     }
 

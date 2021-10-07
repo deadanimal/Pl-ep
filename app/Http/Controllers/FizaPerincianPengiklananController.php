@@ -93,6 +93,8 @@ class FizaPerincianPengiklananController extends Controller
         $fizaPerincianPengiklanan->iklan_id=$request->iklan_id;
         $fizaPerincianPengiklanan->iklan_date=$request->iklan_date;
 
+        $fizaPerincianPengiklanan->save();
+        return redirect ('/$fizaPerincianPengiklanan');
     }
 
     /**

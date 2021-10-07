@@ -81,7 +81,7 @@ class FizaSupportingDocumentSijilDigitalController extends Controller
         $fizaSupportingDocumentSijilDigital->sd_name=$request->sd_name;
         $fizaSupportingDocumentSijilDigital->sd_updated_by=$request->sd_updated_by;
 
-        $url = '/fizaSupportingDocumentSijilDigital'.$fizaSupportingDocumentSijilDigital->id;
+        $fizaSupportingDocumentSijilDigital->save();
         return redirect('/fizaSupportingDocumentSijilDigital');
     }
 

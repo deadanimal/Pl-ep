@@ -63,7 +63,7 @@ class FizaKatalogController extends Controller
         $fizaKatalog->katalog_updated_by=$request->katalog_updated_by;
         $fizaKatalog->user_id=$request->user_id;
 
-        $url = '/fizaKatalog'.$fizaKatalog->id;
+        $fizaKatalog->save();
         return redirect('/fizaKatalog');
 
     }

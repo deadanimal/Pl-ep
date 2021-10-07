@@ -93,7 +93,7 @@ class FizaNotaMintaController extends Controller
         $fizaNotaMinta->kart_id=$request->kart_id;
         $fizaNotaMinta->user_id=$request->user_id;
 
-        $url = '/fizaNotaMinta'.$fizaNotaMinta->id;
+        $fizaNotaMinta->save();
         return redirect('/fizaNotaMinta');
     }
 

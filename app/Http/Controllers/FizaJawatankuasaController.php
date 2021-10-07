@@ -62,7 +62,7 @@ class FizaJawatankuasaController extends Controller
         $fizaJawatankuasa->pst_id=$request->pst_id;
         $fizaJawatankuasa->jawatankuasa_updated_by=$request->jawatankuasa_updated_by;
 
-        $url = '/fizaJawatankuasa'.$fizaJawatankuasa->id;
+        $fizaJawatankuasa->save();
         return redirect('/fizaJawatankuasa');
     }
 

@@ -42,7 +42,10 @@ class FizaPerjanjianKontrakController extends Controller
 
         $fizaPerjanjianKontrak->sst_id=$request->sst_id;
         $fizaPerjanjianKontrak->kandungan_id=$request->kandungan_id;
-        $fizaPerjanjianKontrak->perjanjian_file=$request->perjanjian_file;
+
+        $perjanjian_file=$request->file('perjanjian_file')->store('perjanjian_file');
+        $fizaPerjanjianKontrak->perjanjian_file=$perjanjian_file;
+
         $fizaPerjanjianKontrak->perjanjian_pelulus=$request->perjanjian_pelulus;
         $fizaPerjanjianKontrak->perjanjian_created_by=$request->perjanjian_created_by;
 
@@ -92,7 +95,13 @@ class FizaPerjanjianKontrakController extends Controller
     {
         $fizaPerjanjianKontrak->sst_id=$request->sst_id;
         $fizaPerjanjianKontrak->kandungan_id=$request->kandungan_id;
-        $fizaPerjanjianKontrak->perjanjian_file=$request->perjanjian_file;
+
+        if ($request->hasFile('img_notis')) {
+            $perjanjian_file=$request->file('perjanjian_file')->store('perjanjian_file');
+            $fizaPerjanjianKontrak->perjanjian_file=$perjanjian_file;
+        }
+
+
         $fizaPerjanjianKontrak->perjanjian_pelulus=$request->perjanjian_pelulus;
         $fizaPerjanjianKontrak->perjanjian_created_by=$request->perjanjian_created_by;
 
@@ -100,7 +109,7 @@ class FizaPerjanjianKontrakController extends Controller
         $fizaPerjanjianKontrak->user_id=$request->user_id;
         $fizaPerjanjianKontrak->pembekal_id=$request->pembekal_id;
 
-        $url = '/fizaPerjanjianKontrak'.$fizaPerjanjianKontrak->id;
+        $fizaPerjanjianKontrak->save();
         return redirect('/fizaPerjanjianKontrak');
     }
 

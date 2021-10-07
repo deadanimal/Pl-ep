@@ -72,7 +72,7 @@ class FizaJadualPemenuhanController extends Controller
         $fizaJadualPemenuhan->jadual_jenis =$request->jadual_jenis ;
         $fizaJadualPemenuhan->jadual_updated_by=$request->jadual_updated_by ;
 
-        $url = '/fizaJadualPemenuhan'.$fizaJadualPemenuhan->id;
+       $fizaJadualPemenuhan->save();
         return redirect('/fizaJadualPemenuhan');
     }
 

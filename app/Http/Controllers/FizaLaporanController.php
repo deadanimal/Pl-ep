@@ -30,7 +30,10 @@ class FizaLaporanController extends Controller
         $fizaLaporan = new FizaLaporan;
 
         $fizaLaporan->laporan_nama =$request->laporan_nama ;
-        $fizaLaporan->laporan_file=$request->laporan_file;
+
+        $laporan_file=$request->file('laporan_file')->store('laporan_file');
+        $fizaLaporan->laporan_file=$laporan_file;//file
+
         $fizaLaporan->laporan_modul=$request->laporan_modul;
         $fizaLaporan->laporan_created_by=$request->laporan_created_by;
         $fizaLaporan->perjanjian_id =$request->perjanjian_id ;
@@ -54,13 +57,19 @@ class FizaLaporanController extends Controller
     public function update(Request $request, FizaLaporan $fizaLaporan)
     {
         $fizaLaporan->laporan_nama =$request->laporan_nama ;
-        $fizaLaporan->laporan_file=$request->laporan_file;
+        //$fizaLaporan->laporan_file=$request->laporan_file;
+
+        if ($request->hasFile('laporan_file')) {
+            $laporan_file=$request->file('laporan_file')->store('laporan_file');
+            $fizaLaporan->laporan_file=$laporan_file;
+        }
+
         $fizaLaporan->laporan_modul=$request->laporan_modul;
         $fizaLaporan->laporan_updated_by=$request->laporan_updated_by;
         $fizaLaporan->perjanjian_id =$request->perjanjian_id;
 
 
-        $url = '/fizaLaporan'.$fizaLaporan->id;
+        $fizaLaporan->save();
         return redirect('/fizaLaporan');
     }
 

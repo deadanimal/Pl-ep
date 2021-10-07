@@ -85,7 +85,7 @@ class FizaPadananBayaranController extends Controller
         $fizaPadananBayaran->padanan_updated_by=$request->padanan_updated_by;
         $fizaPadananBayaran->user_id=$request->user_id;
 
-        $url = '/fizaPadananBayaran'.$fizaPadananBayaran->id;
+        $fizaPadananBayaran->save();
         return redirect('/fizaPadananBayaran');
     }
 

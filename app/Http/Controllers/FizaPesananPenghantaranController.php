@@ -93,7 +93,7 @@ class FizaPesananPenghantaranController extends Controller
         $fizaPesananPenghantaran->penghantaran_updated_by=$request->penghantaran_updated_by;
 
 
-        $url = '/fizaPesananPenghantaran'.$fizaPesananPenghantaran->id;
+        $fizaPesananPenghantaran->save();
         return redirect('/fizaPesananPenghantaran');
 
     }

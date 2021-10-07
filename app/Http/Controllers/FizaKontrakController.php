@@ -41,7 +41,11 @@ class FizaKontrakController extends Controller
         $fizaKontrak->kontrak_amaun=$request->kontrak_amaun;
         $fizaKontrak->kontrak_tarikh_kuatkuasa=$request->kontrak_tarikh_kuatkuasa;
         $fizaKontrak->kontrak_tarikh_tamat=$request->kontrak_tarikh_tamat;
-        $fizaKontrak->kontrak_file_bon=$request->kontrak_file_bon;//file
+       
+
+        $kontrak_file_bon=$request->file('kontrak_file_bon')->store('file_bon');
+        $fizaKontrak->kontrak_file_bon=$kontrak_file_bon;
+
         $fizaKontrak->kontrak_pelulus=$request->kontrak_pelulus;
         $fizaKontrak->tempoh_id =$request->tempoh_id ;
         $fizaKontrak->kontrak_catatan_pelulus =$request->kontrak_catatan_pelulus ;
@@ -87,14 +91,20 @@ class FizaKontrakController extends Controller
         $fizaKontrak->kontrak_amaun=$request->kontrak_amaun;
         $fizaKontrak->kontrak_tarikh_kuatkuasa=$request->kontrak_tarikh_kuatkuasa;
         $fizaKontrak->kontrak_tarikh_tamat=$request->kontrak_tarikh_tamat;
-        $fizaKontrak->kontrak_file_bon=$request->kontrak_file_bon;//file
+        // $fizaKontrak->kontrak_file_bon=$request->kontrak_file_bon;//file
+
+        if ($request->hasFile('kontrak_file_bon')) {
+            $kontrak_file_bon=$request->file('kontrak_file_bon')->store('file_bon');
+            $fizaKontrak->kontrak_file_bon=$kontrak_file_bon;
+        }
+
         $fizaKontrak->kontrak_pelulus=$request->kontrak_pelulus;
         $fizaKontrak->tempoh_id=$request->tempoh_id;
         $fizaKontrak->kontrak_catatan_pelulus=$request->kontrak_catatan_pelulus;
         $fizaKontrak->kontrak_updated_by=$request->kontrak_updated_by;
         $fizaKontrak->user_id =$request->user_id;
 
-        $url = '/fizaKontrak'.$fizaKontrak->id;
+        $fizaKontrak->save();
         return redirect('/fizaKontrak');
     }
 

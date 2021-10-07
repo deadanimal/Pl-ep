@@ -64,7 +64,7 @@ class FizaSupportingDocumentPembekalController extends Controller
         $fizaSupportingDocumentPembekal->sdoc_name=$request->sdoc_name;
         $fizaSupportingDocumentPembekal->sdoc_created_by=$request->sdoc_created_by;
 
-        $url = '/fizaSupportingDocumentPembekal'.$fizaSupportingDocumentPembekal->id;
+        $fizaSupportingDocumentPembekal->save();
         return redirect('/fizaSupportingDocumentPembekal');
 
     }

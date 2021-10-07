@@ -79,8 +79,8 @@ class FizaRolesController extends Controller
         $fizaRole->role_updated_by=$request->role_updated_by;
 
 
-        $url = '/fizaKatalog'.$fizaKatalog->id;
-        return redirect('/fizaKatalog');
+        $fizaKatalog->save();
+        return redirect('/fizaRole');
     }
 
     /**

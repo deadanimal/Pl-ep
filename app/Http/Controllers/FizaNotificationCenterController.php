@@ -87,7 +87,7 @@ class FizaNotificationCenterController extends Controller
         $fizaNotificationCenter->noti_updated_by=$request->noti_updated_by;
         $fizaNotificationCenter->user_id=$request->user_id;
 
-        $url = '/fizaNotificationCenter'.$fizaNotificationCenter->id;
+        $fizaNotificationCenter->save();
         return redirect('/fizaNotificationCenter');
 
 

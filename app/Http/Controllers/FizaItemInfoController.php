@@ -79,7 +79,7 @@ class FizaItemInfoController extends Controller
         $fizaItemInfo->item_updated_by =$request->item_updated_by;
 
 
-        $url = '/fizaItemInfo'.$fizaItemInfo->id;
+        $fizaItemInfo->save();
         return redirect('/fizaItemInfo');
     }
 

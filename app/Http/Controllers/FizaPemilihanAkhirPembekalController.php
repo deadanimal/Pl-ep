@@ -103,7 +103,7 @@ class FizaPemilihanAkhirPembekalController extends Controller
         $fizaPemilihanAkhirPembekal->akhir_updated_by=$request->akhir_updated_by;
         $fizaPemilihanAkhirPembekal->pst_id=$request->pst_id;
 
-        $url = '/fizaPemilihanAkhirPembekal'.$fizaPemilihanAkhirPembekal->id;
+       $fizaPemilihanAkhirPembekal->save();
         return redirect('/fizaPemilihanAkhirPembekal');
 
     }

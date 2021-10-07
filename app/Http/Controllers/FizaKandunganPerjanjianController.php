@@ -21,12 +21,17 @@ class FizaKandunganPerjanjianController extends Controller
     {
         return redirect('1_kandungan_perjanjian.create');
     }
+
+    
     public function store(Request $request)
     {
         $fizaKandunganPerjanjian = new FizaKandunganPerjanjian;
         
         $fizaKandunganPerjanjian->kandungan_nama=$request->kandungan_nama;
-        $fizaKandunganPerjanjian->kandungan_template=$request->kandungan_template;//file
+
+        $perjanjian_template = $request->file('kandungan_template')->store($perjanjian_template);
+        $fizaKandunganPerjanjian->kandungan_template=$perjanjian_template;//file
+
         $fizaKandunganPerjanjian->kandungan_created_by=$request->kandungan_created_by;
 
     
@@ -49,13 +54,17 @@ class FizaKandunganPerjanjianController extends Controller
     }
 
     public function update(Request $request, FizaKandunganPerjanjian $fizaKandunganPerjanjian)
-    {
-        
+    {   
         $fizaKandunganPerjanjian->kandungan_nama=$request->kandungan_nama;
-        $fizaKandunganPerjanjian->kandungan_template=$request->kandungan_template;//file
         $fizaKandunganPerjanjian->kandungan_updated_by=$request->kandungan_updated_by;
 
-        $url = '/fizaKandunganPerjanjian'.$fizaKandunganPerjanjian->id;
+
+        if ($request->hasFile('kandungan_template')) {
+            $perjanjian_template=$request->file('kandungan_template')->store('perjanjian_template');
+            $fizaKandunganPerjanjian->kandungan_template=$perjanjian_template;//file
+        }
+
+        $fizaKandunganPerjanjian->save();
         return redirect('/fizaKandunganPerjanjian');
     }
 

@@ -69,7 +69,7 @@ class FizaFaqController extends Controller
         $fizaFaq->faq_updated_by=$request->faq_updated_by;
         $fizaFaq->user_id =$request->user_id ;
 
-        $url = '/fizaFaq'.$fizaFaq->id;
+        $fizaFaq->save();
         return redirect('/fizaFaq');
     }
 

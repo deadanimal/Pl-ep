@@ -42,7 +42,11 @@ class FizaPengesyoranController extends Controller
         $fizaPengesyoran->syor_mesyuarat_date=$request->syor_mesyuarat_date;
         $fizaPengesyoran->syor_mesyuarat_place=$request->syor_mesyuarat_place;
         $fizaPengesyoran->jawatankuasa_id=$request->jawatankuasa_id;
-        $fizaPengesyoran->syor_kertas_taklimat=$request->syor_kertas_taklimat;
+
+        $syor_kertas_taklimat=$request->file('syor_kertas_taklimat')->store('syor_kertas_taklimat');
+        $fizaPengesyoran->syor_kertas_taklimat=$syor_kertas_taklimat;
+
+        //$fizaPengesyoran->syor_kertas_taklimat=$request->syor_kertas_taklimat;//file
         $fizaPengesyoran->pembekal_id=$request->pembekal_id;
 
         $fizaPengesyoran->syor_kedudukan_pembekal=$request->syor_kedudukan_pembekal;
@@ -96,9 +100,15 @@ class FizaPengesyoranController extends Controller
         $fizaPengesyoran->syor_mesyuarat_date=$request->syor_mesyuarat_date;
         $fizaPengesyoran->syor_mesyuarat_place=$request->syor_mesyuarat_place;
         $fizaPengesyoran->jawatankuasa_id=$request->jawatankuasa_id;
-        $fizaPengesyoran->syor_kertas_taklimat=$request->syor_kertas_taklimat;
-        $fizaPengesyoran->pembekal_id=$request->pembekal_id;
 
+        //$fizaPengesyoran->syor_kertas_taklimat=$request->syor_kertas_taklimat;//file
+
+        if ($request->hasFile('syor_kertas_taklimat')) {
+            $fizaPengesyoran=$request->file('syor_kertas_taklimat')->store('syor_kertas_taklimat');
+            $fizaPengesyoran->syor_kertas_taklimat=$syor_kertas_taklimat;
+        }
+
+        $fizaPengesyoran->pembekal_id=$request->pembekal_id;
         $fizaPengesyoran->syor_kedudukan_pembekal=$request->syor_kedudukan_pembekal;
         $fizaPengesyoran->syor_catatan=$request->syor_catatan;
         $fizaPengesyoran->sss_id=$request->sss_id;
@@ -106,8 +116,8 @@ class FizaPengesyoranController extends Controller
         $fizaPengesyoran->syor_created_by=$request->syor_created_by;
         $fizaPengesyoran->pst_id=$request->pst_id;
         $fizaPengesyoran->spesifikasi_id=$request->spesifikasi_id;
-
-        $url = '/fizaPengesyoran'.$fizaPengesyoran->id;
+    
+        $fizaPengesyoran->save();
         return redirect('/fizaPengesyoran');
 
     }

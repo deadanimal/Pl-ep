@@ -79,7 +79,7 @@ class FizaSupportingDocumetKemaskiniProfilController extends Controller
         $fizaSupportingDocumetKemaskiniProfil->permohonan_id=$request->permohonan_id;
         $fizaSupportingDocumetKemaskiniProfil->pkp_updated_by=$request->pkp_updated_by;
 
-        $url = '/fizaSupportingDocumetKemaskiniProfil'.$fizaSupportingDocumetKemaskiniProfil->id;
+        $fizaSupportingDocumetKemaskiniProfil->save();
         return redirect('/fizaSupportingDocumetKemaskiniProfil');
     }
 

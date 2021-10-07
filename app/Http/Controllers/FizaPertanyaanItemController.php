@@ -97,7 +97,7 @@ class FizaPertanyaanItemController extends Controller
         $fizaPertanyaanItem->tanya_status=$request->tanya_status;
         $fizaPertanyaanItem->tanya_updated_by=$request->tanya_updated_by;
 
-        $url = '/fizaPertanyaanItem'.$fizaPertanyaanItem->id;
+        $fizaPertanyaanItem->save();
         return redirect('/fizaPertanyaanItem');
     }
 

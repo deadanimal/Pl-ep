@@ -48,10 +48,16 @@ class FizaPenyediaanSpesifikasiController extends Controller
         $fizaPenyediaanSpesifikasi->spesifikasi_skor_maksima=$request->spesifikasi_skor_maksima;
         $fizaPenyediaanSpesifikasi->spesifikasi_jumlah_skor_teknikal=$request->spesifikasi_jumlah_skor_teknikal;
         $fizaPenyediaanSpesifikasi->spesifikasi_skor_lulus_teknikal=$request->spesifikasi_skor_lulus_teknikal;
-        $fizaPenyediaanSpesifikasi->spesifikasi_skema_teknikal=$request->spesifikasi_skema_teknikal;
-        $fizaPenyediaanSpesifikasi->spesifikasi_jumlah_skor_kewangan=$request->spesifikasi_jumlah_skor_kewangan;
 
+        $spesifikasi_teknikal=$request->file('spesifikasi_skema_teknikal')->store('spesifikasi_teknikal');
+        $fizaPenyediaanSpesifikasi->spesifikasi_skema_teknikal=$spesifikasi_teknikal;
+
+        $fizaPenyediaanSpesifikasi->spesifikasi_jumlah_skor_kewangan=$request->spesifikasi_jumlah_skor_kewangan;
         $fizaPenyediaanSpesifikasi->spesifikasi_skor_lulus_kewangan=$request->spesifikasi_skor_lulus_kewangan;
+
+        $spesifikasi_kewangan=$request->file('spesifikasi_skema_kewangan')->store('spesifikasi_kewangan');
+        $fizaPenyediaanSpesifikasi->spesifikasi_skema_kewangan=$spesifikasi_kewangan;
+
         $fizaPenyediaanSpesifikasi->spesifikasi_skema_kewangan=$request->spesifikasi_skema_kewangan;
         $fizaPenyediaanSpesifikasi->spesifikasi_skor_lulus_keseluruhan=$request->spesifikasi_skor_lulus_keseluruhan;
         $fizaPenyediaanSpesifikasi->spesifikasi_alamat_penghantaran=$request->spesifikasi_alamat_penghantaran;
@@ -102,17 +108,29 @@ class FizaPenyediaanSpesifikasiController extends Controller
         $fizaPenyediaanSpesifikasi->spesifikasi_skor_maksima=$request->spesifikasi_skor_maksima;
         $fizaPenyediaanSpesifikasi->spesifikasi_jumlah_skor_teknikal=$request->spesifikasi_jumlah_skor_teknikal;
         $fizaPenyediaanSpesifikasi->spesifikasi_skor_lulus_teknikal=$request->spesifikasi_skor_lulus_teknikal;
-        $fizaPenyediaanSpesifikasi->spesifikasi_skema_teknikal=$request->spesifikasi_skema_teknikal;
+
+        if ($request->hasFile('spesifikasi_skema_teknikal')) {
+            $spesifikasi_teknikal=$request->file('spesifikasi_skema_teknikal')->store('spesifikasi_teknikal');
+            $fizaPenyediaanSpesifikasi->spesifikasi_skema_teknikal=$spesifikasi_teknikal;
+        }
+
+       // $fizaPenyediaanSpesifikasi->spesifikasi_skema_teknikal=$request->spesifikasi_skema_teknikal;
         $fizaPenyediaanSpesifikasi->spesifikasi_jumlah_skor_kewangan=$request->spesifikasi_jumlah_skor_kewangan;
 
         $fizaPenyediaanSpesifikasi->spesifikasi_skor_lulus_kewangan=$request->spesifikasi_skor_lulus_kewangan;
-        $fizaPenyediaanSpesifikasi->spesifikasi_skema_kewangan=$request->spesifikasi_skema_kewangan;
+
+        if ($request->hasFile('spesifikasi_skema_kewangan')) {
+            $spesifikasi_kewangan=$request->file('spesifikasi_skema_kewangan')->store('spesifikasi_kewangan');
+            $fizaPenyediaanKewangan->spesifikasi_skema_kewangan=$spesifikasi_kewangan;
+        }
+
+        //$fizaPenyediaanSpesifikasi->spesifikasi_skema_kewangan=$request->spesifikasi_skema_kewangan;
         $fizaPenyediaanSpesifikasi->spesifikasi_skor_lulus_keseluruhan=$request->spesifikasi_skor_lulus_keseluruhan;
         $fizaPenyediaanSpesifikasi->spesifikasi_alamat_penghantaran=$request->spesifikasi_alamat_penghantaran;
         $fizaPenyediaanSpesifikasi->spesifikasi_catatan=$request->spesifikasi_catatan;
 
 
-        $url = '/fizaPenyediaanSpesifikasi'.$fizaPenyediaanSpesifikasi->id;
+        $fizaPenyediaanSpesifikasi->save();
         return redirect('/fizaPenyediaanSpesifikasi');
 
     }

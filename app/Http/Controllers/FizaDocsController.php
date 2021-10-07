@@ -77,7 +77,7 @@ class FizaDocsController extends Controller
         $fizaDocs->doc_updated_by=$request->doc_updated_by;
         $fizaDocs->user_id=$request->user_id;
 
-        $url = '/fizaDocs'.$fizaDocs->id;
+        $fizaDocs->save();
         return redirect('/fizaDocs');
     }
 

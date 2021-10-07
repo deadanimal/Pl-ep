@@ -97,7 +97,7 @@ class FizaSijilDigitalController extends Controller
         $fizaSijilDigital->sijil_modsijil_yuran_statuse_yuran=$request->sijil_yuran_status;
         $fizaSijilDigital->sijil_updated_by=$request->sijil_updated_by;
 
-        $url = '/fizaSijilDigital'.$fizaSijilDigital->id;
+        $fizaSijilDigital->save();
         return redirect('/fizaSijilDigital');
     }
 

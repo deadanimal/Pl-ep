@@ -78,7 +78,7 @@ class FizaPaymentController extends Controller
         $fizaPayment->payment_updated_by=$request->payment_updated_by;
         $fizaPayment->pembekal_id=$request->pembekal_id;
 
-        $url = '/fizaPayment'.$fizaPayment->id;
+        $fizaPayment->save();
         return redirect('/fizaPayment');
 
     }

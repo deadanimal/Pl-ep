@@ -80,7 +80,7 @@ class FizaPelanPerancanganPerolehanController extends Controller
         $fizaPelanPerancanganPerolehan->user_id=$request->user_id;
 
 
-        $url = '/fizaPelanPerancanganPerolehan'.$fizaPelanPerancanganPerolehan->id;
+       $fizaPelanPerancanganPerolehan->save();
         return redirect('/fizaPelanPerancanganPerolehan');
     }
 

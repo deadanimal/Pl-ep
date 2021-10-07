@@ -50,7 +50,7 @@ class FizaNotaPenerimaanController extends Controller
         $fizaNotaPenerimaan->penghantaran_id=$request->penghantaran_id;
 
         $fizaNotaPenerimaan->save();
-        return redirect('/fizaNotaMinta');
+        return redirect('/fizaNotaPenerimaan');
 
 
     }
@@ -94,7 +94,7 @@ class FizaNotaPenerimaanController extends Controller
         $fizaNotaPenerimaan->penghantaran_id=$request->penghantaran_id;
 
 
-        $url = '/fizaNotaPenerimaan'.$fizaNotaPenerimaan->id;
+        $fizaNotaPenerimaan->save();
         return redirect('/fizaNotaPenerimaan');
 
 

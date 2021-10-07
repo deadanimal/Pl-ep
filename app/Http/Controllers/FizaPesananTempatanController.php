@@ -101,7 +101,7 @@ class FizaPesananTempatanController extends Controller
         $fizaPesananTempatan->kart_id=$request->kart_id;
         $fizaPesananTempatan->pesanan_updated_by =$request->pesanan_updated_by;
 
-        $url = '/fizaPesananTempatan'.$fizaPesananTempatan->id;
+        $fizaPesananTempatan->save();
         return redirect('/fizaPesananTempatan');
     }
 

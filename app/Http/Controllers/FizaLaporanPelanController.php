@@ -59,7 +59,7 @@ class FizaLaporanPelanController extends Controller
         $fizaLaporanPelan->pelan_id=$request->pelan_id;
 
 
-        $url = '/fizaLaporanPelan'.$fizaLaporanPelan->id;
+        $fizaLaporanPelan->save();
         return redirect('/fizaLaporanPelan');
     }
 

@@ -52,7 +52,8 @@ class FizaSenaraiSuratNiatController extends Controller
         $fizaSenaraiSuratNiat->niat_pelulus=$request->niat_pelulus;
         $fizaSenaraiSuratNiat->niat_status=$request->niat_status;
         $fizaSenaraiSuratNiat->niat_created_by=$request->niat_created_by;
-        $fizaSenaraiSuratNiat->niat_file=$request->niat_file;//FILE
+
+
         $fizaSenaraiSuratNiat->akhir_id=$request->akhir_id;
 
         $fizaSenaraiSuratNiat->save();
@@ -105,10 +106,16 @@ class FizaSenaraiSuratNiatController extends Controller
         $fizaSenaraiSuratNiat->user_id=$request->user_id;
         $fizaSenaraiSuratNiat->niat_pelulus=$request->niat_pelulus;
         $fizaSenaraiSuratNiat->niat_status=$request->niat_status;
-        $fizaSenaraiSuratNiat->niat_created_by=$request->niat_created_by;
-        $fizaSenaraiSuratNiat->niat_file=$request->niat_file;//FILE
+        $fizaSenaraiSuratNiat->niat_updated_by=$request->niat_updated_by;
 
-        $url = '/fizaSenaraiSuratNiat'.$fizaSenaraiSuratNiat->id;
+        if ($request->hasFile('niat_file')) {
+            $niat_file=$request->file('niat_file')->store('niat_file');
+            $fizaSenaraiSuratNiat->niat_file=$niat_file;//FILE
+        }
+
+        //$fizaSenaraiSuratNiat->niat_file=$request->niat_file;//FILE
+
+        $fizaSenaraiSuratNiat->save();
         return redirect('/fizaSenaraiSuratNiat');
     }
 

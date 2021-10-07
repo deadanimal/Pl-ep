@@ -75,7 +75,7 @@ class FizaKartController extends Controller
         $fizaKart->kart_updated_by =$request->kart_updated_by;
 
 
-        $url = '/fizaKart'.$fizaKart->id;
+        $fizaKart->save();
         return redirect('/fizaKart');
 
     

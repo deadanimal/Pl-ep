@@ -78,7 +78,7 @@ class FizaKehadiranTaklimatController extends Controller
         $fizaKehadiran_Taklimat->kehadiran_link=$request->kehadiran_link;
         $fizaKehadiran_Taklimat->kehadiran_updated_by=$request->kehadiran_updated_by;
 
-        $url = '/fizaKehadiran_Taklimat'.$fizaKehadiranTaklimat->id;
+        $fizaKehadiranTaklimat->save();
         return redirect('/fizaKehadiranTaklimat');
     }
 

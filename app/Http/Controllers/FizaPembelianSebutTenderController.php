@@ -146,7 +146,7 @@ class FizaPembelianSebutTenderController extends Controller
         $fizaPembelianSebutTender->pst_potongan_description=$request->pst_potongan_description;
         $fizaPembelianSebutTender->pst_amaun_potongan=$request->pst_amaun_potongan; 
 
-        $url = '/fizaPembelianSebutTender'.$fizaPembelianSebutTender->id;
+       $fizaPembelianSebutTender->save();
         return redirect('/fizaPembelianSebutTender');
     }
 

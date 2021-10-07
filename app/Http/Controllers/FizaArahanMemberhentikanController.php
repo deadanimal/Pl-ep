@@ -79,7 +79,7 @@ class FizaArahanMemberhentikanController extends Controller
 
         $fizaArahanMemberhentikan->save();
 
-        $url = '/fizaArahanMemberhentikan/'.$fizaArahanMemberhentikan->id;
+      
         return redirect('/fizaArahanMemberhentikan');
     }
 

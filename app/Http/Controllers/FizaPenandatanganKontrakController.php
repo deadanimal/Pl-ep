@@ -84,7 +84,7 @@ class FizaPenandatanganKontrakController extends Controller
         $fizaPenandatanganKontrak->penandatangan_updated_by=$request->penandatangan_updated_by;
 
 
-        $url = '/fizaPenandatanganKontrak'.$fizaPenandatanganKontrak->id;
+        $fizaPenandatanganKontrak->save();
         return redirect('/fizaPenandatanganKontrak');
 
 

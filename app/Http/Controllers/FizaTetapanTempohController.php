@@ -65,7 +65,7 @@ class FizaTetapanTempohController extends Controller
         $fizaTetapanTempoh->tempoh_created_by=$request->tempoh_created_by;
         $fizaTetapanTempoh->user_id=$request->user_id;
 
-        $url = '/fizaTetapanTempoh'.$fizaTetapanTempoh->id;
+        $fizaTetapanTempoh->save();
         return redirect('/fizaTetapanTempoh');
     }
 

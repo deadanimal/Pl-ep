@@ -64,7 +64,7 @@ class FizaInvoiceController extends Controller
 
                 
 
-        $url = '/fizaInvoice'.$fizaInvoice->id;
+        $fizaInvoice->save();
         return redirect('/fizaInvoice');
     }
 

@@ -88,7 +88,7 @@ class FizaPermohonanKemaskiniProfilController extends Controller
         $fizaPermohonanKemaskiniProfil->katalog_updated_by=$request->katalog_updated_by;
         $fizaPermohonanKemaskiniProfil->user_id=$request->user_id;
 
-        $url = '/fizaPermohonanKemaskiniProfil'.$fizaPermohonanKemaskiniProfil->id;
+        $fizaPermohonanKemaskiniProfil->save();
         return redirect('/fizaPermohonanKemaskiniProfil');
     }
 

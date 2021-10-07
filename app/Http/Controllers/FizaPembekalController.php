@@ -58,7 +58,10 @@ class FizaPembekalController extends Controller
         $fizaPembekal->pembekal_cbp_no=$request->pembekal_cbp_no;
         $fizaPembekal->pembekal_cbp_effective_date=$request->pembekal_cbp_effective_date;
         $fizaPembekal->pembekal_cbp_end_date=$request->pembekal_cbp_end_date;
-        $fizaPembekal->pembekal_cbp_approval_doc=$request->pembekal_cbp_approval_doc;
+
+        $pembekal_cbp_approval_doc=$request->file('pembekal_cbp_approval_doc')->store('pembekal_cbp_approval_doc');
+        $fizaPembekal->pembekal_cbp_approval_doc = $pembekal_cbp_approval_doc;
+        //$fizaPembekal->pembekal_cbp_approval_doc=$request->pembekal_cbp_approval_doc;
         $fizaPembekal->pembekal_jenis_peniagaan=$request->pembekal_jenis_peniagaan;
         $fizaPembekal->pembekal_bank=$request->pembekal_bank;
         $fizaPembekal->pembekal_akaun_no=$request->pembekal_akaun_no;
@@ -97,13 +100,6 @@ class FizaPembekalController extends Controller
             'fizaPembekal'=>$fizaPembekal]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\FizaPembekal  $fizaPembekal
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, FizaPembekal $fizaPembekal)
     {
         $fizaPembekal->pembekal_jenis_akaun=$request->pembekal_jenis_akaun;
@@ -130,7 +126,12 @@ class FizaPembekalController extends Controller
         $fizaPembekal->pembekal_cbp_no=$request->pembekal_cbp_no;
         $fizaPembekal->pembekal_cbp_effective_date=$request->pembekal_cbp_effective_date;
         $fizaPembekal->pembekal_cbp_end_date=$request->pembekal_cbp_end_date;
-        $fizaPembekal->pembekal_cbp_approval_doc=$request->pembekal_cbp_approval_doc;
+
+        //$fizaPembekal->pembekal_cbp_approval_doc=$request->pembekal_cbp_approval_doc;//file
+        if($request->hasFile('pembekal_cbp_approval_doc'))
+        $pembekal_cbp_approval_doc=$request->file('pembekal_cbp_approval_doc')->store('pembekal_cbp_approval_doc');
+        $fizaPembekal->pembekal_cbp_approval_doc = $pembekal_cbp_approval_doc;
+
         $fizaPembekal->pembekal_jenis_peniagaan=$request->pembekal_jenis_peniagaan;
         $fizaPembekal->pembekal_bank=$request->pembekal_bank;
         $fizaPembekal->pembekal_akaun_no=$request->pembekal_akaun_no;
@@ -140,7 +141,7 @@ class FizaPembekalController extends Controller
         $fizaPembekal->pembekal_updated_by=$request->pembekal_updated_by;
         $fizaPembekal->kod_id=$request->kod_id;
 
-        $url = '/fizaPembekal'.$fizaPembekal->id;
+        $fizaPembekal->save();
         return redirect('/fizaPembekal');
     }
 

@@ -67,7 +67,7 @@ class FizaKodBidangController extends Controller
         $fizaKodBidang->kod_description=$request->kod_description;
         $fizaKodBidang->kod_updated_by=$request->kod_updated_by;
 
-        $url = '/fizaKodBidang'.$fizaKodBidang->id;
+        $fizaKodBidang->save();
         return redirect('/fizaKodBidang');
     }
 

@@ -15,7 +15,7 @@ class FizaSenaraiSemakStandardController extends Controller
     public function index()
     {
         $fizaSenaraiSemakStandard = FizaSenaraiSemakStandard::all();
-        return view ('senarai_semak.index',[
+        return view ('1_senarai_semak.index',[
             'fizaSenaraiSemakStandard'=>$fizaSenaraiSemakStandard]);
     }
 
@@ -27,7 +27,7 @@ class FizaSenaraiSemakStandardController extends Controller
     public function create()
     {
 
-        return view ('senarai_semak.index');
+        return view ('1_senarai_semak.create');
     }
 
     /**
@@ -47,7 +47,12 @@ class FizaSenaraiSemakStandardController extends Controller
         $fizaSenaraiSemakStandard->sss_skor=$request->sss_skor;
         $fizaSenaraiSemakStandard->sss_skor_maksima=$request->sss_skor_maksima;
         $fizaSenaraiSemakStandard->sss_created_by=$request->sss_created_by;
-        $fizaSenaraiSemakStandard->sss_file =$request->sss_file ;//file
+
+
+        $sss_file=$request->file('sss_file')->store('sss_file');
+        $fizaSenaraiSemakStandard->sss_file=$sss_file;
+       // $fizaSenaraiSemakStandard->sss_file =$request->sss_file ;//file
+
         $fizaSenaraiSemakStandard->sss_status_pematuhan=$request->sss_status_pematuhan;
 
     }
@@ -72,7 +77,7 @@ class FizaSenaraiSemakStandardController extends Controller
     public function edit(FizaSenaraiSemakStandard $fizaSenaraiSemakStandard)
     {
         $fizaSenaraiSemakStandard = FizaSenaraiSemakStandard::all();
-        return view ('senarai_semak.edit',[
+        return view ('1_senarai_semak.edit',[
             'fizaSenaraiSemakStandard'=>$fizaSenaraiSemakStandard]);
     }
 
@@ -93,7 +98,12 @@ class FizaSenaraiSemakStandardController extends Controller
         $fizaSenaraiSemakStandard->sss_skor=$request->sss_skor;
         $fizaSenaraiSemakStandard->sss_skor_maksima=$request->sss_skor_maksima;
         $fizaSenaraiSemakStandard->sss_created_by=$request->sss_created_by;
-        $fizaSenaraiSemakStandard->sss_file =$request->sss_file ;//file
+        //$fizaSenaraiSemakStandard->sss_file =$request->sss_file ;//file
+
+        if ($request->hasFile('sss_file')) {
+            $sss_file=$request->file('sss_file')->store('sss_file');
+            $fizaSenaraiSemakStandard->sss_file=$sss_file;
+        }
         $fizaSenaraiSemakStandard->sss_status_pematuhan=$request->sss_status_pematuhan;
 
 
