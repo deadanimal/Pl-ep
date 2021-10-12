@@ -12,18 +12,19 @@ class FizaKodBidangController extends Controller
 
     public function index()
     {
-        Mail::to('syafiza.senin@pipeline.com.my')->send(new SuratMainan);
+        // Mail::to('syafiza.senin@pipeline.com.my')->send(new SuratMainan);
         $fizaKodBidang = FizaKodBidang::all();
-        // return view ('1_kod_bidang.index',[
-        //      'fizaKodBidang'=>$fizaKodBidang]);
-        dd('mainmain');
+        return view ('1_kod_bidang.index',[
+             'fizaKodBidang'=>$fizaKodBidang]);
+        // dd('mainmain');
     }
 
 
 
     public function create()
     {
-        return redirect('1_kod_bidang.create');
+
+         return view('1_kod_bidang.create');
     }
     
 
@@ -40,7 +41,7 @@ class FizaKodBidangController extends Controller
 
 
         $fizaKodBidang->save();
-        return redirect('/fizaKodBidang');
+        return redirect('/KodBidang');
     
     }
 
@@ -51,16 +52,17 @@ class FizaKodBidangController extends Controller
     }
 
 
-    public function edit(FizaKodBidang $fizaKodBidang)
+    public function edit($id)
     {
-        $fizaKodBidang = FizaKodBidang::all();
+        $fizaKodBidang = FizaKodBidang::find($id);
         return view ('1_kod_bidang.edit',[
             'fizaKodBidang'=>$fizaKodBidang]);
     }
 
-    public function update(Request $request, FizaKodBidang $fizaKodBidang)
+    public function update(Request $request,$id)
     {
-        
+        $fizaKodBidang = FizaKodBidang::find($id);
+
         $fizaKodBidang->kod_type =$request->kod_type ;
         $fizaKodBidang->kod_category=$request->kod_category;
         $fizaKodBidang->kod_pengkhususan=$request->kod_pengkhususan;
@@ -68,7 +70,7 @@ class FizaKodBidangController extends Controller
         $fizaKodBidang->kod_updated_by=$request->kod_updated_by;
 
         $fizaKodBidang->save();
-        return redirect('/fizaKodBidang');
+        return redirect('/KodBidang');
     }
 
     public function destroy(FizaKodBidang $fizaKodBidang)

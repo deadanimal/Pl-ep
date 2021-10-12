@@ -19,8 +19,8 @@ class CreateFizaKodBidangsTable extends Migration
             $table->string('kod_category')->nullable();
             $table->string('kod_pengkhususan')->nullable();
             $table->string('kod_description')->nullable();
-            $table->string('kod_created_by');
-            $table->string('kod_updated_by');
+            $table->string('kod_created_by')->nullable();
+            $table->string('kod_updated_by')->nullable();
 
 
             $table->timestamps();

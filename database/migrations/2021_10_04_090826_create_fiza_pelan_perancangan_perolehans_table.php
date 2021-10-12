@@ -29,9 +29,19 @@ class CreateFizaPelanPerancanganPerolehansTable extends Migration
             $table->String('pelan_catatan_pengesah')->nullable();
             $table->String('pelan_pelulus')->nullable();
             $table->String('pelan_catatan_pelulus')->nullable();
-            $table->foreignId('user_id');
-            $table->string('pelan_created_by');
-            $table->string('pelan_updated_by');
+            $table->foreignId('user_id')->nullable();
+            $table->string('pelan_created_by')->nullable();
+            $table->string('pelan_updated_by')->nullable();
+
+            $table->String('pelan_nilai_perolehan_keseluruhan')->nullable();
+            $table->String('pelan_peruntukan_tahunan')->nullable();
+            $table->String('pelan_tarikh_perlaksanaan_iklan')->nullable();
+            $table->String('pelan_tarikh_penyediaan_spesifikasi')->nullable();
+            $table->String('pelan_tarikh_penyediaan_doc_tender')->nullable();
+            $table->String('pelan_tarikh_penilaian_tender')->nullable();
+            $table->String('pelan_tarikh_perlaksanaan_persidangan')->nullable();
+            $table->String('pelan_tarikh_sst_dikeluarkan')->nullable();
+
             $table->timestamps();
         });
     }

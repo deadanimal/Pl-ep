@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\FizaPembekal;
 use Illuminate\Http\Request;
+use App\Models\FizaKodBidang;
 
 class FizaPembekalController extends Controller
 {
@@ -68,6 +69,11 @@ class FizaPembekalController extends Controller
         $fizaPembekal->pembekal_amaun_yuran=$request->pembekal_amaun_yuran;
         $fizaPembekal->pembekal_yuran_status=$request->pembekal_yuran_status;
         $fizaPembekal->user_id=$request->user_id;
+
+
+
+
+
         $fizaPembekal->pembekal_created_by=$request->pembekal_created_by;
         $fizaPembekal->kod_id=$request->kod_id;
 
@@ -140,6 +146,8 @@ class FizaPembekalController extends Controller
         $fizaPembekal->user_id=$request->user_id;
         $fizaPembekal->pembekal_updated_by=$request->pembekal_updated_by;
         $fizaPembekal->kod_id=$request->kod_id;
+
+        
 
         $fizaPembekal->save();
         return redirect('/fizaPembekal');

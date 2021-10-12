@@ -19,6 +19,8 @@ class CreateFizaPembekalsTable extends Migration
             $table->string('pembekal_jenis')->nullable();
             $table->string('pembekal_jenis_company')->nullable();
             $table->string('pembekal_no_pendaftaran')->nullable();
+            $table->string('pembekal_sijil_ssm')->nullable();
+            $table->string('pembekal_lesen_perniagaan')->nullable();
             $table->string('pembekal_pemilik')->nullable();
             $table->string('pembekal_citizenship')->nullable();
             $table->string('pembekal_identity_type')->nullable();
@@ -44,9 +46,28 @@ class CreateFizaPembekalsTable extends Migration
             $table->string('pembekal_yuran_status')->nullable();
             $table->foreignId('user_id')->nullable();
             $table->foreignId('kod_id')->nullable();
-            $table->string('pembekal_created_by');
-            $table->string('pembekal_updated_by');
+            $table->string('pembekal_created_by')->nullable();
+            $table->string('pembekal_updated_by')->nullable();
+            $table->string('pembekal_staff_ic')->nullable();
+            $table->string('pembekal_staff_nama')->nullable();
+            $table->string('pembekal_staff_jawatan')->nullable();
+
+            $table->string('pembekal_no_sijil_mof')->nullable();
+            $table->string('pembekal_no_rujukan_pendaftaran')->nullable();
+            $table->string('pembekal_tarikh_sah_mof')->nullable();
+            $table->string('pembekal_sijil_mof')->nullable();
+            $table->string('pembekal_sijil_perakuan_bumiputera')->nullable();
+            $table->string('pembekal_sijil_pendaftaran_syarikat')->nullable();
+            $table->string('pembekal_sijil_taraf_bumi')->nullable();
+            
+            $table->string('pembekal_no_pendaftaran_ppk')->nullable();
+            $table->string('pembekal_tarikh_sah_ppk')->nullable();
+            $table->string('pembekal_pengkhususan')->nullable();
+            $table->string('pembekal_pegawai_bertauliah')->nullable();
+            $table->string('pembekal_sijil_gred')->nullable();
+            $table->string('pembekal_tarikh_sah_gred')->nullable();
             $table->timestamps();
+            
         });
     }
 

@@ -56,15 +56,8 @@ Route::resource('/Pembekal',FizaPembekalController::class);
 // Route::resource('/SebutHargaTenderSuratNiat', SebutHargaTenderSuratNiat::class);
 
 
-
-
-
-
-
-
-
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.base');
 });
 
 Route::get('/dashboard', function () {

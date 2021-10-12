@@ -36,13 +36,25 @@ class FizaPelanPerancanganPerolehanController extends Controller
         $fizaPelanPerancanganPerolehan->pelan_invitation_date=$request->pelan_invitation_date;
         $fizaPelanPerancanganPerolehan->pelan_estimated_amount=$request->pelan_estimated_amount;
         $fizaPelanPerancanganPerolehan->pelan_catatan=$request->pelan_catatan;
-        $fizaPelanPerancanganPerolehan->pelan_status=$request->pelan_status;
+        // $fizaPelanPerancanganPerolehan->pelan_status="Menunggu Pengesahan";
         $fizaPelanPerancanganPerolehan->pelan_pengesah=$request->pelan_pengesah;
         $fizaPelanPerancanganPerolehan->pelan_catatan_pengesah=$request->pelan_catatan_pengesah;
         $fizaPelanPerancanganPerolehan->pelan_pelulus=$request->pelan_pelulus;
         $fizaPelanPerancanganPerolehan->pelan_catatan_pelulus=$request->pelan_catatan_pelulus;
         $fizaPelanPerancanganPerolehan->pelan_created_by=$request->pelan_created_by;
         $fizaPelanPerancanganPerolehan->user_id=$request->user_id;
+
+        if ($request->status_pelan=="hantar"){
+            $fizaPelanPerancanganPerolehan->pelan_status="Menunggu Pengesahan";
+        }
+        else if($request->status_pelan=="draf"){
+            $fizaPelanPerancanganPerolehan->pelan_status="Draf";
+            
+        }
+
+        $fizaPelanPerancanganPerolehan->save();
+        return redirect('/PelanPerancanganPerolehan');
+
     }
     
     public function show(FizaPelanPerancanganPerolehan $fizaPelanPerancanganPerolehan)
@@ -51,16 +63,19 @@ class FizaPelanPerancanganPerolehanController extends Controller
     }
 
 
-    public function edit(FizaPelanPerancanganPerolehan $fizaPelanPerancanganPerolehan)
+    public function edit($id)
     {
-        $fizaPelanPerancanganPerolehan = FizaPelanPerancanganPerolehan::all();
+        $PelanPerancanganPerolehan= FizaPelanPerancanganPerolehan::find($id);
         return view ('1_pelan_perancangan.edit',[
-            'fizaPelanPerancanganPerolehan'=>$fizaPelanPerancanganPerolehan]);
+            'PelanPerancanganPerolehan'=>$PelanPerancanganPerolehan]);
+
     }
 
 
-    public function update(Request $request, FizaPelanPerancanganPerolehan $fizaPelanPerancanganPerolehan)
+    public function update($id, Request $request)
     {
+        $fizaPelanPerancanganPerolehan= FizaPelanPerancanganPerolehan::find($id);
+
         $fizaPelanPerancanganPerolehan->pelan_jenis=$request->pelan_jenis;
         $fizaPelanPerancanganPerolehan->pelan_year=$request->pelan_year;
         $fizaPelanPerancanganPerolehan->pelan_title=$request->pelan_title;
@@ -71,7 +86,7 @@ class FizaPelanPerancanganPerolehanController extends Controller
         $fizaPelanPerancanganPerolehan->pelan_invitation_date=$request->pelan_invitation_date;
         $fizaPelanPerancanganPerolehan->pelan_estimated_amount=$request->pelan_estimated_amount;
         $fizaPelanPerancanganPerolehan->pelan_catatan=$request->pelan_catatan;
-        $fizaPelanPerancanganPerolehan->pelan_status=$request->pelan_status;
+        $fizaPelanPerancanganPerolehan->pelan_status="Menunggu pengesahan";
         $fizaPelanPerancanganPerolehan->pelan_pengesah=$request->pelan_pengesah;
         $fizaPelanPerancanganPerolehan->pelan_catatan_pengesah=$request->pelan_catatan_pengesah;
         $fizaPelanPerancanganPerolehan->pelan_pelulus=$request->pelan_pelulus;
@@ -80,13 +95,13 @@ class FizaPelanPerancanganPerolehanController extends Controller
         $fizaPelanPerancanganPerolehan->user_id=$request->user_id;
 
 
-       $fizaPelanPerancanganPerolehan->save();
-        return redirect('/fizaPelanPerancanganPerolehan');
+        $fizaPelanPerancanganPerolehan->save();
+        return redirect('/PelanPerancanganPerolehan');
     }
 
 
     public function destroy(FizaPelanPerancanganPerolehan $fizaPelanPerancanganPerolehan)
     {
-        
+        //
     }
 }
