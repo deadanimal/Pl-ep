@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FizaKodBidangController;
 use App\Http\Controllers\FizaPelanPerancanganPerolehanController;
 use App\Http\Controllers\FizaPembekalController;
+use App\Http\Controllers\FizaRolesController;
+use App\Http\Controllers\FizaEpUserController;
+use App\Http\Controllers\FizaUserRoleController;
+
 
 
 /*
@@ -19,6 +23,18 @@ use App\Http\Controllers\FizaPembekalController;
 Route::resource('/KodBidang',FizaKodBidangController::class);
 Route::resource('/PelanPerancanganPerolehan',FizaPelanPerancanganPerolehanController::class);
 Route::resource('/Pembekal',FizaPembekalController::class);
+Route::resource('/Roles',FizaRolesController::class);
+Route::resource('/Roles',FizaEpUserController::class);
+
+Route::get('/indexpengesah', [FizaPelanPerancanganPerolehanController::class,'indexpengesah']);
+Route::get('/editpengesah/{id}', [FizaPelanPerancanganPerolehanController::class,'editpengesah']);
+Route::post('/updatepengesah', [FizaPelanPerancanganPerolehanController::class,'updatepengesah']);
+
+
+
+Route::get('/indexpelulus',[FizaPelanPerancanganPerolehanController::class,'indexpelulus']);
+Route::get('/editpelulus/{id}',[FizaPelanPerancanganPerolehanController::class,'editpelulus']);
+Route::post('/updatepelulus',[FizaPelanPerancanganPerolehanController::class,'updatepelulus']);
 
 
 
@@ -57,7 +73,7 @@ Route::resource('/Pembekal',FizaPembekalController::class);
 
 
 Route::get('/', function () {
-    return view('layouts.base');
+    return view('test');
 });
 
 Route::get('/dashboard', function () {

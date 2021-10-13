@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFizaRolesTable extends Migration
+class CreateRolesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateFizaRolesTable extends Migration
      */
     public function up()
     {
-        Schema::create('fiza_roles', function (Blueprint $table) {
+        Schema::create('roles', function (Blueprint $table) {
             $table->id();
-            // $table->string('role_name')->nullable();
-            // $table->string('role_staff_status')->nullable();
-            // $table->string('role_created_by')->nullable();
-            // $table->string('role_updated_by')->nullable();
-            
+            $table->string('role_name')->nullable();
+            $table->string('role_staff_status')->nullable();
+            $table->string('role_created_by')->nullable();
+            $table->string('role_updated_by')->nullable();
 
             $table->timestamps();
         });
@@ -32,6 +31,6 @@ class CreateFizaRolesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fiza_roles');
+        Schema::dropIfExists('roles');
     }
 }

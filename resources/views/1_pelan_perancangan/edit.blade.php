@@ -53,7 +53,7 @@
             <div class="mb-3 col-md-6">
                 <select name=pelan_category class="form-control">
                     <option hidden>Sila Pilih</option>
-                    <option value="bekalan" >Bekalan</option>
+                    <option value="bekalan">Bekalan</option>
                     <option value="perkhidmatan">Perkhidmatan</option>
                     <option value="kerja">Kerja</option>
                     </select>
@@ -83,6 +83,69 @@
             </div>
             <div class="mb-3 col-md-6">
                 <input  type=number name=pelan_estimated_amount class="form-control" min="0" value="0" step=".01" placeholder="0.00" value="{{$PelanPerancanganPerolehan->pelan_estimated_amount}}">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="mb-3 col-md-6">
+                <label class="col-form-label col-sm-6 ">Peruntukan Tahunan </label>
+            </div>
+            <div class="mb-3 col-md-6">
+                <input  type=number name=pelan_peruntukan_tahunan class="form-control" min="0" value="0" step=".01" placeholder="0.00"  value="{{$PelanPerancanganPerolehan->pelan_peruntukan_tahunan}}">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="mb-3 col-md-6">
+                <label class="col-form-label col-sm-6 ">Tarikh Perlaksanaan Iklan</label>
+            </div>
+            <div class="mb-3 col-md-6">
+                <input  type=date name=pelan_perlaksanaan_iklan class="form-control"   value="{{$PelanPerancanganPerolehan->pelan_tarikh_perlaksanaan_iklan}}">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="mb-3 col-md-6">
+                <label class="col-form-label col-sm-6 ">Tarikh Penyediaan Spesifikasi</label>
+            </div>
+            <div class="mb-3 col-md-6">
+                <input  type=date name=pelan_tarikh_penyediaan_spesifikasi class="form-control"  value="{{$PelanPerancanganPerolehan->pelan_tarikh_penyediaan_spesifikasi}}">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="mb-3 col-md-6">
+                <label class="col-form-label col-sm-6 ">Tarikh Penyediaan Dokumen Tender</label>
+            </div>
+            <div class="mb-3 col-md-6">
+                <input  type=date name=pelan_tarikh_penyediaan_doc_tender class="form-control"  value="{{$PelanPerancanganPerolehan->pelan_tarikh_penyediaan_doc_tender}}">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="mb-3 col-md-6">
+                <label class="col-form-label col-sm-6 ">Tarikh Penilaian Tender</label>
+            </div>
+            <div class="mb-3 col-md-6">
+                <input  type=date name=pelan_tarikh_penilaian_tender class="form-control"  value="{{$PelanPerancanganPerolehan->pelan_tarikh_penilaian_tender}}">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="mb-3 col-md-6">
+                <label class="col-form-label col-sm-6 ">Tarikh Perlaksanaan Persidangan</label>
+            </div>
+            <div class="mb-3 col-md-6">
+                <input  type=date name=pelan_tarikh_perlaksanaan_persidangan class="form-control"  value="{{$PelanPerancanganPerolehan->pelan_tarikh_perlaksanaan_persidangan}}">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="mb-3 col-md-6">
+                <label class="col-form-label col-sm-6 ">Tarikh SST Dikeluarkan</label>
+            </div>
+            <div class="mb-3 col-md-6">
+                <input  type=date name=pelan_tarikh_sst_dikeluarkan class="form-control"  value="{{$PelanPerancanganPerolehan->pelan_tarikh_sst_dikeluarkan}}">
             </div>
         </div>
 

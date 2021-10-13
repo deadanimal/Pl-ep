@@ -1,1 +1,0 @@
-Syafiza suka makan nasi. 

@@ -12,7 +12,6 @@ class FizaKodBidangController extends Controller
 
     public function index()
     {
-        // Mail::to('syafiza.senin@pipeline.com.my')->send(new SuratMainan);
         $fizaKodBidang = FizaKodBidang::all();
         return view ('1_kod_bidang.index',[
              'fizaKodBidang'=>$fizaKodBidang]);

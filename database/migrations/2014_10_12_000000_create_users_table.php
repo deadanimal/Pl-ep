@@ -17,10 +17,35 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('identity_no')->nullable();
             $table->timestamp('email_verified_at')->nullable();
+            $table->enum('jenis', ['pekerja', 'pembekal', 'juruaudit']);
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+
+            //$table->foreignId('role_id')->nullable();
+            // $table->string('user_identity_type')->nullable();
+            // $table->string('user_identity_no')->nullable();
+            // $table->string('user_title')->nullable();
+            // $table->string('user_name')->nullable();
+            // $table->string('user_role')->nullable();//$table->enum('jenis', ['pekerja', 'pembekal', 'juruaudit']);
+            // $table->string('user_status')->nullable();
+            // $table->string('user_citizenship')->nullable();
+            // $table->string('user_position')->nullable();
+            // $table->string('user_grade')->nullable();
+            // $table->string('user_email')->nullable();
+            // $table->string('user_contact_no')->nullable();
+            // $table->string('user_fax_no')->nullable();
+            // $table->string('user_image')->nullable();
+            // $table->string('user_address')->nullable();
+            // $table->string('user_postalcode')->nullable();
+            // $table->string('user_city')->nullable();
+            // $table->string('user_state')->nullable();
+            // $table->string('user_current_password')->nullable();
+            // $table->string('user_new_password')->nullable();
+            // $table->string('user_new_password2')->nullable();
+            // $table->foreignId('kod_id')->nullable();
         });
     }
 

@@ -38,7 +38,7 @@
 						Main
 					</li>
 					<li class="sidebar-item active">
-						<a data-bs-target="#dashboards" data-bs-toggle="collapse" class="sidebar-link">
+						<a data-bs-target="/" data-bs-toggle="collapse" class="sidebar-link">
 							<i class="align-middle me-2 fas fa-fw fa-home"></i> <span class="align-middle">Dashboards</span>
 						</a>
 						<ul id="dashboards" class="sidebar-dropdown list-unstyled collapse show" data-bs-parent="#sidebar">

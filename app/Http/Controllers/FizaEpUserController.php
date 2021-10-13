@@ -42,12 +42,12 @@ class FizaEpUserController extends Controller
         $user_image=$request->file('user_image')->store('user_img');
         $fizaEpUser->user_image =$user_image ;//file
 
-        $fizaEpUser->user_address  =$request->user_address  ;
-        $fizaEpUser-> user_postalcode =$request-> user_postalcode ;
+        $fizaEpUser->user_address=$request->user_address  ;
+        $fizaEpUser->user_postalcode =$request-> user_postalcode ;
         $fizaEpUser->user_city =$request->user_city ;
         $fizaEpUser->user_current_password =$request->user_current_password ;
-        $fizaEpUser->user_new_password =$request->user_new_password;
-        $fizaEpUser->user_new_password2 =$request->user_new_password2  ;
+        $fizaEpUser->user_new_password=$request->user_new_password;
+        $fizaEpUser->user_new_password2=$request->user_new_password2  ;
         $fizaEpUser->user_created_by  =$request->user_created_by  ; 
         
         $fizaEpUser->save();
@@ -92,7 +92,7 @@ class FizaEpUserController extends Controller
         }
         
         $fizaEpUser->user_address  =$request->user_address  ;
-        $fizaEpUser-> user_postalcode =$request-> user_postalcode ;
+        $fizaEpUser->user_postalcode =$request-> user_postalcode ;
         $fizaEpUser->user_city =$request->user_city ;
         $fizaEpUser->user_current_password =$request->user_current_password ;
         $fizaEpUser->user_new_password =$request->user_new_password;

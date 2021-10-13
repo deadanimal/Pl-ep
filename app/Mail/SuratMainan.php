@@ -7,10 +7,12 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
+
 class SuratMainan extends Mailable
 {
     use Queueable, SerializesModels;
 
+    protected $pelanperancanganperolehan;
     /**
      * Create a new message instance.
      *
@@ -28,6 +30,6 @@ class SuratMainan extends Mailable
      */
     public function build()
     {
-        return $this->view('email.suratmainan');
+        //
     }
 }

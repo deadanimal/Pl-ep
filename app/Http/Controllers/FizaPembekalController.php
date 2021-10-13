@@ -70,12 +70,14 @@ class FizaPembekalController extends Controller
         $fizaPembekal->pembekal_yuran_status=$request->pembekal_yuran_status;
         $fizaPembekal->user_id=$request->user_id;
 
-
-
-
-
         $fizaPembekal->pembekal_created_by=$request->pembekal_created_by;
         $fizaPembekal->kod_id=$request->kod_id;
+
+        if(!empty($request->jenis_akaun)){
+            $pembekal->jenis_akaun = implode("|" ,$request->jenis_akaun);
+        }else{
+            $pembekal->jenis_akaun = "Akaun Asas";
+        }
 
         $fizaPembekal->save();
         return redirect('/fizaPembekal');

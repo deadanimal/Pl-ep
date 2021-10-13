@@ -70,9 +70,9 @@
                             <ul id="pages" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
                                 <li class="sidebar-item"><a class="sidebar-link" href="/PelanPerancanganPerolehan">Senarai Pelan Perancangan Perolehan</a></li>
                                 <li class="sidebar-item"><a class="sidebar-link" href="/PelanPerancanganPerolehan/create">Cipta Baru Pelan</a></li>
-                                {{-- <li class="sidebar-item"><a class="sidebar-link" href="pages-pricing.html">Pricing</a></li>
-                                <li class="sidebar-item"><a class="sidebar-link" href="pages-tasks.html">Tasks</a></li>
-                                <li class="sidebar-item"><a class="sidebar-link" href="pages-blank.html">Blank Page</a></li> --}}
+                                <li class="sidebar-item"><a class="sidebar-link" href="/indexpengesah">Pelan Yang Menunggu Pengesahanisahkan</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="/indexpelulus">Pelan Yang Menunggu Kelulusan</a></li>
+                                {{-- <li class="sidebar-item"><a class="sidebar-link" href="pages-blank.html">Blank Page</a></li> --}}
                             </ul>
                         </li>
 
