@@ -11,7 +11,7 @@ class FizaRolesController extends Controller
 
     public function index()
     {
-        $user = EpUser::all();
+        $user =User::all();
         $user->Roles();
     }
 
@@ -33,25 +33,25 @@ class FizaRolesController extends Controller
         // return redirect('/fizaRole');
 
         $role_name = FizaRole::where('role_name', 'Pegawai Perancang')->first();
-        $user->Fizaroles()->attach($role_name);
+        $user->roles()->attach($role_name);
 
         $role_name = FizaRole::where('role_name', 'Pegawai Pengesah')->first();
-        $user->Fizaroles()->attach($role_name);
+        $user->roles()->attach($role_name);
 
         $role_name = FizaRole::where('role_name', 'Pegawai Pelulus')->first();
         $user->Fizaroles()->attach($role_name);
 
-        $role_name = FizaRole::where('role_name', 'Ahli Jawatankuasa')->first();
-        $user->Fizaroles()->attach($role_name);
+        $role_name = Role::where('role_name', 'Ahli Jawatankuasa')->first();
+        $user->roles()->attach($role_name);
 
-        $role_name = FizaRole::where('role_name', 'Juruaudit')->first();
-        $user->Fizaroles()->attach($role_name);
+        $role_name = Role::where('role_name', 'Juruaudit')->first();
+        $user->roles()->attach($role_name);
 
-        $role_name = FizaRole::where('role_name', 'Pemilik Pembekal')->first();
-        $user->Fizaroles()->attach($role_name);
+        // $role_name = Role::where('role_name', 'Pemilik Pembekal')->first();
+        // $user->roles()->attach($role_name);
 
-        $role_name = FizaRole::where('role_name', 'Staf Pembekal')->first();
-        $user->Fizaroles()->attach($role_name);
+        // $role_name = Role::where('role_name', 'Staf Pembekal')->first();
+        // $user->roles()->attach($role_name);
 
 
     }
@@ -83,4 +83,14 @@ class FizaRolesController extends Controller
     {
         //
     }
+
+    // public function set_role(Request $request) {
+
+    //     $nama_role = $request->nama_role;
+    //     $user_id = $request->user_id;
+    //     $user = User::find($user_id);
+
+    //     $role_name = FizaRole::where('role_name', $nama_role)->first();
+    //     $user->roles()->attach($role_name);
+    // }
 }

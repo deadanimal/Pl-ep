@@ -7,6 +7,9 @@ use App\Http\Controllers\FizaPembekalController;
 use App\Http\Controllers\FizaRolesController;
 use App\Http\Controllers\FizaEpUserController;
 use App\Http\Controllers\FizaUserRoleController;
+use App\Http\Controllers\Auth\RegisteredUserController;
+
+use App\Models\Roles;
 
 
 
@@ -23,7 +26,30 @@ use App\Http\Controllers\FizaUserRoleController;
 Route::resource('/KodBidang',FizaKodBidangController::class);
 Route::resource('/PelanPerancanganPerolehan',FizaPelanPerancanganPerolehanController::class);
 Route::resource('/Pembekal',FizaPembekalController::class);
-Route::resource('/Roles',FizaRolesController::class);
+
+Route::get('/list-role',[RegisteredUserController::class,'list_role']);
+
+
+Route::get('/register-role', function(){
+    $role= Roles::all();
+
+    return view('role_register',[
+        'role'=>$role
+    ]);
+});
+Route::post('/daftar-role',[RegisteredUserController::class,'register_roles']);
+
+Route::get('/update-role', function(){
+    $role= Roles::all();
+
+    return view('role_update',[
+        'role'=>$role
+    ]);
+});
+Route::post('/kemaskini-role',[RegisteredUserController::class,'update_role']);
+
+
+
 Route::resource('/Roles',FizaEpUserController::class);
 
 Route::get('/indexpengesah', [FizaPelanPerancanganPerolehanController::class,'indexpengesah']);

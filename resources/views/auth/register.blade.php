@@ -27,8 +27,12 @@
 
             <div>
                 <x-label for="Jenis User" :value="__('Jenis User')"/>
-
-                <x-input id="jenis_user" class="block mt-1 w-full" type="text" name="jenis_user" :value="old('jenis_user')" required autofocus />
+                <select name="jenis_user" class="block mt-1 w-full" required autofocus />
+                    <option value="Pekerja">Pekerja</option>
+                    <option value="Pembekal">Pembekal</option>
+                    <option value="Juruaudit">Juruaudit</option>
+                </select>
+                {{-- <x-input id="jenis_user" class="block mt-1 w-full" type="text" name="jenis_user" :value="old('jenis_user')" required autofocus /> --}}
             </div>
 
             <!-- Email Address -->

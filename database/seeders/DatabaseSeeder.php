@@ -22,6 +22,26 @@ class DatabaseSeeder extends Seeder
             'identity_no'=>'999',
             'jenis'=>'pembekal',
             'password' => Hash::make('password'),
-        ]);     
+        ]);
+        
+        DB::table('roles')->insert([
+            'role_name'=>'pegawai perancang',
+            'role_staff_status'=>'aktif'
+        ]);
+
+        DB::table('roles')->insert([
+            'role_name'=>'pegawai pengesah',
+            'role_staff_status'=>'aktif'
+        ]);
+        
+        DB::table('roles')->insert([
+            'role_name'=>'pegawai pelulus',
+            'role_staff_status'=>'aktif'
+        ]);
+
+        DB::table('roles')->insert([
+            'role_name'=>'Juru Audit',
+            'role_staff_status'=>'aktif'
+        ]);
     }
 }

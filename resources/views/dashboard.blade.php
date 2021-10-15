@@ -12,10 +12,10 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     You're logged in!
 
-                    {{auth()->user()}}
-                    @foreach (auth()->user()->roles as $role)
+                    {{auth()->user()->roles}}
+                    {{-- @foreach (auth()->user()->roles() as $role)
                         {{ $role->role_name }}
-                    @endforeach
+                    @endforeach --}}
                 </div>
             </div>
         </div>
