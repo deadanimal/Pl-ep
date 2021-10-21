@@ -17,8 +17,8 @@ class CreateFizaKandunganPerjanjiansTable extends Migration
             $table->id();
             $table->String('kandungan_nama')->nullable();
             $table->String('kandungan_template')->nullable();
-            $table->string('kandungan_created_by');
-            $table->string('kandungan_updated_by');
+            $table->string('kandungan_created_by')->nullable();
+            $table->string('kandungan_updated_by')->nullable();
 
     
             $table->timestamps();

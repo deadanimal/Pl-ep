@@ -17,8 +17,8 @@ class CreateFizaPermohonanKemaskiniProfilsTable extends Migration
             $table->id();
             $table->string('permohonan_description')->nullable();
             $table->foreignId('pembekal_id')->nullable();
-            $table->string('permohonan_created_by');
-            $table->string('permohonan_updated_by');
+            $table->string('permohonan_created_by')->nullable();
+            $table->string('permohonan_updated_by')->nullable();
 
 
 

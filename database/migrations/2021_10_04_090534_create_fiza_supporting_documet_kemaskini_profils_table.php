@@ -19,8 +19,8 @@ class CreateFizaSupportingDocumetKemaskiniProfilsTable extends Migration
             $table->string('pkp_doc_catatan')->nullable();
             $table->string('pkp_doc_status_terima')->nullable();
             $table->foreignId('permohonan_id')->nullable();
-            $table->string('pkp_created_by');
-            $table->string('pkp_updated_by');
+            $table->string('pkp_created_by')->nullable();
+            $table->string('pkp_updated_by')->nullable();
 
 
             $table->timestamps();

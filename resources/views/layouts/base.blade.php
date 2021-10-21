@@ -95,15 +95,14 @@
                                 <i class="align-middle me-2 fas fa-fw fa-sign-in-alt"></i> <span class="align-middle">Auth</span>
                             </a>
                             <ul id="auth" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-                                <li class="sidebar-item"><a class="sidebar-link" href="pages-sign-in.html">Sign
-                                        In</a></li>
-                                <li class="sidebar-item"><a class="sidebar-link" href="pages-sign-up.html">Sign
+                                <li class="sidebar-item"><a class="sidebar-link" href="/register-role">Pendaftaran Pengguna</a></li>
+                                {{-- <li class="sidebar-item"><a class="sidebar-link" href="pages-sign-up.html">Sign
                                         Up</a></li>
                                 <li class="sidebar-item"><a class="sidebar-link" href="pages-reset-password.html">Reset Password</a></li>
                                 <li class="sidebar-item"><a class="sidebar-link" href="pages-404.html">404
                                         Page</a></li>
                                 <li class="sidebar-item"><a class="sidebar-link" href="pages-500.html">500
-                                        Page</a></li>
+                                        Page</a></li> --}}
                             </ul>
                         </li>
     

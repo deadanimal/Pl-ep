@@ -27,8 +27,8 @@ class CreateFizaCadangansTable extends Migration
             $table->string('cadangan_bil_pembekal_lulus_kewangan')->nullable();
             $table->string('cadangan_ulasan_penilaian')->nullable();
 
-            $table->string('cadangan_created_by');
-            $table->string('cadangan_updated_by');
+            $table->string('cadangan_created_by')->nullable();
+            $table->string('cadangan_updated_by')->nullable();
 
             
 

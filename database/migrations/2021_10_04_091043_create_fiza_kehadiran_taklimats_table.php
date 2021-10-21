@@ -24,8 +24,8 @@ class CreateFizaKehadiranTaklimatsTable extends Migration
             $table->String('status')->nullable();
             $table->String('link')->nullable();
 
-            $table->string('kehadiran_created_by');
-            $table->string('kehadiran_updated_by');
+            $table->string('kehadiran_created_by')->nullable();
+            $table->string('kehadiran_updated_by')->nullable();
 
             
             $table->timestamps();

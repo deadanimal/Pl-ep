@@ -15,18 +15,18 @@ class CreateFizaNotaPenerimaansTable extends Migration
     {
         Schema::create('fiza_nota_penerimaans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pesanan_id');
-            $table->foreignId('pembekal_id');
-            $table->foreignId('user_id');
-            $table->String('terima_pegawai_pengesah');
-            $table->String('terima_catatan');
-            $table->String('terima_kuantiti');
-            $table->String('terima_amaun');
-            $table->String('terima_skor_khidmat_sokongan');
-            $table->String('terima_skor_kuantiti');
-            $table->String('terima_skor_tempoh_penghantaran');
-            $table->foreignId('penghantaran_id');
-            $table->foreignId('sst_id');
+            $table->foreignId('pesanan_id')->nullable();
+            $table->foreignId('pembekal_id')->nullable();
+            $table->foreignId('user_id')->nullable();
+            $table->String('terima_pegawai_pengesah')->nullable();
+            $table->String('terima_catatan')->nullable();
+            $table->String('terima_kuantiti')->nullable();
+            $table->String('terima_amaun')->nullable();
+            $table->String('terima_skor_khidmat_sokongan')->nullable();
+            $table->String('terima_skor_kuantiti')->nullable();
+            $table->String('terima_skor_tempoh_penghantaran')->nullable();
+            $table->foreignId('penghantaran_id')->nullable();
+            $table->foreignId('sst_id')->nullable();
 
 
             $table->timestamps();

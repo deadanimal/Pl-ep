@@ -19,8 +19,8 @@ class CreateFizaLaporanPelansTable extends Migration
             $table->string('laporan_pelan_modul')->nullable();
             $table->string('laporan_file')->nullable();
             $table->foreignId('pelan_id')->nullable();
-            $table->string('laporan_pelan_created_by');
-            $table->string('laporan_pelan_updated_by');
+            $table->string('laporan_pelan_created_by')->nullable();
+            $table->string('laporan_pelan_updated_by')->nullable();
 
 
             $table->timestamps();

@@ -7,11 +7,7 @@ use Illuminate\Http\Request;
 
 class FizaPertanyaanItemController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $fizaPertanyaanItem = FizaPertanyaanItem::all();
@@ -26,12 +22,7 @@ class FizaPertanyaanItemController extends Controller
         return view ('1_tanya_item.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         $fizaPertanyaanItem = new FizaPertanyaanItem;
@@ -52,27 +43,15 @@ class FizaPertanyaanItemController extends Controller
 
 
         $fizaPertanyaanItem->save();
-        return redirect('/fizaPertanyaanItem');
+        return redirect('/PertanyaanItem');
     
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\FizaPertanyaanItem  $fizaPertanyaanItem
-     * @return \Illuminate\Http\Response
-     */
     public function show(FizaPertanyaanItem $fizaPertanyaanItem)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\FizaPertanyaanItem  $fizaPertanyaanItem
-     * @return \Illuminate\Http\Response
-     */
     public function edit(FizaPertanyaanItem $fizaPertanyaanItem)
     {
         $fizaPertanyaanItem = FizaPertanyaanItem::all();
@@ -98,15 +77,10 @@ class FizaPertanyaanItemController extends Controller
         $fizaPertanyaanItem->tanya_updated_by=$request->tanya_updated_by;
 
         $fizaPertanyaanItem->save();
-        return redirect('/fizaPertanyaanItem');
+        return redirect('/PertanyaanItem');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\FizaPertanyaanItem  $fizaPertanyaanItem
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function destroy(FizaPertanyaanItem $fizaPertanyaanItem)
     {
         //

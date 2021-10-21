@@ -22,8 +22,8 @@ class CreateFizaKartsTable extends Migration
             $table->foreignId('user_id')->nullable();
             $table->foreignId('tanya_id')->nullable();
 
-            $table->string('kart_created_by');
-            $table->string('kart_updated_by');
+            $table->string('kart_created_by')->nullable();
+            $table->string('kart_updated_by')->nullable();
 
 
             $table->timestamps();

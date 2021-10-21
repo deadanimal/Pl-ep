@@ -1,31 +1,118 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\FizaKodBidangController;
 use App\Http\Controllers\FizaPelanPerancanganPerolehanController;
 use App\Http\Controllers\FizaPembekalController;
 use App\Http\Controllers\FizaRolesController;
 use App\Http\Controllers\FizaEpUserController;
 use App\Http\Controllers\FizaUserRoleController;
+use App\Http\Controllers\FizaPenyediaanSpesifikasiController;
+use App\Http\Controllers\FizaArahanMemberhentikanController;
+use App\Http\Controllers\FizaAuditPelanController;
+use App\Http\Controllers\FizaCadanganController;
+use App\Http\Controllers\FizaDocsController;
+use App\Http\Controllers\FizaFaqController;
+use App\Http\Controllers\FizaInvoiceController;
+use App\Http\Controllers\FizaItemInfoController;
+use App\Http\Controllers\FizaJadualPemenuhanController;
+use App\Http\Controllers\FizaJawatanKuasaController;
+use App\Http\Controllers\FizaKandunganPerjanjianController;
+use App\Http\Controllers\FizaKartController;
+use App\Http\Controllers\FizaKatalogController;
+use App\Http\Controllers\FizaKehadiranTaklimatController;
+use App\Http\Controllers\FizaKontrakController;
+use App\Http\Controllers\FizaLaporanController;
+use App\Http\Controllers\FizaLaporanPelanController;
+use App\Http\Controllers\FizaNotaMintaController;
+use App\Http\Controllers\FizaNotaPenerimaanController;
+use App\Http\Controllers\FizaNotificationCenterController;
+use App\Http\Controllers\FizaPadananBayaranController;
+use App\Http\Controllers\FizaPaymentController;
+use App\Http\Controllers\FizaPembelianSebutHargaTenderController;
+use App\Http\Controllers\FizaPemilihanAkhirPembekalController;
+use App\Http\Controllers\FizaPenandatanganKontrakController;
+use App\Http\Controllers\FizaPengesyoranController;
+use App\Http\Controllers\FizaPerincianPengiklananController;
+use App\Http\Controllers\FizaPerjanjianKontrakController;
+use App\Http\Controllers\FizaPermohonanKemaskiniProfilController;
+use App\Http\Controllers\FizaPertanyaanItemController;
+use App\Http\Controllers\FizaPesananPenghantaranController;
+use App\Http\Controllers\FizaPesananTempatanController;
+use App\Http\Controllers\FizaSenaraiSemakStandardController;
+use App\Http\Controllers\FizaSenaraiSuratNiatController;
+use App\Http\Controllers\FizaSijilDigitalController;
+use App\Http\Controllers\FizaSupportingDocumentPembekalController;
+use App\Http\Controllers\FizaSupportingDocumentSijilDigitalController;
+use App\Http\Controllers\FizaSuratSetujuTerimaController;
+use App\Http\Controllers\FizaTetapanTempohController;
+
+
+
 use App\Http\Controllers\Auth\RegisteredUserController;
 
 use App\Models\Roles;
 
 
-
 /*
-|--------------------------------------------------------------------------
+|---------------------------------------------------------------------------
 | Web Routes
-|--------------------------------------------------------------------------
+|---------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::resource('/KodBidang',FizaKodBidangController::class);
 Route::resource('/PelanPerancanganPerolehan',FizaPelanPerancanganPerolehanController::class);
 Route::resource('/Pembekal',FizaPembekalController::class);
+Route::resource('/PenyediaanSpesifikasi',FizaPenyediaanSpesifikasiController::class);
+Route::resource('/NotaPenerimaaan',FizaNotaPenerimaaanController::class);
+Route::resource('/SijilDigital',FizaSijilDigitalController::class);
+Route::resource('/Faq',FizaFaqController::class);
+Route::resource('/Docs',FizaDocsController::class);
+Route::resource('/NotificationCenter',FizaNotificationCenterController::class);
+Route::resource('/TetapanTempoh',FizaTetapanTempohController::class);
+Route::resource('/SupportingDocPembekal',FizaSupportingDocumentPembekalController::class);
+Route::resource('/SupportingDocKemaskiniProfil',FizaSupportingDocumentKemaskiniProfilController::class);
+Route::resource('/SupportingDocSijilDigital',FizaSupportingDocumentSijilDigitalController::class);
+Route::resource('/Payment',FizaPaymentController::class);
+Route::resource('/PermohonanKemaskiniProfil',FizaPermohonanKemaskiniProfilController::class);
+Route::resource('/Katalog',FizaKatalogController::class);
+Route::resource('/ItemInfo',FizaItemInfoController::class);
+Route::resource('/Invoice',FizaInvoiceController::class);
+Route::resource('/LaporanPelan',FizaLaporanPelanController::class);
+Route::resource('/Laporan',FizaLaporanController::class);
+Route::resource('/ArahanMemberhentikan',FizaArahanMemberhentikanController::class);
+Route::resource('/AuditPelan',FizaAuditPelanController::class);
+Route::resource('/Cadangan',FizaCadanganController::class);
+Route::resource('/JadualPemenuhan',FizaJadualPemenuhanController::class);
+Route::resource('/Jawatankuasa',FizaJawatankuasaController::class);
+Route::resource('/KandunganPerjanjian',FizaKandunganPerjanjianController::class);
+Route::resource('/Kart',FizaKartController::class);
+Route::resource('/KehadiranTaklimat',FizaKehadiranTaklimatController::class);
+Route::resource('/Kontrak',FizaKontrakController::class);
+Route::resource('/PenandatanganKontrak',FizaPenandatanganKontrakController::class);
+Route::resource('/NotaPenerimaan',FizaNotaPenerimaanController::class);
+Route::resource('/PadananBayaran',FizaPadananBayaranController::class);
+Route::resource('/NotaMinta',FizaNotaMintaController::class);
+Route::resource('/PemilihanAkhirPembekal',FizaPemilihanAkhirPembekalController::class);
+Route::resource('/PembelianSebutTender',FizaPembelianSebutTenderController::class);
+Route::resource('/Pengesyoran',FizaPengesyoranController::class);
+Route::resource('/PerincianPengiklanan',FizaPerincianPengiklananController::class);
+Route::resource('/PenyediaanSpesifikasi',FizaPenyediaanSpesifikasiController::class);
+Route::resource('/PesananPenghantaran',FizaPesananPenghantaranController::class);
+Route::resource('/PerincianPengiklanan',FizaPerincianPengiklananController::class);
+Route::resource('/PesananPenghantaran',FizaPesananPenghantaranController::class);
+Route::resource('/PerjanjianKontrak',FizaPerjanjianKontrakController::class);
+Route::resource('/PertanyaanItem',FizaPertanyaanItemController::class);
+Route::resource('/PesananTempatan',FizaPesananTempatanController::class);
+Route::resource('/SenaraiSemakStandard',FizaSenaraiSemakStandardController::class);
+Route::resource('/SuratNiat',FizaSuratNiatController::class);
+Route::resource('/SuratSetujuTerima',FizaSuratSetujuTerimaController::class);
 
 Route::get('/list-role',[RegisteredUserController::class,'list_role']);
 

@@ -16,13 +16,13 @@ class CreateFizaJawatankuasasTable extends Migration
         Schema::create('fiza_jawatankuasas', function (Blueprint $table) {
             $table->id();
             $table->String('jenis_jawatankuasa')->nullable();
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->nullable();
             $table->String('jawatankuasa_peranan')->nullable();
-            $table->foreignId('pst_id');
+            $table->foreignId('pst_id')->nullable();
             $table->timestamps();
 
-            $table->string('jawatankuasa_created_by');
-            $table->string('jawatankuasa_updated_by');
+            $table->string('jawatankuasa_created_by')->nullable();
+            $table->string('jawatankuasa_updated_by')->nullable();
 
         });
     }

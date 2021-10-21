@@ -27,8 +27,8 @@ class CreateFizaJadualPemenuhansTable extends Migration
             $table->String('jadual_jenis')->nullable();
 
             $table->timestamps();
-            $table->string('jadual_created_by');
-            $table->string('jadual_updated_by');
+            $table->string('jadual_created_by')->nullable();
+            $table->string('jadual_updated_by')->nullable();
 
         });
     }

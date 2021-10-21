@@ -27,7 +27,7 @@ class FizaTetapanTempohController extends Controller
     public function create()
     {
    
-        return view ('1_tetapan_tempoh.edit');
+        return view ('1_tetapan_tempoh.create');
     }
 
     public function store(Request $request)
@@ -40,7 +40,7 @@ class FizaTetapanTempohController extends Controller
         $fizaTetapanTempoh->user_id=$request->user_id;
  
         $fizaTetapanTempoh->save();
-        return redirect('/fizaTetapanTempoh');
+        return redirect('/TetapanTempoh');
     }
 
 
@@ -50,23 +50,25 @@ class FizaTetapanTempohController extends Controller
     }
 
 
-    public function edit(FizaTetapanTempoh $fizaTetapanTempoh)
+    public function edit(TetapanTempoh $fizaTetapanTempoh)
     {
+       
         $fizaTetapanTempoh = FizaTetapanTempoh::all();
         return view ('1_tetapan_tempoh.edit',[
             'fizaTetapanTempoh'=>$fizaTetapanTempoh]);
     }
 
 
-    public function update(Request $request, FizaTetapanTempoh $fizaTetapanTempoh)
+    public function update(Request $request, TetapanTempoh $fizaTetapanTempoh)
     {
+       
         $fizaTetapanTempoh->tempoh_type=$request->tempoh_type;
         $fizaTetapanTempoh->tempoh_hari=$request->tempoh_hari;
         $fizaTetapanTempoh->tempoh_created_by=$request->tempoh_created_by;
         $fizaTetapanTempoh->user_id=$request->user_id;
 
         $fizaTetapanTempoh->save();
-        return redirect('/fizaTetapanTempoh');
+        return redirect('/TetapanTempoh');
     }
 
     /**

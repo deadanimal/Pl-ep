@@ -20,8 +20,8 @@ class CreateFizaInvoicesTable extends Migration
             $table->foreignId('pesanan_id')->nullable();
             $table->foreignId('terima_id')->nullable();
             $table->foreignId('user_id')->nullable();
-            $table->string('invoice_created_by');
-            $table->string('invoice_updated_by');
+            $table->string('invoice_created_by')->nullable();
+            $table->string('invoice_updated_by')->nullable();
 
 
 

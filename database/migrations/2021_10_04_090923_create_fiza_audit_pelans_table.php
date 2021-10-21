@@ -21,8 +21,8 @@ class CreateFizaAuditPelansTable extends Migration
             $table->foreignId('laporan_pelan_id')->nullable();
             $table->timestamps();
 
-            $table->string('audit_pelan_created_by');
-            $table->string('audit_pelan_updated_by');
+            $table->string('audit_pelan_created_by')->nullable();
+            $table->string('audit_pelan_updated_by')->nullable();
         });
     }
 

@@ -17,8 +17,8 @@ class CreateFizaSupportingDocumentSijilDigitalsTable extends Migration
             $table->id();
             $table->foreignId('sijil_id')->nullable();
             $table->string('sd_name')->nullable();
-            $table->string('sd_created_by');
-            $table->string('sd_updated_by');
+            $table->string('sd_created_by')->nullable();
+            $table->string('sd_updated_by')->nullable();
             $table->timestamps();
         });
     }

@@ -20,8 +20,8 @@ class CreateFizaFaqsTable extends Migration
             $table->string('faq_answer')->nullable();
             $table->string('faq_status')->nullable();
             $table->foreignId('user_id')->nullable();
-            $table->string('faq_created_by');
-            $table->string('faq_updated_by');
+            $table->string('faq_created_by')->nullable();
+            $table->string('faq_updated_by')->nullable();
 
 
             $table->timestamps();

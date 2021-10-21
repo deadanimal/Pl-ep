@@ -23,8 +23,8 @@ class CreateFizaSijilDigitalsTable extends Migration
             $table->string('sijil_cbp')->nullable();
             $table->string('sijil_jumlah_yuran')->nullable();
             $table->string('yuran_status')->nullable();
-            $table->string('sijil_created_by');
-            $table->string('sijil_updated_by');
+            $table->string('sijil_created_by')->nullable();
+            $table->string('sijil_updated_by')->nullable();
 
 
 

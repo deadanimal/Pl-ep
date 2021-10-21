@@ -20,8 +20,8 @@ class CreateFizaDocsTable extends Migration
             $table->string('doc_description')->nullable();
             $table->string('doc_status')->nullable();
             $table->foreignId('user_id')->nullable();
-            $table->string('doc_created_by');
-            $table->string('doc_updated_by');
+            $table->string('doc_created_by')->nullable();
+            $table->string('doc_updated_by')->nullable();
 
 
             $table->timestamps();

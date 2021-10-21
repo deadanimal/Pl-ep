@@ -19,8 +19,8 @@ class CreateFizaKatalogsTable extends Migration
             $table->string('katalog_kumpulan')->nullable();
             $table->string('katalog_jenis')->nullable();
             $table->foreignId('user_id')->nullable();
-            $table->string('katalog_created_by');
-            $table->string('katalog_updated_by');
+            $table->string('katalog_created_by')->nullable();
+            $table->string('katalog_updated_by')->nullable();
 
        
 

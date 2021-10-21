@@ -26,8 +26,8 @@ class CreateFizaArahanMemberhentikansTable extends Migration
             $table->String('arahan_oleh')->nullable();
             $table->String('arahan_pelulus')->nullable();
             $table->String('arahan_catatan')->nullable();
-            $table->string('arahan_created_by');
-            $table->string('arahan_updated_by');
+            $table->string('arahan_created_by')->nullable();
+            $table->string('arahan_updated_by')->nullable();
 
 
 

@@ -23,7 +23,7 @@
                 <label class="col-form-label col-sm-6 ">Tajuk Pelan Perolehan</label>
             </div>
             <div class="mb-3 col-md-6">
-                <input type=text name=pelan_title class="form-control" value="{{$PelanPerancanganPerolehan->pelan_year}}">
+                <input type=text name=pelan_title class="form-control" value="{{$PelanPerancanganPerolehan->pelan_title}}">
             </div>
         </div>
 
@@ -51,12 +51,12 @@
                 <label class="col-form-label col-sm-6">Kategori Pelan</label>
             </div>
             <div class="mb-3 col-md-6">
-                <select name=pelan_category class="form-control">
+                <select name="pelan_category" class="form-control">
                     <option hidden>Sila Pilih</option>
-                    <option value="bekalan">Bekalan</option>
-                    <option value="perkhidmatan">Perkhidmatan</option>
-                    <option value="kerja">Kerja</option>
-                    </select>
+                    <option @if ($PelanPerancanganPerolehan->pelan_category=='bekalan') selected @endif value='bekalan'>Bekalan</option>
+                    <option @if ($PelanPerancanganPerolehan->pelan_category=='perkhidmatan') selected @endif value='perkhidmatan'>Perkhidmatan</option>
+                    <option @if ($PelanPerancanganPerolehan->pelan_category=='kerja') selected @endif value='kerja'>Kerja </option>
+                  </select>
             </div>
         </div>
 
@@ -64,7 +64,13 @@
             <div class="mb-3 col-md-6">
                 <label class="col-form-label col-sm-6 ">Kaedah Perolehan</label></div>
             <div class="mb-3 col-md-6">
-                <input type=text name="pelan_method" class="form-control" value="{{$PelanPerancanganPerolehan->pelan_method}}">
+                <select name="pelan_method" class="form-control">
+                <option hidden>Sila Pilih</option>
+                <option @if ($PelanPerancanganPerolehan->pelan_method=='pembelian terus') selected @endif value='pembelian terus'>Pembelian Terus</option>
+                <option @if ($PelanPerancanganPerolehan->pelan_method=='sebutharga') selected @endif value='sebutharga'>Sebutharga</option>
+                <option @if ($PelanPerancanganPerolehan->pelan_method=='tender') selected @endif value='tender'>Tender</option>
+
+              </select>
             </div>
         </div>
 
@@ -82,7 +88,7 @@
                 <label class="col-form-label col-sm-6 ">Jumlah Anggaran Pelan </label>
             </div>
             <div class="mb-3 col-md-6">
-                <input  type=number name=pelan_estimated_amount class="form-control" min="0" value="0" step=".01" placeholder="0.00" value="{{$PelanPerancanganPerolehan->pelan_estimated_amount}}">
+                <input  type=number name=pelan_estimated_amount class="form-control" value="{{$PelanPerancanganPerolehan->pelan_estimated_amount}}">
             </div>
         </div>
 
@@ -91,7 +97,7 @@
                 <label class="col-form-label col-sm-6 ">Peruntukan Tahunan </label>
             </div>
             <div class="mb-3 col-md-6">
-                <input  type=number name=pelan_peruntukan_tahunan class="form-control" min="0" value="0" step=".01" placeholder="0.00"  value="{{$PelanPerancanganPerolehan->pelan_peruntukan_tahunan}}">
+                <input  type=number name=pelan_peruntukan_tahunan class="form-control"   value="{{$PelanPerancanganPerolehan->pelan_peruntukan_tahunan}}">
             </div>
         </div>
 
@@ -100,7 +106,7 @@
                 <label class="col-form-label col-sm-6 ">Tarikh Perlaksanaan Iklan</label>
             </div>
             <div class="mb-3 col-md-6">
-                <input  type=date name=pelan_perlaksanaan_iklan class="form-control"   value="{{$PelanPerancanganPerolehan->pelan_tarikh_perlaksanaan_iklan}}">
+                <input  type=date name=pelan_tarikh_perlaksanaan_iklan class="form-control"   value="{{$PelanPerancanganPerolehan->pelan_tarikh_perlaksanaan_iklan}}">
             </div>
         </div>
 

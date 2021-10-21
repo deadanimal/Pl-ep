@@ -23,8 +23,8 @@ class CreateFizaItemInfosTable extends Migration
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
             $table->timestamps();
-            $table->string('item_updated_by');
-            $table->string('item_created_by');
+            $table->string('item_updated_by')->nullable();
+            $table->string('item_created_by')->nullable();
         });
     }
 

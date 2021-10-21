@@ -1,20 +1,28 @@
-<table>
-    <tr>
+@extends('layouts.base')
+@section('content')
+    
+
+<table id="datatables-1" class="table table-striped" style="width:100%">
+    <thead>
+        <tr>
         <th> Nama </th>
         <th> Jenis Pengguna </th>
         <th> No Kad Pengenalan</th>
-        <th> Role </th>
         <th> </th>
-    </tr>
-    <tr>
+
+        </tr>
+    </thead>
+    <tbody>
         @foreach ($users as $users)
-                <td> {{$users->name}}</td> 
+            <tr>
+
+                <td> {{$users->user_name}}</td> 
                 <td> {{$users->jenis}}</td>
-                <td> {{$users->identity_no}}</td>
+                <td> {{$users->user_identity_no}}</td>
+                <td><a href="/update-role/{{$users->id}}">Butiran</a> </td>
+            </tr>
         @endforeach
-        @foreach ($roles as $roles)
-                <td>{{$roles->id}}</td>
-        @endforeach
-        <td><a href = '/registeredUser/{{$users->id}}'>Butiran</a>
-    </tr>
+    </tbody>  
 </table>
+
+@endsection

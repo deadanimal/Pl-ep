@@ -21,8 +21,8 @@ class CreateFizaNotificationCentersTable extends Migration
             $table->string('noti_content')->nullable();
             $table->string('noti_status')->nullable();
             $table->foreignId('user_id')->nullable();
-            $table->string('noti_created_by');
-            $table->string('noti_updated_by');
+            $table->string('noti_created_by')->nullable();
+            $table->string('noti_updated_by')->nullable();
             
 
 

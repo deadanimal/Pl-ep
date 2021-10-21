@@ -18,9 +18,9 @@ class CreateFizaLaporansTable extends Migration
             $table->String('laporan_nama')->nullable();
             $table->String('laporan_file')->nullable();
             $table->String('laporan_modul')->nullable();
-            $table->foreignId('perjanjian_id');
-            $table->string('laporan_created_by');
-            $table->string('laporan_updated_by');
+            $table->foreignId('perjanjian_id')->nullable();
+            $table->string('laporan_created_by')->nullable();
+            $table->string('laporan_updated_by')->nullable();
 
             $table->timestamps();
         });

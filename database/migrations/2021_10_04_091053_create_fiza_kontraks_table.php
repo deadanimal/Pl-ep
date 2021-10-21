@@ -15,26 +15,26 @@ class CreateFizaKontraksTable extends Migration
     {
         Schema::create('fiza_kontraks', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('sst_id')->nullable;
-            $table->string('kontrak_no_fizikal');
-            $table->string('kontrak_tempoh_penghantaran');
-            $table->string('kontrak_pilihan');
-            $table->foreignId('pembekal_id');
-            $table->foreignId('pst_id');
-            $table->string('kontrak_no_rujukan_bon');
-            $table->string('kontak_institusi_kewangan');
-            $table->string('kontrak_amaun');
-            $table->date('kontrak_tarikh_kuatkuasa');
-            $table->date('kontrak_tarikh_tamat');
-            $table->string('kontrak_file_bon');
-            $table->string('kontrak_pelulus');
-            $table->foreignId('tempoh_id');
-            $table->string('kontrak_catatan_pelulus');
-            $table->foreignId('user_id');
+            $table->foreignId('sst_id')->nullable();
+            $table->string('kontrak_no_fizikal')->nullable();
+            $table->string('kontrak_tempoh_penghantaran')->nullable();
+            $table->string('kontrak_pilihan')->nullable();
+            $table->foreignId('pembekal_id')->nullable();
+            $table->foreignId('pst_id')->nullable();
+            $table->string('kontrak_no_rujukan_bon')->nullable();
+            $table->string('kontak_institusi_kewangan')->nullable();
+            $table->string('kontrak_amaun')->nullable();
+            $table->date('kontrak_tarikh_kuatkuasa')->nullable();
+            $table->date('kontrak_tarikh_tamat')->nullable();
+            $table->string('kontrak_file_bon')->nullable();
+            $table->string('kontrak_pelulus')->nullable();
+            $table->foreignId('tempoh_id')->nullable();
+            $table->string('kontrak_catatan_pelulus')->nullable();
+            $table->foreignId('user_id')->nullable();
             $table->timestamps();
 
-            $table->string('cadangan_created_by');
-            $table->string('cadangan_updated_by');
+            $table->string('cadangan_created_by')->nullable();
+            $table->string('cadangan_updated_by')->nullable();
 
         });
     }

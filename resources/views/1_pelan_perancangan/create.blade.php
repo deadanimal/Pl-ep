@@ -63,7 +63,12 @@
                         <div class="mb-3 col-md-6">
                             <label class="col-form-label col-sm-6 ">Kaedah Perolehan</label></div>
                         <div class="mb-3 col-md-6">
-                            <input type=text name="pelan_jenis" class="form-control">
+                            <select name="pelan_method" class="form-control">
+                            <option hidden>Sila Pilih</option>
+                            <option value="pembelian terus">Pembelian Terus</option>
+                            <option value="sebutharga">Sebutharga</option>
+                            <option value="tender">Tender</option>
+                          </select>
                         </div>
                     </div>
 
@@ -99,7 +104,7 @@
                             <label class="col-form-label col-sm-6 ">Tarikh Perlaksanaan Iklan</label>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <input  type=date name=pelan_perlaksanaan_iklan class="form-control">
+                            <input  type=date name=pelan_tarikh_perlaksanaan_iklan class="form-control">
                         </div>
                     </div>
 

@@ -18,8 +18,8 @@ class CreateFizaTetapanTempohsTable extends Migration
             $table->string('tempoh_type')->nullable();
             $table->integer('tempoh_hari')->nullable();
             $table->foreignId('user_id')->nullable();
-            $table->string('tempoh_created_by');
-            $table->string('tempoh_updated_by');
+            $table->string('tempoh_created_by')->nullable();
+            $table->string('tempoh_updated_by')->nullable();
 
 
 

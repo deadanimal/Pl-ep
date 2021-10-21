@@ -50,15 +50,15 @@ class FizaPelanPerancanganPerolehanController extends Controller
         $fizaPelanPerancanganPerolehan->pelan_peruntukan_tahunan=$request->pelan_peruntukan_tahunan;
         $fizaPelanPerancanganPerolehan->pelan_tarikh_perlaksanaan_iklan=$request->pelan_tarikh_perlaksanaan_iklan;
         $fizaPelanPerancanganPerolehan->pelan_tarikh_penyediaan_spesifikasi=$request->pelan_tarikh_penyediaan_spesifikasi;
-        $fizaPelanPerancanganPerolehan->pelan_tarikh_perlaksanaan_iklan=$request->pelan_tarikh_perlaksanaan_iklan;
-        $fizaPelanPerancanganPerolehan->pelan_penyediaan_doc_tender=$request->pelan_penyediaan_doc_tender;
+        $fizaPelanPerancanganPerolehan->pelan_tarikh_penilaian_tender=$request->pelan_penilaian_tender;
+        $fizaPelanPerancanganPerolehan->pelan_tarikh_penyediaan_doc_tender=$request->pelan_tarikh_penyediaan_doc_tender;
         $fizaPelanPerancanganPerolehan->pelan_tarikh_perlaksanaan_persidangan=$request->pelan_tarikh_perlaksanaan_persidangan;
         $fizaPelanPerancanganPerolehan->pelan_tarikh_sst_dikeluarkan=$request->pelan_tarikh_sst_dikeluarkan;
 
 
         if ($request->status_pelan=="hantar"){
             $fizaPelanPerancanganPerolehan->pelan_status="Menunggu Pengesahan";
-            // Mail::to('syafiza.senin@pipeline.com.my')->send(new PerancanganPerolehan);
+            Mail::to('syafiza.senin@pipeline.com.my')->send(new PerancanganPerolehan);
         }
         else if($request->status_pelan=="draf"){
             $fizaPelanPerancanganPerolehan->pelan_status="Draf";
@@ -78,7 +78,7 @@ class FizaPelanPerancanganPerolehanController extends Controller
 
     public function edit($id)
     {
-        // $PelanPerancanganPerolehan= FizaPelanPerancanganPerolehan::find($id);
+        $PelanPerancanganPerolehan= FizaPelanPerancanganPerolehan::find($id);
         return view ('1_pelan_perancangan.edit',[
             'PelanPerancanganPerolehan'=>$PelanPerancanganPerolehan]);
 
@@ -110,8 +110,8 @@ class FizaPelanPerancanganPerolehanController extends Controller
         $fizaPelanPerancanganPerolehan->pelan_peruntukan_tahunan=$request->pelan_peruntukan_tahunan;
         $fizaPelanPerancanganPerolehan->pelan_tarikh_perlaksanaan_iklan=$request->pelan_tarikh_perlaksanaan_iklan;
         $fizaPelanPerancanganPerolehan->pelan_tarikh_penyediaan_spesifikasi=$request->pelan_tarikh_penyediaan_spesifikasi;
-        $fizaPelanPerancanganPerolehan->pelan_tarikh_perlaksanaan_iklan=$request->pelan_tarikh_perlaksanaan_iklan;
-        $fizaPelanPerancanganPerolehan->pelan_penyediaan_doc_tender=$request->pelan_penyediaan_doc_tender;
+        $fizaPelanPerancanganPerolehan->pelan_tarikh_penilaian_tender=$request->pelan_tarikh_penilaian_tender;
+        $fizaPelanPerancanganPerolehan->pelan_tarikh_penyediaan_doc_tender=$request->pelan_tarikh_penyediaan_doc_tender;
         $fizaPelanPerancanganPerolehan->pelan_tarikh_perlaksanaan_persidangan=$request->pelan_tarikh_perlaksanaan_persidangan;
         $fizaPelanPerancanganPerolehan->pelan_tarikh_sst_dikeluarkan=$request->pelan_tarikh_sst_dikeluarkan;
 
@@ -144,7 +144,7 @@ class FizaPelanPerancanganPerolehanController extends Controller
     }
 
 
-    public function updatepengesah(Request $request,$id)
+    public function updatepengesah($id)
     {
        // $FizaPelanPerancanganPerolehan = FizaPelanPerancanganPerolehan::where('id',$request->perancangan_id)->first();
        $fizaPelanPerancanganPerolehan= FizaPelanPerancanganPerolehan::find($id);

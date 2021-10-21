@@ -18,8 +18,8 @@ class CreateFizaSupportingDocumentPembekalsTable extends Migration
             $table->foreignId('pembekal_id')->nullable();
             $table->string('sdoc_name')->nullable();
             $table->timestamps();
-            $table->string('sdoc_created_by');
-            $table->string('sdoc_updated_by');
+            $table->string('sdoc_created_by')->nullable();
+            $table->string('sdoc_updated_by')->nullable();
 
         });
     }
