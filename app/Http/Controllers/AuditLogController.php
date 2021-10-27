@@ -10,37 +10,37 @@ class AuditLogController extends Controller
 
     public function index()
     {
-        return view('auditlog.index');
+        $AuditLog = AuditLog::all();
+        return view('audit_log.index', [
+            'AuditLog'=>$AuditLog
+            ] );
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        return view('auditlog.create');
+        return view('AuditLog.create');
     }
-
 
     public function store(Request $request)
     {
-        //
+        $AuditLog = new AuditLog;
+        $AuditLog->item = $request->item;
+        $AuditLog->description = $request->description;
+        $AuditLog->user_id = $request->user_id;
+
+        $AuditLog->save();
+        
+        return redirect('/AuditLog');
+
     }
 
 
     public function show(AuditLog $auditLog)
     {
-        return view('auditlog.show');
+        // return view('auditlog.show');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\AuditLog  $auditLog
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(AuditLog $auditLog)
     {
         return view('auditlog.edit');
@@ -48,17 +48,25 @@ class AuditLogController extends Controller
 
     public function update(Request $request, AuditLog $auditLog)
     {
+
         //
+        
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\AuditLog  $auditLog
-     * @return \Illuminate\Http\Response
-     */
+    
     public function destroy(AuditLog $auditLog)
     {
         //
+    }
+
+    public function log($request){
+       
+        $auditLog = new AuditLog;
+        $auditLog->item = $request[0];
+        $auditLog->description = $request[1];
+        $auditLog->user_id = $request[2];
+
+        $auditLog->save();
+
     }
 }

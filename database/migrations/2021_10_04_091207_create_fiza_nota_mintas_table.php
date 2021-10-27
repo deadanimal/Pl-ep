@@ -26,7 +26,8 @@ class CreateFizaNotaMintasTable extends Migration
             $table->String('ro_status')->nullable();
             $table->foreignId('kart_id')->nullable();
             $table->foreignId('user_id')->nullable();
-            
+            $table->string('ro_created_by')->nullable();
+            $table->date('ro_updated_date')->nullable();
             $table->timestamps();
         });
     }

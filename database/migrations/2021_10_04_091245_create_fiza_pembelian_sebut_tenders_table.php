@@ -23,6 +23,7 @@ class CreateFizaPembelianSebutTendersTable extends Migration
             $table->String('pst_tajuk')->nullable();
             $table->String('pst_no_rujukan_fail')->nullable();
             $table->String('pst_total_harga_indikatif_jangkaan')->nullable();
+            $table->String('pst_kaedah_perolehan')->nullable();
             $table->String('pst_jenis')->nullable();
             $table->String('pst_terbuka_kepada')->nullable();
             $table->String('pst_zon_lokasi')->nullable();
@@ -49,7 +50,7 @@ class CreateFizaPembelianSebutTendersTable extends Migration
             $table->String('pst_status')->nullable();
             $table->String('pst_jenis_potongan')->nullable();
             $table->String('pst_potongan_description')->nullable();
-            $table->double('pst_amaun_potongam')->nullable();
+            $table->String('pst_amaun_potongan')->nullable();
  
             $table->timestamps();
         });

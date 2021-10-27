@@ -43,7 +43,7 @@ class FizaPembelianSebutTenderController extends Controller
         $fizaPembelianSebutTender->pst_tajuk=$request->pst_tajuk;
         $fizaPembelianSebutTender->pst_no_rujukan_fail=$request->pst_no_rujukan_fail;
         $fizaPembelianSebutTender->pst_total_harga_indikatif_jangkaan=$request->pst_total_harga_indikatif_jangkaan;
-        $fizaPembelianSebutTender->kaedah_jangkaan=$request->kaedah_jangkaan;
+        $fizaPembelianSebutTender->pst_kaedah_perolehan=$request->pst_kaedah_perolehan;
         $fizaPembelianSebutTender->pst_jenis=$request->pst_jenis;
         $fizaPembelianSebutTender->pst_terbuka_kepada=$request->pst_terbuka_kepada;
         $fizaPembelianSebutTender->pst_zon_lokasi=$request->pst_zon_lokasi;
@@ -51,7 +51,7 @@ class FizaPembelianSebutTenderController extends Controller
         $fizaPembelianSebutTender->pst_jenis_kontrak=$request->pst_jenis_kontrak;
         $fizaPembelianSebutTender->pst_jenis_pemenuhan=$request->pst_jenis_pemenuhan;
         $fizaPembelianSebutTender->pst_tempoh_kontrak=$request->pst_tempoh_kontrak;
-        $fizaPembelianSebutTender->item_id=$request->item_id;
+        // $fizaPembelianSebutTender->item_id=$request->item_id;
         $fizaPembelianSebutTender->kod_id=$request->kod_id;
         $fizaPembelianSebutTender->pembekal_id=$request->pembekal_id;
         $fizaPembelianSebutTender->pst_jumlah_pembekal_layak=$request->pst_jumlah_pembekal_layak;
@@ -67,7 +67,7 @@ class FizaPembelianSebutTenderController extends Controller
         $fizaPembelianSebutTender->pst_penyelaras=$request->pst_penyelaras;
         $fizaPembelianSebutTender->pst_kehadiran_max=$request->pst_kehadiran_max;
         $fizaPembelianSebutTender->pst_status=$request->pst_status;
-        $fizaPembelianSebutTender->pst_created_by=$request->pst_created_by;
+        // $fizaPembelianSebutTender->pst_created_by=$request->pst_created_by;
 
         $fizaPembelianSebutTender->pst_jenis_potongan=$request->pst_jenis_potongan;
         $fizaPembelianSebutTender->pst_potongan_description=$request->pst_potongan_description;
@@ -75,7 +75,7 @@ class FizaPembelianSebutTenderController extends Controller
         
 
         $fizaPembelianSebutTender->save();
-        return redirect('/fizaPembelianSebutTender');
+        return redirect('/PembelianSebutTender');
     }
 
     public function show(FizaPembelianSebutTender $fizaPembelianSebutTender)
@@ -90,22 +90,17 @@ class FizaPembelianSebutTenderController extends Controller
      * @param  \App\Models\FizaPembelianSebutTender  $fizaPembelianSebutTender
      * @return \Illuminate\Http\Response
      */
-    public function edit(FizaPembelianSebutTender $fizaPembelianSebutTender)
+    public function edit($id)
     {
-        $fizaPembelianSebutTender = FizaPembelianSebutTender::all();
-        return view ('1_pst.edit',[
-            'fizaPembelianSebutTender'=>$fizaPembelianSebutTender]);
+        $fizaPembelianSebutTender = FizaPembelianSebutTender::find($id);
+        return view('1_pst.edit', [
+            'PembelianSebutTender'=>$fizaPembelianSebutTender]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\FizaPembelianSebutTender  $fizaPembelianSebutTender
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, FizaPembelianSebutTender $fizaPembelianSebutTender)
+
+    public function update($id, Request $request)
     {
+        $fizaPembelianSebutTender = FizaPembelianSebutTender::find($id);
         
         $fizaPembelianSebutTender->pst_item_panel=$request->pst_item_panel;
         $fizaPembelianSebutTender->pst_sistem_panel=$request->pst_sistem_panel;
@@ -116,7 +111,7 @@ class FizaPembelianSebutTenderController extends Controller
         $fizaPembelianSebutTender->pst_tajuk=$request->pst_tajuk;
         $fizaPembelianSebutTender->pst_no_rujukan_fail=$request->pst_no_rujukan_fail;
         $fizaPembelianSebutTender->pst_total_harga_indikatif_jangkaan=$request->pst_total_harga_indikatif_jangkaan;
-        $fizaPembelianSebutTender->kaedah_jangkaan=$request->kaedah_jangkaan;
+        $fizaPembelianSebutTender->pst_kaedah_perolehan=$request->pst_kaedah_perolehan;
         $fizaPembelianSebutTender->pst_jenis=$request->pst_jenis;
         $fizaPembelianSebutTender->pst_terbuka_kepada=$request->pst_terbuka_kepada;
         $fizaPembelianSebutTender->pst_zon_lokasi=$request->pst_zon_lokasi;
@@ -124,7 +119,7 @@ class FizaPembelianSebutTenderController extends Controller
         $fizaPembelianSebutTender->pst_jenis_kontrak=$request->pst_jenis_kontrak;
         $fizaPembelianSebutTender->pst_jenis_pemenuhan=$request->pst_jenis_pemenuhan;
         $fizaPembelianSebutTender->pst_tempoh_kontrak=$request->pst_tempoh_kontrak;
-        $fizaPembelianSebutTender->item_id=$request->item_id;
+        // $fizaPembelianSebutTender->item_id=$request->item_id;
         $fizaPembelianSebutTender->kod_id=$request->kod_id;
         $fizaPembelianSebutTender->pembekal_id=$request->pembekal_id;
         $fizaPembelianSebutTender->pst_jumlah_pembekal_layak=$request->pst_jumlah_pembekal_layak;
@@ -140,14 +135,14 @@ class FizaPembelianSebutTenderController extends Controller
         $fizaPembelianSebutTender->pst_penyelaras=$request->pst_penyelaras;
         $fizaPembelianSebutTender->pst_kehadiran_max=$request->pst_kehadiran_max;
         $fizaPembelianSebutTender->pst_status=$request->pst_status;
-        $fizaPembelianSebutTender->pst_updated_by=$request->pst_updated_by;
+        // $fizaPembelianSebutTender->pst_updated_by=$request->pst_updated_by;
 
         $fizaPembelianSebutTender->pst_jenis_potongan=$request->pst_jenis_potongan;
         $fizaPembelianSebutTender->pst_potongan_description=$request->pst_potongan_description;
         $fizaPembelianSebutTender->pst_amaun_potongan=$request->pst_amaun_potongan; 
 
        $fizaPembelianSebutTender->save();
-        return redirect('/fizaPembelianSebutTender');
+        return redirect('/PembelianSebutTender');
     }
 
     /**

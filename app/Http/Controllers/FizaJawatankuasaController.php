@@ -12,7 +12,7 @@ class FizaJawatankuasaController extends Controller
     {
         $fizaJawatankuasa = FizaJawatankuasa::all();
         return view ('1_jawatankuasa.index',[
-            'fizaJawatankuasa'=>$fizaJawatankuasa]);
+            'Jawatankuasa'=>$fizaJawatankuasa]);
     }
 
     /**
@@ -22,7 +22,7 @@ class FizaJawatankuasaController extends Controller
      */
     public function create()
     {
-        return redirect ('1_jawatankuasa.create');
+        return view ('1_jawatankuasa.create');
     }
 
     public function store(Request $request)
@@ -36,7 +36,7 @@ class FizaJawatankuasaController extends Controller
         $fizaJawatankuasa->jawatankuasa_created_by=$request->jawatankuasa_created_by;
 
         $fizaJawatankuasa->save();
-        return redirect('/fizaJawatankuasa');
+        return redirect('/Jawatankuasa');
         
     }
 
@@ -46,16 +46,17 @@ class FizaJawatankuasaController extends Controller
     }
 
 
-    public function edit(FizaJawatankuasa $fizaJawatankuasa)
+    public function edit( $id)
     {
-        $fizaJawatankuasa = FizaJawatankuasa::all();
+        $fizaJawatankuasa= fizaJawatankuasa::find($id);
         return view ('1_jawatankuasa.edit',[
-            'fizaJawatankuasa'=>$fizaJawatankuasa]);
+            'Jawatankuasa'=>$fizaJawatankuasa]);
     }
 
 
-    public function update(Request $request, FizaJawatankuasa $fizaJawatankuasa)
+    public function update($id, Request $request)
     {
+        $fizaJawatankuasa= fizaJawatankuasa::find($id);
         $fizaJawatankuasa->jenis_jawatankuasa=$request->jenis_jawatankuasa;
         $fizaJawatankuasa->user_id=$request->user_id;
         $fizaJawatankuasa->jawatankuasa_peranan=$request->jawatankuasa_peranan;
@@ -63,7 +64,7 @@ class FizaJawatankuasaController extends Controller
         $fizaJawatankuasa->jawatankuasa_updated_by=$request->jawatankuasa_updated_by;
 
         $fizaJawatankuasa->save();
-        return redirect('/fizaJawatankuasa');
+        return redirect('/Jawatankuasa');
     }
 
     /**

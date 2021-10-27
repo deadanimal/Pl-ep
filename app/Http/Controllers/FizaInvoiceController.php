@@ -37,7 +37,7 @@ class FizaInvoiceController extends Controller
 
 
         $fizaInvoice->save();
-        return redirect('/fizaInvoice'); 
+        return redirect('/Invoice'); 
 
     }
 
@@ -65,7 +65,7 @@ class FizaInvoiceController extends Controller
                 
 
         $fizaInvoice->save();
-        return redirect('/fizaInvoice');
+        return redirect('/Invoice');
     }
 
     /**

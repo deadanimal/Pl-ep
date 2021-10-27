@@ -1,24 +1,32 @@
-<h3>Pembelian Item </h3>
+@extends('layouts.base')
 
-<form method="POST" action="/Pst">
+@section('content')
+    
+
+
+
+<h3>Cipta SebutHarga / Tender </h3>
+
+<form method="POST" action="/PembelianSebutTender">
     @csrf
 
-    <br>Panel Item <input type="text" class="form-control" name="pst_item_panel">
-    <br>Sistem Panel  <input type="text" class="form-control" name="pst_sistem_panel">
-    <br>No1PP <input type="text" class="form-control" name="pst_no1pp">
-    <br>Kumpulan Katalog <input type="text" class="form-control" name="pst_katalog_kumpulan">
-    <br>Tajuk Pembelian SebutHarga & Tender <input type="text" class="form-control" name="pst_tajuk">
-    <br>No Rujukan Fail <input type="text" class="form-control" name="pst_no_rujukan_fail">
-    <br>Jumlah Harga Jangkaan Indikatif <input type="number" class="form-control" name="pst_jumlah_harga_indikatif_jangkaan">
-    <br>Kaedah Perolehan <input type="text" class="form-control" name="pst_kaedah_perolehan">
-    <br>Jenis PST <input type="text" class="form-control" name="pst_jenis">
+    <br>
+        <div class="col-6"> Panel Item <div class="col-6"> <input type="text" class="form-control" name="pst_item_panel">
+    <br> Sistem Panel  <input type="text" class="form-control" name="pst_sistem_panel">
+    <br> No Perkeliling Perbendaharaan (No1PP) <input type="text" class="form-control" name="pst_no1pp">
+    <br> Kumpulan Katalog <input type="text" class="form-control" name="pst_katalog_kumpulan">
+    <br> Tajuk Pembelian SebutHarga & Tender <input type="text" class="form-control" name="pst_tajuk">
+    <br> No Rujukan Fail <input type="text" class="form-control" name="pst_no_rujukan_fail">
+    <br> Jumlah Harga Jangkaan Indikatif <input type="number" class="form-control" name="pst_jumlah_harga_indikatif_jangkaan">
+    <br> Kaedah Perolehan <input type="text" class="form-control" name="pst_kaedah_perolehan">
+    <br> Jenis PST <input type="text" class="form-control" name="pst_jenis">
     <br> Terbuka Kepada <input type="text" class="form-control" name="pst_terbuka_kepada">
-    <br>Zon <<input type="text" class="form-control" name="pst_zon_lokasi">
-    <br>Kategori Jenis Perolehan <input type=text name=pst_kategori_jenis_perolehan class="form-control">
-    <br>Kategori Perolehan <input type="text" class="form-control" name="pst_kategori_perolehan">
-    <br> Jenis kOntrak <input type="text" class="form-control" name="pst_jenis_kontrak">
+    <br> Zon <input type="text" class="form-control" name="pst_zon_lokasi">
+    <br> Kategori Jenis Perolehan <input type=text name=pst_kategori_jenis_perolehan class="form-control">
+    <br> Kategori Perolehan <input type="text" class="form-control" name="pst_kategori_perolehan">
+    <br> Jenis kontrak <input type="text" class="form-control" name="pst_jenis_kontrak">
     <br> Jenis Pemenuhan <input type="text" class="form-control" name="pst_jenis_pemenuhan">
-    <br>Tempoh Kontrak <input type="text" class="form-control" name="pst_tempoh_kontrak">
+    <br> Tempoh Kontrak <input type="text" class="form-control" name="pst_tempoh_kontrak">
 {{--     
 item_id
 kod_id
@@ -32,7 +40,7 @@ user_id --}}
     <br> Perihal Taklimat <input type="text" class="form-control" name="pst_perihal_taklimat">
     <br> Tarikh Taklimat <input type="date" class="form-control" name="pst_taklimat_date">
     <br> Alamat Taklimat <input type="text" class="form-control" name="pst_taklimat_alamat">
-    <br>Link <input type="text" class="form-control" name="pst_link">
+    <br> Link <input type="url" class="form-control" name="pst_link">
     <br> Penyelaras <input type="text" class="form-control" name="pst_penyelaras">
     <br> Kehadiran Maksimum <input type="text" class="form-control" name="pst_kehadiran_max">
     <br> Status <input type="text" class="form-control" name="pst_status">
@@ -47,4 +55,8 @@ pst_updated_date --}}
     <br><button type="submit">Hantar</button>
     
 </form>
+
+
+    
+@endsection
 

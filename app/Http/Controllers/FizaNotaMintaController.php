@@ -49,13 +49,13 @@ class FizaNotaMintaController extends Controller
         $fizaNotaMinta->ro_pelulus=$request->ro_pelulus;
         $fizaNotaMinta->ro_pelulus_catatan=$request->ro_pelulus_catatan;
         $fizaNotaMinta->ro_pelulus_date=$request->ro_pelulus_date;
-        $fizaNotaMinta->ro_status=$request->ro_status;
-        $fizaNotaMinta->ro_created_by=$request->ro_created_by;
+        $fizaNotaMinta->ro_status="Sedang di Proses";
+        // $fizaNotaMinta->ro_created_by=$request->ro_created_by;
         $fizaNotaMinta->kart_id=$request->kart_id;
         $fizaNotaMinta->user_id=$request->user_id;
 
         $fizaNotaMinta->save();
-        return redirect('/fizaNotaMinta');
+        return redirect('/NotaMinta');
     }
     
 
@@ -71,15 +71,16 @@ class FizaNotaMintaController extends Controller
      * @param  \App\Models\FizaNotaMinta  $fizaNotaMinta
      * @return \Illuminate\Http\Response
      */
-    public function edit(FizaNotaMinta $fizaNotaMinta)
+    public function edit($id)
     {
-        $fizaNotaMinta = FizaNotaMinta::all();
+        $fizaNotaMinta = FizaNotaMinta::find($id);
         return view ('1_nota_minta.edit',[
-            'fizaNotaMinta'=>$fizaNotaMinta]);
+            'NotaMinta'=>$fizaNotaMinta]);
     }
 
-    public function update(Request $request, FizaNotaMinta $fizaNotaMinta)
+    public function update(Request $request,$id)
     {
+        $fizaNotaMinta = FizaNotaMinta::find($id);
         $fizaNotaMinta->pembekal_id=$request->pembekal_id;
         $fizaNotaMinta->ro_kaedah=$request->ro_kaedah;
         $fizaNotaMinta->ro_jenis_perolehan=$request->ro_jenis_perolehan;
@@ -89,12 +90,12 @@ class FizaNotaMintaController extends Controller
         $fizaNotaMinta->ro_pelulus_catatan=$request->ro_pelulus_catatan;
         $fizaNotaMinta->ro_pelulus_date=$request->ro_pelulus_date;
         $fizaNotaMinta->ro_status=$request->ro_status;
-        $fizaNotaMinta->ro_updated_by=$request->ro_updated_by;
+        // $fizaNotaMinta->ro_updated_by=$request->ro_updated_by;
         $fizaNotaMinta->kart_id=$request->kart_id;
         $fizaNotaMinta->user_id=$request->user_id;
 
         $fizaNotaMinta->save();
-        return redirect('/fizaNotaMinta');
+        return redirect('/NotaMinta');
     }
 
     /**

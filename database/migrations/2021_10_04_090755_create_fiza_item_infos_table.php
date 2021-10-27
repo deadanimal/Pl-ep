@@ -15,11 +15,11 @@ class CreateFizaItemInfosTable extends Migration
     {
         Schema::create('fiza_item_infos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('katalog_id');
-            $table->foreignId('pembekal_id)');
+            $table->foreignId('katalog_id')->nullable();
+            $table->foreignId('pembekal_id)')->nullable();
             $table->string('item_name')->nullable();
             $table->string('item_price')->nullable();
-            $table->string('unit')->nullable();
+            $table->string('item_unit')->nullable();
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
             $table->timestamps();

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuditLogController;
 
 use App\Http\Controllers\FizaKodBidangController;
 use App\Http\Controllers\FizaPelanPerancanganPerolehanController;
@@ -30,7 +31,7 @@ use App\Http\Controllers\FizaNotaPenerimaanController;
 use App\Http\Controllers\FizaNotificationCenterController;
 use App\Http\Controllers\FizaPadananBayaranController;
 use App\Http\Controllers\FizaPaymentController;
-use App\Http\Controllers\FizaPembelianSebutHargaTenderController;
+use App\Http\Controllers\FizaPembelianSebutTenderController;
 use App\Http\Controllers\FizaPemilihanAkhirPembekalController;
 use App\Http\Controllers\FizaPenandatanganKontrakController;
 use App\Http\Controllers\FizaPengesyoranController;
@@ -47,11 +48,8 @@ use App\Http\Controllers\FizaSupportingDocumentPembekalController;
 use App\Http\Controllers\FizaSupportingDocumentSijilDigitalController;
 use App\Http\Controllers\FizaSuratSetujuTerimaController;
 use App\Http\Controllers\FizaTetapanTempohController;
-
-
-
+use App\Http\Controllers\ItemKartController;
 use App\Http\Controllers\Auth\RegisteredUserController;
-
 use App\Models\Roles;
 
 
@@ -67,6 +65,7 @@ use App\Models\Roles;
 */
 
 Route::resource('/KodBidang',FizaKodBidangController::class);
+
 Route::resource('/PelanPerancanganPerolehan',FizaPelanPerancanganPerolehanController::class);
 Route::resource('/Pembekal',FizaPembekalController::class);
 Route::resource('/PenyediaanSpesifikasi',FizaPenyediaanSpesifikasiController::class);
@@ -136,6 +135,24 @@ Route::get('/update-role', function(){
 Route::post('/kemaskini-role',[RegisteredUserController::class,'update_role']);
 
 
+Route::post('/dokumentambahan',[FizaPembekalController::class,'dokumentambahan']);
+Route::get('/insertfile',[FizaPembekalController::class,'insertfile']);
+
+Route::post('/doc-mof',[FizaPembekalController::class,'docmof']);
+Route::get('/mof',[FizaPembekalController::class,'mof']);
+
+Route::post('/doc-cidb',[FizaPembekalController::class,'doccidb']);
+Route::get('/cidb',[FizaPembekalController::class,'cidb']);
+
+Route::get('/listkatalog/{id}',[FizaKatalogController::class,'listkatalog']);
+
+Route::get('/ItemInfo/addcart/{ItemInfo}', [FizaItemInfoController::class, 'addcart']);
+Route::post('/ItemKart/removecart/{itemKart}', [FizaItemInfoController::class, 'removecart']);
+Route::resource('/ItemKart',ItemKartController::class);
+
+
+
+
 
 Route::resource('/Roles',FizaEpUserController::class);
 
@@ -152,7 +169,8 @@ Route::post('/updatepelulus',[FizaPelanPerancanganPerolehanController::class,'up
 
 
 // Route::resource('/ArahanBerhenti', ArahanBerhentiController::class);
-// Route::resource('/AuditLog', AuditLogController::class);
+Route::resource('/AuditLog', AuditLogController::class);
+Route::post('/log',[AuditLogController::class,'log']);
 // Route::resource('/Kontrak', KontrakController::class);
 // Route::resource('/KontrakPenamatan', KontrakPenamatanController::class);
 // Route::resource('/ArahanBerhenti', ArahanBerhentiController::class);

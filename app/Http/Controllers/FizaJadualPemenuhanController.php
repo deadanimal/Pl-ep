@@ -37,7 +37,7 @@ class FizaJadualPemenuhanController extends Controller
         $fizaJadualPemenuhan->jadual_created_by=$request->jadual_created_by ;
   
         $fizaJadualPemenuhan->save();
-        return redirect('/fizaJadualPemenuhan');
+        return redirect('/JadualPemenuhan');
     }
 
     public function show(FizaJadualPemenuhan $fizaJadualPemenuhan)
@@ -73,7 +73,7 @@ class FizaJadualPemenuhanController extends Controller
         $fizaJadualPemenuhan->jadual_updated_by=$request->jadual_updated_by ;
 
        $fizaJadualPemenuhan->save();
-        return redirect('/fizaJadualPemenuhan');
+        return redirect('/JadualPemenuhan');
     }
 
     /**

@@ -16,26 +16,17 @@ class FizaNotificationCenterController extends Controller
     {
         $fizaNotificationCenter = FizaNotificationCenter::all();
         return view ('1_notification_center.index',[
-            'fizaNotificationCenter'=>$fizaNotificationCenter]);
+            'NotificationCenter'=>$fizaNotificationCenter]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        return view('/fizaNotificationCenter');
+        return view('/NotificationCenter');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+ 
+    public function store( $request)
     {
         $fizaNotificationCenter = new FizaNotificationCenter;
 
@@ -44,20 +35,17 @@ class FizaNotificationCenterController extends Controller
         $fizaNotificationCenter->noti_subject=$request->noti_subject;
         $fizaNotificationCenter->noti_content=$request->noti_content;
         $fizaNotificationCenter->noti_status=$request->noti_status;
-        $fizaNotificationCenter->noti_created_by=$request->noti_created_by;
-        $fizaNotificationCenter->user_id=$request->user_id;
+
+        // $fizaNotificationCenter->noti_created_by=$request->user()->user_name;
+        // $fizaNotificationCenter->user_id=$request->user_id;
 
 
         $fizaNotificationCenter->save();
-        return redirect('/fizaNotificationCenter');
+
+        return redirect('/NotificationCenter');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\FizaNotificationCenter  $fizaNotificationCenter
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function show(FizaNotificationCenter $fizaNotificationCenter)
     {
         //

@@ -39,7 +39,7 @@ class FizaCadanganController extends Controller
         $fizaCadangan->cadangan_ulasan_penilaian=$request->cadangan_ulasan_penilaian;
 
         $fizaCadangan->save();
-        return redirect('/fizaCadangan');
+        return redirect('/Cadangan');
     }
 
 
@@ -74,7 +74,7 @@ class FizaCadanganController extends Controller
 
         
    $fizaCadangan->save();
-        return redirect('/fizaCadangan');
+        return redirect('/Cadangan');
     }
 
 

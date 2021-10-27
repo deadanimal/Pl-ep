@@ -5,25 +5,9 @@
 <h3>Pendaftaran Pembekal</h3>
 </div>
     <div class="card-body">
-        <form method="POST" action="/Pembekal">
+        <form method="POST" action="/Pembekal" enctype="multipart/form-data">
             @csrf
 
-        	<div class="row">
-                <div class="col-12 col-xxl-12">
-                    <div id="smartwizard-default-primary" class="wizard wizard-primary mb-4">
-                        <ul class="nav">
-                            <li class="nav-item"><a class="nav-link" href="#default-primary-step-1">First Step<br /></a>
-                            </li>
-                            <li class="nav-item"><a class="nav-link" href="#default-primary-step-2">Second Step<br /></a>
-                            </li>
-                            <li class="nav-item"><a class="nav-link" href="#default-primary-step-3">Third Step<br /></a>
-                            </li>
-                            <li class="nav-item"><a class="nav-link" href="#default-primary-step-4">Fourth Step<br /></a>
-                            </li>
-                        </ul>
-
-                        <div class="tab-content">
-                            <div id="default-primary-step-1" class="tab-pane" role="tabpanel">
                                 <fieldset>
                                     <legend>Maklumat Syarikat</legend>
                         
@@ -158,7 +142,7 @@
                                 </fieldset>
                             </div>
                         
-                            <div id="default-primary-step-2" class="tab-pane" role="tabpanel">
+    
                                 <fieldset>
                                     <legend> Maklumat Pemilik Syarikat</legend>
                                                <div class="row">
@@ -225,142 +209,10 @@
                                                                </div>
                                                
                                                        </fieldset>
-                                                </div>
-                            <div id="default-primary-step-3" class="tab-pane" role="tabpanel">
-                                <fieldset>
-                                    <legend>Maklumat Syarikat</legend>
-                        
-                                    <div class="row">
-                                        <div class="mb-3 col-md-6">
-                                            <label class="col-form-label col-sm-6 ">Nama Syarikat</label>
-                                        </div>
-                                        <div class="mb-3 col-md-6">
-                                            <input type=text style=text-transform:uppercase name=pembekal_company_name class="form-control">
-                                        </div>
-                                    </div>
-                        
-                                        {{-- <div class="row">
-                                            <div class="mb-3 col-md-6">
-                                                <label class="col-form-label col-sm-6 ">Jenis Pembekal</label>
-                                            </div>
-                                            <div class="mb-3 col-md-6">
-                                                <input type=text style=text-transform:uppercase name=pembekal_jenis class="form-control">
-                                            </div>
-                                        </div> --}}
-                        
-                                    <div class="row">
-                                        <div class="mb-3 col-md-6">
-                                            <label class="col-form-label col-sm-6 ">Jenis Perniagaan</label>
-                                        </div>
-                                        <div class="mb-3 col-md-6">
-                                            <input type=text style=text-transform:uppercase name=pembekal_jenis_company class="form-control">
-                                        </div>
-                                    </div>
-                        
-                                    <div class="row">
-                                        <div class="mb-3 col-md-6">
-                                            <label class="col-form-label col-sm-6 ">No Pendaftaran Syarikat</label>
-                                        </div>
-                                        <div class="mb-3 col-md-6">
-                                            <input type=text style=text-transform:uppercase name=pembekal_no_pendaftaran class="form-control">
-                                        </div>
-                                    </div>
-                        
-                                    <div class="row">
-                                        <div class="mb-3 col-md-6">
-                                            <label class="col-form-label col-sm-6 ">Sijil SSM</label>
-                                        </div>
-                                        <div class="mb-3 col-md-6">
-                                            <input type=file name=pembekal_sijil_ssm class="form-control">
-                                        </div>
-                                    </div>
-                        
-                                    <div class="row">
-                                        <div class="mb-3 col-md-6">
-                                            <label class="col-form-label col-sm-6 ">Lesen Perniagaan</label>
-                                        </div>
-                                        <div class="mb-3 col-md-6">
-                                            <input type=file name=pembekal_lesen_perniagaan class="form-control">
-                                        </div>
-                                    </div>
-                        
-                        
-                                    <div class="row">
-                                        <div class="mb-3 col-md-6">
-                                            <label class="col-form-label col-sm-6 ">Tarikh Penubuhan</label>
-                                        </div>
-                                        <div class="mb-3 col-md-6">
-                                            <input type=date name=pembekal_date_establish class="form-control">
-                                        </div>
-                                    </div>
-                        
-                                    <div class="row">
-                                        <div class="mb-3 col-md-6">
-                                            <label class="col-form-label col-sm-6 ">No Cukai Pendapatan</label>
-                                        </div>
-                                        <div class="mb-3 col-md-6">
-                                            <input type=text style=text-transform:uppercase name=pembekal_income_tax_no class="form-control" style=text-transform:uppercase>
-                                        </div>
-                                    </div>
-                        
-                        
-                                    <div class="row">
-                                        <div class="mb-3 col-md-6">
-                                            <label class="col-form-label col-sm-6 ">Alamat Syarikat</label>
-                                        </div>
-                                        <div class="mb-3 col-md-6">
-                                            <input type=text style=text-transform:uppercase name=pembekal_company_address class="form-control">
-                                        </div>
-                                    </div>
-                        
-                                    <div class="row">
-                                        <div class="mb-3 col-md-6">
-                                            <label class="col-form-label col-sm-6 ">Bandar</label>
-                                        </div>
-                                        <div class="mb-3 col-md-6">
-                                            <input type=text style=text-transform:uppercase name=pembekal_city class="form-control">
-                                        </div>
-                                    </div>
-                        
-                                    <div class="row">
-                                        <div class="mb-3 col-md-6">
-                                            <label class="col-form-label col-sm-6 ">Poskod</label>
-                                        </div>
-                                        <div class="mb-3 col-md-6">
-                                            <input type=number  name=pembekal_postcode class="form-control">
-                                        </div>
-                                    </div>
-                        
-                        
-                                    <div class="row">
-                                        <div class="mb-3 col-md-6">
-                                            <label class="col-form-label col-sm-6 ">Negeri</label>
-                                        </div>
-                                        <div class="mb-3 col-md-6">
-                                            <select name=pembekal_state class="form-control">
-                                                <option hidden>Sila Pilih</option>
-                                                <option value="Johor">Johor</option>
-                                                <option value="Kedah">Kedah</option>
-                                                <option value="Kelantan">Kelantan</option>
-                                                <option value="W.P Kuala Lumpur">W.P Kuala Lumpur</option>
-                                                <option value="W.P Labuan">W.P Labuan</option>
-                                                <option value="Melaka">Melaka</option>
-                                                <option value="Negeri Sembilan">Negeri Sembilan</option>
-                                                <option value="Pahang">Pahang</option>
-                                                <option value="Penang">Penang</option>
-                                                <option value="Perak">Perak</option>
-                                                <option value="Perlis">Perlis</option>
-                                                <option value="W.P Putrajaya">W.P Putrajaya</option>
-                                                <option value="Sabah">Sabah</option>
-                                                <option value="Sarawak">Sarawak</option>
-                                                <option value="Selangor">Selangor</option>
-                                                <option value="Terengganu">Terengganu</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </fieldset>
-                            </div>
-                            <div id="default-primary-step-4" class="tab-pane" role="tabpanel">
+                    
+                            
+                `
+                     
                                 <fieldset>
                                     <legend>Maklumat Cukai Barang dan Perkhidmatan</legend>
                         
@@ -397,6 +249,15 @@
                                         </div>
                                         <div class="mb-3 col-md-6">
                                             <input type=date name=pembekal_cbp_end_date class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="mb-3 col-md-6">
+                                            <label class="col-form-label col-sm-6 ">Lampiran Dokumen</label>
+                                        </div>
+                                        <div class="mb-3 col-md-6">
+                                            <input type=file name=pembekal_cbp_approval_doc class="form-control">
                                         </div>
                                     </div>
                         
@@ -490,18 +351,10 @@
                                             <label class="col-form-label col-sm-6 ">No Akaun</label>
                                         </div>
                                         <div class="mb-3 col-md-6">
-                                            <input type=date name=pembekal_akaun_no class="form-control">
+                                            <input type=number name=pembekal_akaun_no class="form-control">
                                         </div>
                                     </div>
-                        
                                 </fieldset>
-                            </div>
-                        </div>
-                    </div>
-        
-
-        <br><br>
-
   
         <br><br>
   

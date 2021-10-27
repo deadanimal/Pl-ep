@@ -36,7 +36,7 @@ class FizaFaqController extends Controller
         $fizaFaq->user_id =$request->user_id ;
 
         $fizaFaq->save();
-        return redirect('/fizaFaq');
+        return redirect('/Faq');
     }
 
     public function show(FizaFaq $fizaFaq)
@@ -70,7 +70,7 @@ class FizaFaqController extends Controller
         $fizaFaq->user_id =$request->user_id ;
 
         $fizaFaq->save();
-        return redirect('/fizaFaq');
+        return redirect('/Faq');
     }
 
     public function destroy(FizaFaq $fizaFaq)

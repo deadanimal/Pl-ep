@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\FizaAuditPelan;
 use Illuminate\Http\Request;
 
@@ -30,11 +29,14 @@ class FizaAuditPelanController extends Controller
 
         $fizaAuditPelan->audit_pelan_action=$request->audit_pelan_action;
         $fizaAuditPelan->audit_pelan_path=$request->audit_pelan_path;
-        $fizaAuditPelan->audit_pelan_created_by =$request->audit_pelan_created_by ;
+        $fizaAuditPelan->audit_pelan_created_by =$request->audit_pelan_created_by;
         $fizaAuditPelan->pelan_id=$request->pelan_id;
         $fizaAuditPelan->laporan_pelan_id=$request->laporan_pelan_id;
 
         $fizaAuditPelan->save();
+        //TODO
+        // 1. imprt controller notification
+        // 2. call controller notification pass data yg kau nak store dalam notification punya table()
         
         return redirect('/fizaAuditPelan');
     }

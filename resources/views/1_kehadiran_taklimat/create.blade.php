@@ -10,7 +10,7 @@ Kehadiran Taklimat
     <br> No Telefon <input type="number" class="form-control" name="kehadiran_no_tel">
     <br> Email <input type="email" class="form-control" name="kehadiran_email">
     <br> Status Kehadiran <input type="text" class="form-control" name="kehadiran_status">
-    <br> Link <input type="text" class="form-control" name="kehadiran_link">
+    <br> Link <input type="url" class="form-control" name="kehadiran_link">
 {{-- kehadiran_created_by
 kehadiran_created_date
 kehadiran_updated_by

@@ -22,7 +22,7 @@ class FizaKontrakController extends Controller
 
     public function create()
     {
-        return redirect('/1_kontrak.create');
+        return view('/1_kontrak.create');
     }
 
 
@@ -54,7 +54,7 @@ class FizaKontrakController extends Controller
 
 
         $fizaKontrak->save();
-        return redirect('/fizaKontrak');
+        return redirect('/Kontrak');
     }
 
 
@@ -64,20 +64,13 @@ class FizaKontrakController extends Controller
     }
 
 
-    public function edit(FizaKontrak $fizaKontrak)
+    public function edit($id)
     {
-        $fizaKontrak = FizaKontrak::all();
+        $fizaKontrak = FizaKontrak::find($id);
         return view ('1_kontrak.edit',[
-            'fizaKontrak'=>$fizaKontrak]);
+            'Kontrak'=>$fizaKontrak]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\FizaKontrak  $fizaKontrak
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, FizaKontrak $fizaKontrak)
     {
         $fizaKontrak->sst_id=$request->sst_id;
@@ -105,15 +98,10 @@ class FizaKontrakController extends Controller
         $fizaKontrak->user_id =$request->user_id;
 
         $fizaKontrak->save();
-        return redirect('/fizaKontrak');
+        return redirect('/Kontrak');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\FizaKontrak  $fizaKontrak
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(FizaKontrak $fizaKontrak)
     {
         //

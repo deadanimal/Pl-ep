@@ -19,11 +19,7 @@ class FizaPenyediaanSpesifikasiController extends Controller
             'fizaPenyediaanSpesifikasi'=>$fizaPenyediaanSpesifikasi]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         return view ('1_penyediaan_spesifikasi.create');
@@ -67,23 +63,13 @@ class FizaPenyediaanSpesifikasiController extends Controller
         return redirect('/fizaPenyediaanSpesifikasi');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\FizaPenyediaanSpesifikasi  $fizaPenyediaanSpesifikasi
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(FizaPenyediaanSpesifikasi $fizaPenyediaanSpesifikasi)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\FizaPenyediaanSpesifikasi  $fizaPenyediaanSpesifikasi
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(FizaPenyediaanSpesifikasi $fizaPenyediaanSpesifikasi)
     {
         $fizaPenyediaanSpesifikasi = FizaPenyediaanSpesifikasi::all();
@@ -135,12 +121,7 @@ class FizaPenyediaanSpesifikasiController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\FizaPenyediaanSpesifikasi  $fizaPenyediaanSpesifikasi
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(FizaPenyediaanSpesifikasi $fizaPenyediaanSpesifikasi)
     {
         //

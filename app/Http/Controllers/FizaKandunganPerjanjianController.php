@@ -19,7 +19,7 @@ class FizaKandunganPerjanjianController extends Controller
 
     public function create()
     {
-        return redirect('1_kandungan_perjanjian.create');
+        return view('1_kandungan_perjanjian.create');
     }
 
     
@@ -36,7 +36,7 @@ class FizaKandunganPerjanjianController extends Controller
 
     
         $fizaKandunganPerjanjian->save();
-        return redirect('/fizaKandunganPerjanjian');
+        return redirect('/KandunganPerjanjian');
     }
 
     public function show(FizaKandunganPerjanjian $fizaKandunganPerjanjian)

@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Models\AuditLog;
+use App\Models\FizaKatalog;
+use App\Models\FizaKart;
 use App\Models\FizaItemInfo;
+use App\Models\ItemKart;
 use Illuminate\Http\Request;
 
 class FizaItemInfoController extends Controller
@@ -12,7 +17,7 @@ class FizaItemInfoController extends Controller
     {
         $fizaItemInfo = FizaItemInfo::all();
         return view ('1_item_info.index',[
-            'fizaItemInfo'=>$fizaItemInfo]);
+            'ItemInfo'=>$fizaItemInfo]);
     }
 
     /**
@@ -22,7 +27,12 @@ class FizaItemInfoController extends Controller
      */
     public function create()
     {
-        return view('1_item_info.create');
+        $fizaItemInfo = FizaItemInfo::all();
+        $fizaKatalog = FizaKatalog::all();
+        return view('1_item_info.create',[
+            'ItemInfo'=>$fizaItemInfo,
+            'Katalog'=>$fizaKatalog 
+        ]);
     }
 
     public function store(Request $request)
@@ -32,14 +42,24 @@ class FizaItemInfoController extends Controller
         $fizaItemInfo->item_name=$request->item_name;
         $fizaItemInfo->item_price=$request->item_price;
         $fizaItemInfo->item_unit=$request->item_unit;
-        $fizaItemInfo->item_start_date=$request->item_start_date;
-        $fizaItemInfo->item_end_date=$request->item_end_date;
+        $fizaItemInfo->start_date=$request->item_start_date;
+        $fizaItemInfo->end_date=$request->item_end_date;
         $fizaItemInfo->katalog_id=$request->katalog_id;
-        $fizaItemInfo->pembekal_id=$request->pembekal_id;
-        $fizaItemInfo->item_created_by =$request->item_created_by ;
+        // $fizaItemInfo->pembekal_id=$request->pembekal_id;
+        // $fizaItemInfo->item_created_by =$request->item_created_by ;
+
 
         $fizaItemInfo->save();
-        return redirect('/fizaItemInfo'); 
+
+        // $user_id = $request->user()->id;
+        $item ="Item Info";
+        $user_id= "User A";
+        $description = "user ABC telah menambahkan info untuk Mesin ";
+
+        $log_item = [$item, $description, $user_id];
+
+        app('App\Http\Controllers\AuditLogController')->log($log_item);
+        return redirect('/ItemInfo'); 
     }
 
     public function show(FizaItemInfo $fizaItemInfo)
@@ -47,28 +67,23 @@ class FizaItemInfoController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\FizaItemInfo  $fizaItemInfo
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(FizaItemInfo $fizaItemInfo)
+  
+    public function edit($id)
     {
-         $fizaItemInfo = FizaItemInfo::all();
+         $fizaItemInfo = FizaItemInfo::find($id);
+         $fizaKatalog=FizaKatalog::where('id', $fizaItemInfo->katalog_id)->get();
         return view ('1_item_info.edit',[
-            'fizaItemInfo'=>$fizaItemInfo]);
+            'fizaItemInfo'=>$fizaItemInfo,
+            'fizaKatalog'=>$fizaKatalog
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\FizaItemInfo  $fizaItemInfo
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, FizaItemInfo $fizaItemInfo)
+
+    public function update(Request $request, FizaItemInfo $fizaItemInfo, $id)
+
     {
+        $fizaItemInfo = FizaItemInfo::find($id);
+
         $fizaItemInfo->item_name=$request->item_name;
         $fizaItemInfo->item_price=$request->item_price;
         $fizaItemInfo->item_unit=$request->item_unit;
@@ -80,17 +95,37 @@ class FizaItemInfoController extends Controller
 
 
         $fizaItemInfo->save();
-        return redirect('/fizaItemInfo');
+        return redirect('/ItemInfo');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\FizaItemInfo  $fizaItemInfo
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(FizaItemInfo $fizaItemInfo)
     {
         //
     }
+
+    public function addcart(Request $request, FizaItemInfo $ItemInfo)
+    {
+        $fizaKart = FizaKart::where('aktif', true)->first(); // syafiza kena cari jugak pembelian based on user...
+        if ($fizaKart) {
+            // kita buat bodoh...
+        } else {
+            $fizaKart = new FizaKart;
+            $fizaKart->user_id = 1;
+            $fizaKart->save();
+        }
+
+        $itemKart = new ItemKart;
+        $itemKart->item_id = $ItemInfo->id;
+        $itemKart->kart_id = $fizaKart->id;
+        $itemKart->save();
+        
+        return redirect('/ItemInfo');
+    }
+
+    public function removecart(Request $request,ItemKart $itemKart)
+    {
+        $itemKart->delete();
+        return redirect('/ItemInfo');
+    }
+
 }

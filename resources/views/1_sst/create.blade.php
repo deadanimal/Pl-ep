@@ -1,5 +1,5 @@
 <h3>Surat Setuju Terima </h3>
-<form method="POST" action="/Sst">
+<form method="POST" action="/SuratSetujuTerima">
 @csrf
 
 Tajuk <input type="text" class="form-control" name="sst_tajuk">
@@ -9,7 +9,7 @@ Tajuk <input type="text" class="form-control" name="sst_tajuk">
 <br>SST Sl1m <input type="text" class="form-control" name="sst_sl1m">
 <br>Pentadbir Kontrak <input type="text" class="form-control" name="sst_pentadbir_kontrak">
 <br>Perjanjian <input type="text" class="form-control" name="sst_perjanjian">
-<br>FILE <input type="file" class="form-control" name="sst_file">
+{{-- <br>FILE <input type="file" class="form-control" name="sst_file"> --}}
 <br>Penandatangan <input type="text" class="form-control" name="sst_penandatangan">
 <br>Pelulus <input type="text" class="form-control" name="sst_pelulus">
 <br>Catatan Pelulus <input type="text" class="form-control" name="sst_catatan_pelulus">

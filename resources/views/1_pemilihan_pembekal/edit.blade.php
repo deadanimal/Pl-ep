@@ -1,7 +1,6 @@
 <h3> Pemilihan Akhir Pembekal </h3>
-<form action="/PemilihanAkhirPembekal" method="POST">
+<form action="/PemilihanAkhirPembekal/{{$PemilihanAkhirPembekal->id}}" method="POST">
     @csrf
-
     <br> Tarikh Mesyuarat Akhir <input type="date" class="form-control" name="akhir_mesyuarat_date" value="{{$PemilihanAkhirPembekal->akhir_mesyuarat_date}}">
     <br> Lokasi Mesyuarat <input type=text class="form-control" name="akhir_mesyuarat_place" value="{{$PemilihanAkhirPembekal->akhir_mesyuarat_place}}" >
     <br> Status Mesyuarat <input type=text class="form-control" name="akhir_mesyuarat_status" value="{{$PemilihanAkhirPembekal->akhir_mesyuarat_status}}">
@@ -15,3 +14,6 @@ akhir_created_date
 akhir_updated_by
 akhir_updated_date
 pst_id --}}
+
+    <br> <button type="submit">Hantar</button>
+</form>

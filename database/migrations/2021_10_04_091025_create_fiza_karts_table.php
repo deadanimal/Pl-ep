@@ -16,6 +16,7 @@ class CreateFizaKartsTable extends Migration
         Schema::create('fiza_karts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('item_kod')->nullable();
+            $table->boolean('aktif')->default(true);
             $table->foreignId('kart_kuantiti')->nullable();
             $table->foreignId('pembekal_id')->nullable();
             $table->foreignId('kart_justifikasi')->nullable();

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\FizaPelanPerancanganPerolehan;
 use App\Mail\PerancanganPerolehan;
+
 use Illuminate\Support\Facades\Mail;
 
 use Illuminate\Http\Request;
@@ -58,7 +59,7 @@ class FizaPelanPerancanganPerolehanController extends Controller
 
         if ($request->status_pelan=="hantar"){
             $fizaPelanPerancanganPerolehan->pelan_status="Menunggu Pengesahan";
-            Mail::to('syafiza.senin@pipeline.com.my')->send(new PerancanganPerolehan);
+            // Mail::to('syafiza.senin@pipeline.com.my')->send(new PerancanganPerolehan);
         }
         else if($request->status_pelan=="draf"){
             $fizaPelanPerancanganPerolehan->pelan_status="Draf";
@@ -66,6 +67,15 @@ class FizaPelanPerancanganPerolehanController extends Controller
         }
 
         $fizaPelanPerancanganPerolehan->save();
+
+        $notification_obj = (object)[];
+        $notification_obj->noti_type='User A';
+        $notification_obj->noti_template='Telah Mencipta';
+        $notification_obj->noti_subject='Pelan Perancangan';
+        $notification_obj->noti_content='dan';
+        $notification_obj->noti_status='Menunggu Pengesahan';
+                        
+        app('App\Http\Controllers\FizaNotificationCenterController')->store($notification_obj);
         return redirect('/PelanPerancanganPerolehan');
 
     }
@@ -117,6 +127,7 @@ class FizaPelanPerancanganPerolehanController extends Controller
 
 
         $fizaPelanPerancanganPerolehan->save();
+        
         return redirect('/PelanPerancanganPerolehan');
     }
 

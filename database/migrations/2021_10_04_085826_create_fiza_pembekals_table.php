@@ -37,7 +37,7 @@ class CreateFizaPembekalsTable extends Migration
             $table->string('pembekal_fax_no')->nullable();
             $table->string('pembekal_cbp_no')->nullable();
             $table->date('pembekal_cbp_effective_date')->nullable();
-            $table->date('pembekal_cbp_approval_date')->nullable();
+            $table->string('pembekal_cbp_approval_doc')->nullable();
             $table->date('pembekal_cbp_end_date')->nullable();
             $table->string('pembekal_jenis_perniagaan')->nullable();
             $table->string('pembekal_bank')->nullable();
