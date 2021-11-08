@@ -12,7 +12,7 @@ class FizaCadanganController extends Controller
     {
         $fizaCadangan = FizaCadangan::all();
         return view ('1_cadangan.index',[
-            'fizaCadangan'=>$fizaCadangan]);
+            'Cadangan'=>$fizaCadangan]);
     }
 
     public function create()
@@ -25,18 +25,18 @@ class FizaCadanganController extends Controller
     {
         $fizaCadangan = new FizaCadangan;
 
-        $fizaCadangan->pembekal_id =$request->pembekal_id ;
-        $fizaCadangan->spesifikasi_id =$request->spesifikasi_id ;
-        $fizaCadangan->sss_id =$request->sss_id ;
+        // $fizaCadangan->pembekal_id =$request->pembekal_id ;
+        // $fizaCadangan->spesifikasi_id =$request->spesifikasi_id ;
+        // $fizaCadangan->sss_id =$request->sss_id ;
         $fizaCadangan->cadangan_mesyuarat_date=$request->cadangan_mesyuarat_date;
         $fizaCadangan->cadangan_mesyuarat_place =$request->cadangan_mesyuarat_place ;
-        $fizaCadangan->cadangan_created_by=$request->cadangan_created_by;
-        $fizaCadangan->jawatankuasa_id=$request->jawatankuasa_id;
-        $fizaCadangan->cadangan_mesyuarat_status=$request->cadangan_mesyuarat_status;
-        $fizaCadangan->cadangan_kehadiran=$request->cadangan_kehadiran;
-        $fizaCadangan->cadangan_bil_pembekal_lulus_teknikal=$request->cadangan_bil_pembekal_lulus_teknikal;
-        $fizaCadangan->cadangan_bil_pembekal_lulus_kewangan=$request->cadangan_bil_pembekal_lulus_kewangan;
-        $fizaCadangan->cadangan_ulasan_penilaian=$request->cadangan_ulasan_penilaian;
+        // $fizaCadangan->cadangan_created_by=$request->cadangan_created_by;
+        // $fizaCadangan->jawatankuasa_id=$request->jawatankuasa_id;
+        // $fizaCadangan->cadangan_mesyuarat_status=$request->cadangan_mesyuarat_status;
+        // $fizaCadangan->cadangan_kehadiran=$request->cadangan_kehadiran;
+        // $fizaCadangan->cadangan_bil_pembekal_lulus_teknikal=$request->cadangan_bil_pembekal_lulus_teknikal;
+        // $fizaCadangan->cadangan_bil_pembekal_lulus_kewangan=$request->cadangan_bil_pembekal_lulus_kewangan;
+        // $fizaCadangan->cadangan_ulasan_penilaian=$request->cadangan_ulasan_penilaian;
 
         $fizaCadangan->save();
         return redirect('/Cadangan');
@@ -49,23 +49,27 @@ class FizaCadanganController extends Controller
     }
 
 
-    public function edit(FizaCadangan $fizaCadangan)
+    public function edit($id)
     {
-        return redirect('1_cadangan.edit', [
-            'FizaCadangan'=>$fizaCadangan
+        $fizaCadangan = FizaCadangan::find($id);
+        // dd($fizaCadangan);
+        return view('1_cadangan.edit', [
+            'Cadangan'=>$fizaCadangan
         ]); 
     }
 
 
-    public function update(Request $request, FizaCadangan $fizaCadangan)
+    public function update(Request $request, FizaCadangan $fizaCadangan,$id)
     {
-        $fizaCadangan->pembekal_id =$request->pembekal_id ;
-        $fizaCadangan->spesifikasi_id =$request->spesifikasi_id ;
-        $fizaCadangan->sss_id =$request->sss_id ;
+        $fizaCadangan = FizaCadangan::find($id);
+
+        // $fizaCadangan->pembekal_id =$request->pembekal_id ;
+        // $fizaCadangan->spesifikasi_id =$request->spesifikasi_id ;
+        // $fizaCadangan->sss_id =$request->sss_id ;
         $fizaCadangan->cadangan_mesyuarat_date=$request->cadangan_mesyuarat_date;
         $fizaCadangan->cadangan_mesyuarat_place =$request->cadangan_mesyuarat_place ;
-        $fizaCadangan->cadangan_updated_by=$request->cadangan_updated_by;
-        $fizaCadangan->jawatankuasa_id=$request->jawatankuasa_id;
+        // $fizaCadangan->cadangan_updated_by=$request->cadangan_updated_by;
+        // $fizaCadangan->jawatankuasa_id=$request->jawatankuasa_id;
         $fizaCadangan->cadangan_mesyuarat_status=$request->cadangan_mesyuarat_status;
         $fizaCadangan->cadangan_kehadiran=$request->cadangan_kehadiran;
         $fizaCadangan->cadangan_bil_pembekal_lulus_teknikal=$request->cadangan_bil_pembekal_lulus_teknikal;

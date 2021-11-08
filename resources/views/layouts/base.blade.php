@@ -31,7 +31,11 @@
         <link href="/css/light.css" rel="stylesheet">
         <script src="/js/settings.js"></script>
 
-
+        <style>
+            table{
+                text-transform: capitalize;
+            }
+        </style>
 
     </head>
     <body>
@@ -70,7 +74,7 @@
                             <ul id="pages" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
                                 <li class="sidebar-item"><a class="sidebar-link" href="/PelanPerancanganPerolehan">Senarai Pelan Perancangan Perolehan</a></li>
                                 <li class="sidebar-item"><a class="sidebar-link" href="/PelanPerancanganPerolehan/create">Cipta Baru Pelan</a></li>
-                                <li class="sidebar-item"><a class="sidebar-link" href="/indexpengesah">Pelan Yang Menunggu Pengesahanisahkan</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="/indexpengesah">Pelan Yang Menunggu Pengesahan</a></li>
                                 <li class="sidebar-item"><a class="sidebar-link" href="/indexpelulus">Pelan Yang Menunggu Kelulusan</a></li>
                                 {{-- <li class="sidebar-item"><a class="sidebar-link" href="pages-blank.html">Blank Page</a></li> --}}
                             </ul>
@@ -92,46 +96,31 @@
 
                         <li class="sidebar-item">
                             <a data-bs-target="#auth" data-bs-toggle="collapse" class="sidebar-link collapsed">
-                                <i class="align-middle me-2 fas fa-fw fa-sign-in-alt"></i> <span class="align-middle">Auth</span>
+                                <i class="align-middle me-2 fas fa-fw fa-sign-in-alt"></i> <span class="align-middle">Pengguna</span>
                             </a>
                             <ul id="auth" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
                                 <li class="sidebar-item"><a class="sidebar-link" href="/register-role">Pendaftaran Pengguna</a></li>
-                                {{-- <li class="sidebar-item"><a class="sidebar-link" href="pages-sign-up.html">Sign
-                                        Up</a></li>
-                                <li class="sidebar-item"><a class="sidebar-link" href="pages-reset-password.html">Reset Password</a></li>
-                                <li class="sidebar-item"><a class="sidebar-link" href="pages-404.html">404
-                                        Page</a></li>
-                                <li class="sidebar-item"><a class="sidebar-link" href="pages-500.html">500
-                                        Page</a></li> --}}
                             </ul>
                         </li>
     
                         <li class="sidebar-header">
-                            Elements
+                            Permohonan
                         </li>
                         <li class="sidebar-item">
                             <a data-bs-target="#ui" data-bs-toggle="collapse" class="sidebar-link collapsed">
-                                <i class="align-middle me-2 fas fa-fw fa-flask"></i> <span class="align-middle">User Interface</span>
+                                <i class="align-middle me-2 fas fa-fw fa-file"></i> <span class="align-middle">Pembelian SebutHarga & Tender </span>
                             </a>
                             <ul id="ui" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-                                <li class="sidebar-item"><a class="sidebar-link" href="ui-alerts.html">Alerts</a></li>
-                                <li class="sidebar-item"><a class="sidebar-link" href="ui-buttons.html">Buttons</a></li>
-                                <li class="sidebar-item"><a class="sidebar-link" href="ui-cards.html">Cards</a></li>
-                                <li class="sidebar-item"><a class="sidebar-link" href="ui-general.html">General</a></li>
-                                <li class="sidebar-item"><a class="sidebar-link" href="ui-grid.html">Grid</a>
+                                <li class="sidebar-item"><a class="sidebar-link" href="/NotaMinta/create">Cipta Nota Minta</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="/NotaMinta">Senarai Nota Minta</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="/PembelianSebutTender/create">Cipta SebutHarga/ Tender</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="/PembelianSebutTender">Senarai SebutHarga/ Tender</a>
                                 </li>
-                                <li class="sidebar-item"><a class="sidebar-link" href="ui-modals.html">Modals</a></li>
-                                <li class="sidebar-item"><a class="sidebar-link" href="ui-offcanvas.html">Offcanvas</a></li>
-                                <li class="sidebar-item"><a class="sidebar-link" href="ui-notifications.html">Notifications</a></li>
-                                <li class="sidebar-item"><a class="sidebar-link" href="ui-tabs.html">Tabs</a>
-                                </li>
-                                <li class="sidebar-item"><a class="sidebar-link" href="ui-typography.html">Typography</a></li>
                             </ul>
                         </li>
                         <li class="sidebar-item">
                             <a data-bs-target="#charts" data-bs-toggle="collapse" class="sidebar-link collapsed">
-                                <i class="align-middle me-2 fas fa-fw fa-chart-pie"></i> <span class="align-middle">Charts</span>
-                                <span class="sidebar-badge badge rounded-pill bg-primary">New</span>
+                                <i class="align-middle me-2 fas fa-fw fa-chart-pie"></i> <span class="align-middle">Katalog</span>
                             </a>
                             <ul id="charts" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
                                 <li class="sidebar-item"><a class="sidebar-link" href=" charts-chartjs.html">Chart.js</a></li>
@@ -224,7 +213,7 @@
     
                    {{--< <form class="d-none d-sm-inline-block">
                         <input class="form-control form-control-lite" type="text" placeholder="Search projects...">
-                     </form> --}}
+                     </form> 
     
                      {{--<div class="navbar-collapse collapse">
                         <ul class="navbar-nav ms-auto">

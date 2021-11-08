@@ -13,9 +13,14 @@ class RolesController extends Controller
     {
         $user =User::all();
         $user->Roles();
+        return view('role_list',[
+            'user'=>$user, 
+            'roles'=>$Roles
+        ]);
+
+
     }
-
-
+    
     public function create()
     {
         return view('role_register');
@@ -37,7 +42,10 @@ class RolesController extends Controller
         // $user->roles()->attach($role_name);
 
         $user = new User;
-        $user->bla = $request->bla;
+        $user->email = $request->email;
+        $user->user_name = $request->user_name;
+        $user->user_password = $request->user_password;
+        $user->user_identity_no = $request->user_identity_no;
         $user->save();
 
         $role = Role::find($request->role_id);

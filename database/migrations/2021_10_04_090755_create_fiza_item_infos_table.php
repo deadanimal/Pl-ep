@@ -6,17 +6,12 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateFizaItemInfosTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('fiza_item_infos', function (Blueprint $table) {
             $table->id();
             $table->foreignId('katalog_id')->nullable();
-            $table->foreignId('pembekal_id)')->nullable();
+            $table->foreignId('pembekal_id')->nullable();
             $table->string('item_name')->nullable();
             $table->string('item_price')->nullable();
             $table->string('item_unit')->nullable();

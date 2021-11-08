@@ -147,7 +147,7 @@ Route::get('/cidb',[FizaPembekalController::class,'cidb']);
 Route::get('/listkatalog/{id}',[FizaKatalogController::class,'listkatalog']);
 
 Route::get('/ItemInfo/addcart/{ItemInfo}', [FizaItemInfoController::class, 'addcart']);
-Route::post('/ItemKart/removecart/{itemKart}', [FizaItemInfoController::class, 'removecart']);
+Route::get('/ItemKart/removecart/{itemKart}', [FizaItemInfoController::class, 'removecart']);
 Route::resource('/ItemKart',ItemKartController::class);
 
 

@@ -1,62 +1,300 @@
 @extends('layouts.base')
 
 @section('content')
-    
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-body">
+                    <h3>Cipta SebutHarga / Tender </h3>
+                        <form method="POST" action="/PembelianSebutTender">
+                        @csrf
+
+                        <div class="row">
+                            <div class="mb-3 col-md-6">
+                                <label class="col-form-label col-sm-6 ">Panel Item</label>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                            <input type="text" class="form-control" name="pst_item_panel">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="mb-3 col-md-6">
+                                <label class="col-form-label col-sm-6 ">Sistem Panel</label>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <input type="text" class="form-control" name="pst_sistem_panel">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="mb-3 col-md-6">
+                                <label class="col-form-label col-sm-6 "> No Perkeliling Perbendaharaan (No1PP)</label>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <input type="text" class="form-control" name="pst_no1pp">
+                            </div>
+                        </div>
 
 
+                        <div class="row">
+                            <div class="mb-3 col-md-6">
+                                <label class="col-form-label col-sm-6 ">Kumpulan Katalog</label>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <input type="text" class="form-control" name="pst_katalog_kumpulan">
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="mb-3 col-md-6">
+                                <label class="col-form-label col-sm-6 ">Tajuk Pembelian SebutHarga & Tender</label>
+                            </div> 
+                            <div class="mb-3 col-md-6">
+                                <input type="text" class="form-control" name="pst_tajuk">
+                            </div>
+                        </div>
 
-<h3>Cipta SebutHarga / Tender </h3>
+                        <div class="row">
+                            <div class="mb-3 col-md-6">
+                                <label class="col-form-label col-sm-6 "> No Rujukan Fail </label>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                 <input type="text" class="form-control" name="pst_no_rujukan_fail">
+                            </div>
+                        </div>
 
-<form method="POST" action="/PembelianSebutTender">
-    @csrf
+                        <div class="row">
+                            <div class="mb-3 col-md-6">
+                                <label class="col-form-label col-sm-6 "> Jumlah Harga Jangkaan Indikatif</label>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <input type="number" class="form-control" name="pst_jumlah_harga_indikatif_jangkaan">
+                            </div>
+                        </div>
 
-    <br>
-        <div class="col-6"> Panel Item <div class="col-6"> <input type="text" class="form-control" name="pst_item_panel">
-    <br> Sistem Panel  <input type="text" class="form-control" name="pst_sistem_panel">
-    <br> No Perkeliling Perbendaharaan (No1PP) <input type="text" class="form-control" name="pst_no1pp">
-    <br> Kumpulan Katalog <input type="text" class="form-control" name="pst_katalog_kumpulan">
-    <br> Tajuk Pembelian SebutHarga & Tender <input type="text" class="form-control" name="pst_tajuk">
-    <br> No Rujukan Fail <input type="text" class="form-control" name="pst_no_rujukan_fail">
-    <br> Jumlah Harga Jangkaan Indikatif <input type="number" class="form-control" name="pst_jumlah_harga_indikatif_jangkaan">
-    <br> Kaedah Perolehan <input type="text" class="form-control" name="pst_kaedah_perolehan">
-    <br> Jenis PST <input type="text" class="form-control" name="pst_jenis">
-    <br> Terbuka Kepada <input type="text" class="form-control" name="pst_terbuka_kepada">
-    <br> Zon <input type="text" class="form-control" name="pst_zon_lokasi">
-    <br> Kategori Jenis Perolehan <input type=text name=pst_kategori_jenis_perolehan class="form-control">
-    <br> Kategori Perolehan <input type="text" class="form-control" name="pst_kategori_perolehan">
-    <br> Jenis kontrak <input type="text" class="form-control" name="pst_jenis_kontrak">
-    <br> Jenis Pemenuhan <input type="text" class="form-control" name="pst_jenis_pemenuhan">
-    <br> Tempoh Kontrak <input type="text" class="form-control" name="pst_tempoh_kontrak">
-{{--     
-item_id
-kod_id
-pembekal_id --}}
-    <br>Jumlah Pembekal Yang Layak <input type="number" class="form-control" name="pst_jumlah_pembekal_layak">
-{{-- ro_id
-jawatankuasa_id
-user_id --}}
-    <br> Nama Pelulus <input type="text" class="form-control" name="pst_pelulus">
-    <br> Catatan Pelulus <input type="text" class="form-control" name="pst_catatan_pelulus">
-    <br> Perihal Taklimat <input type="text" class="form-control" name="pst_perihal_taklimat">
-    <br> Tarikh Taklimat <input type="date" class="form-control" name="pst_taklimat_date">
-    <br> Alamat Taklimat <input type="text" class="form-control" name="pst_taklimat_alamat">
-    <br> Link <input type="url" class="form-control" name="pst_link">
-    <br> Penyelaras <input type="text" class="form-control" name="pst_penyelaras">
-    <br> Kehadiran Maksimum <input type="text" class="form-control" name="pst_kehadiran_max">
-    <br> Status <input type="text" class="form-control" name="pst_status">
-{{-- pst_created_by
-pst_created_date
-pst_updated_by
-pst_updated_date --}}
-    <br> Jenis Pemotongan <input type="text" class="form-control" name="pst_jenis_potongan">
-    <br> Deskripsi Pemotongan <input type="text" class="form-control" name="pst_potongan_description">
-    <br> Amaun Pemotongan <input type="text" class="form-control" name="pst_amaun_potongan">
+                        <div class="row">
+                            <div class="mb-3 col-md-6">
+                                <label class="col-form-label col-sm-6 ">  Kaedah Perolehan </label>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <input type="text" class="form-control" name="pst_kaedah_perolehan">
+                            </div>
+                        </div>
 
-    <br><button type="submit">Hantar</button>
-    
-</form>
+                        <div class="row">
+                            <div class="mb-3 col-md-6">
+                                <label class="col-form-label col-sm-6 ">  Jenis PST </label>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <input type="text" class="form-control" name="pst_jenis">
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="mb-3 col-md-6">
+                                <label class="col-form-label col-sm-6 "> Terbuka Kepada </label>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <input type="text" class="form-control" name="pst_terbuka_kepada">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="mb-3 col-md-6">
+                                <label class="col-form-label col-sm-6 "> Zon </label>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <input type="text" class="form-control" name="pst_zon_lokasi">
+                            </div>
+                        </div>
+
+                         <div class="row">
+                            <div class="mb-3 col-md-6">
+                                <label class="col-form-label col-sm-6 ">Kategori Jenis Perolehan</label>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <input type=text name=pst_kategori_jenis_perolehan class="form-control">
+                            </div>
+                         </div>
+                        
+
+                         <div class="row">
+                            <div class="mb-3 col-md-6">
+                                <label class="col-form-label col-sm-6 ">Kategori Perolehan</label>
+                            </div> 
+                            <div class="mb-3 col-md-6">
+                                <input type="text" class="form-control" name="pst_kategori_perolehan">
+                            </div>
+                         </div>
+
+                         <div class="row">
+                            <div class="mb-3 col-md-6">
+                                <label class="col-form-label col-sm-6 ">Jenis kontrak </label>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <input type="text" class="form-control" name="pst_jenis_kontrak">
+                            </div>
+                         </div>
+
+                        <div class="row">
+                            <div class="mb-3 col-md-6">
+                                <label class="col-form-label col-sm-6 "> Jenis Pemenuhan</label>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <input type="text" class="form-control" name="pst_jenis_pemenuhan">
+                            </div>
+                        </div>
+
+                    
+                        <div class="row">
+                            <div class="mb-3 col-md-6">
+                                <label class="col-form-label col-sm-6 ">Tempoh Kontrak </label>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <input type="text" class="form-control" name="pst_tempoh_kontrak">
+                            </div>
+                        </div>
+                {{--     
+                item_id
+                kod_id
+                pembekal_id --}}
+                
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label class="col-form-label col-sm-6 ">Jumlah Pembekal Yang Layak </label>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <input type="number" class="form-control" name="pst_jumlah_pembekal_layak">
+                    </div>
+                </div>
+
+                {{-- ro_id
+                jawatankuasa_id
+                user_id --}}
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label class="col-form-label col-sm-6 "> Nama Pelulus</label>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <input type="text" class="form-control" name="pst_pelulus">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label class="col-form-label col-sm-6 "> Catatan Pelulus </label>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <input type="text" class="form-control" name="pst_catatan_pelulus">
+                    </div>
+                </div>
+
+                
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label class="col-form-label col-sm-6 ">  Perihal Taklimat </label>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <input type="text" class="form-control" name="pst_perihal_taklimat">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label class="col-form-label col-sm-6 ">Tarikh Taklimat</label>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <input type="date" class="form-control" name="pst_taklimat_date">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label class="col-form-label col-sm-6 ">Alamat Taklimat</label>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <input type="text" class="form-control" name="pst_taklimat_alamat">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label class="col-form-label col-sm-6 "> Link </label>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <input type="url" class="form-control" name="pst_link">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label class="col-form-label col-sm-6 ">Penyelaras</label>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <input type="text" class="form-control" name="pst_penyelaras">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label class="col-form-label col-sm-6 ">Kehadiran Maksimum </label>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <input type="text" class="form-control" name="pst_kehadiran_max">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label class="col-form-label col-sm-6 ">Status </label>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                         <input type="text" class="form-control" name="pst_status">
+                    </div>
+                </div>
+                {{-- pst_created_by
+                pst_created_date
+                pst_updated_by
+                pst_updated_date --}}
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label class="col-form-label col-sm-6 ">Jenis Pemotongan</label>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <input type="text" class="form-control" name="pst_jenis_potongan">
+                    </div>
+                </div>
 
 
-    
-@endsection
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label class="col-form-label col-sm-6 ">Deskripsi Pemotongan</label>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <input type="text" class="form-control" name="pst_potongan_description">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label class="col-form-label col-sm-6 ">Amaun Pemotongan</label>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <input type="text" class="form-control" name="pst_amaun_potongan">
+                    </div>
+                </div>
+
+                    <br><button type="submit" class="btn-primary">Hantar</button>
+                    
+                </form>
+                </div>
+            </div>
+        </div></div></div>
+
+
+                    
+                @endsection
 

@@ -15,11 +15,7 @@ class FizaFaqController extends Controller
             'fizaFaq'=>$fizaFaq]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
     {
         return view('1_faq.create');
@@ -45,23 +41,18 @@ class FizaFaqController extends Controller
     }
 
 
-    public function edit(FizaFaq $fizaFaq)
+    public function edit($id)
     {
-        $fizaFaq = FizaFaq::all();
+        $fizaFaq = FizaFaq::find($id);
         return view ('1_faq.edit',[
-            'fizaFaq'=>$fizaFaq]);
+            'Faq'=>$fizaFaq]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\FizaFaq  $fizaFaq
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, FizaFaq $fizaFaq)
+
+    public function update(Request $request, FizaFaq $fizaFaq,$id)
     {
-        $fizaFaq = new FizaFaq;
+        $fizaFaq = FizaFaq::find($id);
+
         $fizaFaq->faq_section =$request->faq_section ;
         $fizaFaq->faq_question =$request->faq_question ;
         $fizaFaq->faq_answer =$request->faq_answer ;

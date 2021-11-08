@@ -7,7 +7,6 @@
         <div class="card">
             <div class="card-header">
                 <h3>Senarai Perolehan </h3>
-        
             </div>
             <div class="card-body">
                 <table id="datatables-1" class="table table-striped" style="width:100%">
@@ -34,14 +33,12 @@
                                 <td><a href="/PelanPerancanganPerolehan/{{$fizaPelanPerancanganPerolehan->id }}/edit"><img src="/img/edit.svg"></td>
                             </tr>
                         @endforeach
-
                     </tbody>
-                 </table>
-
-                </div>
+                </table>
             </div>
         </div>
-
+    </div>
+</div>
 
 
 @stop

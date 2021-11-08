@@ -3,15 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\FizaNotaMinta;
+use App\Models\FizaItemInfo;
+use App\Models\FizaKatalog;
 use Illuminate\Http\Request;
 
 class FizaNotaMintaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $fizaNotaMinta = FizaNotaMinta::all();
@@ -20,22 +18,13 @@ class FizaNotaMintaController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         return view('1_nota_minta.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         
@@ -55,7 +44,7 @@ class FizaNotaMintaController extends Controller
         $fizaNotaMinta->user_id=$request->user_id;
 
         $fizaNotaMinta->save();
-        return redirect('/NotaMinta');
+        return redirect('/ItemInfo');
     }
     
 
@@ -65,12 +54,6 @@ class FizaNotaMintaController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\FizaNotaMinta  $fizaNotaMinta
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $fizaNotaMinta = FizaNotaMinta::find($id);
@@ -98,12 +81,6 @@ class FizaNotaMintaController extends Controller
         return redirect('/NotaMinta');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\FizaNotaMinta  $fizaNotaMinta
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(FizaNotaMinta $fizaNotaMinta)
     {
         //

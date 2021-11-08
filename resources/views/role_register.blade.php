@@ -1,29 +1,75 @@
-<form action="/daftar-role" method="POST">
-    @csrf
-    Nama: <input type="text" name="user_name">
+@extends('layouts.base')
 
-    <br>Jenis Pengguna 
-    <select name="jenis">
-        <option value="pekerja">Staff Perbadanan Labuan</option>
-        <option value="pembekal">Pembekal</option>
-        <option value="juruaudit">Juruaudit</option>
-    </select>
+@section('content')
+    
+<h3>Pendaftaran Pengguna</h3>
+</div>
+    <div class="card-body">
+        <form action="/daftar-role" method="POST">
+            @csrf
 
-    <br> identity_no <input type="text" name="user_identity_no">
+            <div class="row">
+                <div class="mb-3 col-md-6">
+                    <label class="col-form-label col-sm-6 ">Nama: </label>
+                </div>
+                <div class="mb-3 col-md-6"><input type="text" class="form-control" name="user_name"></div>
+            </div>
 
-    <br>email <input type-=email name=user_email>
 
-    <br>Role <select name="role_id">
-            <option hidden>SILA PILIH</option>
-                @foreach($role as  $role)
-            <option value="{{$role->id}}">{{$role->role_name}}</option>
-                @endforeach 
-            </select>
+            <div class="row">
+                <div class="mb-3 col-md-6">
+                    <label class="col-form-label col-sm-6 ">Jenis Pengguna </label>
+                </div>
+                <div class="mb-3 col-md-6">
+                    <select name="jenis"  class="form-control">
+                        <option hidden>Sila Pilih</option>
+                        <option value="pekerja">Staff Perbadanan Labuan</option>
+                        <option value="pembekal">Pembekal</option>
+                        <option value="juruaudit">Juruaudit</option>
+                    </select>
+                </div>
+            </div>
+         
+            <div class="row">
+                <div class="mb-3 col-md-6">
+                    <label class="col-form-label col-sm-6 "> MyKad Number </label>
+                </div>
+                <div class="mb-3 col-md-6">
+                    <input type="text"  class="form-control" name="user_identity_no">
+                </div>
+            </div>
 
-<br>
-    <button type=submit>Daftar</button>
-    </form>
+            <div class="row">
+                <div class="mb-3 col-md-6">
+                    <label class="col-form-label col-sm-6 ">Email</label>
+                </div>
+                <div class="mb-3 col-md-6">
+                    <input type-=email  class="form-control" name=email>
+                </div>
+            </div>
 
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label class="col-form-label col-sm-6 ">Roles</label>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                         <select name="role_id"  class="form-control">
+                            <option hidden>SILA PILIH</option>
+                                @foreach($role as  $role)
+                            <option value="{{$role->id}}">{{$role->role_name}}</option>
+                                @endforeach 
+                        </select>
+                    </div>
+                </div>
+        
+
+        <br>
+        <div>
+            <button type=submit class="btn btn-primary" style=float:absolute>Daftar</button>
+        </div>
+            </form>
+
+@endsection
 
 
 

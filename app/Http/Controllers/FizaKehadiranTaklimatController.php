@@ -16,14 +16,10 @@ class FizaKehadiranTaklimatController extends Controller
     {
         $fizaKehadiran_Taklimat = FizaKehadiran_Taklimat::all();
         return view ('1_kehadiran_taklimat.index',[
-            'fizaKehadiranTaklimat'=>$fizaKehadiranTaklimat]);
+            'KehadiranTaklimat'=>$fizaKehadiranTaklimat]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function create()
     {
         return view('/1_kehadiran_taklimat.create');
@@ -44,15 +40,10 @@ class FizaKehadiranTaklimatController extends Controller
         $fizaKehadiran_Taklimat->kehadiran_created_by=$request->kehadiran_created_by;
 
         $fizaKehadiran_Taklimat->save();
-        return redirect('/fizaKehadiranTaklimat');
+        return redirect('/KehadiranTaklimat');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\FizaKehadiranTaklimat  $fizaKehadiranTaklimat
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(FizaKehadiranTaklimat $fizaKehadiranTaklimat)
     {
         //

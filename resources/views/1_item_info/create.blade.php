@@ -1,3 +1,9 @@
+@extends('layouts.base')
+
+@section('content')
+    
+
+
 <h3> Daftar Item Info </h3>
 <form method="POST" action="/ItemInfo">
     @csrf
@@ -24,5 +30,5 @@ item_created_by
 item_created_date
 item_updated_by
 item_updated_date --}}
-
+@endsection
 

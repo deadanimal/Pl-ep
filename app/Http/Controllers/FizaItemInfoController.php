@@ -54,7 +54,7 @@ class FizaItemInfoController extends Controller
         // $user_id = $request->user()->id;
         $item ="Item Info";
         $user_id= "User A";
-        $description = "user ABC telah menambahkan info untuk Mesin ";
+        $description = "user ABC telah menambahkan info untuk $fizaItemInfo->item_name ";
 
         $log_item = [$item, $description, $user_id];
 
@@ -93,6 +93,8 @@ class FizaItemInfoController extends Controller
         $fizaItemInfo->pembekal_id=$request->pembekal_id;
         $fizaItemInfo->item_updated_by =$request->item_updated_by;
 
+        $temp = Session::get('id_pembekal');
+        $dokumen->id_pembekal=$temp;
 
         $fizaItemInfo->save();
         return redirect('/ItemInfo');
@@ -125,7 +127,7 @@ class FizaItemInfoController extends Controller
     public function removecart(Request $request,ItemKart $itemKart)
     {
         $itemKart->delete();
-        return redirect('/ItemInfo');
+        return redirect('/ItemKart');
     }
 
 }

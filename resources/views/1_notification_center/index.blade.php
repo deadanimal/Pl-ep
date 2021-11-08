@@ -1,3 +1,6 @@
+@extends('layouts.base')
+@section('content')
+    
 <h3> Sistem Notifikasi </h3>
 
 <table>
@@ -11,3 +14,5 @@
         @endforeach
     </tr>
 </table>
+
+@endsection

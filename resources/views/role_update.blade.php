@@ -15,7 +15,7 @@
         
         <br>No Kad Pengenalan<input type="text" name="user_identity_no" value="{{$user->identity_no}}">
         
-        <br>Email<input type="email" name="email" value="{{$user->user_email}}">
+        <br>Email<input type="email" name="email" value="{{$user->email}}">
         
         <br>Role <select name="role_id">
                 <option hidden>SILA PILIH</option>
