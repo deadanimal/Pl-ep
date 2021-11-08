@@ -29,7 +29,7 @@
                                 <td>{{$ItemInfo->item_name}}</td>
                                 <td>{{$ItemInfo->start_date}}</td>
                                 <td>{{$ItemInfo->end_date}}</td>
-                                <td>{{$Katalog->katalog_kategori}}</td> 
+                                <td>{{$ItemInfo->katalog_id}}</td> 
                                 <td><a href='/listkatalog/{{$ItemInfo->katalog_id}}'>Butiran Item</a></td>
                                 <td> <a href="/ItemInfo/addcart/{{$ItemInfo->id}}">Tambah Ke Kart</a></td>
                        
