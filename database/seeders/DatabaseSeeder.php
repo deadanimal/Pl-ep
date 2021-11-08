@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
     {
         DB::table('users')->insert([
             'user_name' => 'Abc',
-            'user_email' => 'abc@gmail.com',
+            'email' => 'abc@gmail.com',
             'user_identity_no'=>'999',
             'jenis'=>'pembekal',
             'user_password' => Hash::make('password'),
@@ -27,17 +27,17 @@ class DatabaseSeeder extends Seeder
         ]);
         
         DB::table('roles')->insert([
-            'role_name'=>'pegawai perancang',
+            'role_name'=>'Pegawai Perancang',
             'role_staff_status'=>'aktif'
         ]);
 
         DB::table('roles')->insert([
-            'role_name'=>'pegawai pengesah',
+            'role_name'=>'Pegawai Pengesah',
             'role_staff_status'=>'aktif'
         ]);
         
         DB::table('roles')->insert([
-            'role_name'=>'pegawai pelulus',
+            'role_name'=>'Pegawai Pelulus',
             'role_staff_status'=>'aktif'
         ]);
 

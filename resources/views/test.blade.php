@@ -189,7 +189,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <h5 class="card-title mb-0">Recent Movement</h5>
+                            <h5 class="card-title mb-0">Senarai Katalog</h5>
                         </div>
                         <div class="card-body py-3">
                             <div class="chart chart-sm">
@@ -427,7 +427,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <h5 class="card-title mb-0">Latest Projects</h5>
+                            <h5 class="card-title mb-0">Senarai Sebutharga</h5>
                         </div>
                         <table id="datatables-dashboard-projects" class="table table-striped my-0">
                             <thead>
