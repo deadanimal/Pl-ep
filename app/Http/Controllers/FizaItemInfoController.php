@@ -16,8 +16,11 @@ class FizaItemInfoController extends Controller
     public function index()
     {
         $fizaItemInfo = FizaItemInfo::all();
+        $fizaKatalog = FizaKatalog::all();
         return view ('1_item_info.index',[
-            'ItemInfo'=>$fizaItemInfo]);
+            'ItemInfo'=>$fizaItemInfo,
+            'Katalog'=>$fizaKatalog
+        ]);
     }
 
     /**

@@ -94,7 +94,7 @@
                         </div>
                     </div>
 
-
+{{-- 
                     <div class="row">
                         <div class="mb-3 col-md-6">
                             <label class="col-form-label col-sm-6 ">File Bon </label>
@@ -102,7 +102,7 @@
                         <div class="mb-3 col-md-6">
                             <input type="file" class="form-control" name="kontrak_file_bon">
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="row">
                         <div class="mb-3 col-md-6">

@@ -57,8 +57,8 @@
                     <ul class="sidebar-nav">
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="calendar.html">
-                                <i class="align-middle me-2 fas fa-fw fa-home"></i> <span class="align-middle">Dasboard</span>
+                            <a class="sidebar-link" href="/">
+                                <i class="align-middle me-2 fas fa-fw fa-home"></i> <span class="align-middle">Dashboard</span>
                             </a>
                         </li>
 
@@ -123,8 +123,10 @@
                                 <i class="align-middle me-2 fas fa-fw fa-chart-pie"></i> <span class="align-middle">Katalog</span>
                             </a>
                             <ul id="charts" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-                                <li class="sidebar-item"><a class="sidebar-link" href=" charts-chartjs.html">Chart.js</a></li>
-                                <li class="sidebar-item"><a class="sidebar-link" href="charts-apexcharts.html">ApexCharts</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="/Katalog">Kumpulan Katalog</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="/Katalog/create">Daftar Kumpulan Katalog</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="/ItemInfo/create">Daftar Item</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="/ItemInfo">Senarai Item</a></li>
                             </ul>
                         </li>
     

@@ -16,8 +16,8 @@
                             <th>Nama Item</th>
                             <th>Tarikh Mula</th>
                             <th>Tarikh Tamat</th>
-                            <th>Kumpulan Katalog</th>
-                            <th> Nama Pembekal</th>
+                            <th>Kategori Item</th>
+                            <th></th>
                             <th>Tindakan</th>
                         </tr>
                     </thead>
@@ -29,8 +29,8 @@
                                 <td>{{$ItemInfo->item_name}}</td>
                                 <td>{{$ItemInfo->start_date}}</td>
                                 <td>{{$ItemInfo->end_date}}</td>
-                                <td>{{$ItemInfo->katalog_id}}</td> 
-                                <td></td>
+                                <td>{{$Katalog->katalog_kategori}}</td> 
+                                <td><a href='/listkatalog/{{$ItemInfo->katalog_id}}'>Butiran Item</a></td>
                                 <td> <a href="/ItemInfo/addcart/{{$ItemInfo->id}}">Tambah Ke Kart</a></td>
                        
                                 

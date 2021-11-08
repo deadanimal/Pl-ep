@@ -57,7 +57,7 @@ class FizaKatalogController extends Controller
     }
 
 
-    public function update(Request $request, FizaKatalog $fizaKatalog, $id)
+    public function update(Request $request,$id)
     {
         $fizaKatalog = FizaKatalog::find($id);
         // $fizaKatalog->id=$request->id;
@@ -81,11 +81,16 @@ class FizaKatalogController extends Controller
 
     public function listkatalog($id)
     {
-        $fizaKatalog= FizaKatalog::find($id);
-        $fizaItemInfo=FizaItemInfo::where('id', $fizaKatalog->katalog_id)->get();
+        // $fizaKatalog = FizaKatalog::find($id);
+        // $fizaItemInfo = FizaItemInfo::where('id', $fizaKatalog->katalog_id)->get();
 
+        $fizaItemInfo = FizaItemInfo::find($id);
+        $fizaKatalog = FizaKatalog::where('id', $fizaItemInfo->katalog_id)->first();
+
+    
         return view ('1_katalog.listkatalog',[
             'Katalog'=>$fizaKatalog, 
-            'ItemInfo'=>$fizaItemInfo]);
+            'ItemInfo'=>$fizaItemInfo
+        ]);
     }
 }

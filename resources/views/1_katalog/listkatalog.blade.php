@@ -1,17 +1,34 @@
-<h3> Katalog di Bawah Kumpulan {{$Katalog->katalog_kategori}}</h3>
+@extends('layouts.base')
 
-<table > 
-    <tr>
-        <th>Nama Item</th>
-        <th>Harga</th>
+@section('content')
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3> Katalog di Bawah Kumpulan {{$Katalog->katalog_kumpulan}}</h3>
+
         
+            </div>
+            <div class="card-body">
+                <table id="datatables-1" class="table table-striped" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Nama Item</th>
+                            <th>Harga</th>
 
-    </tr> 
-    @foreach ($ItemInfo as $ItemInfo)
-    <tr>
-        <td>{{$ItemInfo->item_name}}</td>
-        <td>{{$ItemInfo->item_price}}</td>
-    
-        @endforeach
-    </tr>
-</table>
+                        </tr> 
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{$ItemInfo->item_name}}</td>
+                            <td>{{$ItemInfo->item_price}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                    
+            </div>
+        </div>
+    </div>
+</div>
+@stop

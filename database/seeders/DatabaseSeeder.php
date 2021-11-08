@@ -45,5 +45,24 @@ class DatabaseSeeder extends Seeder
             'role_name'=>'Juru Audit',
             'role_staff_status'=>'aktif'
         ]);
+
+        DB::table('fiza_katalogs')->insert([
+            'katalog_kategori'=>'Alatan Pejabat',
+            'katalog_kumpulan'=>'Mesin',
+            'katalog_jenis'=>'Mesin Cetak',
+            'user_id'=>'5'
+        ]);
+
+
+        DB::table('fiza_item_infos')->insert([
+            'katalog_id'=>'1',
+            'pembekal_id'=>'2',
+            'item_name'=>'HP Printer DeskJet Ink Advantage 2336',
+            'item_price'=>'450.60',
+            'item_unit'=>'n/a',
+            'start_date'=>'2021-01-01',
+            'end_date'=>'2021-10-10'
+        ]);
+
     }
 }
