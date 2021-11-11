@@ -54,7 +54,7 @@ class RegisteredUserController extends Controller
         //$user->roles_id = $request->roles_id;
         $user->role()->attach($request->role_id);
         $user->save();
-        Mail::to($user->email)->send(new RegisterUser);
+        // Mail::to($user->email)->send(new RegisterUser);
     
         return redirect('/list-role');
     
@@ -96,7 +96,7 @@ class RegisteredUserController extends Controller
         $user->user_status="aktif";
         //$user->role_id = $request->role_id;
         $user->save();
-        Mail::to($user->email)->send(new RegisterUser);
+        // Mail::to($user->email)->send(new RegisterUser);
 
         // $role = Roles::find($request->role_id);
         $user->roles()->attach($request->role_id);
