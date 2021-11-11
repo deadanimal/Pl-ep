@@ -58,6 +58,7 @@
                             <div class="sidebar-user">
                                 <i class="align-middle me-2 fas fa-fw fa-user"></i> 
                                 <div class="fw-bold"></div> 
+
                             </div>
 
                     </ul>
@@ -190,7 +191,7 @@
                         <li class="sidebar-header">
                             Extras
                         </li>
-                        <li class="sidebar-item">
+                        {{-- <li class="sidebar-item">
                             <a data-bs-target="#documentation" data-bs-toggle="collapse" class="sidebar-link collapsed">
                                 <i class="align-middle me-2 fas fa-fw fa-book"></i> <span class="align-middle">Documentation</span>
                             </a>
@@ -199,6 +200,12 @@
                                 <li class="sidebar-item"><a class="sidebar-link" href="docs-plugins.html">Plugins</a></li>
                                 <li class="sidebar-item"><a class="sidebar-link" href="docs-changelog.html">Changelog</a></li>
                             </ul>
+                        </li> --}}
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="/AuditLog">
+                                <i class="align-middle me-2 fas fa-fw fa-briefcase"></i> <span class="align-middle">Audit Log</span>
+                            </a>
                         </li>
                         <li class="sidebar-item">
                             <a data-bs-target="#layouts" data-bs-toggle="collapse" class="sidebar-link collapsed">

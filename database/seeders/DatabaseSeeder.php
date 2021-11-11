@@ -47,7 +47,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('fiza_katalogs')->insert([
-            'katalog_kategori'=>'Alatan Pejabat',
+            'katalog_kategori'=>'Peralatan Pejabat',
             'katalog_kumpulan'=>'Mesin',
             'katalog_jenis'=>'Mesin Cetak',
             'user_id'=>'5'
