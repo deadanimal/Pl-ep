@@ -59,7 +59,7 @@ class FizaPelanPerancanganPerolehanController extends Controller
 
         if ($request->status_pelan=="hantar"){
             $fizaPelanPerancanganPerolehan->pelan_status="Menunggu Pengesahan";
-            // Mail::to('syafiza.senin@pipeline.com.my')->send(new PerancanganPerolehan);
+            //  Mail::to('syafiza.senin@pipeline.com.my')->send(new PerancanganPerolehan);
         }
         else if($request->status_pelan=="draf"){
             $fizaPelanPerancanganPerolehan->pelan_status="Draf";
