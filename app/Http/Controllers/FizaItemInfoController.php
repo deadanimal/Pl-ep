@@ -59,7 +59,7 @@ class FizaItemInfoController extends Controller
         // $user_id = $request->user()->id;
         $item ="Item Info";
         $user_id= Auth::user()->id;
-        $description = "$fizaItemInfo->item_created_by telah menambahkan info untuk $fizaItemInfo->item_name";
+        $description = "$fizaItemInfo->item_created_by telah menambahkan info untuk item $fizaItemInfo->item_name";
 
         $log_item = [$item, $description, $user_id];
 

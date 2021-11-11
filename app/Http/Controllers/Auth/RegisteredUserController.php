@@ -26,6 +26,7 @@ class RegisteredUserController extends Controller
 
     public function store(Request $request)
     {
+        $role= Role::all();
         $request->validate([
             'user_identity_no' => 'required|string|max:255|unique:users',
             'email' => 'required|string|email|max:255|unique:users',
@@ -96,6 +97,7 @@ class RegisteredUserController extends Controller
         $user->user_status="aktif";
         //$user->role_id = $request->role_id;
         $user->save();
+
         Mail::to($user->email)->send(new RegisterUser);
 
         // $role = Roles::find($request->role_id);

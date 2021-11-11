@@ -7,6 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterUser extends Mailable
 {
@@ -17,9 +18,10 @@ class RegisterUser extends Mailable
      *
      * @return void
      */
-    public function __construct(User $user)
+    public function __construct()
     {
-        $this->user = $user;
+        // $this->User=$user;
+        //$this->user=Auth::user()->id;
     }
 
 
