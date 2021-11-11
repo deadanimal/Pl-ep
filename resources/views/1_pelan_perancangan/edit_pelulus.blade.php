@@ -9,7 +9,7 @@
         <form method="POST" action="/updatepelulus">
         @csrf
 
-        {{-- <input type="hidden" name="perancangan_id"  value="{{$$PelanPerancanganPerolehan->id}}"> --}}
+        <input type="hidden" name="perancangan_id"  value="{{$PelanPerancanganPerolehan->id}}">
         <div class="row">
             <div class="mb-3 col-md-6">
                 <label class="col-form-label col-sm-10 ">Jenis Pelan</label>

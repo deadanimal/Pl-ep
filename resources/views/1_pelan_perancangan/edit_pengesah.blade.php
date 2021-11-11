@@ -8,7 +8,8 @@
     <div class="card-body">
         <form method="POST"  action="/updatepengesah">
         @csrf
-        {{-- <input type="hidden" name="perancangan_id"  value="{{$$PelanPerancanganPerolehan->id}}"> --}}
+        
+        <input type="hidden" name="perancangan_id"  value="{{$PelanPerancanganPerolehan->id}}">
         <div class="row">
             <div class="mb-3 col-md-6">
                 <label class="col-form-label col-sm-10 ">Jenis Pelan</label>
@@ -82,7 +83,7 @@
                 <label class="col-form-label col-sm-6 ">Jumlah Anggaran Pelan </label>
             </div>
             <div class="mb-3 col-md-6">
-                <input  type=number name=pelan_estimated_amount class="form-control" min="0" value="0" step=".01" placeholder="0.00" value="{{$PelanPerancanganPerolehan->pelan_estimated_amount}}">
+                <input  type=number name="pelan_estimated_amount" class="form-control" min="0" step=".01" placeholder="0.00" value="{{$PelanPerancanganPerolehan->pelan_estimated_amount}}">
             </div>
         </div>
 
@@ -91,7 +92,7 @@
                 <label class="col-form-label col-sm-6 ">Peruntukan Tahunan </label>
             </div>
             <div class="mb-3 col-md-6">
-                <input  type=number name=pelan_peruntukan_tahunan class="form-control" min="0" value="0" step=".01" placeholder="0.00"  value="{{$PelanPerancanganPerolehan->pelan_peruntukan_tahunan}}">
+                <input  type=number name="pelan_peruntukan_tahunan" class="form-control" min="0" step=".01" placeholder="0.00"  value="{{$PelanPerancanganPerolehan->pelan_peruntukan_tahunan}}">
             </div>
         </div>
 
@@ -195,7 +196,7 @@
                 <select name="pelan_status" class="form-control">
                     <option hidden>Sila Pilih</option>>
                     <option value="Menunggu Kelulusan">Disahkan</option>
-                    <option value="Perlu Semak Semula">Semak Semula</option>
+                    <option value="Semak Semula">Semak Semula</option>
                 </select>
             </div>
         </div>

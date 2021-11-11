@@ -167,7 +167,12 @@
                             <label class="col-form-label col-sm-6 ">Nama Pegawai Pengesah</label>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <input  type=text name=pelan_pengesah class="form-control">
+                            <select name=pelan_pengesah class="form-control">
+                                                            <option hidden>Sila Pilih</option>
+                                @foreach ($user as $user1)
+                                <option value={{$user1->id}}>{{$user1->user_name}}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
 
@@ -176,7 +181,13 @@
                             <label class="col-form-label col-sm-6 ">Nama Pegawai Pelulus</label>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <input type=text name="pelan_pelulus" class="form-control">
+                            {{-- <input type=text name="pelan_pelulus" class="form-control"> --}}
+                            <select class="form-control" name="pelan_pelulus">
+                                <option hidden>Sila Pilih</option>
+                                @foreach ($user as $user2)
+                                <option value={{$user2->id}}>{{$user2->user_name}}</option>
+                                @endforeach
+                            </select>             
                         </div>
                     </div>
             

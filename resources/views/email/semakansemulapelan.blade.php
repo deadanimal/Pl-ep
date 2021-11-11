@@ -1,0 +1,1 @@
+Pelan Perancangan Perolehan anda perlu disemak semula.  Sila Login Sistem ePerolehan untuk menyemak pelan tersebut.
