@@ -16,9 +16,9 @@
                             <th>Nama Item</th>
                             <th>Tarikh Mula</th>
                             <th>Tarikh Tamat</th>
-                            <th>Kategori Item</th>
                             <th></th>
                             <th>Tindakan</th>
+                            <th></th>
                         </tr>
                     </thead>
 
@@ -29,9 +29,9 @@
                                 <td>{{$ItemInfo->item_name}}</td>
                                 <td>{{$ItemInfo->start_date}}</td>
                                 <td>{{$ItemInfo->end_date}}</td>
-                                <td>{{$ItemInfo->katalog_id}}</td> 
-                                <td><a href='/listkatalog/{{$ItemInfo->katalog_id}}'>Butiran Item</a></td>
+                                <td><a href='/listkatalog/{{$ItemInfo->katalog_id}}'>Kumpulan Katalog</a></td>
                                 <td> <a href="/ItemInfo/addcart/{{$ItemInfo->id}}">Tambah Ke Kart</a></td>
+                                <td> <button onclick="compareItem()">Bandingkan Item</button>
                        
                                 
                             </tr>
@@ -40,7 +40,20 @@
                 </table>
             </div>
             <a href="/ItemKart">Pergi Ke Bakul Item </a>
+            <a href="/PenyediaanSpesifikasi/create">Terus ke Penyediaan Spesifikasi Item </a>
         </div>
     </div>
 </div>
+
+<script>
+    let comparison = []
+    function compareItem(id) {
+        this.comparison.append(id)
+    }
+    function makeComparison() {
+        window.location.href = 'https://url.com/comparison/' + comparison[0] + '/' + comparison[1] + '/' comparison[2];
+    }
+</script>
+
+
 @stop

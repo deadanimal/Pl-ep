@@ -1,75 +1,94 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+@extends('layouts.base')
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+@section('content')
+    
+<h3>Pendaftaran Pengguna</h3>
 
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
+        <x-guest-layout>
+            <x-auth-card>
+                <x-slot name="logo">
+                    <a href="/">
+                        <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                    </a>
+                </x-slot>
 
-            <!-- Name -->
-            <div>
-                <x-label for="name" :value="__('Name')" />
+                <!-- Validation Errors -->
+                <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-                <x-input id="name" class="block mt-1 w-full" type="text" name="user_name" :value="old('user_name')" required autofocus />
-            </div>
+                <form method="POST" action="{{ route('register') }}">
+                    @csrf
 
-            <div>
-                <x-label for="MyKad" :value="__('No MyKad')" />
+                    <!-- Name -->
+                    <div>
+                        <x-label for="name" :value="__('Name')" />
+                        <x-input id="name" class="form-control" type="text" name="user_name" :value="old('user_name')" required autofocus />
+                    </div>
 
-                <x-input id="ic" class="block mt-1 w-full" type="text" name="user_identity_no" :value="old('user_identity_no')"  autofocus />
-            </div>
+                    <div>
+                        <x-label for="MyKad" :value="__('No MyKad')" />
 
-            <div>
-                <x-label for="Jenis Pengguna" :value="__('Jenis')"/>
-                <select name="jenis" class="block mt-1 w-full" required autofocus />
-                    <option value="Pekerja">Staff PL</option>
-                    <option value="Pembekal">Pembekal</option>
-                    <option value="Juruaudit">Juruaudit</option>
-                </select>
-                {{-- <x-input id="jenis_user" class="block mt-1 w-full" type="text" name="jenis_user" :value="old('jenis_user')" required autofocus /> --}}
-            </div>
+                        <x-input id="ic" class="form-control" type="text" name="user_identity_no" :value="old('user_identity_no')"  autofocus />
+                    </div>
 
-            <!-- Email Address -->
-            <div class="mt-4">
-                <x-label for="email" :value="__('Email')" />
+                    <div>
+                        <x-label for="Jenis Pengguna" :value="__('Jenis')"/>
+                        <select name="jenis" class="form-control" required autofocus />
+                            <option value="Pekerja">Staff PL</option>
+                            <option value="Pembekal">Pembekal</option>
+                            <option value="Juruaudit">Juruaudit</option>
+                        </select>
+                        {{-- <x-input id="jenis_user" class="form-control" type="text" name="jenis_user" :value="old('jenis_user')" required autofocus /> --}}
+                    </div>
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
-            </div>
+                    <!-- Email Address -->
+                    <div class="mt-4">
+                        <x-label for="email" :value="__('Email')" />
 
-            <!-- Password -->
-             <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
+                        <x-input id="email" class="form-control" type="email" name="email" :value="old('email')" required />
+                    </div>
 
-                <x-input id="user_password" class="block mt-1 w-full"
-                                type="password"
-                                name="user_password"
-                                required autocomplete="new-password" />
-            </div> 
+                    <div>
+                        <x-label for="Roles" :value="__('Roles')"/>
+                        <select name="roles" class="form-control" required autofocus >
+                            <option hidden>SILA PILIH</option>
+                                @foreach($role as  $role)
+                            <option value="{{$role->id}}">{{$role->role_name}}</option>
+                                @endforeach 
+                        </select>
+                        {{-- <x-input id="jenis_user" class="form-control" type="text" name="jenis_user" :value="old('jenis_user')" required autofocus /> --}}
+                    </div>
 
-            <!-- Confirm Password -->
-            {{-- <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
 
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required />
-            </div> --}}
 
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
+                    {{-- <!-- Password -->
+                    <div class="mt-4">
+                        <x-label for="password" :value="__('Password')" />
 
-                <x-button class="ml-4">
-                    {{ __('Register') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+                        <x-input id="user_password" class="form-control"
+                                        type="password"
+                                        name="password"
+                                        required autocomplete="new-password" />
+                    </div>  
+
+                    <!-- Confirm Password -->
+                    <div class="mt-4">
+                        <x-label for="password_confirmation" :value="__('Confirm Password')" />
+
+                        <x-input id="password_confirmation" class="form-control"
+                                        type="password"
+                                        name="password_confirmation" required />
+                    </div>  --}}
+
+                    <div class="flex items-center justify-end mt-4">
+                        <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
+                            {{ __('Already registered?') }}
+                        </a>
+
+                        <x-button class="ml-4">
+                            {{ __('Register') }}
+                        </x-button>
+                    </div>
+                </form>
+            </x-auth-card>
+        </x-guest-layout>
+        @stop

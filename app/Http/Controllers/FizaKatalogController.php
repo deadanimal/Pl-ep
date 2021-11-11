@@ -6,6 +6,8 @@ use App\Models\FizaKatalog;
 use App\Models\FizaItemInfo;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class FizaKatalogController extends Controller
 {
@@ -33,7 +35,7 @@ class FizaKatalogController extends Controller
         $fizaKatalog->katalog_kategori=$request->katalog_kategori;
         $fizaKatalog->katalog_kumpulan=$request->katalog_kumpulan;
         $fizaKatalog->katalog_jenis=$request->katalog_jenis;
-        // $fizaKatalog->katalog_created_by=$request->katalog_created_by;
+        $fizaKatalog->katalog_created_by=Auth::user()->user_name;
         // $fizaKatalog->user_id=$request->user_id;
 
         $fizaKatalog->save();
@@ -87,10 +89,23 @@ class FizaKatalogController extends Controller
         $fizaItemInfo = FizaItemInfo::find($id);
         $fizaKatalog = FizaKatalog::where('id', $fizaItemInfo->katalog_id)->first();
 
-    
         return view ('1_katalog.listkatalog',[
             'Katalog'=>$fizaKatalog, 
             'ItemInfo'=>$fizaItemInfo
         ]);
+    }
+
+    public function compare_barang(ItemInfo $barang_1, ItemInfo $barang_2, ItemInfo $barang_3 )
+    {
+        $barang_1 = ItemInfo::where('id', $request->item_info_id)->first();
+        $barang_2 = ItemInfo::where('id', $request->item_info_id)->first();
+        $barang_3 = ItemInfo::where('id', $request->item_info_id)->first();
+
+        return view('compare_barang', [
+            'barang_1' => $barang_1,
+            'barang_2' => $barang_2,
+            'barang_3' => $barang_3,
+        ]);
+
     }
 }

@@ -29,18 +29,12 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => ['required', 'string', 'email'],
-            'user_password' => ['required', 'string'],
+            'email' => 'required|string|email',
+            'password' => 'required|string',
         ];
     }
 
-    /**
-     * Attempt to authenticate the request's credentials.
-     *
-     * @return void
-     *
-     * @throws \Illuminate\Validation\ValidationException
-     */
+
     public function authenticate()
     {
         $this->ensureIsNotRateLimited();

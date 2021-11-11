@@ -53,18 +53,20 @@
                         <label class="col-form-label col-sm-6 ">Roles</label>
                     </div>
                     <div class="mb-3 col-md-6">
-                         {{-- <select name="role_id"  class="form-control">
-                            <option hidden>SILA PILIH</option>
+                         <select name="role_id"  class="form-control">
+                            <option hidden>Sila Pilih</option>
                                 @foreach($role as  $role)
                             <option value="{{$role->id}}">{{$role->role_name}}</option>
-                                @endforeach  --}}
-                        <select name="role_id" class="form-control">
+                                @endforeach 
+                         </select>
+
+                        {{-- <select name="role_id" class="form-control">
                                 <option hidden>Sila Pilih<option>
                                 <option value="Pegawai Perancangan">Pegawai Perancangan</option>
                                 <option value="Pegawai Pengesah">Pegawai Pengesah</option>
                                 <option value="Pegawai Pelulus">Pegawai Pelulus</option>
                                 <option value="JuruAudit">Juru Audit</option>
-                                <option value="Staff Pembekal">Staff Pembekal</option>
+                                <option value="Staff Pembekal">Staff Pembekal</option> --}}
                         </select>
                     </div>
                 </div>

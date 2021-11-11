@@ -41,7 +41,7 @@
 
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">Jumlah (RM)     </label>
+                                <label class="col-form-label col-sm-6 ">Jumlah (RM) </label>
                             </div>
                             <div class="mb-3 col-md-6">
                                  <input type="number" class="form-control" name="ro_jumlah">
@@ -53,13 +53,21 @@
                                 <label class="col-form-label col-sm-6 ">Nama Pelulus</label>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <input type="text" class="form-control" name="ro_pelulus">
+                                {{-- <input type="text" class="form-control" name="ro_pelulus"> --}}
+                                <select class="form-control" name="ro_pelulus">
+                                    <option hidden>Sila Pilih</option>
+                                    @foreach ($user as $user)
+                                    <option value={{$user->id}}>{{$user->user_name}}</option>
+                                    @endforeach
+                                </select>                                
                             </div>
                         </div>
 
-                        <br>  <button href=/ItemInfo class="btn-success"> Pilihan Item </button>
+                        {{-- <br>  <button href=/ItemInfo class="btn-success"> Pilihan Item </button> --}}
+                        <div>
+                        <br> <button class="btn-primary" type="submit" style="float: right" >Teruskan</button>
+                        </div>
 
-                        {{-- <br> <button type="submit">Hantar</button> --}}
                     </form>
 
                         

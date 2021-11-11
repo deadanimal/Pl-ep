@@ -4,13 +4,16 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Role;
+use App\Mail\RegisterUser;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
-use App\Models\Roles;
+
+use Illuminate\Support\Facades\Mail;
 
 class RegisteredUserController extends Controller
 {
@@ -24,19 +27,21 @@ class RegisteredUserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'user_name' => ['required', 'string', 'max:255'],
-            'user_identity_no' => ['required', 'string', 'max:255', 'unique:users'],
-            'email' => ['required', 'string', 'email', 'max:255'],
-            'user_password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'user_identity_no' => 'required|string|max:255|unique:users',
+            'email' => 'required|string|email|max:255|unique:users',
+            // 'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
         // $user = User::create([
-        // 'user_name' => $request->name,
-        // 'user_identity_no' => $request->identity_no,
+        // 'user_name' => $request->user_name,
+        // 'user_identity_no' => $request->user_identity_no,
         // 'email' => $request->email,
-        // 'user_password' => Hash::make('password'),
-        // 'user_status'=>"Aktif",
-        // //$user->role_id = $request->role_id;
+        // 'password' => Hash::make('password'),
+        // //'user_status'=>'aktif'
+        // //'user_role' =>$request->user_role
+        // //'role'=>roles()->attach($request->role_id)
+        // ]);
+        //$user->role_id = $request->role_id;
        
         $user = new User;
 
@@ -44,22 +49,21 @@ class RegisteredUserController extends Controller
         $user->user_identity_no = $request ->user_identity_no;
         $user->email = $request ->email;
         $user->jenis = $request ->jenis;
-        $user->user_password = Hash::make('password');
-        $user->user_status="Aktif";
-        //$user->role_id = $request->role_id;
+        $user->password = Hash::make('password');
+        $user->user_status="aktif";
+        //$user->roles_id = $request->roles_id;
+        $user->role()->attach($request->role_id);
         $user->save();
-        $user->roles()->attach($request->role_id);
+        Mail::to($user->email)->send(new RegisterUser);
     
         return redirect('/list-role');
     
 
         // $user->fizaroles()->attach(1);
-
         event(new Registered($user));
 
         Auth::login($user);
-
-        return redirect(RouteServiceProvider::HOME);
+        //return redirect(RouteServiceProvider::HOME);
     }
 
     public function list_role(){
@@ -80,26 +84,26 @@ class RegisteredUserController extends Controller
     // }
 
 
-    // public function register_roles(Request $request){
+    public function register_roles(Request $request){
 
-    //     $user = new User;
+        $user = new User;
 
-    //     $user->user_name = $request->user_name;
-    //     $user->user_identity_no = $request ->user_identity_no;
-    //     $user->email = $request ->email;
-    //     $user->jenis = $request ->jenis;
-    //     $user->user_password = Hash::make('password');
-    //     $user->user_status="Aktif";
-    //     //$user->role_id = $request->role_id;
-    //     $user->save();
+        $user->user_name = $request->user_name;
+        $user->user_identity_no = $request ->user_identity_no;
+        $user->email = $request ->email;
+        $user->jenis = $request ->jenis;
+        $user->password = Hash::make('password');
+        $user->user_status="aktif";
+        //$user->role_id = $request->role_id;
+        $user->save();
 
-    //     // $role = Roles::find($request->role_id);
-    //     $user->roles()->attach($request->role_id);
+        // $role = Roles::find($request->role_id);
+        $user->roles()->attach($request->role_id);
 
-    //     return redirect('/list-role');
+        return redirect('/list-role');
 
     
-    // }
+    }
 
     // public function edit_roles($id){
     //     $user=User::find($id);
@@ -111,28 +115,27 @@ class RegisteredUserController extends Controller
     // }
 
 
-    // public function update_roles(Request $request, $user){
+    public function update_roles(Request $request, $user){
 
-    //     $user = User::find($user);
+        $user = User::find($user);
+        $user->roles()->detach([1, 2, 3, 4, 5, 6, 7, 8, 9]);
 
-    //     $user->roles()->detach([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+        $user->user_name = $request->user_name;
+        $user->user_identity_no = $request ->user_identity_no;
+        $user->email = $request ->email;
+        $user->jenis = $request ->jenis;
+        $user->password = $request->password;
+        $user->user_status =$request->user_status;
+        //$user->role_id = $request->role_id;
+        $user->save();
 
-    //     $user->user_name = $request->user_name;
-    //     $user->user_identity_no = $request ->user_identity_no;
-    //     $user->email = $request ->email;
-    //     $user->jenis = $request ->jenis;
-    //     $user->user_password = Hash::make('password');
-    //     $user->user_status =$request->user_status;
-    //     //$user->role_id = $request->role_id;
-    //     $user->save();
+        // $role = Roles::find($request->role_id);
 
-    //     // $role = Roles::find($request->role_id);
-
-    //    // $user->roles()->detach($role_jawatan); //detach satu
-    //     $user->roles()->detach(); // detach semua
+       // $user->roles()->detach($role_jawatan); //detach satu
+        $user->roles()->detach(); // detach semua
 
     
-    // }
+    }
 
 
 }

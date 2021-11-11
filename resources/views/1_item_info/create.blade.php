@@ -1,34 +1,89 @@
 @extends('layouts.base')
 
 @section('content')
-    
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-body">
+                    <h3> Daftar Item Info </h3>
+                    <form method="POST" action="/ItemInfo">
+                        @csrf
+                        <br> 
+                        {{-- item_id --}}
+                        <div class="row">
+                            <div class="mb-3 col-md-6">
+                                <label class="col-form-label col-sm-6 ">Nama Item </label>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <input type=text class=form-control name=item_name>
+                            </div>
+                        </div>
 
 
-<h3> Daftar Item Info </h3>
-<form method="POST" action="/ItemInfo">
-    @csrf
+                        <div class="row">
+                            <div class="mb-3 col-md-6">
+                                <label class="col-form-label col-sm-6 ">Harga Item</label>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <input type="number" min="1" step="any" class=form-control name=item_price>
+                            </div>
+                        </div>
+                             
+                        <div class="row">
+                            <div class="mb-3 col-md-6">
+                                <label class="col-form-label col-sm-6 ">Unit Item </label>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <input type="text" class=form-control name=item_unit>
+                            </div>
+                        </div>
 
-    <br> 
-    {{-- item_id --}}
-    <br> Nama Item <input type=text class=form-control name=item_name>
-    <br> Harga Item <input type="number" min="1" step="any" class=form-control name=item_price>
-    <br> Unit Item <input type="text" class=form-control name=item_unit>
-    <br> Tarikh Mula <input type="date" class=form-control name= start_date>
-    <br> Tarikh Tamat <input type="date" class=form-control name= end_date>
-    <br> Jenis Item 
-        <select name=katalog_id class="form-control">
-            <option hidden>Sila Pilih</option>
-            @foreach ($Katalog as $Katalog)
-            <option value="{{$Katalog->id}}">{{$Katalog->katalog_kumpulan}}</option>
-            @endforeach
-        </select>
-<br>
-<button type="submit">Hantar</button>
-</form>
-{{-- pembekal_id
-item_created_by
-item_created_date
-item_updated_by
-item_updated_date --}}
-@endsection
+                        <div class="row">
+                            <div class="mb-3 col-md-6">
+                                <label class="col-form-label col-sm-6 "> Tarikh Mula</label>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                 <input type="date" class=form-control name= start_date>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="mb-3 col-md-6">
+                                <label class="col-form-label col-sm-6 "> Tarikh Tamat</label>
+                            </div>
+                            <div class="mb-3 col-md-6"> 
+                                <input type="date" class=form-control name= end_date>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="mb-3 col-md-6">
+                                <label class="col-form-label col-sm-6 ">Jenis Item </label>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <select name=katalog_id class="form-control">
+                                    <option hidden>Sila Pilih</option>
+                                    @foreach ($Katalog as $Katalog)
+                                    <option value="{{$Katalog->id}}">{{$Katalog->katalog_kumpulan}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+             
+                    <button type="submit" class="btn-primary">Hantar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                    {{-- pembekal_id
+                    item_created_by
+                    item_created_date
+                    item_updated_by
+                    item_updated_date --}}
+                    @endsection
 

@@ -6,7 +6,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h3> Katalog di Bawah Kategori {{$Katalog->katalog_kategori}}</h3>
+                <h3> Katalog di Bawah Kategori {{$Katalog->katalog_kategori}} - {{$Katalog->katalog_kumpulan}} </h3>
 
         
             </div>

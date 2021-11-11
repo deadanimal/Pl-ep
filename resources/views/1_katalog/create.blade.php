@@ -11,6 +11,7 @@
                     <br>
                     <form method="POST" action="/Katalog">
                         @csrf
+                       
                         <div class="row">
                             <div class="mb-3 col-md-6">
                                 <label class="col-form-label col-sm-6 ">Kategori Item</label>

@@ -3,15 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\FizaPembelianSebutTender;
+use App\Models\FizaItemInfo;
+use App\Models\FizaKatalog;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class FizaPembelianSebutTenderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+  
     public function index()
     {
         $fizaPembelianSebutTender = FizaPembelianSebutTender::all();
@@ -19,14 +19,13 @@ class FizaPembelianSebutTenderController extends Controller
             'fizaPembelianSebutTender'=>$fizaPembelianSebutTender]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        return view ('1_pst.create');
+        $user=User::where('jenis','pekerja')->get();
+        return view ('1_pst.create', [
+            'user'=>$user
+        ]);
     }
 
 
@@ -67,7 +66,7 @@ class FizaPembelianSebutTenderController extends Controller
         $fizaPembelianSebutTender->pst_penyelaras=$request->pst_penyelaras;
         $fizaPembelianSebutTender->pst_kehadiran_max=$request->pst_kehadiran_max;
         $fizaPembelianSebutTender->pst_status=$request->pst_status;
-        // $fizaPembelianSebutTender->pst_created_by=$request->pst_created_by;
+        $fizaPembelianSebutTender->pst_created_by=Auth::user()->user_name; 
 
         $fizaPembelianSebutTender->pst_jenis_potongan=$request->pst_jenis_potongan;
         $fizaPembelianSebutTender->pst_potongan_description=$request->pst_potongan_description;
@@ -75,6 +74,15 @@ class FizaPembelianSebutTenderController extends Controller
         
 
         $fizaPembelianSebutTender->save();
+
+        //audit log
+        $item ="Sebutharga Tender";
+        $user_id= Auth::user()->id;
+        $description = "$fizaPembelianSebutTender->pst_created_by telah menghantar sebutharga untuk $fizaPembelianSebutTender->pst_item_panel";
+        $log_item = [$item, $description, $user_id];
+        app('App\Http\Controllers\AuditLogController')->log($log_item);
+
+
         return redirect('/PembelianSebutTender');
     }
 
@@ -84,12 +92,7 @@ class FizaPembelianSebutTenderController extends Controller
 
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\FizaPembelianSebutTender  $fizaPembelianSebutTender
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         $fizaPembelianSebutTender = FizaPembelianSebutTender::find($id);
@@ -145,12 +148,7 @@ class FizaPembelianSebutTenderController extends Controller
         return redirect('/PembelianSebutTender');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\FizaPembelianSebutTender  $fizaPembelianSebutTender
-     * @return \Illuminate\Http\Response
-     */
+   
     public function destroy(FizaPembelianSebutTender $fizaPembelianSebutTender)
     {
         //

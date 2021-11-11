@@ -125,14 +125,16 @@ Route::get('/register-role', function(){
 });
 Route::post('/daftar-role',[RegisteredUserController::class,'register_roles']);
 
-Route::get('/update-role', function(){
+Route::get('/update-role/{id}', function(){
     $role= Roles::all();
 
     return view('role_update',[
         'role'=>$role
     ]);
 });
-Route::post('/kemaskini-role',[RegisteredUserController::class,'update_role']);
+
+
+Route::post('/kemaskini-role',[RegisteredUserController::class,'update_roles']);
 
 
 Route::post('/dokumentambahan',[FizaPembekalController::class,'dokumentambahan']);
@@ -212,3 +214,6 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+
+Route::get('/comparison/{barang_1}/{barang_2}/{barang_3}', [FizaKatalogController::class, 'compare_barang']);

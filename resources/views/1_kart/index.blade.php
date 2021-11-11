@@ -6,7 +6,7 @@
 @if ($itemKart)
     @foreach ($itemKart as $itemKart)
          <ul>
-            <li>Pembelian Barang ID: {{ $itemKart->id }}
+            <li>Pembelian ID: {{ $itemKart->id }}
              <a href="/ItemKart/removecart/{{ $itemKart->id }}">Remove Cart </a></li>
         </ul>
     @endforeach

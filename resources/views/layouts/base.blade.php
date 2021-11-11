@@ -54,6 +54,13 @@
                             <img src="/PL.png" class="img-fluid rounded-circle mb-2" alt="Linda Miller" />
                             <div class="fw-bold">Perbadanan Labuan</div>
                         </div>
+
+                            <div class="sidebar-user">
+                                <i class="align-middle me-2 fas fa-fw fa-user"></i> 
+                                <div class="fw-bold"></div> 
+                            </div>
+
+                    </ul>
                     <ul class="sidebar-nav">
 
                         <li class="sidebar-item">

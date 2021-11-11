@@ -179,7 +179,14 @@
                         <label class="col-form-label col-sm-6 "> Nama Pelulus</label>
                     </div>
                     <div class="mb-3 col-md-6">
-                        <input type="text" class="form-control" name="pst_pelulus">
+                        {{-- <input type="text" class="form-control" name="pst_pelulus"> --}}
+                        <select name="pst_pelulus" class="form-control">
+                                <option hidden>Sila Pilih</option>
+                                @foreach ($user as $user)
+                                <option value={{$user->id}}>{{$user->user_name}}</option>
+                                @endforeach
+                            </select>
+
                     </div>
                 </div>
 

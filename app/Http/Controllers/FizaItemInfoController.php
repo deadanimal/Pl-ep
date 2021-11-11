@@ -9,6 +9,8 @@ use App\Models\FizaKart;
 use App\Models\FizaItemInfo;
 use App\Models\ItemKart;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class FizaItemInfoController extends Controller
 {
@@ -16,7 +18,7 @@ class FizaItemInfoController extends Controller
     public function index()
     {
         $fizaItemInfo = FizaItemInfo::all();
-        $fizaKatalog = FizaKatalog::all();
+        $fizaKatalog=FizaKatalog::all();
         return view ('1_item_info.index',[
             'ItemInfo'=>$fizaItemInfo,
             'Katalog'=>$fizaKatalog
@@ -49,15 +51,15 @@ class FizaItemInfoController extends Controller
         $fizaItemInfo->end_date=$request->item_end_date;
         $fizaItemInfo->katalog_id=$request->katalog_id;
         // $fizaItemInfo->pembekal_id=$request->pembekal_id;
-        // $fizaItemInfo->item_created_by =$request->item_created_by ;
+        $fizaItemInfo->item_created_by=Auth::user()->user_name;
 
 
         $fizaItemInfo->save();
 
         // $user_id = $request->user()->id;
         $item ="Item Info";
-        $user_id= "User A";
-        $description = "user ABC telah menambahkan info untuk $fizaItemInfo->item_name ";
+        $user_id= Auth::user()->id;
+        $description = "$fizaItemInfo->item_created_by telah menambahkan info untuk $fizaItemInfo->item_name";
 
         $log_item = [$item, $description, $user_id];
 
@@ -96,8 +98,6 @@ class FizaItemInfoController extends Controller
         $fizaItemInfo->pembekal_id=$request->pembekal_id;
         $fizaItemInfo->item_updated_by =$request->item_updated_by;
 
-        $temp = Session::get('id_pembekal');
-        $dokumen->id_pembekal=$temp;
 
         $fizaItemInfo->save();
         return redirect('/ItemInfo');
@@ -123,6 +123,9 @@ class FizaItemInfoController extends Controller
         $itemKart->item_id = $ItemInfo->id;
         $itemKart->kart_id = $fizaKart->id;
         $itemKart->save();
+
+        // $value = $request->session()->get('');
+
         
         return redirect('/ItemInfo');
     }
