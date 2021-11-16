@@ -26,6 +26,9 @@ class CreateFizaPesananTempatansTable extends Migration
             $table->string('pesanan_alamat_pengantaran')->nullable();
             $table->foreignId('kart_id')->nullable();
             $table->timestamps();
+            $table->string('pesanan_created_by')->nullable();
+            $table->string('pesanan_updated_by')->nullable();
+
         });
     }
 

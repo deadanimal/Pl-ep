@@ -15,6 +15,7 @@
                             <th> Tajuk Sebutharga </th>
                             <th> Kaedah Perolehan </th>
                             <th> Zon </th>
+                            <th>Tarikh Hantar</th>
                             <th> </th>
                         </tr>
                     </thead>
@@ -24,6 +25,7 @@
                             <td> {{$fizaPembelianSebutTender->pst_tajuk}}</td>
                             <td> {{$fizaPembelianSebutTender->pst_kaedah_perolehan}}</td>
                             <td> {{$fizaPembelianSebutTender->pst_zon_lokasi}}</td>
+                            <td> {{$fizaPembelianSebutTender->created_at}}</td>
                             <td> <a href="/PembelianSebutTender/{{$fizaPembelianSebutTender->id}}/edit">Butiran</a></td>
                         </tr>
                         @endforeach

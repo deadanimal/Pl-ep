@@ -23,6 +23,8 @@ class CreateFizaPerjanjianKontraksTable extends Migration
             $table->string('perjanjian_catatan_pelulus')->nullable();
             $table->foreignId('user_id')->nullable();
             $table->foreignId('pembekal_id')->nullable();
+            $table->string('perjanjian_created_by');
+            $table->string('perjanjiian_updated_by');
 
             $table->timestamps();
         });

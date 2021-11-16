@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\FizaCadangan;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class FizaCadanganController extends Controller
 {
@@ -17,7 +19,10 @@ class FizaCadanganController extends Controller
 
     public function create()
     {
-        return view('1_cadangan.create');
+        $user = User::all();
+        return view('1_cadangan.create',[
+            'user'=>$user
+        ]);
     }
 
 
@@ -30,7 +35,7 @@ class FizaCadanganController extends Controller
         // $fizaCadangan->sss_id =$request->sss_id ;
         $fizaCadangan->cadangan_mesyuarat_date=$request->cadangan_mesyuarat_date;
         $fizaCadangan->cadangan_mesyuarat_place =$request->cadangan_mesyuarat_place ;
-        // $fizaCadangan->cadangan_created_by=$request->cadangan_created_by;
+        $fizaCadangan->cadangan_created_by=Auth::user()->user_name;
         // $fizaCadangan->jawatankuasa_id=$request->jawatankuasa_id;
         // $fizaCadangan->cadangan_mesyuarat_status=$request->cadangan_mesyuarat_status;
         // $fizaCadangan->cadangan_kehadiran=$request->cadangan_kehadiran;

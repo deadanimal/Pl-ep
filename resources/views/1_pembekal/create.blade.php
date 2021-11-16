@@ -9,6 +9,24 @@
             @csrf
 
                                 <fieldset>
+                                    <div class="row">
+                                        <div class="mb-3 col-md-6">
+                                              <label class="col-form-label col-sm-10 ">Pilih Jenis Akaun</label>
+                                        </div>  
+                                        <div class="mb-3 col-md-6">
+                                            {{-- <div class="form-check">
+                                                <input type="checkbox" name="pembekal_jenis_akaun[]" value="Akaun Asas" class="form-check-input">Akaun Asas
+                                            </div> --}}
+
+                                           <div class="form-check">
+                                                <input type="checkbox" name="pembekal_jenis_akaun[]" value="Bekalan & Perkhidmatan(MOF)" class="form-check-input">Bekalan dan Perkhidmatan (MOF)
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="checkbox" name="pembekal_jenis_akaun[]" value="Kerja" class="form-check-input">CIDB
+                                            </div>      
+                                         </div>
+                                   </div>
+
                                     <legend>Maklumat Syarikat</legend>
                         
                                     <div class="row">
@@ -145,19 +163,7 @@
     
                                 <fieldset>
                                     <legend> Maklumat Pemilik Syarikat</legend>
-                                               <div class="row">
-                                                     <div class="mb-3 col-md-6">
-                                                           <label class="col-form-label col-sm-10 ">Pilih Jenis Akaun</label>
-                                                     </div>  
-                                                               <div class="mb-3 col-md-6">
-                                                                       <div class="form-check">
-                                                                           <input type="checkbox" name="pembekal_jenis_akaun[]" value="Bekalan & Perkhidmatan(MOF)" class="form-check-input">Bekalan dan Perkhidmatan (MOF)
-                                                                         </div>
-                                                                         <div class="form-check">
-                                                                           <input type="checkbox" name="pembekal_jenis_akaun[]" value="Kerja" class="form-check-input">CIDB
-                                                                         </div>      
-                                                               </div>
-                                                           </div>
+  
                                                
                                                                <div class="row">
                                                                    <div class="mb-3 col-md-6">

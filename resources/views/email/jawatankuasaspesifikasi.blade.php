@@ -1,0 +1,1 @@
+Anda telah dilantik sebagai Ahli Jawatankuasa Spesifikasi untuk Pembelian Sebutharga. Sila login ke sistem ePerolehan untuk menyemak butiran sebutharga tersebut. Terima Kasih. 

@@ -20,8 +20,7 @@
                     @foreach ($Jawatankuasa as $Jawatankuasa)
                     <tr>
                         <td>{{$Jawatankuasa->user_id}}</td>
-                        <td>{{$Jawatankuasa->jenis_jawatankuasa}}</td>
-                        <td><a href="/Jawatankuasa/{{$Jawatankuasa->id}}/edit"> Butiran</a></td>
+                        <td> <a href="/Jawatankuasa/{{$Jawatankuasa->id}}/edit"> Butiran</a></td>
                         @endforeach
                     </tr>
                  

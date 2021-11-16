@@ -27,6 +27,8 @@ class CreateFizaPertanyaanItemsTable extends Migration
             $table->string('tanya_ketersediaan_stok')->nullable();
             $table->string('tanya_harga_baru')->nullable();
             $table->string('tanya_status')->nullable();
+            $table->string('tanya_created_by')->nullable();
+            $table->string('tanya_updated_by')->nullable();
 
             $table->timestamps();
         });

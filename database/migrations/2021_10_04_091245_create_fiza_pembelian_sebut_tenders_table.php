@@ -32,7 +32,7 @@ class CreateFizaPembelianSebutTendersTable extends Migration
             $table->String('pst_jenis_kontrak')->nullable();
             $table->String('pst_jenis_pemenuhan')->nullable();
             $table->String('pst_tempoh_kontrak')->nullable();
-            $table->foreignId('item_id varchar')->nullable();
+            $table->foreignId('item_id')->nullable();
             $table->foreignId('kod_id')->nullable();
             $table->foreignId('pembekal_id')->nullable();
             $table->String('pst_jumlah_pembekal_layak')->nullable();
@@ -51,6 +51,9 @@ class CreateFizaPembelianSebutTendersTable extends Migration
             $table->String('pst_jenis_potongan')->nullable();
             $table->String('pst_potongan_description')->nullable();
             $table->String('pst_amaun_potongan')->nullable();
+            $table->String('created_by')->nullable();
+            $table->String('updated_by')->nullable();
+
  
             $table->timestamps();
         });

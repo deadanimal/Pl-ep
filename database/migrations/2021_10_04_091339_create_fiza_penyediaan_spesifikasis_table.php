@@ -36,6 +36,9 @@ class CreateFizaPenyediaanSpesifikasisTable extends Migration
             $table->integer('spesifikasi_skor_lulus_keseluruhan')->nullable();
             $table->string('spesifikasi_alamat_penghantaran')->nullable();
             $table->string('spesifikasi_catatan')->nullable();
+            $table->string('spesifikasi_created_by')->nullable();
+            $table->string('spesifikasi_updated_by')->nullable();
+
             
             $table->timestamps();
         });

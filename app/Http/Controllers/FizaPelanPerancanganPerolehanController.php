@@ -77,7 +77,7 @@ class FizaPelanPerancanganPerolehanController extends Controller
         $fizaPelanPerancanganPerolehan->save();
 
         $notification_obj = (object)[];
-        $notification_obj->noti_type='User A';
+        $notification_obj->noti_type='$fizaPelanPerancanganPerolehan->pelan_created_by';
         $notification_obj->noti_template='Telah Mencipta';
         $notification_obj->noti_subject='Pelan Perancangan';
         $notification_obj->noti_content='dan';

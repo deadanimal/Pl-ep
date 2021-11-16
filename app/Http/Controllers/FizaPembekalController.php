@@ -64,7 +64,7 @@ class FizaPembekalController extends Controller
         // $fizaPembekal->pembekal_yuran_status=$request->pembekal_yuran_status;
         // $fizaPembekal->user_id=$request->user_id;
 
-        $fizaPembekal->pembekal_created_by=$request->pembekal_created_by;
+        // $fizaPembekal->pembekal_created_by=$request->pembekal_created_by;
         $fizaPembekal->kod_id=$request->kod_id;
 
         if(!empty($request->pembekal_jenis_akaun)){
@@ -78,12 +78,12 @@ class FizaPembekalController extends Controller
         if (!is_null($request->pembekal_jenis_akaun)) {
             if (in_array('Kerja', $request->pembekal_jenis_akaun) && in_array('Bekalan & Perkhidmatan(MOF)', $request->pembekal_jenis_akaun)) {
                 return redirect('/insertfile');
-            } elseif (in_array('Kerja', $request->pembekal_jenis_akaun)) {
-                return redirect('/cidb/create');
+
+            }elseif (in_array('Kerja', $request->pembekal_jenis_akaun)) {
+                return redirect('/cidb');
+
             } elseif (in_array('Bekalan & Perkhidmatan(MOF)', $request->pembekal_jenis_akaun)) {
                 return redirect('/dokumen/create');
-            } else {
-                return redirect('/Pembekal');
             }
         }else{
             return redirect('/Pembekal');
@@ -106,7 +106,7 @@ class FizaPembekalController extends Controller
 
     public function update(Request $request, FizaPembekal $fizaPembekal)
     {
-        $fizaPembekal->pembekal_jenis_akaun=$request->pembekal_jenis_akaun;
+        // $fizaPembekal->pembekal_jenis_akaun=$request->pembekal_jenis_akaun;
         $fizaPembekal->pembekal_jenis=$request->pembekal_jenis;
         $fizaPembekal->pembekal_jenis_company=$request->pembekal_jenis_company;
         $fizaPembekal->pembekal_no_pendaftaran=$request->pembekal_no_pendaftaran;
@@ -158,8 +158,8 @@ class FizaPembekalController extends Controller
     public function insertfile(){
         // dd('test');
  
-         $fizaPembekal = FizaPembekal::all();
-         $fizaKod = FizaKod::all();
+         $pembekal = FizaPembekal::all();
+         $kod = FizaKodBidang::all();
  
          return view('1_pembekal.fileupload', [
              'pembekal' => $pembekal, 
@@ -170,8 +170,6 @@ class FizaPembekalController extends Controller
 
     public function dokumentambahan(Request $request)
     {
-    
-        $Pembekal = new Pembekal();
 
         $sijil_perakuan=$request->file('sijil_perakuan')->store('sijil_perakuan');
         $sijil_gred=$request->file('sijil_gred')->store('sijil_gred');

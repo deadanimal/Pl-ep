@@ -32,9 +32,9 @@ class FizaPenyediaanSpesifikasiController extends Controller
         $fizaPenyediaanSpesifikasi->pst_id=$request->pst_id;
         $fizaPenyediaanSpesifikasi->sss_id=$request->sss_id;
         $fizaPenyediaanSpesifikasi->item_id=$request->item_id;
-        $fizaPenyediaanSpesifikasi->spesifikasi_tajuk_template=$request->spesifikasi_tajuk_template;
+        $fizaPenyediaanSpesifikasi->spesifikasi_tajuk=$request->spesifikasi_tajuk;
         $fizaPenyediaanSpesifikasi->spesifikasi_jenis_barang=$request->spesifikasi_jenis_barang;
-        $fizaPenyediaanSpesifikasi->spesifikasi_status="Draf";
+        // $fizaPenyediaanSpesifikasi->spesifikasi_status="Draf";
         $fizaPenyediaanSpesifikasi->spesifikasi_description=$request->spesifikasi_description;
         $fizaPenyediaanSpesifikasi->spesifikasi_unit_ukuran=$request->spesifikasi_unit_ukuran;
         $fizaPenyediaanSpesifikasi->spesifikasi_jenis_harga=$request->spesifikasi_jenis_harga;
@@ -45,22 +45,34 @@ class FizaPenyediaanSpesifikasiController extends Controller
         $fizaPenyediaanSpesifikasi->spesifikasi_jumlah_skor_teknikal=$request->spesifikasi_jumlah_skor_teknikal;
         $fizaPenyediaanSpesifikasi->spesifikasi_skor_lulus_teknikal=$request->spesifikasi_skor_lulus_teknikal;
 
-        $spesifikasi_teknikal=$request->file('spesifikasi_skema_teknikal')->store('spesifikasi_teknikal');
-        $fizaPenyediaanSpesifikasi->spesifikasi_skema_teknikal=$spesifikasi_teknikal;
+        if ($request->hasFile('spesifikasi_skema_teknikal')) {
+            $spesifikasi_skema_teknikal=$request->file('spesifikasi_skema_teknikal')->store('spesifikasi_skema_teknikal');
+            $fizaPenyediaanSpesifikasi->spesifikasi_skema_teknikal=$spesifikasi_skema_teknikal;
+        }
+
 
         // $fizaPenyediaanSpesifikasi->spesifikasi_jumlah_skor_kewangan=$request->spesifikasi_jumlah_skor_kewangan;
         // $fizaPenyediaanSpesifikasi->spesifikasi_skor_lulus_kewangan=$request->spesifikasi_skor_lulus_kewangan;
-
-        $spesifikasi_kewangan=$request->file('spesifikasi_skema_kewangan')->store('spesifikasi_kewangan');
-        $fizaPenyediaanSpesifikasi->spesifikasi_skema_kewangan=$spesifikasi_kewangan;
+        if ($request->hasFile('spesifikasi_skema_kewangan')) {
+            $spesifikasi_skema_kewangan=$request->file('spesifikasi_skema_kewangan')->store('spesifikasi_skema_kewangan');
+            $fizaPenyediaanSpesifikasi->spesifikasi_skema_kewangan=$spesifikasi_skema_kewangan;
+        }
         // $fizaPenyediaanSpesifikasi->spesifikasi_skema_kewangan=$request->spesifikasi_skema_kewangan;
         
         // $fizaPenyediaanSpesifikasi->spesifikasi_skor_lulus_keseluruhan=$request->spesifikasi_skor_lulus_keseluruhan;
         $fizaPenyediaanSpesifikasi->spesifikasi_alamat_penghantaran=$request->spesifikasi_alamat_penghantaran;
         $fizaPenyediaanSpesifikasi->spesifikasi_catatan=$request->spesifikasi_catatan;
 
+        if ($request->status_spesifikasi=="hantar"){
+            $fizaPenyediaanSpesifikasi->spesifikasi_status="Menunggu Semakan";
+
+        }
+        else if($request->status_spesifikasi=="draf"){
+            $fizaPelanPerancanganPerolehan->spesifikasi_status="Draf";
+        }
+
         $fizaPenyediaanSpesifikasi->save();
-        return redirect('/fizaPenyediaanSpesifikasi');
+        return redirect('/PenyediaanSpesifikasi');
     }
 
 
@@ -70,19 +82,22 @@ class FizaPenyediaanSpesifikasiController extends Controller
     }
 
 
-    public function edit(FizaPenyediaanSpesifikasi $fizaPenyediaanSpesifikasi)
+    public function edit($id)
     {
-        $fizaPenyediaanSpesifikasi = FizaPenyediaanSpesifikasi::all();
+        $fizaPenyediaanSpesifikasi = FizaPenyediaanSpesifikasi::find($id);
         return view ('1_penyediaan_spesifikasi.edit',[
             'fizaPenyediaanSpesifikasi'=>$fizaPenyediaanSpesifikasi]);
     }
 
-    public function update(Request $request, FizaPenyediaanSpesifikasi $fizaPenyediaanSpesifikasi)
+    public function update(Request $request, $id)
     {
+        $fizaPenyediaanSpesifikasi = FizaPenyediaanSpesifikasi::find($id);
+
+
         $fizaPenyediaanSpesifikasi->pst_id=$request->pst_id;
         $fizaPenyediaanSpesifikasi->sss_id=$request->sss_id;
         $fizaPenyediaanSpesifikasi->item_id=$request->item_id;
-        $fizaPenyediaanSpesifikasi->spesifikasi_tajuk_template=$request->spesifikasi_tajuk_template;
+        $fizaPenyediaanSpesifikasi->spesifikasi_tajuk=$request->spesifikasi_tajuk;
         $fizaPenyediaanSpesifikasi->spesifikasi_jenis_barang=$request->spesifikasi_jenis_barang;
         $fizaPenyediaanSpesifikasi->spesifikasi_status=$request->spesifikasi_status;
         $fizaPenyediaanSpesifikasi->spesifikasi_description=$request->spesifikasi_description;
@@ -96,8 +111,8 @@ class FizaPenyediaanSpesifikasiController extends Controller
         $fizaPenyediaanSpesifikasi->spesifikasi_skor_lulus_teknikal=$request->spesifikasi_skor_lulus_teknikal;
 
         if ($request->hasFile('spesifikasi_skema_teknikal')) {
-            $spesifikasi_teknikal=$request->file('spesifikasi_skema_teknikal')->store('spesifikasi_teknikal');
-            $fizaPenyediaanSpesifikasi->spesifikasi_skema_teknikal=$spesifikasi_teknikal;
+            $spesifikasi_skema_teknikal=$request->file('spesifikasi_skema_teknikal')->store('spesifikasi_skema_teknikal');
+            $fizaPenyediaanSpesifikasi->spesifikasi_skema_teknikal=$spesifikasi_skema_teknikal;
         }
 
        // $fizaPenyediaanSpesifikasi->spesifikasi_skema_teknikal=$request->spesifikasi_skema_teknikal;
@@ -106,8 +121,8 @@ class FizaPenyediaanSpesifikasiController extends Controller
         $fizaPenyediaanSpesifikasi->spesifikasi_skor_lulus_kewangan=$request->spesifikasi_skor_lulus_kewangan;
 
         if ($request->hasFile('spesifikasi_skema_kewangan')) {
-            $spesifikasi_kewangan=$request->file('spesifikasi_skema_kewangan')->store('spesifikasi_kewangan');
-            $fizaPenyediaanKewangan->spesifikasi_skema_kewangan=$spesifikasi_kewangan;
+            $spesifikasi_skema_kewangan=$request->file('spesifikasi_skema_kewangan')->store('spesifikasi_skema_kewangan');
+            $fizaPenyediaanKewangan->spesifikasi_skema_kewangan=$spesifikasi_skema_kewangan;
         }
 
         //$fizaPenyediaanSpesifikasi->spesifikasi_skema_kewangan=$request->spesifikasi_skema_kewangan;
@@ -117,7 +132,7 @@ class FizaPenyediaanSpesifikasiController extends Controller
 
 
         $fizaPenyediaanSpesifikasi->save();
-        return redirect('/fizaPenyediaanSpesifikasi');
+        return redirect('/PenyediaanSpesifikasi');
 
     }
 

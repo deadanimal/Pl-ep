@@ -28,6 +28,9 @@ class CreateFizaSenaraiSuratNiatsTable extends Migration
             $table->string('niat_status')->nullable();
             $table->string('niat_file')->nullable();
             $table->foreignId('akhir_id')->nullable();
+            $table->string('niat_created_by')->nullable();
+            $table->string('niat_updated_by')->nullable();
+
             $table->timestamps();
         });
     }

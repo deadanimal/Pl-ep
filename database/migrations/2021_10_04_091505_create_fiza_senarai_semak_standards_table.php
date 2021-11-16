@@ -22,7 +22,10 @@ class CreateFizaSenaraiSemakStandardsTable extends Migration
             $table->integer('sss_skor_maksima')->nullable();
             $table->string('sss_file')->nullable();
             $table->string('sss_status_pematuhan')->nullable();
+            $table->string('sss_created_by')->nullable();
+            $table->string('sss_updated_by')->nullable();
             $table->timestamps();
+
         });
     }
 

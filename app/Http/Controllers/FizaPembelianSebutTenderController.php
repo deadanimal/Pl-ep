@@ -3,28 +3,42 @@
 namespace App\Http\Controllers;
 
 use App\Models\FizaPembelianSebutTender;
+use App\Mail\SebutHargaBaru;
 use App\Models\FizaItemInfo;
 use App\Models\FizaKatalog;
+use App\Models\FizaJawatankuasa;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Session;
 
 class FizaPembelianSebutTenderController extends Controller
 {
-  
     public function index()
     {
         $fizaPembelianSebutTender = FizaPembelianSebutTender::all();
-        return view ('1_pst.index',[
-            'fizaPembelianSebutTender'=>$fizaPembelianSebutTender]);
+        // date('d-m-Y', strtotime($fizaPembelianSebutTender->created_at));
+        return view('1_pst.index', [
+            'fizaPembelianSebutTender'=>$fizaPembelianSebutTender
+       
+        ]);
+
+        setlocale(LC_ALL, 'ms_MY');
+        $date = new Date($fizaPembelianSebutTender->created_at);
+        $created_at = $date->format('d/m/Y');
+
+
     }
 
 
     public function create()
     {
-        $user=User::where('jenis','pekerja')->get();
-        return view ('1_pst.create', [
-            'user'=>$user
+        $katalog = FizaKatalog::all();
+        $user=User::where('jenis', 'pekerja')->get();
+        return view('1_pst.create', [
+            'user'=>$user,
+            'katalog'=>$katalog
         ]);
     }
 
@@ -51,7 +65,7 @@ class FizaPembelianSebutTenderController extends Controller
         $fizaPembelianSebutTender->pst_jenis_pemenuhan=$request->pst_jenis_pemenuhan;
         $fizaPembelianSebutTender->pst_tempoh_kontrak=$request->pst_tempoh_kontrak;
         // $fizaPembelianSebutTender->item_id=$request->item_id;
-        $fizaPembelianSebutTender->kod_id=$request->kod_id;
+        // $fizaPembelianSebutTender->kod_id=$request->kod_id;
         $fizaPembelianSebutTender->pembekal_id=$request->pembekal_id;
         $fizaPembelianSebutTender->pst_jumlah_pembekal_layak=$request->pst_jumlah_pembekal_layak;
         $fizaPembelianSebutTender->ro_id=$request->ro_id;
@@ -65,39 +79,73 @@ class FizaPembelianSebutTenderController extends Controller
         $fizaPembelianSebutTender->pst_link=$request->pst_link;
         $fizaPembelianSebutTender->pst_penyelaras=$request->pst_penyelaras;
         $fizaPembelianSebutTender->pst_kehadiran_max=$request->pst_kehadiran_max;
-        $fizaPembelianSebutTender->pst_status=$request->pst_status;
-        $fizaPembelianSebutTender->pst_created_by=Auth::user()->user_name; 
+        // $fizaPembelianSebutTender->pst_status=$request->pst_status;
+        $fizaPembelianSebutTender->created_by=Auth::user()->user_name;
 
         $fizaPembelianSebutTender->pst_jenis_potongan=$request->pst_jenis_potongan;
         $fizaPembelianSebutTender->pst_potongan_description=$request->pst_potongan_description;
-        $fizaPembelianSebutTender->pst_amaun_potongan=$request->pst_amaun_potongan; 
+        $fizaPembelianSebutTender->pst_amaun_potongan=$request->pst_amaun_potongan;
         
 
         $fizaPembelianSebutTender->save();
 
+        Session::put('pst_id',$fizaPembelianSebutTender->id);
+        $temp=Session::get('pst_id');
+
+
+
+        $receiver = User::where('id',$request->pst_pelulus)->first();
+
+        if ($request->status_pst=="hantar"){
+            $fizaPembelianSebutTender->pst_status="Menunggu Kelulusan";
+         Mail::to($receiver->email)->send(new SebutHargaBaru);
+        }
+        else if($request->status_pst=="draf"){
+            $fizaPembelianSebutTender->pst_status="Draf";
+            
+        }
+
+        // dd($temp);
+
+        //System Notification
+        $notification_obj = (object)[];
+        $notification_obj->noti_type="1";
+        $notification_obj->noti_template="$fizaPembelianSebutTender->pst_kaedah_perolehan";
+        $notification_obj->noti_subject="telah dihantar dan anda telah dilantik sebagai Pegawai Pelulus";
+        $notification_obj->noti_status='Menunggu Pengesahan';
+        $notification_obj->noti_content="$fizaPembelianSebutTender->created_at";
+
+                        
+        app('App\Http\Controllers\FizaNotificationCenterController')->store($notification_obj);
+    
+      
         //audit log
         $item ="Sebutharga Tender";
         $user_id= Auth::user()->id;
-        $description = "$fizaPembelianSebutTender->pst_created_by telah menghantar sebutharga untuk $fizaPembelianSebutTender->pst_item_panel";
+        $description = "$fizaPembelianSebutTender->created_by telah menghantar sebutharga untuk $fizaPembelianSebutTender->pst_item_panel";
         $log_item = [$item, $description, $user_id];
         app('App\Http\Controllers\AuditLogController')->log($log_item);
 
+        return redirect('/Jawatankuasa/create')->with($fizaPembelianSebutTender->id);
 
-        return redirect('/PembelianSebutTender');
     }
 
     public function show(FizaPembelianSebutTender $fizaPembelianSebutTender)
     {
         //
-
     }
 
 
     public function edit($id)
     {
         $fizaPembelianSebutTender = FizaPembelianSebutTender::find($id);
+        $user = User::where('jenis', 'pekerja')->get();
+        // dd($user);
+
         return view('1_pst.edit', [
-            'PembelianSebutTender'=>$fizaPembelianSebutTender]);
+            'PembelianSebutTender'=>$fizaPembelianSebutTender,
+            'user'=>$user
+        ]);
     }
 
 
@@ -138,19 +186,40 @@ class FizaPembelianSebutTenderController extends Controller
         $fizaPembelianSebutTender->pst_penyelaras=$request->pst_penyelaras;
         $fizaPembelianSebutTender->pst_kehadiran_max=$request->pst_kehadiran_max;
         $fizaPembelianSebutTender->pst_status=$request->pst_status;
-        // $fizaPembelianSebutTender->pst_updated_by=$request->pst_updated_by;
+        $fizaPembelianSebutTender->updated_by=$request->updated_by;
 
         $fizaPembelianSebutTender->pst_jenis_potongan=$request->pst_jenis_potongan;
         $fizaPembelianSebutTender->pst_potongan_description=$request->pst_potongan_description;
-        $fizaPembelianSebutTender->pst_amaun_potongan=$request->pst_amaun_potongan; 
+        $fizaPembelianSebutTender->pst_amaun_potongan=$request->pst_amaun_potongan;
 
-       $fizaPembelianSebutTender->save();
+
+        $fizaPembelianSebutTender->save();
+
+        // $temp=session()->get($fizaPembelianSebutTender->id);
+
         return redirect('/PembelianSebutTender');
+
     }
 
    
     public function destroy(FizaPembelianSebutTender $fizaPembelianSebutTender)
     {
         //
+    }
+
+    public function verify_signature(Request $request)
+    {
+        $fizaPembelianSebutTender= FizaPembelianSebutTender::where('id', $request->id)->first();
+        $pst_pelulus = $request->pst_pelulus;
+        $ic_diletakkan = $request->ic_diletakkan;
+
+        if($pst_pelulus->ic == $ic_diletakkan) {
+            $permohonan->status = 'Diluluskan';
+
+            $permohonan->save();
+            return view('lulus');
+        } else {
+            return view('gagal');
+        }
     }
 }

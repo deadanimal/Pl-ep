@@ -25,6 +25,8 @@ class CreateFizaPadananBayaransTable extends Migration
             $table->String('padanan_cara_pembayaran')->nullable();
             $table->String('padanan_kod_akaun')->nullable();
             $table->String('padanan_amaun')->nullable();
+            $table->string('padanan_created_by')->nullable();
+            $table->string('padanan_updated_by')->nullable();
             $table->foreignId('user_id')->nullable();
 
 

@@ -15,7 +15,7 @@ class CreateFizaJadualPemenuhansTable extends Migration
     {
         Schema::create('fiza_jadual_pemenuhans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('spesifikasi_id');
+            $table->foreignId('spesifikasi_id')->nullable();
             $table->String('jadual_jenis_pemenuhan')->nullable();
             $table->String('jadual_kekerapan')->nullable();
             $table->String('jadual_bil')->nullable();

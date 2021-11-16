@@ -19,6 +19,9 @@ class CreateFizaPenandatanganKontraksTable extends Migration
             $table->foreignId('user_id')->nullable();
             $table->String('penandatangan_pihak')->nullable();
             $table->foreignId('perjanjian_id')->nullable();
+            $table->String('penandatangan_created_by')->nullable();
+            $table->String('penandatangan_updated_by')->nullable();
+
 
             $table->timestamps();
         });

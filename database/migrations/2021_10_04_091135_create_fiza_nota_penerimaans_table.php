@@ -27,6 +27,10 @@ class CreateFizaNotaPenerimaansTable extends Migration
             $table->String('terima_skor_tempoh_penghantaran')->nullable();
             $table->foreignId('penghantaran_id')->nullable();
             $table->foreignId('sst_id')->nullable();
+            $table->String('terima_created_by')->nullable();
+            $table->String('terima_updated_by')->nullable();
+
+            
 
 
             $table->timestamps();

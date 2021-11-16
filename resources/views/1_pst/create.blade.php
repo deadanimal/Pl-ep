@@ -11,6 +11,8 @@
                         <form method="POST" action="/PembelianSebutTender">
                         @csrf
 
+                     
+
                         <div class="row">
                             <div class="mb-3 col-md-6">
                                 <label class="col-form-label col-sm-6 ">Panel Item</label>
@@ -44,7 +46,13 @@
                                 <label class="col-form-label col-sm-6 ">Kumpulan Katalog</label>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <input type="text" class="form-control" name="pst_katalog_kumpulan">
+                                <select class="form-control" name="pst_katalog_kumpulan">
+                                    <option hidden>Sila Pilih </option>
+                                    @foreach ($katalog as $katalog)
+                                    <option value="{{$katalog->id}}">{{$katalog->katalog_kumpulan}}</option>
+                                        
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         
@@ -182,8 +190,8 @@
                         {{-- <input type="text" class="form-control" name="pst_pelulus"> --}}
                         <select name="pst_pelulus" class="form-control">
                                 <option hidden>Sila Pilih</option>
-                                @foreach ($user as $user)
-                                <option value={{$user->id}}>{{$user->user_name}}</option>
+                                @foreach ($user as $user3)
+                                <option value={{$user3->id}}>{{$user3->user_name}}</option>
                                 @endforeach
                             </select>
 
@@ -241,7 +249,12 @@
                         <label class="col-form-label col-sm-6 ">Penyelaras</label>
                     </div>
                     <div class="mb-3 col-md-6">
-                        <input type="text" class="form-control" name="pst_penyelaras">
+                        <select class="form-control" name="pst_penyelaras">
+                            <option hidden>Sila Pilih</option>
+                            @foreach($user as $user2)
+                            <option value={{$user2->id}}>{{$user2->user_name}}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
 
@@ -254,7 +267,7 @@
                     </div>
                 </div>
 
-                <div class="row">
+                {{-- <div class="row">
                     <div class="mb-3 col-md-6">
                         <label class="col-form-label col-sm-6 ">Status </label>
                     </div>
@@ -265,7 +278,7 @@
                 {{-- pst_created_by
                 pst_created_date
                 pst_updated_by
-                pst_updated_date --}}
+                pst_updated_date 
                 <div class="row">
                     <div class="mb-3 col-md-6">
                         <label class="col-form-label col-sm-6 ">Jenis Pemotongan</label>
@@ -292,9 +305,11 @@
                     <div class="mb-3 col-md-6">
                         <input type="text" class="form-control" name="pst_amaun_potongan">
                     </div>
-                </div>
+                </div> --}}
 
-                    <br><button type="submit" class="btn-primary">Hantar</button>
+                <br>    
+                <button type="submit" class="btn-success" name="status_pst" value="draf">Draf</button>
+                <button type="submit" class="btn-success"name="status_pst" value="hantar">Hantar</button>
                     
                 </form>
                 </div>

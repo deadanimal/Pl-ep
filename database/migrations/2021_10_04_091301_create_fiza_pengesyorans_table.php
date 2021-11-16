@@ -25,6 +25,9 @@ class CreateFizaPengesyoransTable extends Migration
             $table->String('syor_jumlah_skor')->nullable();
             $table->foreignId('pst_id')->nullable();
             $table->foreignId('spesifikasi_id')->nullable();
+            $table->string('syor_created_by')->nullable();
+            $table->string('syor_updated_by')->nullable();
+
             $table->timestamps();
         });
     }

@@ -26,11 +26,10 @@ class CreateFizaPemilihanAkhirPembekalsTable extends Migration
             $table->foreignId('pembekal_id')->nullable();
             $table->foreignId('syor_id')->nullable();
             $table->foreignId('pst_id')->nullable();
-            
-
-
-
             $table->timestamps();
+            $table->string('akhir_created_by')->nullable();
+            $table->string('akhir_updated_by')->nullable();
+            
         });
     }
 

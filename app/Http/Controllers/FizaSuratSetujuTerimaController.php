@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\FizaSuratSetujuTerima;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class FizaSuratSetujuTerimaController extends Controller
 {
@@ -14,27 +16,20 @@ class FizaSuratSetujuTerimaController extends Controller
      */
     public function index()
     {
-        $fizaSuratSetujuTerima = FizaSuratSetujuTerima::all();
+        $SuratSetujuTerima = FizaSuratSetujuTerima::all();
         return view ('1_sst.index',[
-            'SuratSetujuTerima'=>$fizaSuratSetujuTerima]);
+            'SuratSetujuTerima'=>$SuratSetujuTerima ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        return view ('1_sst.create');
+        $user = User::all();
+        return view ('1_sst.create', [
+            'user'=>$user
+        ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
         $fizaSuratSetujuTerima = new FizaSuratSetujuTerima;
@@ -53,7 +48,7 @@ class FizaSuratSetujuTerimaController extends Controller
         // $fizaSuratSetujuTerima->sst_file=$sst_file;
 
         $fizaSuratSetujuTerima->sst_perjanjian=$request->sst_perjanjian;
-        $fizaSuratSetujuTerima->katalog_kategori=$request->katalog_kategori;
+        // $fizaSuratSetujuTerima->katalog_kategori=$request->katalog_kategori;
 
         $fizaSuratSetujuTerima->sst_pelulus=$request->sst_pelulus;
         $fizaSuratSetujuTerima->sst_catatan_pelulus=$request->sst_catatan_pelulus;
@@ -74,7 +69,7 @@ class FizaSuratSetujuTerimaController extends Controller
         $fizaSuratSetujuTerima->item_id=$request->item_id;
         $fizaSuratSetujuTerima->sst_jenis_potongan=$request->sst_jenis_potongan;
         $fizaSuratSetujuTerima->sst_amaun_potongan=$request->sst_amaun_potongan;
-        $fizaSuratSetujuTerima->sst_created_by=$request->sst_created_by;
+        // $fizaSuratSetujuTerima->sst_created_by=Auth::user()->user_name;
         $fizaSuratSetujuTerima->sst_email=$request->sst_email;
         $fizaSuratSetujuTerima->akhir_id=$request->akhir_id;
         $fizaSuratSetujuTerima->jadual_id=$request->jadual_id;
@@ -96,9 +91,9 @@ class FizaSuratSetujuTerimaController extends Controller
         //
     }
 
-    public function edit(FizaSuratSetujuTerima $fizaSuratSetujuTerima)
+    public function edit($id)
     {
-        $fizaSuratSetujuTerima = FizaSuratSetujuTerima::all();
+        $fizaSuratSetujuTerima = FizaSuratSetujuTerima::find($id);
         return view ('1_sst.edit',[
             'SuratSetujuTerima'=>$fizaSuratSetujuTerima]);
     }
@@ -146,7 +141,7 @@ class FizaSuratSetujuTerimaController extends Controller
         $fizaSuratSetujuTerima->item_id=$request->item_id;
         $fizaSuratSetujuTerima->sst_jenis_potongan=$request->sst_jenis_potongan;
         $fizaSuratSetujuTerima->sst_amaun_potongan=$request->sst_amaun_potongan;
-        $fizaSuratSetujuTerima->sst_created_by=$request->sst_created_by;
+        // $fizaSuratSetujuTerima->sst_created_by=$request->sst_created_by;
         $fizaSuratSetujuTerima->sst_email=$request->sst_email;
         $fizaSuratSetujuTerima->akhir_id=$request->akhir_id;
         $fizaSuratSetujuTerima->jadual_id=$request->jadual_id;

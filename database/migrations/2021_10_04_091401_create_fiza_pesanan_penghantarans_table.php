@@ -22,6 +22,10 @@ class CreateFizaPesananPenghantaransTable extends Migration
            $table->integer('penghantaran_kuantiti')->nullable();
            $table->date('penghantaran_date')->nullable();
             $table->timestamps();
+           $table->string('penghantaran_created_by')->nullable();
+           $table->string('penghantaran_updated_by')->nullable();
+
+
         });
     }
 

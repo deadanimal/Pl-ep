@@ -34,6 +34,7 @@ class FizaAuditPelanController extends Controller
         $fizaAuditPelan->laporan_pelan_id=$request->laporan_pelan_id;
 
         $fizaAuditPelan->save();
+        
         //TODO
         // 1. imprt controller notification
         // 2. call controller notification pass data yg kau nak store dalam notification punya table()

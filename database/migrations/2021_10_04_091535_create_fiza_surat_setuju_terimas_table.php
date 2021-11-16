@@ -6,17 +6,13 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateFizaSuratSetujuTerimasTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+   
     public function up()
     {
         Schema::create('fiza_surat_setuju_terimas', function (Blueprint $table) {
             $table->id();
             $table->foreignId('pembekal_id')->nullable();
-            $table->string('sst_tajuk varchar')->nullable();
+            $table->string('sst_tajuk')->nullable();
             $table->foreignId('pst_id')->nullable();
             $table->string('sst_insurans_jaminan')->nullable();
             $table->string('sst_bon')->nullable();
@@ -44,9 +40,13 @@ class CreateFizaSuratSetujuTerimasTable extends Migration
             $table->string('item_id')->nullable();
             $table->string('sst_jenis_potongan')->nullable();
             $table->string('sst_amaun_potongan')->nullable();
+            $table->string('sst_created_by')->nullable();
+            $table->string('sst_updated_by')->nullable();
+
             $table->foreignId('akhir_id')->nullable();
             $table->foreignId('jadual_id')->nullable();
             $table->foreignId('niat_id')->nullable();
+
             $table->timestamps();
         });
     }

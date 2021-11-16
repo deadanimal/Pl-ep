@@ -56,6 +56,9 @@ class FizaNotaMintaController extends Controller
 
         $fizaNotaMinta->save();
 
+        Session::put('pst_id',$fizaPembelianSebutTender->id);//
+        $temp=Session::get('pst_id');
+
         $item ="Nota Minta";
         $user_id= Auth::user()->id;
         $description = "$fizaNotaMinta->ro_created_by telah menghantar nota minta untuk $fizaNotaMinta->ro_jenis_perolehan";

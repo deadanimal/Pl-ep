@@ -29,12 +29,6 @@ class CreateFizaArahanMemberhentikansTable extends Migration
             $table->string('arahan_created_by')->nullable();
             $table->string('arahan_updated_by')->nullable();
 
-
-
-
-
-
-
             $table->timestamps();
         });
     }

@@ -6,7 +6,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h3>Nota Penerimaan</h3>
+                <h3>Semakan </h3>
             </div>
             <div class="card-body">
 
@@ -133,7 +133,7 @@
                             <label class="col-form-label col-sm-6 ">Kategori Perolehan</label>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <input type="text" class="form-control" name="pst_kategori_perolehan" value="{{$PembelianSebutTender->pst_kategori_perolehan}}">
+                            <input type="text" class="form-control" name="pst_kategori_perolehan" value="{{$PembelianSebutTender->pst_kategori_perolehan}}" readonly>
                         </div>
                     </div>
 
@@ -184,7 +184,13 @@
                             <label class="col-form-label col-sm-6 ">Nama Pelulus</label>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <input type="text" class="form-control" name="pst_pelulus" value="{{$PembelianSebutTender->pst_pelulus}}">
+                            {{-- <input type="text" class="form-control" name="pst_pelulus" value="{{$PembelianSebutTender->pst_pelulus}}"> --}}
+                            <select  class="form-control" name="pst_pelulus">
+                                @foreach ($user as $user)
+                                <option @if ($PembelianSebutTender->pst_pelulus == $user->id) selected @endif value={{$user->id}}>{{$user->user_name}}</option>    
+                                @endforeach
+                            </select>
+
                         </div>
                     </div>
 
@@ -261,7 +267,11 @@
                             <label class="col-form-label col-sm-6 ">Status </label>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <input type="text" class="form-control" name="pst_status" value="{{$PembelianSebutTender->pst_status}}">
+                            <select class="form-control" name="pst_status" value="{{$PembelianSebutTender->pst_status}}">
+                                <option hidden>Sila Pilih</option>
+                                <option @if ($PembelianSebutTender->pst_status == 'Diluluskan') selected @endif value="Diluluskan">Diluluskan</option>
+                                <option @if ($PembelianSebutTender->pst_status == 'Tidak Diluluskan') selected @endif value="Tidak Diluluskan">Tidak Diluluskan</option>
+                            </select>
                         </div>
                     </div>
                 {{-- pst_created_by
@@ -296,7 +306,7 @@
                         </div>
                     </div>
 
-                    <br><button type="submit" class="btn-primary" style="float: right">Hantar</button>
+                    <br><button type="submit" class="btn-primary" style="float: right" onclick()>Hantar</button>
                     
                 </form>
             </div>

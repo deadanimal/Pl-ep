@@ -24,6 +24,8 @@ class CreateFizaPerincianPengiklanansTable extends Migration
             $table->date(' iklan_sah_laku_tamat')->nullable();
             $table->foreignId('user_id')->nullable();
             $table->foreignId('pst_id')->nullable();
+            $table->string('iklan_created_by')->nullable();
+            $table->string('iklan_updated_by')->nullable();
             $table->timestamps();
         });
     }
