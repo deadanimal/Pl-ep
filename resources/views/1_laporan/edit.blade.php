@@ -1,6 +1,6 @@
 Laporan 
 
-<form method="POST" action="/Laporan/{{$Laporan->id}}">
+<form method="POST" action="/Laporan/{{$Laporan->id}}" enctype="multipart/form-data">>
     @csrf
     @method('PUT')
 

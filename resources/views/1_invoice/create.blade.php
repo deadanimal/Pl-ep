@@ -1,14 +1,44 @@
-Kandungan Perjanjian 
+@extends('layouts.base')
 
-<form method="POST" action="/KandunganPerjanjian">
-@csrf
-{{-- kandungan_id --}}
-    Nama <input type="text" class="form-control" name="kandungan_nama">
-    Template Kandungan<br> <input type="file" class="form-control" name="kandungan_template">
-{{-- kandungan_created_by
-kandungan_created_date
-kandungan_updated_by
-kandungan_updated_date --}}
+@section('content')
 
-<br><button type="submit">Hantar</button>
-</form>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-body">
+                    <h3>Kandungan Perjanjian </h3>
+
+                    <form method="POST" action="/Invoice" enctype="multipart/form-data">>
+                    @csrf
+                    {{-- kandungan_id --}}
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <label class="col-form-label col-sm-6 ">  Nama </label>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <input type="text" class="form-control" name="kandungan_nama">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <label class="col-form-label col-sm-6 "> Template Kandungan</label>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                         <input type="file" class="form-control" name="kandungan_template">
+                        </div>
+                    </div>
+                    {{-- kandungan_created_by
+                    kandungan_created_date
+                    kandungan_updated_by
+                    kandungan_updated_date --}}
+
+                    <br><button type="submit" class="btn-primary">Hantar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@stop

@@ -8,7 +8,7 @@
             <div class="card-header">
                 <div class="card-body">
                     <h3>Kontrak</h3>
-                    <form method="POST" action="/Kontrak">
+                    <form method="POST" action="/Kontrak" enctype="multipart/form-data">
                         @csrf
 
                     {{-- 

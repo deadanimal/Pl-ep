@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\FizaPertanyaanItem;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class FizaPertanyaanItemController extends Controller
 {
@@ -18,8 +20,9 @@ class FizaPertanyaanItemController extends Controller
 
     public function create()
     {
-      
-        return view ('1_tanya_item.create');
+        $user=User::all();
+        return view ('1_tanya_item.create',[
+            'user'=> $user] );
     }
 
 
@@ -38,13 +41,10 @@ class FizaPertanyaanItemController extends Controller
         $fizaPertanyaanItem->tanya_ketersediaan_stok=$request->tanya_ketersediaan_stok;
         $fizaPertanyaanItem->tanya_harga_baru=$request->tanya_harga_baru;
         $fizaPertanyaanItem->tanya_status=$request->tanya_status;
-        $fizaPertanyaanItem->tanya_created_by=$request->tanya_created_by;
-
-
+        $fizaPertanyaanItem->tanya_created_by=Auth::user()->user_name;
 
         $fizaPertanyaanItem->save();
-        return redirect('/PertanyaanItem');
-    
+        
     }
 
     public function show(FizaPertanyaanItem $fizaPertanyaanItem)

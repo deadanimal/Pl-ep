@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\FizaPemilihanAkhirPembekal;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class FizaPemilihanAkhirPembekalController extends Controller

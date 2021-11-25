@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-header">
                 <h3>Surat Setuju Terima </h3>
-                <form method="POST" action="/SuratSetujuTerima/{{$SuratSetujuTerima->id}}">
+                <form method="POST" action="/SuratSetujuTerima/{{$SuratSetujuTerima->id}}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 

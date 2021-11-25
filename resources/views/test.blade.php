@@ -189,7 +189,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <h5 class="card-title mb-0">Senarai Katalog</h5>
+                            <h5 class="card-title mb-0"> Katalog</h5>
                         </div>
                         <div class="card-body py-3">
                             <div class="chart chart-sm">
@@ -407,6 +407,23 @@
                 </div>
             </div>
 
+            <div class="text-center my-4">
+                <h2>Soalan Lazim</h2>
+            </div>
+            <div class="row">
+                @foreach ($faq as $faq)
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="h6 card-title">{{$faq->faq_section}} - {{$faq->faq_question}}</h5>
+                            <p class="mb-0">{{$faq->faq_answer}}</p>
+                        </div>
+                    </div>
+                </div>            
+                 @endforeach
+        
+            </div>
+
             <div class="row">
                 <div class="col-12 col-lg-8 col-xxl-9 d-flex">
                     <div class="card flex-fill">
@@ -427,84 +444,26 @@
                                     </div>
                                 </div>
                             </div>
-                            <h5 class="card-title mb-0">Senarai Sebutharga</h5>
+                             <h5 class="card-title mb-0">Soalan Lazim</h5>
                         </div>
-                        <table id="datatables-dashboard-projects" class="table table-striped my-0">
+                       {{-- <table id="datatables-dashboard-projects" class="table table-striped my-0">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th class="d-none d-xl-table-cell">Start Date</th>
-                                    <th class="d-none d-xl-table-cell">End Date</th>
-                                    <th>Status</th>
-                                    <th class="d-none d-md-table-cell">Assignee</th>
+                                    <th>Seksyen</th>
+                                    <th>Soalan</th>
+                                    <th>Jawapan</th>
                                 </tr>
                             </thead>
                             <tbody>
+                             @foreach ($faq as $faq11)
                                 <tr>
-                                    <td>Project Apollo</td>
-                                    <td class="d-none d-xl-table-cell">01/01/2021</td>
-                                    <td class="d-none d-xl-table-cell">31/06/2021</td>
-                                    <td><span class="badge bg-success">Done</span></td>
-                                    <td class="d-none d-md-table-cell">Carl Jenkins</td>
+                                    <td>{{$faq11->faq_section11}}</td>
+                                    <td>{{$faq11->faq_question11}}</td>
+                                    <td>{{$faq11->faq_answer11}}</td>
                                 </tr>
-                                <tr>
-                                    <td>Project Fireball</td>
-                                    <td class="d-none d-xl-table-cell">01/01/2021</td>
-                                    <td class="d-none d-xl-table-cell">31/06/2021</td>
-                                    <td><span class="badge bg-danger">Cancelled</span></td>
-                                    <td class="d-none d-md-table-cell">Bertha Martin</td>
-                                </tr>
-                                <tr>
-                                    <td>Project Hades</td>
-                                    <td class="d-none d-xl-table-cell">01/01/2021</td>
-                                    <td class="d-none d-xl-table-cell">31/06/2021</td>
-                                    <td><span class="badge bg-success">Done</span></td>
-                                    <td class="d-none d-md-table-cell">Stacie Hall</td>
-                                </tr>
-                                <tr>
-                                    <td>Project Nitro</td>
-                                    <td class="d-none d-xl-table-cell">01/01/2021</td>
-                                    <td class="d-none d-xl-table-cell">31/06/2021</td>
-                                    <td><span class="badge bg-warning">In progress</span></td>
-                                    <td class="d-none d-md-table-cell">Carl Jenkins</td>
-                                </tr>
-                                <tr>
-                                    <td>Project Phoenix</td>
-                                    <td class="d-none d-xl-table-cell">01/01/2021</td>
-                                    <td class="d-none d-xl-table-cell">31/06/2021</td>
-                                    <td><span class="badge bg-success">Done</span></td>
-                                    <td class="d-none d-md-table-cell">Bertha Martin</td>
-                                </tr>
-                                <tr>
-                                    <td>Project X</td>
-                                    <td class="d-none d-xl-table-cell">01/01/2021</td>
-                                    <td class="d-none d-xl-table-cell">31/06/2021</td>
-                                    <td><span class="badge bg-success">Done</span></td>
-                                    <td class="d-none d-md-table-cell">Stacie Hall</td>
-                                </tr>
-                                <tr>
-                                    <td>Project Romeo</td>
-                                    <td class="d-none d-xl-table-cell">01/01/2021</td>
-                                    <td class="d-none d-xl-table-cell">31/06/2021</td>
-                                    <td><span class="badge bg-success">Done</span></td>
-                                    <td class="d-none d-md-table-cell">Ashley Briggs</td>
-                                </tr>
-                                <tr>
-                                    <td>Project Wombat</td>
-                                    <td class="d-none d-xl-table-cell">01/01/2021</td>
-                                    <td class="d-none d-xl-table-cell">31/06/2021</td>
-                                    <td><span class="badge bg-warning">In progress</span></td>
-                                    <td class="d-none d-md-table-cell">Bertha Martin</td>
-                                </tr>
-                                <tr>
-                                    <td>Project Zircon</td>
-                                    <td class="d-none d-xl-table-cell">01/01/2021</td>
-                                    <td class="d-none d-xl-table-cell">31/06/2021</td>
-                                    <td><span class="badge bg-danger">Cancelled</span></td>
-                                    <td class="d-none d-md-table-cell">Stacie Hall</td>
-                                </tr>
+                            @endforeach
                             </tbody>
-                        </table>
+                        </table> --}}
                     </div>
                 </div>
                 <div class="col-12 col-lg-4 col-xxl-3 d-flex">

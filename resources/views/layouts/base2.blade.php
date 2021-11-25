@@ -21,14 +21,8 @@
         <!-- Styles -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href=https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css>
-        <link rel="stylesheet" type="text/css" href= https://fonts.googleapis.com/css?family=Lato:300>
-        <link rel="stylesheet" type="text/css" href=https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css>
-
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script type="text/javascript" src=https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js></script>
-
-        <script type="text/javascript" src=https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js></script>
-        <script type="text/javascript" src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js></script>
 
         @yield('styles')
         
@@ -61,6 +55,7 @@
                             <img src="/PL.png" class="img-fluid rounded-circle mb-2" alt="Linda Miller" />
                             <div class="fw-bold">Perbadanan Labuan</div>
                         </div>
+
 
 
                     
@@ -210,7 +205,7 @@
                             </ul>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="/faq">
+                            <a class="sidebar-link" href="/Faq">
                                 <i class="align-middle me-2 fas fa-fw fa-check-square"></i> <span class="align-middle">Faqs</span>
                             </a>
                         </li>
@@ -478,13 +473,9 @@
             $(document).ready(function() {
                $('#datatables-1').DataTable();
            } );
-
-            document.querySelector(".third").addEventListener('click', function(){
-                Swal.fire("Tahniah", "Data Anda Telah Berjaya Disimpan!", "success");
-            });
-  </script>
-
-</body>
+   
+           </script>
+    </body>
 
 
 </html>

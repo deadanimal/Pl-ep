@@ -1,6 +1,6 @@
 <h3>Surat Niat</h3>
 
-<form method="POST" action="/SuratNiat">
+<form method="POST" action="/SuratNiat" enctype="multipart/form-data">>
     @csrf
     
     <br>Tajuk <input type="text"  class=form-control name="niat_tajuk">

@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use App\Models\AuditLog;
 use Illuminate\Http\Request;
 
@@ -11,8 +12,11 @@ class AuditLogController extends Controller
     public function index()
     {
         $AuditLog = AuditLog::all();
+        $user = User::all();
+
         return view('audit_log.index', [
-            'AuditLog'=>$AuditLog
+            'AuditLog'=>$AuditLog, 
+            'user'=>$user
             ] );
     }
 
@@ -24,6 +28,7 @@ class AuditLogController extends Controller
     public function store(Request $request)
     {
         $AuditLog = new AuditLog;
+        
         $AuditLog->item = $request->item;
         $AuditLog->description = $request->description;
         $AuditLog->user_id = $request->user_id;

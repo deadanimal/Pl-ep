@@ -7,7 +7,6 @@
         <div class="card">
             <div class="card-header">
                 <h3>Senarai Item</h3>
-        
             </div>
             <div class="card-body">
                 <table id="datatables-1" class="table table-striped" style="width:100%">
@@ -19,6 +18,8 @@
                             <th></th>
                             <th>Tindakan</th>
                             <th></th>
+                            <th></th>
+                        
                         </tr>
                     </thead>
 
@@ -32,8 +33,48 @@
                                 <td><a href='/listkatalog/{{$ItemInfo->katalog_id}}'>Kumpulan Katalog</a></td>
                                 <td> <a href="/ItemInfo/addcart/{{$ItemInfo->id}}">Tambah Ke Kart</a></td>
                                 <td> <button onclick="compareItem()">Bandingkan Item</button>
-                       
-                                
+                                <td> <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#defaultModalPrimary">Pertanyaan Item</button>
+                                    <div class="modal fade" id="defaultModalPrimary" tabindex="-1" role="dialog" aria-hidden="true">
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h5 class="modal-title">Pertanyaan Item</h5>
+													<button  class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+												</div>
+												{{-- <div class="modal-body m-3">
+													<p class="mb-0"></p>
+												</div> --}}
+												<div class="modal-body m-3">
+                                                    <form method="POST" action="/PertanyaanItem">
+                                                    @csrf
+                                                
+                                                    <br> Nama Pembekal <input type="text" class="form-control" name="pembekal_id">
+                                                    {{-- <select name=pembekal_id class="form-control">
+                                                        @foreach ($pembekal as $pembekal)
+                                                        <option value="pembekal_id">{{$pembekal->pembekal_company_name}}</option>
+                                                        @endforeach
+                                                    </select> --}}
+                                                
+                                                    Kuatiti Item yang Diterima <input type="number" class="form-control" name="tanya_kuanititi">
+                                                    Tempoh Penghantaran <input type="text" class="form-control" name="tanya_tempoh_penghantaran">
+                                                    Jenis Perolehan <input type="text" class="form-control" name="tanya_jenis_perolehan">
+                                                    Catatan <input type="text" class="form-control" name="tanya_catatan">
+                                                    Ketersediaan Stok <input type="text" class="form-control" name="tanya_ketersediaan_stok">
+                                                    
+                                                    Harga Baru <input type="number"  min="1" step="any" class="form-control" name="tanya_harga_baru">
+                                                    Status <input type="text" class="form-control" name="tanya_status">
+                                                
+                                                     <button type="submit">Hantar</button>
+                                                
+                                                </form>
+                                                
+
+													{{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+													<button type="button" class="btn btn-primary">Save changes</button> --}}
+												</div>
+											</div>
+										</div>
+									</div>
                             </tr>
                         @endforeach
                     </tbody>

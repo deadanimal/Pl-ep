@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\FizaPesananPenghantaran;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class FizaPesananPenghantaranController extends Controller
 {

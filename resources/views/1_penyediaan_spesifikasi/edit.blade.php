@@ -10,7 +10,7 @@
             </div>
             <div class="card-body">
 
-            <form method="POST" action="/PenyediaanSpesifikasi/{{$fizaPenyediaanSpesifikasi->id}}">
+            <form method="POST" action="/PenyediaanSpesifikasi/{{$fizaPenyediaanSpesifikasi->id}}" enctype="multipart/form-data">>
             @csrf
             @method('PUT')
 

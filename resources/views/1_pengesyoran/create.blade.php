@@ -1,5 +1,5 @@
 <h3>Pengesyoran</h3>
-<form method="POST" action="/Pengesyoran">
+<form method="POST" action="/Pengesyoran" enctype="multipart/form-data">>
  @csrf
  
     <br>Tarikh Mesyuarat <input type="date" class="form-control" name="syor_mesyuarat_date">

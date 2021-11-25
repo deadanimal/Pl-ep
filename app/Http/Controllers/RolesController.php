@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Roles;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class RolesController extends Controller
@@ -70,8 +71,8 @@ class RolesController extends Controller
 
     public function edit($id)
     {
-        $user =User::find($id);
-        return view('1_role.show',[
+        $user = User::find($id);
+        return view('1_role.update',[
             'user'=>$user, 
             'roles'=>$Roles
         ]);
@@ -81,6 +82,8 @@ class RolesController extends Controller
     public function update($id)
     {
         $user =User::find($id);
+
+
         
 
         //$user->Roles();

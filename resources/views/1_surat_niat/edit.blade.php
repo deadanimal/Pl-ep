@@ -1,6 +1,6 @@
 <h3>Surat Niat</h3>
 
-<form method="POST" action="/SuratNiat/{{$niat->id}}">
+<form method="POST" action="/SuratNiat/{{$niat->id}}" enctype="multipart/form-data">>
     @csrf
     @method('PUT')
     

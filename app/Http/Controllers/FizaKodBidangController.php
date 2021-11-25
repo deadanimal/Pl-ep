@@ -6,6 +6,8 @@ use App\Models\FizaKodBidang;
 use Illuminate\Http\Request;
 use App\Mail\SuratMainan;
 use Illuminate\Support\Facades\Mail;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class FizaKodBidangController extends Controller
 {

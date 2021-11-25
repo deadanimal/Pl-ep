@@ -1,6 +1,6 @@
 Kandungan Perjanjian 
 
-<form method="POST" action="/KandunganPerjanjian/{{$KandunganPerjanjian->id}}">
+<form method="POST" action="/KandunganPerjanjian/{{$KandunganPerjanjian->id}}" enctype="multipart/form-data">>
 @csrf
 @method('PUT')
 {{-- kandungan_id --}}

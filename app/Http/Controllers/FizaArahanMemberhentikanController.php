@@ -1,32 +1,31 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use App\Models\FizaArahanMemberhentikan;
 use Illuminate\Http\Request;
 
 class FizaArahanMemberhentikanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $fizaArahanMemberhentikan = FizaArahanMemberhentikan::all();
+        $user = User::all();
+
         return view ('1_arahan_berhenti.index',[
-            'fizaArahanMemberhentikan'=>$fizaArahanMemberhentikan]);
+            'ArahanMemberhentikan'=>$fizaArahanMemberhentikan,
+            'user'=>$user
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        return view('1_arahan_berhenti.create');
+        $user = User::all();
+        return view('1_arahan_berhenti.create',[
+            'user'=>$user
+        ]);
     }
 
 
@@ -49,16 +48,21 @@ class FizaArahanMemberhentikanController extends Controller
 
         $fizaArahanMemberhentikan->save();
         
-        return redirect('/fizaArahanMemberhentikan');
+        return redirect('/ArahanMemberhentikan');
     }
 
     public function show(FizaArahanMemberhentikan $fizaArahanMemberhentikan)
     {
         //
     }
-    public function edit(FizaArahanMemberhentikan $fizaArahanMemberhentikan)
+    public function edit($id)
     {
-        return view('1_arahan_berhenti.edit', ['FizaArahanMemberhentikan'=>$fizaArahanMemberhentikan]); 
+        $user = User::all();
+        return view('1_arahan_berhenti.edit', [
+            'ArahanMemberhentikan'=>$fizaArahanMemberhentikan,
+            'user'=>$user
+
+        ]); 
     }
 
     public function update(Request $request, FizaArahanMemberhentikan $fizaArahanMemberhentikan)
@@ -80,15 +84,10 @@ class FizaArahanMemberhentikanController extends Controller
         $fizaArahanMemberhentikan->save();
 
       
-        return redirect('/fizaArahanMemberhentikan');
+        return redirect('/ArahanMemberhentikan');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\FizaArahanMemberhentikan  $fizaArahanMemberhentikan
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(FizaArahanMemberhentikan $fizaArahanMemberhentikan)
     {
         //

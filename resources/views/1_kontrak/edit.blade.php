@@ -1,5 +1,5 @@
 <h3>Kontrak</h3>
-<form method="POST" action="/Kontrak/{{$Kontrak->id}}">
+<form method="POST" action="/Kontrak/{{$Kontrak->id}}" enctype="multipart/form-data">>
     @csrf
     @method('PUT')
 {{-- 

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\FizaUserRole;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class FizaUserRoleController extends Controller
 {

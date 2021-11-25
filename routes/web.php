@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuditLogController;
-
+use App\Models\User;
+use App\Models\FizaFaq;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\FizaKodBidangController;
 use App\Http\Controllers\FizaPelanPerancanganPerolehanController;
 use App\Http\Controllers\FizaPembekalController;
@@ -63,15 +65,13 @@ use App\Models\Roles;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::resource('/KodBidang',FizaKodBidangController::class);
-
 Route::resource('/PelanPerancanganPerolehan',FizaPelanPerancanganPerolehanController::class);
 Route::resource('/Pembekal',FizaPembekalController::class);
 Route::resource('/PenyediaanSpesifikasi',FizaPenyediaanSpesifikasiController::class);
 Route::resource('/NotaPenerimaaan',FizaNotaPenerimaaanController::class);
 Route::resource('/SijilDigital',FizaSijilDigitalController::class);
-Route::resource('/Faq',FizaFaqController::class);
+Route::resource('/faq',FizaFaqController::class);
 Route::resource('/Docs',FizaDocsController::class);
 Route::resource('/NotificationCenter',FizaNotificationCenterController::class);
 Route::resource('/TetapanTempoh',FizaTetapanTempohController::class);
@@ -123,13 +123,15 @@ Route::get('/register-role', function(){
         'role'=>$role
     ]);
 });
-Route::post('/daftar-role',[RegisteredUserController::class,'register_roles']);
+Route::post('/daftar-role',[User::class,RegisteredUserController::class,'register_roles']);
 
 Route::get('/update-role/{id}', function(){
-    $role= Roles::all();
+    $role= Roles::all(); 
+    $user=User::all();
 
     return view('role_update',[
-        'role'=>$role
+        'role'=>$role,
+         'user'=>$user
     ]);
 });
 
@@ -139,6 +141,7 @@ Route::post('/kemaskini-role',[RegisteredUserController::class,'update_roles']);
 
 Route::post('/dokumentambahan',[FizaPembekalController::class,'dokumentambahan']);
 Route::get('/insertfile',[FizaPembekalController::class,'insertfile']);
+
 
 Route::post('/doc-mof',[FizaPembekalController::class,'docmof']);
 Route::get('/mof',[FizaPembekalController::class,'mof']);
@@ -206,7 +209,19 @@ Route::post('/log',[AuditLogController::class,'log']);
 
 
 Route::get('/', function () {
-    return view('test');
+    $faq= FizaFaq::where('faq_status', 'aktif')->get();
+    return view(
+        'index',[
+        'faq'=>$faq 
+        ]);
+});
+
+
+Route::get('2', function () {
+    $faq= FizaFaq::where('faq_status','aktif')->get();
+    return view('test', [
+        'faq'=>$faq
+    ]);
 });
 
 Route::get('/dashboard', function () {

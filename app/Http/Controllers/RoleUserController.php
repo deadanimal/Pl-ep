@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Roles;
 use App\Models\RoleUser;
 use Illuminate\Http\Request;

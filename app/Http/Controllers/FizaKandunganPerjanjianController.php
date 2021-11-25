@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\FizaKandunganPerjanjian;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class FizaKandunganPerjanjianController extends Controller
 {
@@ -29,8 +31,8 @@ class FizaKandunganPerjanjianController extends Controller
         
         $fizaKandunganPerjanjian->kandungan_nama=$request->kandungan_nama;
 
-        $perjanjian_template = $request->file('kandungan_template')->store($perjanjian_template);
-        $fizaKandunganPerjanjian->kandungan_template=$perjanjian_template;//file
+        $kandungan_template = $request->file('kandungan_template')->store($kandungan_template);
+        $fizaKandunganPerjanjian->kandungan_template=$kandungan_template;//file
 
         $fizaKandunganPerjanjian->kandungan_created_by=$request->kandungan_created_by;
 

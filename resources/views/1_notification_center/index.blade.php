@@ -3,16 +3,13 @@
     
 <h3> Sistem Notifikasi </h3>
 
-<table>
-    <tr>
+
+   
+    <ul>
         @foreach ($NotificationCenter as $NotificationCenter)
-        <td>{{$NotificationCenter->noti_type}}</td>
-        <td>{{$NotificationCenter->noti_template}}</td>
-        <td> {{$NotificationCenter->noti_subject}}</td>
-        <td> {{$NotificationCenter->noti_content}}</td>
-        <td> {{$NotificationCenter->noti_status}}</td>
-        @endforeach
-    </tr>
-</table>
+        <li>{{$NotificationCenter->noti_type}} {{$NotificationCenter->noti_template}} {{$NotificationCenter->noti_subject}} {{$NotificationCenter->noti_content}}</li>
+   
+    @endforeach
+
 
 @endsection

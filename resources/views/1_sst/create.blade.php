@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-header">
                 <h3>Surat Setuju Terima </h3>
-                <form method="POST" action="/SuratSetujuTerima">
+                <form method="POST" action="/SuratSetujuTerima" enctype="multipart/form-data">>
 
                 <div class="row">
                     <div class="mb-3 col-md-6">

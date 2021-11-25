@@ -1,5 +1,5 @@
 <h3>Pengesyoran</h3>
-<form method="POST" action="/Pengesyoran/{{$Pengesyoran->id}}">
+<form method="POST" action="/Pengesyoran/{{$Pengesyoran->id}}" enctype="multipart/form-data">>
 @csrf
 @method('PUT')
     <br>Tarikh Mesyuarat <input type="date" class="form-control" name="syor_mesyuarat_date" value="{{$Pengesyoran->syor_mesyuarat_date}}">

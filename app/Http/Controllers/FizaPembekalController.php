@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use App\Models\FizaPembekal;
 use Illuminate\Http\Request;
 use App\Models\FizaKodBidang;
@@ -11,9 +12,9 @@ class FizaPembekalController extends Controller
 
     public function index()
     {
-        $fizaPembekal = FizaPembekal::all();
+        $pembekal = FizaPembekal::all();
         return view ('1_pembekal.index',[
-            'fizaPembekal'=>$fizaPembekal]);
+            'pembekal'=>$pembekal]);
     }
 
 

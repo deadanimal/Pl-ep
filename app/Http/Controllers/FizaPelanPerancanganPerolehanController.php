@@ -209,8 +209,8 @@ class FizaPelanPerancanganPerolehanController extends Controller
 
        else if($request->status_pelan=="Semak Semula"){
         $receiver2= User::where('id',$fizaPelanPerancanganPerolehan->pelan_created_by)->first();
-
         Mail::to($receiver2->email)->send(new SemakanPelanPerancangan);
+        
        }
        
     

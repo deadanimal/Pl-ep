@@ -1,6 +1,6 @@
 Laporan 
 
-<form method="POST" action="/Laporan">
+<form method="POST" action="/Laporan" enctype="multipart/form-data">>
     @csrf
 
     <br>Nama Laporan <input type="text" class="form-control" name="laporan_nama">
