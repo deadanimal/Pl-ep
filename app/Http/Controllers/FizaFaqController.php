@@ -12,9 +12,9 @@ class FizaFaqController extends Controller
     
     public function index()
     {
-        $Faq = FizaFaq::where('status','aktif');
+        $faq = FizaFaq::all();
         return view ('1_faq.index',[
-            'Faq'=>$Faq]);
+            'faq'=>$faq]);
     }
 
     

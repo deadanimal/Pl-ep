@@ -11,9 +11,9 @@ class FizaJadualPemenuhanController extends Controller
 {
     public function index()
     {
-        $fizaJadualPemenuhan = FizaJadualPemenuhan::all();
+        $jadual = FizaJadualPemenuhan::all();
         return view ('1_jadual.index',[
-            'fizaJadualPemenuhan'=>$fizaJadualPemenuhan]);
+            'jadual'=>$jadual]);
     }
 
 

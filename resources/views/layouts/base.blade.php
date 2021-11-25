@@ -24,6 +24,9 @@
         <link rel="stylesheet" type="text/css" href= https://fonts.googleapis.com/css?family=Lato:300>
         <link rel="stylesheet" type="text/css" href=https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css>
 
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script type="text/javascript" src=https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js></script>
 
@@ -36,7 +39,6 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <link href="/css/light.css" rel="stylesheet">
         <script src="/js/settings.js"></script>
-        <script src="js/settings.js"></script>
         <style>
             table{
                 text-transform: capitalize;
@@ -67,16 +69,12 @@
                     <ul class="sidebar-nav">
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="/">
+                            <a class="sidebar-link" href="/dashboard">
                                 <i class="align-middle me-2 fas fa-fw fa-home"></i> <span class="align-middle">Dashboard</span>
                             </a>
                         </li>
 
-                        {{-- <li class="sidebar-item">
-                            <a data-bs-target="#dashboards" data-bs-toggle="collapse" class="sidebar-link">
-                                <i class="align-middle me-2 fas fa-fw fa-home"></i> <span class="align-middle">Dashboards</span>
-                            </a>
-                        </li> --}}
+                 
                         {{-- <li class="sidebar-item">
                             <a data-bs-target="#pages" data-bs-toggle="collapse" class="sidebar-link collapsed">
                                 <i class="align-middle me-2 fas fFa-fw fa-file"></i> <span class="align-middle">Perancangan Perolehan</span>
@@ -272,9 +270,9 @@
             <div class="main">
                 <nav class="navbar navbar-theme">
                 {{-- <nav class="navbar navbar-expand navbar-theme"> --}}
-                    <a class="sidebar-toggle d-flex me-2">
+                    {{-- <a class="sidebar-toggle d-flex me-2">
                         <i class="hamburger align-self-center"></i>
-                    </a>
+                    </a> --}}
     
                    {{--< <form class="d-none d-sm-inline-block">
                         <input class="form-control form-control-lite" type="text" placeholder="Search projects...">
@@ -478,12 +476,12 @@
             $(document).ready(function() {
                $('#datatables-1').DataTable();
            } );
-
-            document.querySelector(".third").addEventListener('click', function(){
+        </script>
+        {{-- <script>
+                       document.querySelector(".third").addEventListener('click', function(){
                 Swal.fire("Tahniah", "Data Anda Telah Berjaya Disimpan!", "success");
             });
-  </script>
-
+         </script> --}}
 </body>
 
 

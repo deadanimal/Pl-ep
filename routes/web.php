@@ -123,7 +123,7 @@ Route::get('/register-role', function(){
         'role'=>$role
     ]);
 });
-Route::post('/daftar-role',[User::class,RegisteredUserController::class,'register_roles']);
+Route::post('/daftar-role',[RegisteredUserController::class,'register_roles']);
 
 Route::get('/update-role/{id}', function(){
     $role= Roles::all(); 
@@ -133,7 +133,7 @@ Route::get('/update-role/{id}', function(){
         'role'=>$role,
          'user'=>$user
     ]);
-});
+})->middleware(['auth']);
 
 
 Route::post('/kemaskini-role',[RegisteredUserController::class,'update_roles']);
