@@ -6,11 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class Add01 extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+ 
     public function up()
     {
         Schema::create('roles_user', function (Blueprint $table) {

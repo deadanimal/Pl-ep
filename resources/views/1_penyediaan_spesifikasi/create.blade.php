@@ -10,7 +10,7 @@
                 <h3> Borang Penyediaan Spesifikasi Item</h3>
 
                 <br><br>
-                <form method="POST" action="/PenyediaanSpesifikasi" enctype="multipart/form-data">>
+                <form method="POST" action="/PenyediaanSpesifikasi" enctype="multipart/form-data">
                 @csrf
 
                 <div class="row">

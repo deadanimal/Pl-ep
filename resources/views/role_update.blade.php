@@ -1,5 +1,5 @@
 
-    <form action="/kemaskini-role/{{$id}}" method="POST">
+    <form action="/kemaskini-role/{{$user->id}}" method="POST">
         @csrf
         @method('PUT')
 

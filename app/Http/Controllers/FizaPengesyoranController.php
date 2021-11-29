@@ -9,99 +9,76 @@ use Illuminate\Support\Facades\Auth;
 
 class FizaPengesyoranController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $fizaPengesyoran = FizaPengesyoran::all();
+        $pengesyoran = FizaPengesyoran::all();
         return view ('1_pengesyoran.index',[
-            'fizaPengesyoran'=>$fizaPengesyoran]);
+            'pengesyoran'=>$pengesyoran]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        return view ('1_pengesyoran.create');
+        $user = User::all();
+        return view ('1_pengesyoran.create',[
+            $user = $user
+         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         $fizaPengesyoran = new FizaPengesyoran;
 
         $fizaPengesyoran->syor_mesyuarat_date=$request->syor_mesyuarat_date;
         $fizaPengesyoran->syor_mesyuarat_place=$request->syor_mesyuarat_place;
-        $fizaPengesyoran->jawatankuasa_id=$request->jawatankuasa_id;
+        // $fizaPengesyoran->jawatankuasa_id=$request->jawatankuasa_id;
 
-        $syor_kertas_taklimat=$request->file('syor_kertas_taklimat')->store('syor_kertas_taklimat');
-        $fizaPengesyoran->syor_kertas_taklimat=$syor_kertas_taklimat;
+        if ($request->hasFile('syor_kertas_taklimat')) {
+            $syor_kertas_taklimat=$request->file('syor_kertas_taklimat')->store('syor_kertas_taklimat');
+            $fizaPengesyoran->syor_kertas_taklimat=$syor_kertas_taklimat;
+        }
 
         //$fizaPengesyoran->syor_kertas_taklimat=$request->syor_kertas_taklimat;//file
         $fizaPengesyoran->pembekal_id=$request->pembekal_id;
 
         $fizaPengesyoran->syor_kedudukan_pembekal=$request->syor_kedudukan_pembekal;
         $fizaPengesyoran->syor_catatan=$request->syor_catatan;
-        $fizaPengesyoran->sss_id=$request->sss_id;
+        // $fizaPengesyoran->sss_id=$request->sss_id;
         $fizaPengesyoran->syor_jumlah_skor=$request->syor_jumlah_skor;
-        $fizaPengesyoran->syor_created_by=$request->syor_created_by;
-        $fizaPengesyoran->pst_id=$request->pst_id;
-        $fizaPengesyoran->spesifikasi_id=$request->spesifikasi_id;
+        // $fizaPengesyoran->syor_created_by=Auth::user()->user_name;
+        // $fizaPengesyoran->pst_id=$request->pst_id;
+        // $fizaPengesyoran->spesifikasi_id=$request->spesifikasi_id;
 
 
         $fizaPengesyoran->save();
-        return redirect('/fizaPengesyoran');
+        return redirect('/Pengesyoran');
 
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\FizaPengesyoran  $fizaPengesyoran
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(FizaPengesyoran $fizaPengesyoran)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\FizaPengesyoran  $fizaPengesyoran
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(FizaPengesyoran $fizaPengesyoran)
+
+    public function edit($id)
     {
-        $fizaPengesyoran = FizaPengesyoran::all();
+        $pengesyoran = FizaPengesyoran::find($id);
         return view ('1_pengesyoran.edit',[
-            'fizaPengesyoran'=>$fizaPengesyoran]);
+            'pengesyoran'=>$pengesyoran]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\FizaPengesyoran  $fizaPengesyoran
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, FizaPengesyoran $fizaPengesyoran)
+
+    public function update(Request $request,$id)
     {
+        $pengesyoran = FizaPengesyoran::find($id);
+
         $fizaPengesyoran->syor_mesyuarat_date=$request->syor_mesyuarat_date;
         $fizaPengesyoran->syor_mesyuarat_place=$request->syor_mesyuarat_place;
-        $fizaPengesyoran->jawatankuasa_id=$request->jawatankuasa_id;
+        // $fizaPengesyoran->jawatankuasa_id=$request->jawatankuasa_id;
 
         //$fizaPengesyoran->syor_kertas_taklimat=$request->syor_kertas_taklimat;//file
 
@@ -110,26 +87,21 @@ class FizaPengesyoranController extends Controller
             $fizaPengesyoran->syor_kertas_taklimat=$syor_kertas_taklimat;
         }
 
-        $fizaPengesyoran->pembekal_id=$request->pembekal_id;
+        // $fizaPengesyoran->pembekal_id=$request->pembekal_id;
         $fizaPengesyoran->syor_kedudukan_pembekal=$request->syor_kedudukan_pembekal;
         $fizaPengesyoran->syor_catatan=$request->syor_catatan;
-        $fizaPengesyoran->sss_id=$request->sss_id;
+        // $fizaPengesyoran->sss_id=$request->sss_id;
         $fizaPengesyoran->syor_jumlah_skor=$request->syor_jumlah_skor;
-        $fizaPengesyoran->syor_created_by=$request->syor_created_by;
-        $fizaPengesyoran->pst_id=$request->pst_id;
-        $fizaPengesyoran->spesifikasi_id=$request->spesifikasi_id;
+        // $fizaPengesyoran->syor_created_by=$request->syor_created_by;
+        // $fizaPengesyoran->pst_id=$request->pst_id;
+        // $fizaPengesyoran->spesifikasi_id=$request->spesifikasi_id;
     
         $fizaPengesyoran->save();
-        return redirect('/fizaPengesyoran');
+        return redirect('/Pengesyoran');
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\FizaPengesyoran  $fizaPengesyoran
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(FizaPengesyoran $fizaPengesyoran)
     {
         //

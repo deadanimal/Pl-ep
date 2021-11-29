@@ -29,7 +29,10 @@
                                 <td> {{$fizaKodBidang->kod_category}}</td>
                                 <td>{{$fizaKodBidang->kod_pengkhususan}}</td>
                                 <td>{{$fizaKodBidang->kod_description}}</td>
-                                <td><a href="/KodBidang/{{$fizaKodBidang->id }}/edit"><img src="/img/edit.svg"></td>
+                                <td class="table-action">
+                                        <a href="/KodBidang/{{$fizaKodBidang->id}}/edit"><i class="align-middle fas fa-fw fa-pen"></i></a>
+                                        <a href="#"><i class="align-middle fas fa-fw fa-trash"></i></a>
+                                </td>
                             </tr>
                         @endforeach
 

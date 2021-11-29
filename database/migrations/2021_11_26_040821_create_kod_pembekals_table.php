@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFizaUserRolesTable extends Migration
+class CreateKodPembekalsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateFizaUserRolesTable extends Migration
      */
     public function up()
     {
-        Schema::create('fiza_user_roles', function (Blueprint $table) {
+        Schema::create('kod_pembekals', function (Blueprint $table) {
             $table->id();
-            // $table->foreignId('user_id');
-            // $table->foreignId('role_id');
+            $table->foreignId('id_kod_bidang')->nullable();
+            $table->foreignId('id_pembekal')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateFizaUserRolesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fiza_user_roles');
+        Schema::dropIfExists('kod_pembekals');
     }
 }

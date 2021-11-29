@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <h3> FAQ</h3>
                     
-                    <form action="/Faq/{{$Faq->id}}" method="POST">
+                    <form action="/faq/{{$Faq->id}}" method="POST">
                         @csrf
                         @method('PUT')
 
@@ -38,7 +38,7 @@
                                 <label class="col-form-label col-sm-6 "> Jawapan </label>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <input type=text class=form-control name=faq_answer  value="{{$Faq->faq_question}}">
+                                <input type=text class=form-control name=faq_answer  value="{{$Faq->faq_answer}}">
                             </div>
                         </div>
 
@@ -47,7 +47,7 @@
                                 <label class="col-form-label col-sm-6 "> Status </label>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <select  class=form-control name=faq_answer>
+                                <select  class=form-control name="faq_status">
                                     <option @if ($Faq->status == 'aktif') selected @endif value="aktif">Aktif</option>
                                     <option @if ($Faq->status == 'tidak aktif') selected @endif value=" tidak aktif">Tidak Aktif</option>
                                 </select>

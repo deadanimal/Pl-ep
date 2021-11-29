@@ -120,10 +120,10 @@ class RegisteredUserController extends Controller
 
     public function update_roles(Request $request, $user,$id){
 
-        dd($user->id);
-        $user = User::find($id);
-        $user->roles()->detach([1, 2, 3, 4, 5]);
-
+        //dd($user->id);
+        // $user = User::find($id);
+        $user= User::where('id',$id)->first();
+        
         $user->user_name = $request->user_name;
         $user->user_identity_no = $request ->user_identity_no;
         $user->email = $request ->email;

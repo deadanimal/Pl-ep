@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+use App\Models\FizaKodBidang;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -17,5 +17,10 @@ class FizaPembekal extends Model
     public function jawatankuasa()
     {
         return $this->hasOne(FizaJawatankuasa::class);
+    }
+
+    public function kod_bidang()
+    {
+        return $this->belongsToMany(FizaKodBidang::class);
     }
 }

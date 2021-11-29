@@ -4,47 +4,38 @@
 {{-- <html lang="{{ str_replace('_', '-', app()->getLocale()) }}"> --}}
     <head>
         <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="/PL.png">
-
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="Responsive Bootstrap 4 Admin &amp; Dashboard Template">
-        <meta name="author" content="Bootlab">
-
-
-        {{-- <title>{{ config('app.name', 'ePerolehan') }}</title> --}}
-        <title>Sistem ePerolehan</title>
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
-        <!-- Styles -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href=https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css>
-        <link rel="stylesheet" type="text/css" href= https://fonts.googleapis.com/css?family=Lato:300>
-        <link rel="stylesheet" type="text/css" href=https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css>
-
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
-        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
-
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-        <script type="text/javascript" src=https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js></script>
-
-        <script type="text/javascript" src=https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js></script>
-        <script type="text/javascript" src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js></script>
-
-        @yield('styles')
-        
-        <!-- Scripts -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-        <link href="/css/light.css" rel="stylesheet">
-        <script src="/js/settings.js"></script>
-        <style>
-            table{
-                text-transform: capitalize;
-            }
-        </style>
-
+        <link rel="icon" type="image/png" href="/PL.png">
+    
+            <meta name="csrf-token" content="{{ csrf_token() }}">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <meta name="description" content="Responsive Bootstrap 4 Admin &amp; Dashboard Template">
+            <meta name="author" content="Bootlab">
+    
+    
+            {{-- <title>{{ config('app.name', 'ePerolehan') }}</title> --}}
+            <title>Sistem ePerolehan</title>
+            <!-- Fonts -->
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+    
+            <!-- Styles -->
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+            <link rel="stylesheet" type="text/css" href=https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css>
+            <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+            <script type="text/javascript" src=https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js></script>
+    
+            @yield('styles')
+            
+            <!-- Scripts -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+            <link href="/css/light.css" rel="stylesheet">
+            <script src="/js/settings.js"></script>
+    
+            <style>
+                table{
+                    text-transform: capitalize;
+                }
+            </style>
     </head>
 
     <body>
@@ -457,7 +448,6 @@
 
             {{-- <main class="content">
 				<div class="container-fluid">
-
 					<div class="header">
                         <div class="card-body">
                             <div class="my-5">&nbsp;</div>
@@ -466,22 +456,19 @@
                             </div>
                             @yield('scripts')
                         </div>
-
                     </div>
-                </div>
-            </main> --}}
+                </div>--}}
+            </main> 
         </div>
 
         <script>
             $(document).ready(function() {
                $('#datatables-1').DataTable();
            } );
-        </script>
-        {{-- <script>
-                       document.querySelector(".third").addEventListener('click', function(){
-                Swal.fire("Tahniah", "Data Anda Telah Berjaya Disimpan!", "success");
-            });
-         </script> --}}
+   
+           </script>
+    </body>
+
 </body>
 
 

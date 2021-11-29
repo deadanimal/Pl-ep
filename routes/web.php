@@ -127,7 +127,7 @@ Route::post('/daftar-role',[RegisteredUserController::class,'register_roles']);
 
 Route::get('/update-role/{id}', function(){
     $role= Roles::all(); 
-    $user=User::all();
+    $user=User::find($id);
 
     return view('role_update',[
         'role'=>$role,

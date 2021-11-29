@@ -3,6 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
+	<link rel="icon" type="image/png" href="/PL.png">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="author" content="Bootlab">
@@ -36,18 +37,18 @@
 
 	<div class="py-3 bg-white landing-nav">
 		<div class="container text-center">
-			<a target="_blank" href="dashboard-default.html" class="btn btn-lg btn-pill btn-primary">Preview</a>
+			<a href="/" class="btn btn-lg btn-pill btn-primary">Utama</a>
 			<a target="_blank" href="/login" class="btn btn-lg btn-pill btn-link text-dark">Log Masuk Pengguna</a>
-			<a target="_blank" href="docs-changelog.html" class="btn btn-lg btn-pill btn-link text-dark">Changelog</a>
-			<a target="_blank" href="mailto:support@bootlab.io" class="btn btn-lg btn-pill btn-link text-dark">Support</a>
+			{{-- <a target="_blank" href="docs-changelog.html" class="btn btn-lg btn-pill btn-link text-dark">Changelog</a> --}}
+			<a target="_blank" href="/faq" class="btn btn-lg btn-pill btn-link text-dark">Soalan Lazim</a>
 		</div>
 	</div>
 
 	<section class="py-6">
 		<div class="container">
 			<div class="mb-4 text-center">
-				<h2>Multiple demos</h2>
-				<p class="text-muted">Multiple color schemes & dashboard layouts available to make this template your very own.</p>
+				<h2>Menu</h2>
+				{{-- <p class="text-muted">Multiple color schemes & dashboard layouts available to make this template your very own.</p> --}}
 			</div>
 
 			<div class="row pb-3">

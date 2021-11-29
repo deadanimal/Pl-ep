@@ -19,11 +19,16 @@ class DatabaseSeeder extends Seeder
         DB::table('users')->insert([
             'user_name' => 'Abc',
             'email' => 'abc@gmail.com',
-            'user_identity_no'=>'999',
-            'jenis'=>'pembekal',
+            'user_identity_no'=>'9999',
+            'jenis'=>'pekerja',
             'password' => Hash::make('password'),
-            'user_status'=>'aktif',
+            'user_status'=>'aktif'
           
+        ]);
+
+        DB::table('roles_user')->insert([
+            'user_id'=>'1',
+            'roles_id'=>'1',
         ]);
         
         DB::table('roles')->insert([
@@ -46,13 +51,15 @@ class DatabaseSeeder extends Seeder
             'role_staff_status'=>'aktif'
         ]);
 
-        DB::table('fiza_katalogs')->insert([
-            'katalog_kategori'=>'Peralatan Pejabat',
-            'katalog_kumpulan'=>'Mesin',
-            'katalog_jenis'=>'Mesin Cetak',
-            'user_id'=>'5'
+        DB::table('roles')->insert([
+            'role_name'=>'Pentadbir Pembekal',
+            'role_staff_status'=>'aktif'
         ]);
 
+        DB::table('roles')->insert([
+            'role_name'=>'Staff Pembekal',
+            'role_staff_status'=>'aktif'
+        ]);
 
         DB::table('fiza_item_infos')->insert([
             'katalog_id'=>'1',

@@ -1,6 +1,67 @@
 @extends('layouts.base')
 @section('content')
 
+                                            <label class="form-label">Kod Bidang</label>
+											<div class="d-flex">
+												<select class="form-control" name="kod_id" multiple style="width: 100%">
+                                                    @foreach ($kod as $kod)
+                                                    <optgroup label={{$kod->kod_type}}>
+														<option value="{{$kod->id}}">{{$kod->kod_description}}}</option>
+													</optgroup>
+                                                    @endforeach
+												</select>
+                                                    
+											</div>
+
+                                            <script>
+                                                document.addEventListener("DOMContentLoaded", function() {
+                                                    // Initialize Select2 multiselect box
+                                                    $("select[name=\"kod_id\"]").select2({
+                                                        placeholder: "Select gear...",
+                                                    }).change(function() {
+                                                        $(this).valid();
+                                                    });
+                                                    // Trigger validation on tagsinput change
+                                                    $("input[name=\"validation-bs-tagsinput\"]").on("itemAdded itemRemoved", function() {
+                                                        $(this).valid();
+                                                    });
+                                                    // Initialize validation
+                                                    $("#validation-form").validate({
+                                                        ignore: ".ignore, .select2-input",
+                                                        focusInvalid: false,
+                                                        rules: {
+                                                                "kod_id": {
+                                                                    required: true,
+                                                                    minlength: 1
+                                                                }
+                                                        }
+                                                            
+                                                        // Errors
+                                                        errorPlacement: function errorPlacement(error, element) {
+                                                            var $parent = $(element).parents(".error-placeholder");
+                                                            // Do not duplicate errors
+                                                            if ($parent.find(".jquery-validation-error").length) {
+                                                                return;
+                                                            }
+                                                            $parent.append(
+                                                                error.addClass("jquery-validation-error small form-text invalid-feedback")
+                                                            );
+                                                        },
+                                                        highlight: function(element) {
+                                                            var $el = $(element);
+                                                            var $parent = $el.parents(".error-placeholder");
+                                                            $el.addClass("is-invalid");
+                                                            // Select2 and Tagsinput
+                                                            if ($el.hasClass("select2-hidden-accessible") || $el.attr("data-role") === "tagsinput") {
+                                                                $el.parent().addClass("is-invalid");
+                                                            }
+                                                        },
+                                                        unhighlight: function(element) {
+                                                            $(element).parents(".error-placeholder").find(".is-invalid").removeClass("is-invalid");
+                                                        }
+                                                    });
+                                                });
+                                            </script>
 
 
     

@@ -34,7 +34,7 @@ class FizaFaqController extends Controller
 
         $fizaFaq->faq_section =$request->faq_section ;
         $fizaFaq->faq_question =$request->faq_question ;
-        $fizaFaq->faq_answer =$request->faq_answer ;
+        $fizaFaq->faq_answer = $request->faq_answer ;
         $fizaFaq->faq_status = "aktif" ;
         $fizaFaq->faq_created_by=Auth::user()->user_name;
 
@@ -57,7 +57,7 @@ class FizaFaqController extends Controller
     }
 
 
-    public function update(Request $request, FizaFaq $fizaFaq,$id)
+    public function update(Request $request,$id)
     {
         $fizaFaq = FizaFaq::find($id);
 
