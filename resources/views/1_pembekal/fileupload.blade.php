@@ -42,7 +42,7 @@
                                         <input type="date" class="form-control" name="pembekal_tarikh_sah_mof">
                                     </div>
                                 </div>
-
+{{-- 
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
                                         <label class="col-form-label col-sm-6 ">Sijil MOF </label>
@@ -50,7 +50,8 @@
                                     <div class="mb-3 col-md-6">
                                         <input type="file" class="form-control" name="pembekal_sijil_mof">
                                     </div>
-                                </div>
+                                </div> --}}
+
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
                                         <label class="col-form-label col-sm-6 ">Sijil Perakuan Bumiputera </label>

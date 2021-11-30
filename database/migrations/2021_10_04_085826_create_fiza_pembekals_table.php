@@ -66,6 +66,7 @@ class CreateFizaPembekalsTable extends Migration
             $table->string('pembekal_pegawai_bertauliah')->nullable();
             $table->string('pembekal_sijil_gred')->nullable();
             $table->string('pembekal_tarikh_sah_gred')->nullable();
+            $table->string('pembekal_status')->nullable();
             $table->timestamps();
             
         });

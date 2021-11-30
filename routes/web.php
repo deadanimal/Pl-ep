@@ -133,7 +133,7 @@ Route::get('/update-role/{id}', function(){
         'role'=>$role,
          'user'=>$user
     ]);
-})->middleware(['auth']);
+});
 
 
 Route::post('/kemaskini-role',[RegisteredUserController::class,'update_roles']);
@@ -154,10 +154,6 @@ Route::get('/listkatalog/{id}',[FizaKatalogController::class,'listkatalog']);
 Route::get('/ItemInfo/addcart/{ItemInfo}', [FizaItemInfoController::class, 'addcart']);
 Route::get('/ItemKart/removecart/{itemKart}', [FizaItemInfoController::class, 'removecart']);
 Route::resource('/ItemKart',ItemKartController::class);
-
-
-
-
 
 Route::resource('/Roles',FizaEpUserController::class);
 
@@ -216,7 +212,6 @@ Route::get('/', function () {
         ]);
 });
 
-
 Route::get('2', function () {
     $faq= FizaFaq::where('faq_status','aktif')->get();
     return view('test', [
@@ -232,3 +227,4 @@ require __DIR__.'/auth.php';
 
 
 Route::get('/comparison/{barang_1}/{barang_2}/{barang_3}', [FizaKatalogController::class, 'compare_barang']);
+

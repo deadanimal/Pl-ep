@@ -122,8 +122,18 @@ class RegisteredUserController extends Controller
 
         //dd($user->id);
         // $user = User::find($id);
-        $user= User::where('id',$id)->first();
-        
+        // $role= Roles::find($id);
+        // $user= User::where('id',$id)->first();
+
+        $user = User::find($id);
+        $roles = Role::detach('id','id')->all();
+        $userRole = $user->roles->pluck('name','name')->all();
+
+    return view('users.edit',compact('user','roles','userRole'));
+
+        $roles = User::find($id)->roles()->get();
+
+
         $user->user_name = $request->user_name;
         $user->user_identity_no = $request ->user_identity_no;
         $user->email = $request ->email;
@@ -140,6 +150,8 @@ class RegisteredUserController extends Controller
 
     
     }
+
+
 
 
 }

@@ -129,6 +129,7 @@
                             <ul id="auth" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
                                 <li class="sidebar-item"><a class="sidebar-link" href="/register-role">Pendaftaran Pengguna</a></li>
                                 <li class="sidebar-item"><a class="sidebar-link" href="/login">Login</a></li>
+                                
                             </ul>
                         </li>
     
@@ -245,15 +246,10 @@
                                 <i class="align-middle me-2 fas fa-fw fa-desktop"></i> <span class="align-middle">Notifikasi</span>
                             </a>
                         </li>
-                        {{-- <li class="sidebar-item">
-                            <a data-bs-target="#layouts" data-bs-toggle="collapse" class="sidebar-link collapsed">
-                                <i class="align-middle me-2 fas fa-fw fa-desktop"></i> <span class="align-middle">Notification</span>
-                            </a>
-                            <ul id="layouts" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-                                <li class="sidebar-item"><a class="sidebar-link" href="/NotificationCenter">Left Sidebar</a></li>
-                                {{-- <li class="sidebar-item"><a class="sidebar-link" href="layouts-sidebar-right.html">Right Sidebar</a></li> --}}
-                            </ul>
-                        </li> --}}
+
+                        <form action="/logout" method="POST">
+                            @csrf
+                            <button type="submit">Log Keluar>
                     </ul>
                 </div>
             </nav>

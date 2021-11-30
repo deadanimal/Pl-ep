@@ -27,10 +27,8 @@
 
         <br>Status Pengguna: 
         <select name="user_status">
-            <option @if ($user->jenis == 'pekerja') selected @endif value="pekerja">Staff Perbadanan Labuan</option>
-
-            <option value="Aktif">Aktif</option>
-            <option value="Tidak Aktif">Tidak Aktif</option>
+            <option @if ($user->jenis == 'aktif') selected @endif value="aktif">Aktif</option>
+            <option @if ($user->jenis == 'tidak aktif') selected @endif value="tidak aktif">Tidak Aktif</option>
         </select>
         
 
