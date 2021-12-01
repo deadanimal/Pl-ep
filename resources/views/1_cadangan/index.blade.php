@@ -20,12 +20,14 @@
 
                     <tbody>
 
-                        @foreach ($Cadangan as $Cadangan)
-                            <tr>
-                                <td>{{$Cadangan->cadangan_mesyuarat_date}}</td>
-                                <td> <a href="/Cadangan/{{$Cadangan->id}}/edit">Kemaskini</a></td>
-                       
-                                
+                        <tr>
+
+                            @foreach ($Cadangan as $Cadangan)
+                            <td>{{$Cadangan->cadangan_mesyuarat_date}}</td>
+                            <td class="table-action">
+                                <a href="/Cadangan/{{$Cadangan->id}}/edit"><i class="align-middle fas fa-fw fa-pen"></i></a>
+                                <a href="#"><i class="align-middle fas fa-fw fa-trash"></i></a>
+                            </td>
                             </tr>
                         @endforeach
                     </tbody>

@@ -85,7 +85,7 @@
                             </a>
                             <ul id="ui" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
                                 <li class="sidebar-item"><a class="sidebar-link" href="/PelanPerancanganPerolehan">Senarai Pelan Perancangan Perolehan</a></li>
-                                <li class="sidebar-item"><a class="sidebar-link" href="/PelanPerancanganPerolehan/create">Cipta Baru Pelan</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="/PelanPerancanganPerolehan/create">Cipta Pelan Baharu</a></li>
                                 <li class="sidebar-item"><a class="sidebar-link" href="/indexpengesah">Pelan Yang Menunggu Pengesahan</a></li>
                                 <li class="sidebar-item"><a class="sidebar-link" href="/indexpelulus">Pelan Yang Menunggu Kelulusan</a></li>
                                 {{-- <li class="sidebar-item"><a class="sidebar-link" href="/NotaPenerimaan">Cipta Nota Penerimaan</a>
@@ -247,10 +247,11 @@
                             </a>
                         </li>
 
-                        <form action="/logout" method="POST">
+                       <form action="/logout" method="POST">
                             @csrf
-                            <button type="submit">Log Keluar>
-                    </ul>
+                            <button type="submit">Log Keluar</button>
+                            </form>
+                    </ul> 
                 </div>
             </nav>
 

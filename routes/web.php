@@ -205,7 +205,7 @@ Route::post('/log',[AuditLogController::class,'log']);
 
 
 Route::get('/', function () {
-    $faq= FizaFaq::where('faq_status', 'aktif')->get();
+    $faq= FizaFaq::all();
     return view(
         'index',[
         'faq'=>$faq 

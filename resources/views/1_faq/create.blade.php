@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="card-body">
-                    <h3> FAQ</h3>
+                    <h3> Soalan Lazim</h3>
                     
                     <form action="/faq" method="POST">
                         @csrf
@@ -36,7 +36,7 @@
                                 <label class="col-form-label col-sm-6 "> Jawapan </label>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <input type=text class=form-control name=faq_answer>
+                                <textarea class=form-control name=faq_answer rows="4" cols="3"></textarea>
                             </div>
                         </div>
 

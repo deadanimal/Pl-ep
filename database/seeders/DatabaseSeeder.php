@@ -30,6 +30,11 @@ class DatabaseSeeder extends Seeder
             'user_id'=>'1',
             'roles_id'=>'1',
         ]);
+
+        DB::table('roles')->insert([
+            'role_name'=>'Admin',
+            'role_staff_status'=>'aktif'
+        ]);
         
         DB::table('roles')->insert([
             'role_name'=>'Pegawai Perancang',

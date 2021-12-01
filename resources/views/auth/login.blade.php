@@ -42,9 +42,10 @@
 								<img src="/PL.png" alt="Linda Miller" class="img-fluid rounded-circle" width="132" height="132" />
 							</div>
 							<br>
-							<h1 class="h2">Sistem ePerolehan</h1>
+							<h1 class="h2">Sistem  Pengurusan ePerolehan</h1>
+							<h3>Perbadanan Labuan</h3>
 							<p class="lead">
-								Log Masuk Sistem ePerolehan
+					Log Masuk
 							</p>
 						</div>
 
@@ -57,7 +58,7 @@
 
 										<!-- MYKAD -->
 										<div class="mb-3">
-											<label> MYKAD</label>
+											<label> No Kad Pengenalan</label>
 											<input id="user_identity_no" class="form-control form-control-lg" type="text" name="user_identity_no" :value="old('user_identity_no')" required autofocus />
 										</div>
 

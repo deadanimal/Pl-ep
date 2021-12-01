@@ -26,7 +26,9 @@
 					<div class="row">
 						<div class="col-md-12 col-xl-8 text-center mx-auto">
 							<div class="d-block my-4">
-								<h1 class="display-4 fw-bold mb-3 text-white">Perbadanan Labuan </p>
+								<h1 class="display-4 fw-bold mb-3 text-white">Sistem Pengurusan ePerolehan</h1>
+								<h5 class="display-4 fw-bold mb-3 text-white">Perbadanan Labuan</h5>
+
 							</div>
 						</div>
 					</div>
@@ -35,12 +37,16 @@
 		</div>
 	</section>
 
-	<div class="py-3 bg-white landing-nav">
-		<div class="container text-center">
+	<div class="py-1 bg-white landing-nav">
+		<div class="container align-left">
 			<a href="/" class="btn btn-lg btn-pill btn-primary">Utama</a>
 			<a target="_blank" href="/login" class="btn btn-lg btn-pill btn-link text-dark">Log Masuk Pengguna</a>
 			{{-- <a target="_blank" href="docs-changelog.html" class="btn btn-lg btn-pill btn-link text-dark">Changelog</a> --}}
-			<a target="_blank" href="/faq" class="btn btn-lg btn-pill btn-link text-dark">Soalan Lazim</a>
+			<a target="_blank" href="#" class="btn btn-lg btn-pill btn-link text-dark">Mengenai eP</a>
+			<a target="_blank" href="#" class="btn btn-lg btn-pill btn-link text-dark">Perkhidmatan Tambahan</a>
+			<a target="_blank" href="#" class="btn btn-lg btn-pill btn-link text-dark">Bantuan dan Rujukan</a>
+			<a target="_blank" href="#" class="btn btn-lg btn-pill btn-link text-dark">Muat Turun</a>
+			<a href="#faq" class="btn btn-lg btn-pill btn-link text-dark">Soalan Lazim</a>
 		</div>
 	</div>
 
@@ -106,15 +112,17 @@
 		</div>
 	</section>
 
-	<section class="py-6 bg-white">
+	 <section class="py-6 bg-white">
 		<div class="container">
 
-			<div class="mb-4 text-center">
+			<div class="mb-4 text-center" id="faq">
 				<h2>Soalan Lazim</h2>
 				<p class="text-muted">Here's what some of our 3,000 customers have to say about working with our products.</p>
 			</div>
+		
 
-			<div class="row">
+
+			{{-- <div class="row">
 				<div class="col-md-6 col-lg-4">
 					<blockquote class="card border">
 						<div class="card-body p-4">
@@ -254,9 +262,8 @@
 					</blockquote>
 				</div>
 			</div>
-		</div>
-
-		<div class="text-center my-4">
+		</div> --}}
+	<div class="text-center my-4">
 			<h2>Soalan Lazim</h2>
 		</div>
 		<div class="row">
@@ -270,8 +277,7 @@
 				</div>
 			</div>            
 			 @endforeach
-	
-		</div>
+		</div> 
 
 
 	</section>
