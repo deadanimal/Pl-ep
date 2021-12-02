@@ -14,7 +14,7 @@
                                 <legend>Dokumen yang perlu dilampirkan:</legend>
                                 <br><br>
 
-                                <input type="hidden" name="id_pembekal">
+                                <input type="hidden" name="id_pembekal"  value="{{$fizaPembekal->id}}">
 
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
@@ -140,15 +140,13 @@
                                         <label class="col-form-label col-sm-6 ">Kod Bidang</label>
                                     </div>
                                     <div class="mb-3 col-md-6">
-
-                                        <select class="form-control" name="kod_id" multiple style="width: 100%">
+                                        <select class="form-control" name="kod_id[]" multiple style="width: 100%">
                                             @foreach ($kod as $kod)
-                                                <optgroup label={{ $kod->kod_type }}>
-                                                    <option value="{{ $kod->id }}">{{ $kod->kod_description }}</option>
+                                                <optgroup label={{$kod->kod_type}}>
+                                                    <option value="{{ $kod->id }}">{{$kod->kod_description}}</option>
                                                 </optgroup>
                                             @endforeach
                                         </select>
-
                                     </div>
                                 </div>
 

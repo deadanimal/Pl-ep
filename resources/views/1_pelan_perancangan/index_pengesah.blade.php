@@ -32,8 +32,14 @@
                                 <td>{{  $fizaPelanPerancanganPerolehan->pelan_title}}</td>
                                 <td>{{  $fizaPelanPerancanganPerolehan->pelan_category }}</td>
                                 <td>{{  $fizaPelanPerancanganPerolehan->pelan_status }}</td>
-                                <td><a href="/editpengesah/{{$fizaPelanPerancanganPerolehan->id}}"><img src="/img/edit.svg"></td>
-                            </tr>
+                                <td class="table-action">
+                                    <a href="/editpengesah/{{$fizaPelanPerancanganPerolehan->id}}"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
+                                    <a href="#"><i class="align-middle fas fa-fw fa-trash"></i></a>
+                                    <a href="/cetak-pelan/{{$fizaPelanPerancanganPerolehan->id}}"><i class="align-middle fas fa-fw fa-download"></i></i></a>
+                                </td>
+                               
+                           
+                                </tr>
                         @endforeach
 
                     </tbody>

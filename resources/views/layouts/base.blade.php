@@ -23,6 +23,10 @@
             <link rel="stylesheet" type="text/css" href=https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css>
             <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
             <script type="text/javascript" src=https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js></script>
+
+
+            <script src="sweetalert2.min.js"></script>
+            <link rel="stylesheet" href="sweetalert2.min.css">
     
             @yield('styles')
             
@@ -54,8 +58,6 @@
                             <img src="/PL.png" class="img-fluid rounded-circle mb-2" alt="Linda Miller" />
                             <div class="fw-bold">Perbadanan Labuan</div>
                         </div>
-
-
                     
                     <ul class="sidebar-nav">
 

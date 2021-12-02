@@ -9,6 +9,7 @@ use App\Mail\SemakanPelanPerancangan;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use \PDF;
 
 use Illuminate\Http\Request;
 
@@ -96,9 +97,15 @@ class FizaPelanPerancanganPerolehanController extends Controller
 
     public function edit($id)
     {
+        // $PelanPerancanganPerolehan= FizaPelanPerancanganPerolehan::find($id);
         $PelanPerancanganPerolehan= FizaPelanPerancanganPerolehan::find($id);
+        $user = User::where([['id', $PelanPerancanganPerolehan->pelan_pengesah],
+            ['id', $PelanPerancanganPerolehan->pelan_pelulus]])->get();
+            
         return view ('1_pelan_perancangan.edit',[
-            'PelanPerancanganPerolehan'=>$PelanPerancanganPerolehan]);
+            'PelanPerancanganPerolehan'=>$PelanPerancanganPerolehan,
+            'user'=>$user
+        ]);
 
     }
 
@@ -158,9 +165,14 @@ class FizaPelanPerancanganPerolehanController extends Controller
 
     public function editpengesah(FizaPelanPerancanganPerolehan $pelanPerancanganPerolehan, $id)
     {
-        $PelanPerancanganPerolehan= FizaPelanPerancanganPerolehan::where('id',$id)->first();
+        // $PelanPerancanganPerolehan= FizaPelanPerancanganPerolehan::where('id',$id)->first();
+        $PelanPerancanganPerolehan= FizaPelanPerancanganPerolehan::find($id);
+        $user = User::where([['id', $PelanPerancanganPerolehan->pelan_pengesah],
+            ['id', $PelanPerancanganPerolehan->pelan_pelulus]])->get();
+
         return view ('1_pelan_perancangan.edit_pengesah',[
-            'PelanPerancanganPerolehan'=>$PelanPerancanganPerolehan
+            'PelanPerancanganPerolehan'=>$PelanPerancanganPerolehan, 
+            'user'=>$user
         ]);
 
     }
@@ -230,11 +242,16 @@ class FizaPelanPerancanganPerolehanController extends Controller
 
     }
 
-    public function editpelulus(FizaPelanPerancanganPerolehan $pelanPerancanganPerolehan, $id)
+    public function editpelulus(FizaPelanPerancanganPerolehan $PelanPerancanganPerolehan, $id)
     {
-        $PelanPerancanganPerolehan= FizaPelanPerancanganPerolehan::where('id',$id)->first();
+        // $PelanPerancanganPerolehan= FizaPelanPerancanganPerolehan::where('id',$id)->first();
+        $PelanPerancanganPerolehan= FizaPelanPerancanganPerolehan::find($id);
+        $user = User::where([['id', $PelanPerancanganPerolehan->pelan_pengesah],
+            ['id', $PelanPerancanganPerolehan->pelan_pelulus]])->get();
+
         return view ('1_pelan_perancangan.edit_pelulus',[
-            'PelanPerancanganPerolehan'=>$PelanPerancanganPerolehan
+            'PelanPerancanganPerolehan'=>$PelanPerancanganPerolehan, 
+            'user'=>$user
         ]);
 
     }
@@ -255,7 +272,7 @@ class FizaPelanPerancanganPerolehanController extends Controller
         $fizaPelanPerancanganPerolehan->pelan_invitation_date=$request->pelan_invitation_date;
         $fizaPelanPerancanganPerolehan->pelan_estimated_amount=$request->pelan_estimated_amount;
         $fizaPelanPerancanganPerolehan->pelan_catatan=$request->pelan_catatan;
-        $fizaPelanPerancanganPerolehan->pelan_status->$request->pelan_status;
+        $fizaPelanPerancanganPerolehan->pelan_status=$request->pelan_status;
         $fizaPelanPerancanganPerolehan->pelan_pengesah=$request->pelan_pengesah;
         $fizaPelanPerancanganPerolehan->pelan_catatan_pengesah=$request->pelan_catatan_pengesah;
         $fizaPelanPerancanganPerolehan->pelan_pelulus=$request->pelan_pelulus;
@@ -267,7 +284,7 @@ class FizaPelanPerancanganPerolehanController extends Controller
         $fizaPelanPerancanganPerolehan->pelan_tarikh_perlaksanaan_iklan=$request->pelan_tarikh_perlaksanaan_iklan;
         $fizaPelanPerancanganPerolehan->pelan_tarikh_penyediaan_spesifikasi=$request->pelan_tarikh_penyediaan_spesifikasi;
         $fizaPelanPerancanganPerolehan->pelan_tarikh_perlaksanaan_iklan=$request->pelan_tarikh_perlaksanaan_iklan;
-        $fizaPelanPerancanganPerolehan->pelan_penyediaan_doc_tender=$request->pelan_penyediaan_doc_tender;
+        $fizaPelanPerancanganPerolehan->pelan_tarikh_penyediaan_doc_tender=$request->pelan_tarikh_penyediaan_doc_tender;
         $fizaPelanPerancanganPerolehan->pelan_tarikh_perlaksanaan_persidangan=$request->pelan_tarikh_perlaksanaan_persidangan;
         $fizaPelanPerancanganPerolehan->pelan_tarikh_sst_dikeluarkan=$request->pelan_tarikh_sst_dikeluarkan;
         // $perancangan->id=$request->perancangan_id;
@@ -285,6 +302,24 @@ class FizaPelanPerancanganPerolehanController extends Controller
 
         return redirect('/indexpelulus');
     }
+
+    public function cetakpelan($id)
+    {
+        // dd($id);
+        $fizaPelanPerancanganPerolehan= FizaPelanPerancanganPerolehan::find($id);
+        $user = User::where([['id', $fizaPelanPerancanganPerolehan->pelan_pengesah],
+            ['id', $fizaPelanPerancanganPerolehan->pelan_pelulus]])->get();
+       
+
+        $fizaPelanPerancanganPerolehan->pelan_status=$fizaPelanPerancanganPerolehan->pelan_status; 
+        $fizaPelanPerancanganPerolehan->save();
+
+        $pdf = PDF::loadView('pdf.pelanperancangan', [
+            'fizaPelanPerancanganPerolehan' => $fizaPelanPerancanganPerolehan, 
+            'user'=>$user]);
+            return $pdf->download($fizaPelanPerancanganPerolehan->pelan_title.'.pdf');
+    }
+    
 
 
 

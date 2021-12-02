@@ -24,7 +24,7 @@
                 <label class="col-form-label col-sm-6 ">Tajuk Pelan Perolehan</label>
             </div>
             <div class="mb-3 col-md-6">
-                <input type=text name=pelan_title class="form-control" value="{{$PelanPerancanganPerolehan->pelan_year}}">
+                <input type=text name=pelan_title class="form-control" value="{{$PelanPerancanganPerolehan->pelan_title}}">
             </div>
         </div>
 
@@ -43,7 +43,7 @@
                 <label class="col-form-label col-sm-6">Diskripsi Pelan</label>
             </div>
             <div class="mb-3 col-md-6">
-               <input type=text name=pelan_description class="form-control" value="{{$PelanPerancanganPerolehan->pelan_description}}">
+               <textarea name=pelan_description class="form-control" rows="3" cols="4"  >{{$PelanPerancanganPerolehan->pelan_description}}></textarea>
             </div>
         </div>
 
@@ -83,7 +83,7 @@
                 <label class="col-form-label col-sm-6 ">Jumlah Anggaran Pelan </label>
             </div>
             <div class="mb-3 col-md-6">
-                <input  type=number name=pelan_estimated_amount class="form-control" min="0" value="0" step=".01" placeholder="0.00" value="{{$PelanPerancanganPerolehan->pelan_estimated_amount}}">
+                <input  type=number name=pelan_estimated_amount class="form-control" min="0"  step=".01" placeholder="0.00" value="{{$PelanPerancanganPerolehan->pelan_estimated_amount}}">
             </div>
         </div>
 
@@ -92,7 +92,7 @@
                 <label class="col-form-label col-sm-6 ">Peruntukan Tahunan </label>
             </div>
             <div class="mb-3 col-md-6">
-                <input  type=number name=pelan_peruntukan_tahunan class="form-control" min="0" value="0" step=".01" placeholder="0.00"  value="{{$PelanPerancanganPerolehan->pelan_peruntukan_tahunan}}">
+                <input  type=number name=pelan_peruntukan_tahunan class="form-control" min="0"  step=".01" placeholder="0.00"  value="{{$PelanPerancanganPerolehan->pelan_peruntukan_tahunan}}">
             </div>
         </div>
 
@@ -219,6 +219,9 @@
         pelan_created_by
         user_id--}}
      
-        <br><button type=submit>Kemaskini</button> 
+        <br><br>
+        <div style=float-right>
+         <button  class="btn btn-success" type="submit">Kemaskini</button> 
+        </div>
 
 @stop

@@ -49,7 +49,7 @@ class FizaPesananTempatanController extends Controller
         $fizaPesananTempatan->pesanan_tarikh_mula=$request->pesanan_tarikh_mula;
         $fizaPesananTempatan->pesanan_tarikh_akhir=$request->pesanan_tarikh_akhir;
         $fizaPesananTempatan->pesanan_tarikh_lulus=$request->pesanan_tarikh_lulus;
-        $fizaPesananTempatan->pesanan_alamat_pengantaran=$request->pesanan_alamat_pengantaran;
+        $fizaPesananTempatan->pesanan_alamat_penghantaran=$request->pesanan_alamat_pengantaran;
 
         $fizaPesananTempatan->kart_id=$request->kart_id;
         $fizaPesananTempatan->pesanan_created_by =$request->pesanan_created_by;

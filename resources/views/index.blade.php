@@ -42,15 +42,15 @@
 			<a href="/" class="btn btn-lg btn-pill btn-primary">Utama</a>
 			<a target="_blank" href="/login" class="btn btn-lg btn-pill btn-link text-dark">Log Masuk Pengguna</a>
 			{{-- <a target="_blank" href="docs-changelog.html" class="btn btn-lg btn-pill btn-link text-dark">Changelog</a> --}}
-			<a target="_blank" href="#" class="btn btn-lg btn-pill btn-link text-dark">Mengenai eP</a>
-			<a target="_blank" href="#" class="btn btn-lg btn-pill btn-link text-dark">Perkhidmatan Tambahan</a>
-			<a target="_blank" href="#" class="btn btn-lg btn-pill btn-link text-dark">Bantuan dan Rujukan</a>
-			<a target="_blank" href="#" class="btn btn-lg btn-pill btn-link text-dark">Muat Turun</a>
+			<a  href="#" class="btn btn-lg btn-pill btn-link text-dark">Mengenai eP</a>
+			<a  href="#" class="btn btn-lg btn-pill btn-link text-dark">Perkhidmatan Tambahan</a>
+			<a  href="#" class="btn btn-lg btn-pill btn-link text-dark">Bantuan dan Rujukan</a>
+			<a  href="#" class="btn btn-lg btn-pill btn-link text-dark">Muat Turun</a>
 			<a href="#faq" class="btn btn-lg btn-pill btn-link text-dark">Soalan Lazim</a>
 		</div>
 	</div>
 
-	<section class="py-6">
+	<section class="py-3">
 		<div class="container">
 			<div class="mb-4 text-center">
 				<h2>Menu</h2>
@@ -263,7 +263,7 @@
 				</div>
 			</div>
 		</div> --}}
-	<div class="text-center my-4">
+	{{-- <div class="text-center my-4">
 			<h2>Soalan Lazim</h2>
 		</div>
 		<div class="row">
@@ -280,7 +280,7 @@
 		</div> 
 
 
-	</section>
+	</section> --}}
 
 	<svg width="0" height="0" style="position:absolute">
 		<defs>
@@ -291,7 +291,7 @@
 			</symbol>
 		</defs>
 	</svg>
-	<script src="js/app.js"></script>
+	<script src="/js/app.js"></script>
 
 </body>
 

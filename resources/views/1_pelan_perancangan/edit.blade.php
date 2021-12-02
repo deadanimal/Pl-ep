@@ -42,7 +42,7 @@
                 <label class="col-form-label col-sm-6">Diskripsi Pelan</label>
             </div>
             <div class="mb-3 col-md-6">
-               <input type=text name=pelan_description class="form-control" value="{{$PelanPerancanganPerolehan->pelan_description}}">
+               <textarea name=pelan_description class="form-control" rows="3" cols="4" >{{$PelanPerancanganPerolehan->pelan_description}}</textarea>
             </div>
         </div>
 
@@ -160,7 +160,7 @@
                 <label class="col-form-label col-sm-6 ">Catatan Pelan</label>
             </div>
             <div class="mb-3 col-md-6">
-                <input type=text name=pelan_catatan class="form-control" value="{{$PelanPerancanganPerolehan->pelan_catatan}}">
+                <textarea name=pelan_catatan class="form-control" rows="3" cols="4"> {{$PelanPerancanganPerolehan->pelan_catatan}}</textarea>
             </div>
         </div>
 
@@ -169,7 +169,9 @@
                 <label class="col-form-label col-sm-6 ">Nama Pegawai Pengesah</label>
             </div>
             <div class="mb-3 col-md-6">
-                <input  type=text name=pelan_pengesah class="form-control" value="{{$PelanPerancanganPerolehan->pelan_pengesah}}">
+                @foreach ($user as $user3)
+                <input type=text name="pelan_pengesah" class="form-control" value="{{$user3->user_name}}">
+                @endforeach
             </div>
         </div>
 
@@ -178,7 +180,9 @@
                 <label class="col-form-label col-sm-6 ">Nama Pegawai Pelulus</label>
             </div>
             <div class="mb-3 col-md-6">
-                <input type=text name="pelan_pelulus" class="form-control" value="{{$PelanPerancanganPerolehan->pelan_pelulus}}">
+                @foreach ($user as $user2)
+                <input type=text name="pelan_pelulus" class="form-control" value="{{$user2->user_name}}">
+                @endforeach
             </div>
         </div>
         {{-- <br>Jenis Pelan: <input type=text name=pelan_jenis value="{{$PelanPerancanganPerolehan->pelan_jenis}}">
@@ -197,7 +201,10 @@
         {{-- pelan_catatan_pelulus 
         pelan_created_by
         user_id--}}
-     
-        <br><button type=submit>Kemaskini</button> 
+        <br><br>
+        <div style=float-left>
+         <button  class="btn btn-success" type="submit">Kemaskini</button> 
+        </div>
+
 
 @stop

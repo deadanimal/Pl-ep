@@ -167,6 +167,8 @@ Route::get('/indexpelulus',[FizaPelanPerancanganPerolehanController::class,'inde
 Route::get('/editpelulus/{id}',[FizaPelanPerancanganPerolehanController::class,'editpelulus']);
 Route::post('/updatepelulus',[FizaPelanPerancanganPerolehanController::class,'updatepelulus']);
 
+Route::get('/cetak-pelan/{id}',[FizaPelanPerancanganPerolehanController::class,'cetakpelan']);
+
 
 
 // Route::resource('/ArahanBerhenti', ArahanBerhentiController::class);

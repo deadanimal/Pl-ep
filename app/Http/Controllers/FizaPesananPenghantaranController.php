@@ -9,23 +9,15 @@ use Illuminate\Support\Facades\Auth;
 
 class FizaPesananPenghantaranController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        $fizaPesananPenghantaran = FizaPesananPenghantaran::all();
+        $PesananPenghantaran = FizaPesananPenghantaran::all();
         return view ('1_pesanan_penghantaran.index',[
-            'fizaPesananPenghantaran'=>$fizaPesananPenghantaran]);
+            'PesananPenghantaran'=>$PesananPenghantaran]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
     {
         return view ('1_pesanan_penghantaran.create');
@@ -44,68 +36,45 @@ class FizaPesananPenghantaranController extends Controller
         $fizaPesananPenghantaran->penghantaran_created_by=$request->penghantaran_created_by;
 
 
-        $fizafizaPesananPenghantaran->save();
-        return redirect('/fizafizaPesananPenghantaran');
+        $fizaPesananPenghantaran->save();
+        return redirect('/PesananPenghantaran');
 
 
         
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\FizaPesananPenghantaran  $fizaPesananPenghantaran
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(FizaPesananPenghantaran $fizaPesananPenghantaran)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\FizaPesananPenghantaran  $fizaPesananPenghantaran
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(FizaPesananPenghantaran $fizaPesananPenghantaran)
+
+    public function edit($id)
     {
-        $fizaPesananPenghantaran = FizaPesananPenghantaran::all();
+        $PesananPenghantaran = FizaPesananPenghantaran::find($id);
         return view ('1_pesanan_penghantaran.edit',[
-            'fizaPesananPenghantaran'=>$fizaPesananPenghantaran]);
+            'fizaPesananPenghantaran'=>$PesananPenghantaran]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\FizaPesananPenghantaran  $fizaPesananPenghantaran
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, FizaPesananPenghantaran $fizaPesananPenghantaran)
+    public function update(Request $request, FizaPesananPenghantaran $PesananPenghantaran)
     {
         
+        $PesananPenghantaran->user_id=$request->user_id;
+        $PesananPenghantaran->pesanan_id=$request->pesanan_id;
+        $PesananPenghantaran->pembekal_id=$request->pembekal_id;
+        $PesananPenghantaran->sst_id=$request->sst_id;
+        $PesananPenghantaran->penghantaran_kuantiti=$request->penghantaran_kuantiti;
+        $PesananPenghantaran->penghantaran_date=$request->penghantaran_date;
+        $PesananPenghantaran->penghantaran_updated_by=$request->penghantaran_updated_by;
 
-        $fizaPesananPenghantaran->user_id=$request->user_id;
-        $fizaPesananPenghantaran->pesanan_id=$request->pesanan_id;
-        $fizaPesananPenghantaran->pembekal_id=$request->pembekal_id;
-        $fizaPesananPenghantaran->sst_id=$request->sst_id;
-        $fizaPesananPenghantaran->penghantaran_kuantiti=$request->penghantaran_kuantiti;
-        $fizaPesananPenghantaran->penghantaran_date=$request->penghantaran_date;
-        $fizaPesananPenghantaran->penghantaran_updated_by=$request->penghantaran_updated_by;
 
-
-        $fizaPesananPenghantaran->save();
-        return redirect('/fizaPesananPenghantaran');
+        $PesananPenghantaran->save();
+        return redirect('/PesananPenghantaran');
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\FizaPesananPenghantaran  $fizaPesananPenghantaran
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(FizaPesananPenghantaran $fizaPesananPenghantaran)
     {
         //

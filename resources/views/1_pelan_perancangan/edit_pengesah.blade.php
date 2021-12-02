@@ -8,7 +8,7 @@
     <div class="card-body">
         <form method="POST"  action="/updatepengesah">
         @csrf
-        
+        @method('PUT')
         <input type="hidden" name="perancangan_id"  value="{{$PelanPerancanganPerolehan->id}}">
         <div class="row">
             <div class="mb-3 col-md-6">
@@ -24,7 +24,7 @@
                 <label class="col-form-label col-sm-6 ">Tajuk Pelan Perolehan</label>
             </div>
             <div class="mb-3 col-md-6">
-                <input type=text name=pelan_title class="form-control" value="{{$PelanPerancanganPerolehan->pelan_year}}">
+                <input type=text name=pelan_title class="form-control" value="{{$PelanPerancanganPerolehan->pelan_title}}">
             </div>
         </div>
 
@@ -43,7 +43,7 @@
                 <label class="col-form-label col-sm-6">Diskripsi Pelan</label>
             </div>
             <div class="mb-3 col-md-6">
-               <input type=text name=pelan_description class="form-control" value="{{$PelanPerancanganPerolehan->pelan_description}}">
+               <textarea name=pelan_description class="form-control" rows="3" cols="4">{{$PelanPerancanganPerolehan->pelan_description}}</textarea>
             </div>
         </div>
 
@@ -54,9 +54,9 @@
             <div class="mb-3 col-md-6">
                 <select name=pelan_category class="form-control">
                     <option hidden>Sila Pilih</option>
-                    <option value="bekalan">Bekalan</option>
-                    <option value="perkhidmatan">Perkhidmatan</option>
-                    <option value="kerja">Kerja</option>
+                    <option @if ($PelanPerancanganPerolehan->pelan_category == 'bekalan') selected @endif value="bekalan">Bekalan</option>
+                    <option @if ($PelanPerancanganPerolehan->pelan_category == 'perkhidmatan') selected @endif value="perkhidmatan">Perkhidmatan</option>
+                    <option @if ($PelanPerancanganPerolehan->pelan_category == 'kerja') selected @endif value="kerja">Kerja</option>
                     </select>
             </div>
         </div>
@@ -101,7 +101,7 @@
                 <label class="col-form-label col-sm-6 ">Tarikh Perlaksanaan Iklan</label>
             </div>
             <div class="mb-3 col-md-6">
-                <input  type=date name=pelan_perlaksanaan_iklan class="form-control"   value="{{$PelanPerancanganPerolehan->pelan_tarikh_perlaksanaan_iklan}}">
+                <input  type=date name=pelan_perlaksanaan_iklan class="form-control"  value="{{$PelanPerancanganPerolehan->pelan_tarikh_perlaksanaan_iklan}}">
             </div>
         </div>
 
@@ -155,7 +155,7 @@
                 <label class="col-form-label col-sm-6 ">Catatan Pelan</label>
             </div>
             <div class="mb-3 col-md-6">
-                <input type=text name=pelan_catatan class="form-control" value="{{$PelanPerancanganPerolehan->pelan_catatan}}" readonly>
+                <textarea name=pelan_catatan class="form-control">{{$PelanPerancanganPerolehan->pelan_catatan}}</textarea> 
             </div>
         </div>
 
@@ -216,7 +216,10 @@
         {{-- pelan_catatan_pelulus 
         pelan_created_by
         user_id--}}
-     
-        <br><button type=submit>Kemaskini</button> 
+        <br><br>
+        <div style=float-right>
+         <button  class="btn btn-success" type="submit">Kemaskini</button> 
+        </div>
+
 
 @stop

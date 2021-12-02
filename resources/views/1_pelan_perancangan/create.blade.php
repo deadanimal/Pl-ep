@@ -41,7 +41,7 @@
                             <label class="col-form-label col-sm-6">Diskripsi Pelan</label>
                         </div>
                         <div class="mb-3 col-md-6">
-                           <input type=text name=pelan_description class="form-control">
+                           <textarea name=pelan_description class="form-control" rows="3" cols="4" ></textarea>
                         </div>
                     </div>
 
@@ -77,7 +77,7 @@
                             <label class="col-form-label col-sm-6 ">Tarikh Jemputan Pelan</label>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <input  type=date name=pelan_invitation_date class="form-control">
+                            <input  type=date name=pelan_invitation_date class="form-control" >
                         </div>
                     </div>
 
@@ -86,7 +86,7 @@
                             <label class="col-form-label col-sm-6 ">Jumlah Anggaran Pelan </label>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <input  type=number name=pelan_estimated_amount class="form-control" min="0" value="0" step=".01" placeholder="0.00">
+                            <input  type=number name=pelan_estimated_amount class="form-control" min="0"  step=".01" placeholder="0.00">
                         </div>
                     </div>
 
@@ -95,7 +95,7 @@
                             <label class="col-form-label col-sm-6 ">Peruntukan Tahunan </label>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <input  type=number name=pelan_peruntukan_tahunan class="form-control" min="0" value="0" step=".01" placeholder="0.00">
+                            <input  type=number name=pelan_peruntukan_tahunan class="form-control" min="0"  step=".01" placeholder="0.00">
                         </div>
                     </div>
 
@@ -158,7 +158,7 @@
                             <label class="col-form-label col-sm-6 ">Catatan Pelan</label>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <input type=text name=pelan_catatan class="form-control">
+                            <textarea name=pelan_catatan class="form-control" rows="3" cols="4"></textarea>
                         </div>
                     </div>
 
@@ -213,7 +213,7 @@
                    {{-- pelan_catatan_pelulus 
                    pelan_created_by
                    user_id--}}
-                   
+                   <br><br>
                   <div style=float-right>
                    <button class="btn btn-primary" type="submit" name="status_pelan" value="draf"> Draf</button> 
                    <button  class="btn btn-success" type="submit" name="status_pelan" value="hantar">Hantar Pelan</button> 
