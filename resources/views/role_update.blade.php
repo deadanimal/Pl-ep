@@ -1,16 +1,18 @@
 
-    <form action="/kemaskini-role/{{$user->id}}" method="POST">
+    <form action="/Pengguna/{{$user->id}}" method="POST">
         @csrf
         @method('PUT')
 
+        <input hidden name="id" value="{{$user->id}}">
+
         <br>Nama: <input type="text" name="user_name" value="{{$user->user_name}}" class="form-control">
-        <br>
-        <br> Jenis Pengguna 
+        <br> Jenis Pengguna
         <select name="jenis">
             <option @if ($user->jenis == 'pekerja') selected @endif value="pekerja">Staff Perbadanan Labuan</option>
             <option @if ($user->jenis == 'pembekal') selected @endif value="pembekal">Pembekal</option>
             <option @if ($user->jenis == 'juruaudit') selected @endif value="juruaudit">JuruAudit/option>
             </select>
+            
         
         <br>No Kad Pengenalan<input type="text" name="user_identity_no" value="{{$user->user_identity_no}}">
         
@@ -22,7 +24,6 @@
                 <option value="{{$role->id}}">{{$role->role_name}}</option>
                     @endforeach 
                     </select>
-
 
 
         <br>Status Pengguna: 
@@ -37,3 +38,6 @@
         <button type=submit>Kemaskini</button>
         
         </form>
+
+        $user->roles()
+    

@@ -7,6 +7,7 @@ use App\Models\AuditLog;
 use App\Models\FizaKatalog;
 use App\Models\FizaKart;
 use App\Models\FizaItemInfo;
+use App\Models\FizaPembekal;
 use App\Models\ItemKart;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -19,9 +20,11 @@ class FizaItemInfoController extends Controller
     {
         $fizaItemInfo = FizaItemInfo::all();
         $fizaKatalog=FizaKatalog::all();
+        $pembekal = FizaPembekal::all();
         return view ('1_item_info.index',[
             'ItemInfo'=>$fizaItemInfo,
-            'Katalog'=>$fizaKatalog
+            'Katalog'=>$fizaKatalog,
+            'pembekal'=>$pembekal
         ]);
     }
 

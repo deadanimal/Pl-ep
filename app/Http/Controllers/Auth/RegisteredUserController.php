@@ -67,22 +67,16 @@ class RegisteredUserController extends Controller
         //return redirect(RouteServiceProvider::HOME);
     }
 
+
     public function list_role(){
 
-        $user = User::get();
+        $user = User::all();
     
-
         return view('role_list', [
             'users' => $user
         ]);
     }
 
-    // public function create_role(){
-
-    //     return view('register_role', [
-    //         'user' => $user,
-    //     ]);
-    // }
 
 
     public function register_roles(Request $request){
@@ -118,7 +112,7 @@ class RegisteredUserController extends Controller
     // }
 
 
-    public function update_roles(Request $request, $user,$id){
+    public function update_roles(Request $request,$id){
 
         //dd($user->id);
         // $user = User::find($id);
@@ -126,12 +120,13 @@ class RegisteredUserController extends Controller
         // $user= User::where('id',$id)->first();
 
         $user = User::find($id);
-        $roles = Role::detach('id','id')->all();
-        $userRole = $user->roles->pluck('name','name')->all();
+        $user-> roles();
 
-    return view('users.edit',compact('user','roles','userRole'));
+        // $user = User::find($id);
+        // $roles = Role::detach('id','id')->all();
+        // $userRole = $user->roles->pluck('name','name')->all();
 
-        $roles = User::find($id)->roles()->get();
+        //$roles = User::find($id)->roles()->get();
 
 
         $user->user_name = $request->user_name;
@@ -143,15 +138,18 @@ class RegisteredUserController extends Controller
         //$user->role_id = $request->role_id;
         $user->save();
 
+        return redirect('/list-role');
+
         // $role = Roles::find($request->role_id);
 
        // $user->roles()->detach($role_jawatan); //detach satu
-        $user->roles()->detach(); // detach semua
+        // $user->roles()->detach(); // detach semua
 
     
     }
-
-
-
-
 }
+
+
+
+
+

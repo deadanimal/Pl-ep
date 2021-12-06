@@ -71,8 +71,11 @@ class RolesController extends Controller
 
     public function edit($id)
     {
+        // $user = User::find($id);
         $user = User::find($id);
-        return view('1_role.update',[
+        $user->roles();
+        
+        return view('role_update',[
             'user'=>$user, 
             'roles'=>$Roles
         ]);
@@ -81,7 +84,7 @@ class RolesController extends Controller
 
     public function update($id)
     {
-        $user =User::find($id);
+       
 
 
         

@@ -56,8 +56,8 @@ class FizaNotaMintaController extends Controller
 
         $fizaNotaMinta->save();
 
-        Session::put('pst_id',$fizaPembelianSebutTender->id);//
-        $temp=Session::get('pst_id');
+        // Session::put('pst_id',$fizaNotaMinta->id);//
+        // $temp=Session::get('pst_id');
 
         $item ="Nota Minta";
         $user_id= Auth::user()->id;

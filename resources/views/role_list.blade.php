@@ -19,7 +19,7 @@
                 <td> {{$users->user_name}}</td> 
                 <td> {{$users->jenis}}</td>
                 <td> {{$users->user_identity_no}}</td>
-                <td><a href="/update-role/{{$users->id}}">Butiran</a> </td>
+                <td><a href="/Pengguna/{{$users->id}}/edit">Butiran</a> </td>
             </tr>
         @endforeach
     </tbody>  

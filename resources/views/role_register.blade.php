@@ -32,7 +32,7 @@
          
             <div class="row">
                 <div class="mb-3 col-md-6">
-                    <label class="col-form-label col-sm-6 "> MyKad Number </label>
+                    <label class="col-form-label col-sm-6 "> No Kad Pengenalan </label>
                 </div>
                 <div class="mb-3 col-md-6">
                     <input type="text"  class="form-control" name="user_identity_no">
@@ -59,6 +59,7 @@
                             <option value="{{$role->id}}">{{$role->role_name}}</option>
                                 @endforeach 
                          </select>
+                         
 
                         {{-- <select name="role_id" class="form-control">
                                 <option hidden>Sila Pilih<option>

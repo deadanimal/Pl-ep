@@ -259,16 +259,16 @@
 
             <div class="main">
                 <nav class="navbar navbar-theme">
-                {{-- <nav class="navbar navbar-expand navbar-theme"> --}}
-                    {{-- <a class="sidebar-toggle d-flex me-2">
+                 {{-- <nav class="navbar navbar-expand navbar-theme"> 
+                     <a class="sidebar-toggle d-flex me-2">
                         <i class="hamburger align-self-center"></i>
-                    </a> --}}
+                    </a>  
     
-                   {{--< <form class="d-none d-sm-inline-block">
+                  <form class="d-none d-sm-inline-block">
                         <input class="form-control form-control-lite" type="text" placeholder="Search projects...">
-                     </form> 
+                     </form> --}}
     
-                     {{--<div class="navbar-collapse collapse">
+                     <div class="navbar-collapse collapse">
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item dropdown active">
                                 <a class="nav-link dropdown-toggle position-relative" href="#" id="messagesDropdown" data-bs-toggle="dropdown">
@@ -412,14 +412,24 @@
                                 </div>
                             </li>
                         </ul>
-                    </div>--}}
+                    </div>
     
                 </nav>
 
                 <main class="content">
                     <div class="container-fluid">
     
-                        <div class="header">
+                        {{-- <div class="header">
+                            <h1 class="header-title">
+                                Calendar
+                            </h1>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="dashboard-default.html">Dashboard</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Calendar</li>
+                                </ol>
+                            </nav>
+                        </div> --}}
 
 
                             {{-- <h1 class="header-title">
@@ -459,6 +469,13 @@
                 </div>--}}
             </main> 
         </div>
+        <script>
+            Swal.fire(
+            'Tahniah',
+            'Data anda telah berjaya dihantar!',
+            'success'
+            )
+        </script>
 
         <script>
             $(document).ready(function() {

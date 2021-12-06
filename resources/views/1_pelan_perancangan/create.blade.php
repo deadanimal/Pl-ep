@@ -1,10 +1,9 @@
 @extends('layouts.base')
-
 @section('content')
 
-     <h3>Cipta Perolehan Baru</h3>
-        </div>
-            <div class="card-body">
+<h3>Cipta Pelan Baharu</h3>
+</div>
+    <div class="card-body">
                 <form method="POST" action="/PelanPerancanganPerolehan">
                     @csrf
 
@@ -15,7 +14,6 @@
                         <div class="mb-3 col-md-6">
                             <input type=text name="pelan_jenis" class="form-control"></div>
                         </div>
-
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
@@ -219,13 +217,8 @@
                    <button  class="btn btn-success" type="submit" name="status_pelan" value="hantar">Hantar Pelan</button> 
                   </div>
                 </form>
-            
-            </div> 
-        </div>
     </div>
-</div>
-
-</div>
+    
 
 
 

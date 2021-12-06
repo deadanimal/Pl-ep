@@ -17,8 +17,7 @@
                             <th>Tarikh Tamat</th>
                             <th></th>
                             <th>Tindakan</th>
-                            <th></th>
-                            <th></th>
+
                         
                         </tr>
                     </thead>
@@ -30,8 +29,13 @@
                                 <td>{{$ItemInfo->item_name}}</td>
                                 <td>{{$ItemInfo->start_date}}</td>
                                 <td>{{$ItemInfo->end_date}}</td>
-                                <td><a href='/listkatalog/{{$ItemInfo->katalog_id}}'>Kumpulan Katalog</a></td>
-                                <td> <a href="/ItemInfo/addcart/{{$ItemInfo->id}}">Tambah Ke Kart</a></td>
+                                <td class="table-action">
+                                    <a href='/listkatalog/{{$ItemInfo->katalog_id}}'><i class="align-middle fas fa-fw fa-info"  data-bs-placement="left"
+										title="Senarai Katalog"></i></a>
+                                    <a href='/ItemInfo/addcart/{{$ItemInfo->id}}'><i class="align-middle fas fa-fw fa-shopping-cart" data-bs-placement="left"
+										title="Tambah ke Kart"></i></a>
+                                </td>
+
                                 <td> <button onclick="compareItem()">Bandingkan Item</button>
                                 <td> <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#defaultModalPrimary">Pertanyaan Item</button>
                                     <div class="modal fade" id="defaultModalPrimary" tabindex="-1" role="dialog" aria-hidden="true">
@@ -48,14 +52,21 @@
                                                     <form method="POST" action="/PertanyaanItem">
                                                     @csrf
                                                 
-                                                    <br> Nama Pembekal <input type="text" class="form-control" name="pembekal_id">
+                                                    <br> Nama Pembekal <select class="form-control" name="pembekal_id">
+                                                        <option hidden>Sila Pilih</option>
+                                                        @foreach ($pembekal as $pembekal)
+                                                        <option value="{{$pembekal->id}}">{{$pembekal->pembekal_company_name}}</option>
+                
+                                                        @endforeach
+                                                        </select>
+
                                                     {{-- <select name=pembekal_id class="form-control">
                                                         @foreach ($pembekal as $pembekal)
                                                         <option value="pembekal_id">{{$pembekal->pembekal_company_name}}</option>
                                                         @endforeach
                                                     </select> --}}
                                                 
-                                                    Kuatiti Item yang Diterima <input type="number" class="form-control" name="tanya_kuanititi">
+                                                    Kuantiti Item yang Diterima <input type="number" class="form-control" name="tanya_kuanititi">
                                                     Tempoh Penghantaran <input type="text" class="form-control" name="tanya_tempoh_penghantaran">
                                                     Jenis Perolehan <input type="text" class="form-control" name="tanya_jenis_perolehan">
                                                     Catatan <input type="text" class="form-control" name="tanya_catatan">
@@ -64,7 +75,9 @@
                                                     Harga Baru <input type="number"  min="1" step="any" class="form-control" name="tanya_harga_baru">
                                                     Status <input type="text" class="form-control" name="tanya_status">
                                                 
-                                                     <button type="submit">Hantar</button>
+                                                     {{-- <button type="submit">Hantar</button> --}}
+                                                    <br> <br>
+													<button type="submit" class="btn btn-primary">Hantar</button>
                                                 
                                                 </form>
                                                 

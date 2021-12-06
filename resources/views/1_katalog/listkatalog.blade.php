@@ -24,7 +24,11 @@
                         <tr>
                             <td>{{$ItemInfo->item_name}}</td>
                             <td>{{$ItemInfo->item_price}}</td>
-                            <td>Butiran Item </td>
+
+                            <td class="table-action">
+                                <a href='/ItemInfo/{{$ItemInfo->id}}/edit'><i class="align-middle fas fa-fw fa-info"  data-bs-placement="left"
+                                    title="Maklumat Item"></i></a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

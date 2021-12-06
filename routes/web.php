@@ -5,6 +5,7 @@ use App\Http\Controllers\AuditLogController;
 use App\Models\User;
 use App\Models\FizaFaq;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\FizaKodBidangController;
 use App\Http\Controllers\FizaPelanPerancanganPerolehanController;
 use App\Http\Controllers\FizaPembekalController;
@@ -51,6 +52,7 @@ use App\Http\Controllers\FizaSupportingDocumentSijilDigitalController;
 use App\Http\Controllers\FizaSuratSetujuTerimaController;
 use App\Http\Controllers\FizaTetapanTempohController;
 use App\Http\Controllers\ItemKartController;
+
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Models\Roles;
 
@@ -112,30 +114,33 @@ Route::resource('/PesananTempatan',FizaPesananTempatanController::class);
 Route::resource('/SenaraiSemakStandard',FizaSenaraiSemakStandardController::class);
 Route::resource('/SuratNiat',FizaSuratNiatController::class);
 Route::resource('/SuratSetujuTerima',FizaSuratSetujuTerimaController::class);
+Route::resource('/Roles',RolesController::class);
+Route::resource('/Pengguna',PenggunaController::class);
 
 Route::get('/list-role',[RegisteredUserController::class,'list_role']);
 
 
 Route::get('/register-role', function(){
     $role= Roles::all();
+    $user = User::all();
 
     return view('role_register',[
-        'role'=>$role
+        'role'=>$role,
+        'user' =>$user
     ]);
 });
 Route::post('/daftar-role',[RegisteredUserController::class,'register_roles']);
 
+
 Route::get('/update-role/{id}', function(){
-    $role= Roles::all(); 
-    $user=User::find($id);
+    $user = User::find($id);
+    $user->roles();
 
     return view('role_update',[
         'role'=>$role,
          'user'=>$user
     ]);
 });
-
-
 Route::post('/kemaskini-role',[RegisteredUserController::class,'update_roles']);
 
 
@@ -155,7 +160,7 @@ Route::get('/ItemInfo/addcart/{ItemInfo}', [FizaItemInfoController::class, 'addc
 Route::get('/ItemKart/removecart/{itemKart}', [FizaItemInfoController::class, 'removecart']);
 Route::resource('/ItemKart',ItemKartController::class);
 
-Route::resource('/Roles',FizaEpUserController::class);
+Route::resource('/Roles',RolesController::class);
 
 Route::get('/indexpengesah', [FizaPelanPerancanganPerolehanController::class,'indexpengesah']);
 Route::get('/editpengesah/{id}', [FizaPelanPerancanganPerolehanController::class,'editpengesah']);

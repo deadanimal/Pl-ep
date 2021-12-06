@@ -13,7 +13,6 @@
                     <thead>
                         <tr>
                             <th>Tahun Perolehan</th>
-                            <th>Jenis Pelan</th>
                             <th>Nama Perolehan</th>
                             <th>Kategori Perolehan</th>
                             <th>Status</th>
@@ -26,7 +25,6 @@
                         @foreach ( $fizaPelanPerancanganPerolehan as  $fizaPelanPerancanganPerolehan)
                             <tr>
                                 <td>{{  $fizaPelanPerancanganPerolehan->pelan_year}}</td>
-                                <td>{{  $fizaPelanPerancanganPerolehan->pelan_jenis}}</td>
                                 <td>{{  $fizaPelanPerancanganPerolehan->pelan_title}}</td>
                                 <td>{{  $fizaPelanPerancanganPerolehan->pelan_category }}</td>
                                 <td>{{  $fizaPelanPerancanganPerolehan->pelan_status }}</td>
