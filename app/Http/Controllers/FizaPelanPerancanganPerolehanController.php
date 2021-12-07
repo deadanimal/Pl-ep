@@ -19,8 +19,12 @@ class FizaPelanPerancanganPerolehanController extends Controller
     public function index()
     {
         $fizaPelanPerancanganPerolehan = FizaPelanPerancanganPerolehan::all();
+        $user = User::all();
+
         return view ('1_pelan_perancangan.index',[
-            'fizaPelanPerancanganPerolehan'=>$fizaPelanPerancanganPerolehan]);
+            'fizaPelanPerancanganPerolehan'=>$fizaPelanPerancanganPerolehan,
+            'user'=>$user
+        ]);
     }
 
 

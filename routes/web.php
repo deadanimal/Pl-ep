@@ -51,7 +51,9 @@ use App\Http\Controllers\FizaSupportingDocumentPembekalController;
 use App\Http\Controllers\FizaSupportingDocumentSijilDigitalController;
 use App\Http\Controllers\FizaSuratSetujuTerimaController;
 use App\Http\Controllers\FizaTetapanTempohController;
+use App\Http\Controllers\RoleUserController;
 use App\Http\Controllers\ItemKartController;
+use App\Http\Controllers\FizaSupportingDocumentKemaskiniProfilController;
 
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Models\Roles;
@@ -71,7 +73,6 @@ Route::resource('/KodBidang',FizaKodBidangController::class);
 Route::resource('/PelanPerancanganPerolehan',FizaPelanPerancanganPerolehanController::class);
 Route::resource('/Pembekal',FizaPembekalController::class);
 Route::resource('/PenyediaanSpesifikasi',FizaPenyediaanSpesifikasiController::class);
-Route::resource('/NotaPenerimaaan',FizaNotaPenerimaaanController::class);
 Route::resource('/SijilDigital',FizaSijilDigitalController::class);
 Route::resource('/faq',FizaFaqController::class);
 Route::resource('/Docs',FizaDocsController::class);
@@ -116,6 +117,7 @@ Route::resource('/SuratNiat',FizaSuratNiatController::class);
 Route::resource('/SuratSetujuTerima',FizaSuratSetujuTerimaController::class);
 Route::resource('/Roles',RolesController::class);
 Route::resource('/Pengguna',PenggunaController::class);
+Route::delete('/Pengguna/delete/{id}', [PenggunaController::class, 'destroy']);
 
 Route::get('/list-role',[RegisteredUserController::class,'list_role']);
 
@@ -162,15 +164,19 @@ Route::resource('/ItemKart',ItemKartController::class);
 
 Route::resource('/Roles',RolesController::class);
 
-Route::get('/indexpengesah', [FizaPelanPerancanganPerolehanController::class,'indexpengesah']);
-Route::get('/editpengesah/{id}', [FizaPelanPerancanganPerolehanController::class,'editpengesah']);
-Route::post('/updatepengesah', [FizaPelanPerancanganPerolehanController::class,'updatepengesah']);
 
 
+Route::group(['middleware' => ['auth','jenis:pekerja']],function(){
+    Route::get('/indexpengesah', [FizaPelanPerancanganPerolehanController::class,'indexpengesah']);
+    Route::get('/editpengesah/{id}', [FizaPelanPerancanganPerolehanController::class,'editpengesah']);
+    Route::post('/updatepengesah', [FizaPelanPerancanganPerolehanController::class,'updatepengesah']);
 
-Route::get('/indexpelulus',[FizaPelanPerancanganPerolehanController::class,'indexpelulus']);
-Route::get('/editpelulus/{id}',[FizaPelanPerancanganPerolehanController::class,'editpelulus']);
-Route::post('/updatepelulus',[FizaPelanPerancanganPerolehanController::class,'updatepelulus']);
+    Route::get('/indexpelulus',[FizaPelanPerancanganPerolehanController::class,'indexpelulus']);
+    Route::get('/editpelulus/{id}',[FizaPelanPerancanganPerolehanController::class,'editpelulus']);
+    Route::post('/updatepelulus',[FizaPelanPerancanganPerolehanController::class,'updatepelulus']);
+});
+
+
 
 Route::get('/cetak-pelan/{id}',[FizaPelanPerancanganPerolehanController::class,'cetakpelan']);
 
@@ -219,9 +225,16 @@ Route::get('/', function () {
         ]);
 });
 
+Route::get('4',function () {
+    return view(
+        'layouts.base'
+    );
+});
+
+
 Route::get('2', function () {
     $faq= FizaFaq::where('faq_status','aktif')->get();
-    return view('test', [
+    return view('layouts.base', [
         'faq'=>$faq
     ]);
 });

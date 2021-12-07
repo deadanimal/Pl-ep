@@ -57,6 +57,7 @@
                         <div class="sidebar-user">
                             <img src="/PL.png" class="img-fluid rounded-circle mb-2" alt="Linda Miller" />
                             <div class="fw-bold">Perbadanan Labuan</div>
+                            {{Auth::user()->user_name}}
                         </div>
                     
                     <ul class="sidebar-nav">
@@ -129,7 +130,8 @@
                                 <i class="align-middle me-2 fas fa-fw fa-sign-in-alt"></i> <span class="align-middle">Pengguna</span>
                             </a>
                             <ul id="auth" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-                                <li class="sidebar-item"><a class="sidebar-link" href="/register-role">Pendaftaran Pengguna</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="/Pengguna/create">Pendaftaran Pengguna</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="/Pengguna">Senarai Pengguna</a></li>
                                 <li class="sidebar-item"><a class="sidebar-link" href="/login">Login</a></li>
                                 
                             </ul>
@@ -444,10 +446,12 @@
                             </nav> --}}
                         </div>
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-12 col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <div class="card-body">
+
+                                    </div>
+                                    <div class="card-body">
                                                     @yield('content')
                                                     @yield('scripts')
                                         </div>

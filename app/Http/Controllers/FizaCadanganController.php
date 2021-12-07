@@ -13,8 +13,11 @@ class FizaCadanganController extends Controller
     public function index()
     {
         $fizaCadangan = FizaCadangan::all();
+        $user = User::all();
         return view ('1_cadangan.index',[
-            'Cadangan'=>$fizaCadangan]);
+            'Cadangan'=>$fizaCadangan,
+            'user'=>$user
+        ]);
     }
 
     public function create()

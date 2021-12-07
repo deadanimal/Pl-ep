@@ -7,8 +7,8 @@
         <tr>
         <th> Nama </th>
         <th> Jenis Pengguna </th>
-        <th> No Kad Pengenalan</th>
-        <th> </th>
+        <th>Status Pengguna</th>
+        <th>Tindakan</th>
 
         </tr>
     </thead>
@@ -18,8 +18,12 @@
 
                 <td> {{$users->user_name}}</td> 
                 <td> {{$users->jenis}}</td>
-                <td> {{$users->user_identity_no}}</td>
-                <td><a href="/Pengguna/{{$users->id}}/edit">Butiran</a> </td>
+                <td> {{$users->user_status}}</td>
+                <td class="table-action">
+                    <a href="/Pengguna/{{$users->id}}">Papar</a>
+                    <a href="/Pengguna/{{$users->id}}/edit"><i class="align-middle fas fa-fw fa-pen"></i></a>
+                    <a href="/Pengguna/{{$users->id}}"><i class="align-middle fas fa-fw fa-trash"></i></a>
+                </td>
             </tr>
         @endforeach
     </tbody>  

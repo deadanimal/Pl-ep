@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Roles;
+use App\Models\RoleUser;
 use App\Mail\RegisterUser;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+
 
 class PenggunaController extends Controller
 {
@@ -57,19 +59,33 @@ class PenggunaController extends Controller
 
     public function show($id)
     {
-        //
+        $user = User::find($id);
+        $role= Roles::all();
+
+        return view('user_info',[
+            'role'=>$role,
+            'user' =>$user
+        ]);
+        
     }
 
     
     public function edit($id)
     {
+
+    // dd($id);
         $user = User::find($id);
         $role= Roles::all();
+
+        // $role = RoleUser::all();
+
+        // dd($role);
 
         return view('role_update',[
             'role'=>$role,
             'user' =>$user
         ]);
+
     }
 
 
@@ -77,13 +93,14 @@ class PenggunaController extends Controller
     {
         $user= User::find($request->get('id'));
 
-        $user->user_name = $request->user_name;
-        $user->user_identity_no = $request ->user_identity_no;
-        $user->email = $request ->email;
-        $user->jenis = $request ->jenis;
+        // $user->user_name = $request->user_name;
+        // $user->user_identity_no = $request ->user_identity_no;
+        // $user->email = $request ->email;
+        // $user->jenis = $request ->jenis;
         $user->user_status =$request->user_status;
         $user->roles()->attach($request->role_id);
-        
+
+
         $user->save();
 
         // return redirect('/Pengguna');
@@ -92,6 +109,7 @@ class PenggunaController extends Controller
 
     public function destroy($id)
     {
-        //
+        $user->delete();
+    
     }
 }

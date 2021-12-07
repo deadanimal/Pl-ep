@@ -12,7 +12,10 @@ class Dashboard extends Controller
     public function displayFaq()
     {
         $Faq = FizaFaq::where('status','aktif');
+        $user = User::all();
         return view ('test',[
-            'Faq'=>$Faq]);
+            'Faq'=>$Faq, 
+            'user'=>$user
+            ]);
     }
 }

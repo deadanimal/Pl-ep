@@ -14,13 +14,17 @@ class FizaAuditPelanController extends Controller
     public function index()
     {
         $fizaAuditPelan = FizaAuditPelan::all();
+        $user = User::all();
         return view ('1_audit_pelan.index',[
             'fizaAuditPelan'=>$fizaAuditPelan]);
     }
 
     public function create()
     {
-        return view('1_audit_pelan.create');
+        $user = User::all();
+        return view('1_audit_pelan.create',[
+            'user'=>$user
+        ]);
     }
     
     public function store(Request $request)
