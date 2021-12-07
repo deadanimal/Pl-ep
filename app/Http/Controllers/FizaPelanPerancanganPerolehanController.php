@@ -31,6 +31,7 @@ class FizaPelanPerancanganPerolehanController extends Controller
     public function create()
     {
         $user=User::where('jenis','pekerja')->get();
+        // dd($user);
         return view ('/1_pelan_perancangan.create', [
             'user'=>$user
         ]);
@@ -162,8 +163,11 @@ class FizaPelanPerancanganPerolehanController extends Controller
     {
 
         $fizaPelanPerancanganPerolehan = FizaPelanPerancanganPerolehan::where('pelan_status','Menunggu Pengesahan')->get();
+
+
         return view ('1_pelan_perancangan.index_pengesah',[
             'fizaPelanPerancanganPerolehan'=>$fizaPelanPerancanganPerolehan]);
+            
 
     }
 
@@ -173,7 +177,7 @@ class FizaPelanPerancanganPerolehanController extends Controller
         $PelanPerancanganPerolehan= FizaPelanPerancanganPerolehan::find($id);
         $user = User::where([['id', $PelanPerancanganPerolehan->pelan_pengesah],
             ['id', $PelanPerancanganPerolehan->pelan_pelulus]])->get();
-
+  
         return view ('1_pelan_perancangan.edit_pengesah',[
             'PelanPerancanganPerolehan'=>$PelanPerancanganPerolehan, 
             'user'=>$user
