@@ -110,6 +110,8 @@ class PenggunaController extends Controller
     public function destroy($id)
     {
         $user->delete();
+
+        return redirect('/Pengguna');
     
     }
 }

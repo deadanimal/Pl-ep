@@ -157,20 +157,11 @@
 
         <div class="row">
             <div class="mb-3 col-md-6">
-                <label class="col-form-label col-sm-6 ">Catatan Pelan</label>
-            </div>
-            <div class="mb-3 col-md-6">
-                <textarea name=pelan_catatan class="form-control" rows="3" cols="4"> {{$PelanPerancanganPerolehan->pelan_catatan}}</textarea>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="mb-3 col-md-6">
                 <label class="col-form-label col-sm-6 ">Nama Pegawai Pengesah</label>
             </div>
             <div class="mb-3 col-md-6">
-                @foreach ($user as $user3)
-                <input type=text name="pelan_pengesah" class="form-control" value="{{$user3->user_name}}">
+                @foreach ($pengesah as $pengesah)
+                <input type=text name="pelan_pengesah" class="form-control" value="{{$pengesah->user_name}}">
                 @endforeach
             </div>
         </div>
@@ -180,9 +171,18 @@
                 <label class="col-form-label col-sm-6 ">Nama Pegawai Pelulus</label>
             </div>
             <div class="mb-3 col-md-6">
-                @foreach ($user as $user2)
-                <input type=text name="pelan_pelulus" class="form-control" value="{{$user2->user_name}}">
+                @foreach ($pelulus as $pelulus)
+                <input type=text name="pelan_pelulus" class="form-control" value="{{$pelulus->user_name}}">
                 @endforeach
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="mb-3 col-md-6">
+                <label class="col-form-label col-sm-6 ">Catatan Pelan</label>
+            </div>
+            <div class="mb-3 col-md-6">
+                <textarea name=pelan_catatan class="form-control" rows="3" cols="4"> {{$PelanPerancanganPerolehan->pelan_catatan}}</textarea>
             </div>
         </div>
         {{-- <br>Jenis Pelan: <input type=text name=pelan_jenis value="{{$PelanPerancanganPerolehan->pelan_jenis}}">

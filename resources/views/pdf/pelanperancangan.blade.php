@@ -16,8 +16,12 @@
 <br>Kaedah Perolehan: {{$fizaPelanPerancanganPerolehan->pelan_method}}
 <br>Tarikh: {{$fizaPelanPerancanganPerolehan->pelan_invitation_date}}
 <br>Amaun anggaran: {{$fizaPelanPerancanganPerolehan->pelan_estimated_amount}}
-@foreach ($user as $user)
-<br>Pegawai Pengesah: {{$user->user_name}}
-<br>Pegawai Pelulus: {{$user->user_name}} 
+@foreach ($user as $user2)
+<br>Pegawai Pengesah: {{$user2->user_name}}
 @endforeach
-<br>Status Perancangan Perolehan:  {{$fizaPelanPerancanganPerolehan->pelan_status}}
+@foreach ($user as $user4)
+<br>Pegawai Pelulus: {{$user4->user_name}} 
+@endforeach
+
+
+<br>Status Pelan: {{$fizaPelanPerancanganPerolehan->pelan_status}}

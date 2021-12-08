@@ -71,12 +71,7 @@ class FizaAuditPelanController extends Controller
         return redirect('/fizaAuditPelan');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\FizaAuditPelan  $fizaAuditPelan
-     * @return \Illuminate\Http\Response
-     */
+   
     public function destroy(FizaAuditPelan $fizaAuditPelan)
     {
         //

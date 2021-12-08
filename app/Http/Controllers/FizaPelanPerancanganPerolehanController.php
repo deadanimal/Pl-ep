@@ -18,12 +18,12 @@ class FizaPelanPerancanganPerolehanController extends Controller
 
     public function index()
     {
-        $fizaPelanPerancanganPerolehan = FizaPelanPerancanganPerolehan::all();
-        $user = User::all();
+        $fizaPelanPerancanganPerolehan = FizaPelanPerancanganPerolehan::where('pelan_created_by',Auth::user()->id)->get();
 
         return view ('1_pelan_perancangan.index',[
-            'fizaPelanPerancanganPerolehan'=>$fizaPelanPerancanganPerolehan,
-            'user'=>$user
+            'fizaPelanPerancanganPerolehan'=>$fizaPelanPerancanganPerolehan
+
+    
         ]);
     }
 
@@ -31,6 +31,7 @@ class FizaPelanPerancanganPerolehanController extends Controller
     public function create()
     {
         $user=User::where('jenis','pekerja')->get();
+        // ->orWhere('jenis','pembekal')->get();
         // dd($user);
         return view ('/1_pelan_perancangan.create', [
             'user'=>$user
@@ -104,12 +105,13 @@ class FizaPelanPerancanganPerolehanController extends Controller
     {
         // $PelanPerancanganPerolehan= FizaPelanPerancanganPerolehan::find($id);
         $PelanPerancanganPerolehan= FizaPelanPerancanganPerolehan::find($id);
-        $user = User::where([['id', $PelanPerancanganPerolehan->pelan_pengesah],
-            ['id', $PelanPerancanganPerolehan->pelan_pelulus]])->get();
+        $pengesah = User::where('id', $PelanPerancanganPerolehan->pelan_pelulus)->get();
+        $pelulus = User::where('id', $PelanPerancanganPerolehan->pelan_pengesah)->get();
             
         return view ('1_pelan_perancangan.edit',[
             'PelanPerancanganPerolehan'=>$PelanPerancanganPerolehan,
-            'user'=>$user
+            'pengesah'=>$pengesah,
+            'pelulus'=>$pelulus
         ]);
 
     }
@@ -162,8 +164,8 @@ class FizaPelanPerancanganPerolehanController extends Controller
     public function indexpengesah()
     {
 
-        $fizaPelanPerancanganPerolehan = FizaPelanPerancanganPerolehan::where('pelan_status','Menunggu Pengesahan')->get();
-
+        $fizaPelanPerancanganPerolehan = FizaPelanPerancanganPerolehan::where('pelan_status','Menunggu Pengesahan')->
+        where('pelan_pengesah',Auth::user()->id)->get();
 
         return view ('1_pelan_perancangan.index_pengesah',[
             'fizaPelanPerancanganPerolehan'=>$fizaPelanPerancanganPerolehan]);
@@ -175,15 +177,20 @@ class FizaPelanPerancanganPerolehanController extends Controller
     {
         // $PelanPerancanganPerolehan= FizaPelanPerancanganPerolehan::where('id',$id)->first();
         $PelanPerancanganPerolehan= FizaPelanPerancanganPerolehan::find($id);
-        $user = User::where([['id', $PelanPerancanganPerolehan->pelan_pengesah],
-            ['id', $PelanPerancanganPerolehan->pelan_pelulus]])->get();
-  
-        return view ('1_pelan_perancangan.edit_pengesah',[
-            'PelanPerancanganPerolehan'=>$PelanPerancanganPerolehan, 
-            'user'=>$user
-        ]);
+        $userPengesah = User::where('id', $PelanPerancanganPerolehan->pelan_pelulus)->get();
+        $userPelulus = User::where('id', $PelanPerancanganPerolehan->pelan_pengesah)->get();
 
+        // dd($user,$user2);
+        // dd($PelanPerancanganPerolehan);
+        return view('1_pelan_perancangan.edit_pengesah', [
+            'PelanPerancanganPerolehan'=>$PelanPerancanganPerolehan,
+            // 'user'=>$user,
+            'userPengesah'=>$userPengesah,
+            'userPelulus'=>$userPelulus
+        ]);
     }
+
+    
 
 
     public function updatepengesah(Request $request,FizaPelanPerancanganPerolehan $pelanPerancanganPerolehan)
@@ -244,7 +251,9 @@ class FizaPelanPerancanganPerolehanController extends Controller
     public function indexpelulus()
     {
 
-        $fizaPelanPerancanganPerolehan = FizaPelanPerancanganPerolehan::where('pelan_status','Menunggu Kelulusan')->get();
+        $fizaPelanPerancanganPerolehan = FizaPelanPerancanganPerolehan::where('pelan_status','Menunggu Kelulusan')   
+        ->where('pelan_pelulus',Auth::user()->id)->get();
+
         return view ('1_pelan_perancangan.index_pelulus',[
             'fizaPelanPerancanganPerolehan'=>$fizaPelanPerancanganPerolehan]);
 
@@ -254,12 +263,14 @@ class FizaPelanPerancanganPerolehanController extends Controller
     {
         // $PelanPerancanganPerolehan= FizaPelanPerancanganPerolehan::where('id',$id)->first();
         $PelanPerancanganPerolehan= FizaPelanPerancanganPerolehan::find($id);
-        $user = User::where([['id', $PelanPerancanganPerolehan->pelan_pengesah],
-            ['id', $PelanPerancanganPerolehan->pelan_pelulus]])->get();
+        $pengesah = User::where('id', $PelanPerancanganPerolehan->pelan_pengesah)->get();
+        $pelulus = User::where('id', $PelanPerancanganPerolehan->pelan_pelulus)->get();
+
 
         return view ('1_pelan_perancangan.edit_pelulus',[
             'PelanPerancanganPerolehan'=>$PelanPerancanganPerolehan, 
-            'user'=>$user
+            'pengesah'=>$pengesah,
+            'pelulus'=>$pelulus
         ]);
 
     }
@@ -315,8 +326,8 @@ class FizaPelanPerancanganPerolehanController extends Controller
     {
         // dd($id);
         $fizaPelanPerancanganPerolehan= FizaPelanPerancanganPerolehan::find($id);
-        $user = User::where([['id', $fizaPelanPerancanganPerolehan->pelan_pengesah],
-            ['id', $fizaPelanPerancanganPerolehan->pelan_pelulus]])->get();
+        $user = User::where('id', $fizaPelanPerancanganPerolehan->pelan_pengesah)->where
+            ('id', $fizaPelanPerancanganPerolehan->pelan_pelulus)->get();
        
 
         $fizaPelanPerancanganPerolehan->pelan_status=$fizaPelanPerancanganPerolehan->pelan_status; 

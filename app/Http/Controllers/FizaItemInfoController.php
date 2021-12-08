@@ -113,12 +113,14 @@ class FizaItemInfoController extends Controller
 
     public function addcart(Request $request, FizaItemInfo $ItemInfo)
     {
-        $fizaKart = FizaKart::where('aktif', true)->first(); // syafiza kena cari jugak pembelian based on user...
+        $fizaKart = FizaKart::where('aktif', true)->first();
+        $user_id=Auth::user()->id; 
+
+        
         if ($fizaKart) {
-            // kita buat bodoh...
+    
         } else {
             $fizaKart = new FizaKart;
-            $fizaKart->user_id = 1;
             $fizaKart->save();
         }
 

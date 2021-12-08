@@ -70,7 +70,6 @@ use App\Models\Roles;
 */
 
 Route::resource('/Pengguna',PenggunaController::class);
-Route::delete('/Pengguna/delete/{id}', [PenggunaController::class, 'destroy']);
 
 Route::get('/list-role',[RegisteredUserController::class,'list_role']);
 
@@ -124,6 +123,8 @@ Route::get('/indexpelulus',[FizaPelanPerancanganPerolehanController::class,'inde
 Route::get('/editpelulus/{id}',[FizaPelanPerancanganPerolehanController::class,'editpelulus']);
 Route::post('/updatepelulus',[FizaPelanPerancanganPerolehanController::class,'updatepelulus']);
 
+Route::resource('/SuratNiat',FizaSenaraiSuratNiatController::class);
+
 
 Route::group(['middleware' => ['auth']],function(){
 
@@ -172,7 +173,6 @@ Route::group(['middleware' => ['auth']],function(){
     Route::resource('/PertanyaanItem',FizaPertanyaanItemController::class);
     Route::resource('/PesananTempatan',FizaPesananTempatanController::class);
     Route::resource('/SenaraiSemakStandard',FizaSenaraiSemakStandardController::class);
-    Route::resource('/SuratNiat',FizaSuratNiatController::class);
     Route::resource('/SuratSetujuTerima',FizaSuratSetujuTerimaController::class);
     Route::resource('/Roles',RolesController::class);
 });

@@ -164,7 +164,10 @@
                 <label class="col-form-label col-sm-6 ">Nama Pegawai Pengesah</label>
             </div>
             <div class="mb-3 col-md-6">
-                <input  type=text name=pelan_pengesah class="form-control" value="{{$PelanPerancanganPerolehan->pelan_pengesah}}"readonly>
+                @foreach($userPengesah as $pengesah)
+                <input type=text name="pelan_pengesah" class="form-control"  value="{{$pengesah->user_name}}">
+                    @endforeach 
+
             </div>
         </div>
 
@@ -183,7 +186,9 @@
                 <label class="col-form-label col-sm-6 ">Nama Pegawai Pelulus</label>
             </div>
             <div class="mb-3 col-md-6">
-                <input type=text name="pelan_pelulus" class="form-control" value="{{$PelanPerancanganPerolehan->pelan_pelulus}}">
+                @foreach ($userPelulus as $pelulus)
+                <input type="text" name=pelan_pelulus class="form-control" value="{{$pelulus->user_name}}">
+                @endforeach
             </div>
         </div>
 
@@ -194,7 +199,7 @@
             </div>
             <div class="mb-3 col-md-6">
                 <select name="pelan_status" class="form-control">
-                    <option hidden>Sila Pilih</option>>
+                    <option hidden>Sila Pilih</option>
                     <option value="Menunggu Kelulusan">Disahkan</option>
                     <option value="Semak Semula">Semak Semula</option>
                 </select>
@@ -218,7 +223,7 @@
         user_id--}}
         <br><br>
         <div style=float-right>
-         <button  class="btn btn-success" type="submit">Kemaskini</button> 
+         <button  class="btn-primary" type="submit">Hantar</button> 
         </div>
 
 

@@ -36,7 +36,7 @@
             <script src="/js/settings.js"></script>
     
             <style>
-                table{
+                table, text{
                     text-transform: capitalize;
                 }
             </style>
