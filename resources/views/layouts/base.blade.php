@@ -57,7 +57,7 @@
                         <div class="sidebar-user">
                             <img src="/PL.png" class="img-fluid rounded-circle mb-2" alt="Linda Miller" />
                             <div class="fw-bold">Perbadanan Labuan</div>
-                            {{Auth::user()->user_name}}
+                            {{-- {{Auth::user()->user_name}} --}}
                         </div>
                     
                     <ul class="sidebar-nav">
