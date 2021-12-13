@@ -2,11 +2,21 @@
 
 @section('content')
 
+<div class="header">
+    <h1 class="header-title">
+      Pelan Perancangan Perolehan
+    </h1>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#"> Senarai Pelan Perolehan</a></li>
+        </ol>
+    </nav>
+</div>
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h3>Senarai Perolehan </h3>
+                <h5 class="card-title mb-0"></h5>
             </div>
             <div class="card-body">
                 <table id="datatables-1" class="table table-striped" style="width:100%">
@@ -48,6 +58,7 @@
         </div>
     </div>
 </div>
+
 
 
 @stop

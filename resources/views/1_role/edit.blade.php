@@ -2,7 +2,7 @@
     @method('PUT')
 
     <br> Nama Pengguna: {{$user->user_name}}
-    <br> Email: {{$user->email}}
+    <br> Emel: {{$user->email}}
     <br> Jenis Pengguna {{$user->jenis}}
     <br> Roles:                        
       <select name="role_id"  class="form-control">

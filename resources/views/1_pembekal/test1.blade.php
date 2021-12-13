@@ -1,7 +1,5 @@
 @extends('layouts.base')
 
-
-
     <h3>Pendaftaran Pembekal</h3>
     </div>
     <div class="card-body">
@@ -54,7 +52,7 @@
                                 <input name="wizard-surname" type="text" class="form-control required">
                             </div>
                             <div class="form-group">
-                                <label class="form-label">Email
+                                <label class="form-label">Emel
                                     <span class="text-danger">*</span>
                                 </label>
                                 <input name="wizard-email" type="text" class="form-control required email">
@@ -80,7 +78,7 @@
                                 <input name="wizard-surname" type="text" class="form-control required">
                             </div>
                             <div class="form-group">
-                                <label class="form-label">Email
+                                <label class="form-label">Emel
                                     <span class="text-danger">*</span>
                                 </label>
                                 <input name="wizard-email" type="text" class="form-control required email">
@@ -105,7 +103,7 @@
                                 <input name="wizard-surname" type="text" class="form-control required">
                             </div>
                             <div class="form-group">
-                                <label class="form-label">Email
+                                <label class="form-label">Emel
                                     <span class="text-danger">*</span>
                                 </label>
                                 <input name="wizard-email" type="text" class="form-control required email">

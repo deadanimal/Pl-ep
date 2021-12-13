@@ -369,7 +369,7 @@
 						</h1>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="dashboard-default.html">Dashboard</a></li>
+								<li class="breadcrumb-item"><a href="#">Dashboard</a></li>
 								<li class="breadcrumb-item"><a href="#">Forms</a></li>
 								<li class="breadcrumb-item active" aria-current="page">Wizard</li>
 							</ol>
@@ -587,7 +587,7 @@
 											<input name="wizard-surname" type="text" class="form-control required">
 										</div>
 										<div class="form-group">
-											<label class="form-label">Email
+											<label class="form-label">Emel
 												<span class="text-danger">*</span>
 											</label>
 											<input name="wizard-email" type="text" class="form-control required email">

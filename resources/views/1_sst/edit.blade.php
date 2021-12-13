@@ -226,7 +226,7 @@
 
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">Email</label>
+                                <label class="col-form-label col-sm-6 ">Emel</label>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <input type="email" class="form-control" name="sst_email" value="{{$SuratSetujuTerima->sst_email}}">

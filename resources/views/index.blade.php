@@ -8,7 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="author" content="Bootlab">
 
-	<link href="css/modern.css" rel="stylesheet">
+	<link href="/css/modern.css" rel="stylesheet">
 
 </head>
 
@@ -119,6 +119,9 @@
 				<h2>Soalan Lazim</h2>
 				<p class="text-muted">Here's what some of our 3,000 customers have to say about working with our products.</p>
 			</div>
+		</div>
+	 </section>
+	 
 		
 
 
@@ -281,6 +284,35 @@
 
 
 	</section> --}}
+
+	<footer class="footer">
+		<div class="container-fluid">
+			<div class="row text-muted">
+				<div class="col-8 text-start">
+					<ul class="list-inline">
+						<li class="list-inline-item">
+					
+							<p>Sistem Pengurusan ePerolehan</p>
+						</li>
+						{{-- <li class="list-inline-item">
+							<a class="text-muted" href="#">Privacy</a>
+						</li>
+						<li class="list-inline-item">
+							<a class="text-muted" href="#">Terms of Service</a>
+						</li>
+						<li class="list-inline-item">
+							<a class="text-muted" href="#">Contact</a>
+						</li> --}}
+					</ul>
+				</div>
+				<div class="col-4 text-end">
+					<p class="mb-0">
+						&copy; 2021 - <a href="dashboard-default.html" class="text-muted">Perbadanan Labuan</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
 
 	<svg width="0" height="0" style="position:absolute">
 		<defs>

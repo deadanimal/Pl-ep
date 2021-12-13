@@ -32,17 +32,18 @@
             
             <!-- Scripts -->
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-            <link href="/css/light.css" rel="stylesheet">
+            <link href="/css/modern.css" rel="stylesheet">
             <script src="/js/settings.js"></script>
     
             <style>
-                table, text{
+                table,input[type=text]{
                     text-transform: capitalize;
-                }
+            }
             </style>
     </head>
 
     <body>
+        
         
         <div class="wrapper">
             <nav id="sidebar" class="sidebar">
@@ -57,7 +58,7 @@
                         <div class="sidebar-user">
                             <img src="/PL.png" class="img-fluid rounded-circle mb-2" alt="Linda Miller" />
                             <div class="fw-bold">Perbadanan Labuan</div>
-                            {{-- {{Auth::user()->user_name}} --}}
+                            <small>{{Auth::user()->user_name}}</small>
                         </div>
                     
                     <ul class="sidebar-nav">
@@ -132,8 +133,6 @@
                             <ul id="auth" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
                                 <li class="sidebar-item"><a class="sidebar-link" href="/Pengguna/create">Pendaftaran Pengguna</a></li>
                                 <li class="sidebar-item"><a class="sidebar-link" href="/Pengguna">Senarai Pengguna</a></li>
-                                <li class="sidebar-item"><a class="sidebar-link" href="/login">Login</a></li>
-                                
                             </ul>
                         </li>
     
@@ -198,7 +197,7 @@
                                 <i class="align-middle me-2 fas fa-fw fa-book"></i> <span class="align-middle">Pengurusan Kontrak</span>
                             </a>
                             <ul id="icons" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-                                <li class="sidebar-item"><a class="sidebar-link" href="SuratSetujuTerima/create">Surat Setuju Terima</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="/SuratSetujuTerima/create">Surat Setuju Terima</a></li>
                                 {{-- <li class="sidebar-item"><a class="sidebar-link" href="icons-ion.html"> Icons</a></li>
                                 <li class="sidebar-item"><a class="sidebar-link" href="icons-font-awesome.html">Font Awesome</a></li> --}}
                             </ul>
@@ -225,9 +224,9 @@
                             </ul>
                         </li> --}}
     
-                        <li class="sidebar-header">
+                        {{-- <li class="sidebar-header">
                             Extras
-                        </li>
+                        </li> 
                         {{-- <li class="sidebar-item">
                             <a data-bs-target="#documentation" data-bs-toggle="collapse" class="sidebar-link collapsed">
                                 <i class="align-middle me-2 fas fa-fw fa-book"></i> <span class="align-middle">Documentation</span>
@@ -239,7 +238,7 @@
                             </ul>
                         </li> --}}
 
-                        <li class="sidebar-item">
+                        {{-- <li class="sidebar-item">
                             <a class="sidebar-link" href="/AuditLog">
                                 <i class="align-middle me-2 fas fa-fw fa-clock"></i> <span class="align-middle">Audit Log</span>
                             </a>
@@ -249,105 +248,36 @@
                             <a class="sidebar-link" href="/NotificationCenter">
                                 <i class="align-middle me-2 fas fa-fw fa-desktop"></i> <span class="align-middle">Notifikasi</span>
                             </a>
-                        </li>
-
-                       <form action="/logout" method="POST">
-                            @csrf
-                            <button type="submit">Log Keluar</button>
-                            </form>
+                        </li> --}}
                     </ul> 
                 </div>
             </nav>
 
             <div class="main">
-                <nav class="navbar navbar-theme">
-                 {{-- <nav class="navbar navbar-expand navbar-theme"> 
-                     <a class="sidebar-toggle d-flex me-2">
+                <nav class="navbar navbar-expand navbar-theme">
+                    {{-- <a class="sidebar-toggle d-flex me-2">
                         <i class="hamburger align-self-center"></i>
-                    </a>  
+                    </a>
     
-                  <form class="d-none d-sm-inline-block">
+                    <form class="d-none d-sm-inline-block">
                         <input class="form-control form-control-lite" type="text" placeholder="Search projects...">
-                     </form> --}}
+                    </form> --}}
     
-                     <div class="navbar-collapse collapse">
+                    <div class="navbar-collapse collapse">
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item dropdown active">
-                                <a class="nav-link dropdown-toggle position-relative" href="#" id="messagesDropdown" data-bs-toggle="dropdown">
+                                <a class="nav-link dropdown-toggle position-relative" href="/AuditLog">
                                     <i class="align-middle fas fa-envelope-open"></i>
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0" aria-labelledby="messagesDropdown">
-                                    <div class="dropdown-menu-header">
-                                        <div class="position-relative">
-                                            4 New Messages
-                                        </div>
-                                    </div>
-                                    <div class="list-group">
-                                        <a href="#" class="list-group-item">
-                                            <div class="row g-0 align-items-center">
-                                                <div class="col-2">
-                                                    <img src="img/avatars/avatar-5.jpg" class="avatar img-fluid rounded-circle" alt="Michelle Bilodeau">
-                                                </div>
-                                                <div class="col-10 ps-2">
-                                                    <div class="text-dark">Michelle Bilodeau</div>
-                                                    <div class="text-muted small mt-1">Nam pretium turpis et arcu. Duis arcu tortor.</div>
-                                                    <div class="text-muted small mt-1">5m ago</div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="list-group-item">
-                                            <div class="row g-0 align-items-center">
-                                                <div class="col-2">
-                                                    <img src="img/avatars/avatar-3.jpg" class="avatar img-fluid rounded-circle" alt="Kathie Burton">
-                                                </div>
-                                                <div class="col-10 ps-2">
-                                                    <div class="text-dark">Kathie Burton</div>
-                                                    <div class="text-muted small mt-1">Pellentesque auctor neque nec urna.</div>
-                                                    <div class="text-muted small mt-1">30m ago</div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="list-group-item">
-                                            <div class="row g-0 align-items-center">
-                                                <div class="col-2">
-                                                    <img src="img/avatars/avatar-2.jpg" class="avatar img-fluid rounded-circle" alt="Alexander Groves">
-                                                </div>
-                                                <div class="col-10 ps-2">
-                                                    <div class="text-dark">Alexander Groves</div>
-                                                    <div class="text-muted small mt-1">Curabitur ligula sapien euismod vitae.</div>
-                                                    <div class="text-muted small mt-1">2h ago</div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="list-group-item">
-                                            <div class="row g-0 align-items-center">
-                                                <div class="col-2">
-                                                    <img src="img/avatars/avatar-4.jpg" class="avatar img-fluid rounded-circle" alt="Daisy Seger">
-                                                </div>
-                                                <div class="col-10 ps-2">
-                                                    <div class="text-dark">Daisy Seger</div>
-                                                    <div class="text-muted small mt-1">Aenean tellus metus, bibendum sed, posuere ac, mattis non.</div>
-                                                    <div class="text-muted small mt-1">5h ago</div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="dropdown-menu-footer">
-                                        <a href="#" class="text-muted">Show all messages</a>
-                                    </div>
-                                </div>
                             </li>
-                            li class="nav-item dropdown ms-lg-2">
-                                <a class="nav-link dropdown-toggle position-relative" href="#" id="alertsDropdown" data-bs-toggle="dropdown">
+                            <li class="nav-item dropdown ms-lg-2">
+                                <a class="nav-link dropdown-toggle position-relative" href="/NotificationCenter">
                                     <i class="align-middle fas fa-bell"></i>
-                                    <span class="indicator"></span>
                                 </a>
-                                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0" aria-labelledby="alertsDropdown">
-                                    <div class="dropdown-menu-header">
-                                        4 New Notifications
-                                    </div>
+                            </li>
+                                {{-- <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0" aria-labelledby="alertsDropdown">
                                     <div class="list-group">
-                                        <a href="#" class="list-group-item">
+                                        <a href="/NotificationCenter" class="list-group-item">
                                             <div class="row g-0 align-items-center">
                                                 <div class="col-2">
                                                     <i class="ms-1 text-danger fas fa-fw fa-bell"></i>
@@ -359,105 +289,61 @@
                                                 </div>
                                             </div>
                                         </a>
-                                        <a href="#" class="list-group-item">
-                                            <div class="row g-0 align-items-center">
-                                                <div class="col-2">
-                                                    <i class="ms-1 text-warning fas fa-fw fa-envelope-open"></i>
-                                                </div>
-                                                <div class="col-10">
-                                                    <div class="text-dark">Lorem ipsum</div>
-                                                    <div class="text-muted small mt-1">Aliquam ex eros, imperdiet vulputate hendrerit et.</div>
-                                                    <div class="text-muted small mt-1">6h ago</div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="list-group-item">
-                                            <div class="row g-0 align-items-center">
-                                                <div class="col-2">
-                                                    <i class="ms-1 text-primary fas fa-fw fa-building"></i>
-                                                </div>
-                                                <div class="col-10">
-                                                    <div class="text-dark">Login from 192.186.1.1</div>
-                                                    <div class="text-muted small mt-1">8h ago</div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="list-group-item">
-                                            <div class="row g-0 align-items-center">
-                                                <div class="col-2">
-                                                    <i class="ms-1 text-success fas fa-fw fa-bell-slash"></i>
-                                                </div>
-                                                <div class="col-10">
-                                                    <div class="text-dark">New connection</div>
-                                                    <div class="text-muted small mt-1">Anna accepted your request.</div>
-                                                    <div class="text-muted small mt-1">12h ago</div>
-                                                </div>
-                                            </div>
-                                        </a>
+
                                     </div>
                                     <div class="dropdown-menu-footer">
                                         <a href="#" class="text-muted">Show all notifications</a>
                                     </div>
                                 </div> 
-                            </li>
+                            </li>--}}
                             <li class="nav-item dropdown ms-lg-2">
                                 <a class="nav-link dropdown-toggle position-relative" href="#" id="userDropdown" data-bs-toggle="dropdown">
                                     <i class="align-middle fas fa-cog"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                                    <a class="dropdown-item" href="#"><i class="align-middle me-1 fas fa-fw fa-user"></i> View Profile</a>
-                                    <a class="dropdown-item" href="#"><i class="align-middle me-1 fas fa-fw fa-comments"></i> Contacts</a>
+                                    <a class="dropdown-item" href="/Pengguna/{{Auth::user()->id}}"><i class="align-middle me-1 fas fa-fw fa-user"></i> Profil Saya</a>
+                                    {{-- <a class="dropdown-item" href="#"><i class="align-middle me-1 fas fa-fw fa-comments"></i> Contacts</a>
                                     <a class="dropdown-item" href="#"><i class="align-middle me-1 fas fa-fw fa-chart-pie"></i> Analytics</a>
-                                    <a class="dropdown-item" href="#"><i class="align-middle me-1 fas fa-fw fa-cogs"></i> Settings</a>
+                                    <a class="dropdown-item" href="#"><i class="align-middle me-1 fas fa-fw fa-cogs"></i> Settings</a> --}}
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#"><i class="align-middle me-1 fas fa-fw fa-arrow-alt-circle-right"></i> Sign out</a>
+                                    {{-- <a class="dropdown-item" href="#"> --}}
+                                        <form action="/logout" method="POST">
+                                        @csrf
+                                        <button type="submit" class="btn" ><i class="align-middle me-1 fas fa-fw fa-arrow-alt-circle-right"></i>Log Keluar</button>
+                                        </form>
                                 </div>
                             </li>
                         </ul>
                     </div>
     
                 </nav>
-
                 <main class="content">
                     <div class="container-fluid">
     
-                        {{-- <div class="header">
+                        @yield('content')
+                        @yield('scripts')
+                    </div>
+                </main>
+                    {{--<div class="header">
                             <h1 class="header-title">
-                                Calendar
                             </h1>
-                            <nav aria-label="breadcrumb">
+                               <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="dashboard-default.html">Dashboard</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Calendar</li>
+                                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                                    <li class="breadcrumb-item"><a href="#">Forms</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Form Layouts</li>
                                 </ol>
-                            </nav>
-                        </div> --}}
-
-
-                            {{-- <h1 class="header-title">
-                                DataTables
-                            </h1>
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="dashboard-default.html">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="#">Tables</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">DataTables</li>
-                                </ol>
-                            </nav> --}}
-                        </div>
+                            </nav> 
+                        </div> 
                         <div class="row">
                             <div class="col-12 col-xl-12">
                                 <div class="card">
-                                    <div class="card-header">
-
-                                    </div>
-                                    <div class="card-body">
-                                                    @yield('content')
-                                                    @yield('scripts')
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
+  
+                               
+                            </div>--}}
+    
+                    
+                    
 
             {{-- <main class="content">
 				<div class="container-fluid">
@@ -471,8 +357,7 @@
                         </div>
                     </div>
                 </div>--}}
-            </main> 
-        </div>
+    
         <script>
             Swal.fire(
             'Tahniah',
@@ -486,8 +371,8 @@
                $('#datatables-1').DataTable();
            } );
    
-           </script>
-    </body>
+            </script>
+    </main>
 
 </body>
 

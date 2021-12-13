@@ -40,9 +40,9 @@
                         {{-- <x-input id="jenis_user" class="form-control" type="text" name="jenis_user" :value="old('jenis_user')" required autofocus /> --}}
                     </div>
 
-                    <!-- Email Address -->
+                    <!-- Emel Address -->
                     <div class="mt-4">
-                        <x-label for="email" :value="__('Email')" />
+                        <x-label for="email" :value="__('Emel')" />
 
                         <x-input id="email" class="form-control" type="email" name="email" :value="old('email')" required />
                     </div>

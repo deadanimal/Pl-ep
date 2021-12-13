@@ -25,7 +25,8 @@ class FizaJawatankuasaController extends Controller
     public function create()
     {
 
-        $user= User::where('jenis','pekerja')->get();
+        $user= User::where('jenis','pekerja')
+            ->where('user_status','aktif')->get();
         // $fizaPembelianSebutTender= FizaPembelianSebutTender::find($id);
         return view ('1_jawatankuasa.create',[
         'user'=>$user, 
@@ -89,7 +90,8 @@ class FizaJawatankuasaController extends Controller
     public function edit( $id)
     {
         $fizaJawatankuasa= fizaJawatankuasa::find($id);
-        $user=User::where('jenis','pekerja')->get();
+        $user=User::where('jenis','pekerja')->
+        where('user_status','aktif')->get();
 
         return view ('1_jawatankuasa.edit',[
             'Jawatankuasa'=>$fizaJawatankuasa,

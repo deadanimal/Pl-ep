@@ -2,16 +2,25 @@
 
 @section('content')
 
+<div class="header">
+    <h1 class="header-title">
+  Pembelian
+    </h1>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Cipta Sebutharga / Tender</a></li>
+        </ol>
+    </nav>
+</div>
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <div class="card-body">
-                    <h3>Cipta SebutHarga / Tender </h3>
+                <h5 class="card-title mb-0"></h5>
+            </div>
+            <div class="card-body">
                         <form method="POST" action="/PembelianSebutTender">
                         @csrf
-
-                     
 
                         <div class="row">
                             <div class="mb-3 col-md-6">
@@ -33,7 +42,7 @@
 
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 "> No Perkeliling Perbendaharaan (No1PP)</label>
+                                <label class="col-form-label col-sm-10"> No Perkeliling Perbendaharaan (No1PP)</label>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <input type="text" class="form-control" name="pst_no1pp">
@@ -267,7 +276,7 @@
                     </div>
                 </div>
 
-                {{-- <div class="row">
+                <div class="row">
                     <div class="mb-3 col-md-6">
                         <label class="col-form-label col-sm-6 ">Status </label>
                     </div>
@@ -278,7 +287,7 @@
                 {{-- pst_created_by
                 pst_created_date
                 pst_updated_by
-                pst_updated_date 
+                pst_updated_date --}}
                 <div class="row">
                     <div class="mb-3 col-md-6">
                         <label class="col-form-label col-sm-6 ">Jenis Pemotongan</label>
@@ -305,18 +314,17 @@
                     <div class="mb-3 col-md-6">
                         <input type="text" class="form-control" name="pst_amaun_potongan">
                     </div>
-                </div> --}}
+                </div>
 
                 <br>    
                 <button type="submit" class="btn-success" name="status_pst" value="draf">Draf</button>
-                <button type="submit" class="btn-success"name="status_pst" value="hantar">Hantar</button>
+                <button type="submit" class="btn-primary"name="status_pst" value="hantar">Hantar</button>
                     
-                </form>
-                </div>
+            </form>
             </div>
-        </div></div></div>
+        </div>
+    </div>
+</div>
 
-
-                    
-                @endsection
+        @endsection
 

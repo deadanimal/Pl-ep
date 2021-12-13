@@ -1,9 +1,24 @@
 @extends('layouts.base')
 
 @section('content')
-    
-<h3>Pendaftaran Pengguna</h3>
 
+<div class="header">
+    <h1 class="header-title">
+    Pengguna
+    </h1>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#"> Pendaftaran Pengguna Baharu</a></li>
+        </ol>
+    </nav>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0"></h5>
+            </div>
+            <div class="card-body">
         <form action="/daftar-role" method="POST">
             @csrf
 
@@ -11,7 +26,9 @@
                 <div class="col-md-4">
                     <label class="col-form-label col-sm-4 ">Nama: </label>
                 </div>
-                <div class="col-md-8"><input type="text" class="form-control" name="user_name"></div>
+                <div class="mb-3 col-md-8">
+                    <input type="text" class="form-control" name="user_name">
+                </div>
             </div>
 
 
@@ -40,7 +57,7 @@
 
             <div class="row">
                 <div class="col-md-4">
-                    <label class="col-form-label col-sm-6 ">Email</label>
+                    <label class="col-form-label col-sm-6 ">Emel</label>
                 </div>
                 <div class="mb-3 col-md-8">
                     <input type-=email  class="form-control" name=email>
@@ -76,9 +93,14 @@
         <div>
             <button type=submit class="btn btn-primary" style=float:absolute>Daftar</button>
         </div>
-            </form>
+    </form>
+    </div>
+        </div>
+    </div>
+</div>
+    
 
-@endsection
+@stop
 
 
 

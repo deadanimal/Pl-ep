@@ -8,7 +8,7 @@ Kehadiran Taklimat
     <br> Nama <input type="text" class="form-control" name="kehadiran_nama">
     <br> No Kad Pengenalan <input type="number" class="form-control" name="kehadiran_pengenalan_no">
     <br> No Telefon <input type="number" class="form-control" name="kehadiran_no_tel">
-    <br> Email <input type="email" class="form-control" name="kehadiran_email">
+    <br> Emel <input type="email" class="form-control" name="kehadiran_email">
     <br> Status Kehadiran <input type="text" class="form-control" name="kehadiran_status">
     <br> Link <input type="url" class="form-control" name="kehadiran_link">
 {{-- kehadiran_created_by

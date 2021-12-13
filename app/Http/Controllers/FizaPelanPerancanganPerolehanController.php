@@ -30,7 +30,8 @@ class FizaPelanPerancanganPerolehanController extends Controller
 
     public function create()
     {
-        $user=User::where('jenis','pekerja')->get();
+        $user=User::where('jenis','pekerja')
+        ->where('user_status','aktif')->get();
         // ->orWhere('jenis','pembekal')->get();
         // dd($user);
         return view ('/1_pelan_perancangan.create', [
@@ -65,7 +66,7 @@ class FizaPelanPerancanganPerolehanController extends Controller
         $fizaPelanPerancanganPerolehan->pelan_peruntukan_tahunan=$request->pelan_peruntukan_tahunan;
         $fizaPelanPerancanganPerolehan->pelan_tarikh_perlaksanaan_iklan=$request->pelan_tarikh_perlaksanaan_iklan;
         $fizaPelanPerancanganPerolehan->pelan_tarikh_penyediaan_spesifikasi=$request->pelan_tarikh_penyediaan_spesifikasi;
-        $fizaPelanPerancanganPerolehan->pelan_tarikh_penilaian_tender=$request->pelan_penilaian_tender;
+        $fizaPelanPerancanganPerolehan->pelan_tarikh_penilaian_tender=$request->pelan_tarikh_penilaian_tender;
         $fizaPelanPerancanganPerolehan->pelan_tarikh_penyediaan_doc_tender=$request->pelan_tarikh_penyediaan_doc_tender;
         $fizaPelanPerancanganPerolehan->pelan_tarikh_perlaksanaan_persidangan=$request->pelan_tarikh_perlaksanaan_persidangan;
         $fizaPelanPerancanganPerolehan->pelan_tarikh_sst_dikeluarkan=$request->pelan_tarikh_sst_dikeluarkan;
@@ -84,11 +85,11 @@ class FizaPelanPerancanganPerolehanController extends Controller
         $fizaPelanPerancanganPerolehan->save();
 
         $notification_obj = (object)[];
-        $notification_obj->noti_type='$fizaPelanPerancanganPerolehan->pelan_created_by';
+        $notification_obj->noti_type = $fizaPelanPerancanganPerolehan->pelan_created_by;
         $notification_obj->noti_template='Telah Mencipta';
         $notification_obj->noti_subject='Pelan Perancangan';
         $notification_obj->noti_content='dan';
-        $notification_obj->noti_status='Menunggu Pengesahan';
+        $notification_obj->noti_status= $fizaPelanPerancanganPerolehan->pelan_status;
                         
         app('App\Http\Controllers\FizaNotificationCenterController')->store($notification_obj);
         return redirect('/PelanPerancanganPerolehan');

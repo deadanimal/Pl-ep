@@ -10,12 +10,11 @@ class FizaArahanMemberhentikanController extends Controller
 {
     public function index()
     {
-        $fizaArahanMemberhentikan = FizaArahanMemberhentikan::all();
-        $user = User::all();
+        $ArahanMemberhentikan= FizaArahanMemberhentikan::where('arahan_created_by',Auth::user()->id)
+        ->where('pembekal_id',Auth::user()->id)->get();
 
         return view ('1_arahan_berhenti.index',[
-            'ArahanMemberhentikan'=>$fizaArahanMemberhentikan,
-            'user'=>$user
+            'ArahanMemberhentikan'=>$ArahanMemberhentikan, 
         ]);
     }
 

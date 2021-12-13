@@ -93,25 +93,30 @@ class PenggunaController extends Controller
     {
         $user= User::find($request->get('id'));
 
-        // $user->user_name = $request->user_name;
-        // $user->user_identity_no = $request ->user_identity_no;
-        // $user->email = $request ->email;
-        // $user->jenis = $request ->jenis;
+        $user->user_name = $request->user_name;
+        $user->user_identity_no = $request ->user_identity_no;
+        $user->email = $request ->email;
+        $user->jenis = $request ->jenis;
         $user->user_status =$request->user_status;
         $user->roles()->attach($request->role_id);
 
 
         $user->save();
 
-        // return redirect('/Pengguna');
+        return redirect('/Pengguna');
     }
 
 
     public function destroy($id)
     {
+        // $user = User::find($id);
+        // $role= Roles::all();
+
+        $user = User::where('id',$id)->first();
+
         $user->delete();
 
+
         return redirect('/Pengguna');
-    
     }
 }

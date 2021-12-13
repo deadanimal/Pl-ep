@@ -23,7 +23,8 @@ class FizaNotaMintaController extends Controller
 
     public function create()
     {
-        $user=User::where('jenis','pekerja')->get();
+        $user=User::where('jenis','pekerja')
+        ->where('user_status','aktif')->get();
         // dd($user);
         return view('1_nota_minta.create', [
             'user'=>$user

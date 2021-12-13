@@ -2,10 +2,23 @@
 
 @section('content')
 
-
-<h3>Kemaskini Pelan Perolehan</h3>
+<div class="header">
+    <h1 class="header-title">
+        Pelan Perancangan Perolehan
+    </h1>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Kelulusan Pelan</a></li>
+        </ol>
+    </nav>
 </div>
-    <div class="card-body">
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0"></h5>
+            </div>
+            <div class="card-body">
         <form method="POST" action="/updatepelulus">
         @csrf
 
@@ -164,7 +177,10 @@
                 <label class="col-form-label col-sm-6 ">Nama Pegawai Pengesah</label>
             </div>
             <div class="mb-3 col-md-6">
-                <input  type=text name=pelan_pengesah class="form-control" value="{{$PelanPerancanganPerolehan->pelan_pengesah}}" readonly>
+                {{-- <input  type=text name=pelan_pengesah class="form-control" value="{{$PelanPerancanganPerolehan->pelan_pengesah}}" readonly> --}}
+                @foreach ($pengesah as $pengesah)
+                <input  type=text name=pelan_pengesah class="form-control" value="{{$pengesah->user_name}}" readonly>
+                @endforeach
             </div>
         </div>
 
@@ -173,20 +189,12 @@
                 <label class="col-form-label col-sm-6 ">Nama Pegawai Pelulus</label>
             </div>
             <div class="mb-3 col-md-6">
-                <input type=text name="pelan_pelulus" class="form-control" value="{{$PelanPerancanganPerolehan->pelan_pelulus}}" readonly>
+                @foreach ($pelulus as $pelulus)
+                <input  type=text name=pelan_pelulus class="form-control" value="{{$pelulus->user_name}}" readonly>
+                @endforeach
+                {{-- <input type=text name="pelan_pelulus" class="form-control" value="{{$PelanPerancanganPerolehan->pelan_pelulus}}" readonly> --}}
             </div>
         </div>
-
-
-        <div class="row">
-            <div class="mb-3 col-md-6">
-                <label class="col-form-label col-sm-6 ">Catatan Pelulus</label>
-            </div>
-            <div class="mb-3 col-md-6">
-                <input type=text name=pelan_catatan class="form-control">
-            </div>
-        </div>
-
 
         <div class="row">
             <div class="mb-3 col-md-6">
@@ -202,6 +210,20 @@
                     
             </div>
         </div>
+
+
+        <div class="row">
+            <div class="mb-3 col-md-6">
+                <label class="col-form-label col-sm-6 ">Catatan Pelulus</label>
+            </div>
+            <div class="mb-3 col-md-6">
+                <textarea row=3 col=4 name=pelan_catatan_pelulus class="form-control"></textarea>
+
+            </div>
+        </div>
+
+
+        
         {{-- <br>Jenis Pelan: <input type=text name=pelan_jenis value="{{$PelanPerancanganPerolehan->pelan_jenis}}">
         <br>Tahun Pelan Perolehan: <input type=number name=pelan_year value="{{$PelanPerancanganPerolehan->pelan_year}}">
         <br>Tajuk Pelan Perolehan: <input type=text name=pelan_title  value="{{$PelanPerancanganPerolehan->pelan_title}}">

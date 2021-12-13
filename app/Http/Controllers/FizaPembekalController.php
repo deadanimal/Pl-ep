@@ -90,10 +90,12 @@ class FizaPembekalController extends Controller
         if (!is_null($request->pembekal_jenis_akaun)) {
             if (in_array('Kerja', $request->pembekal_jenis_akaun) && in_array('Bekalan & Perkhidmatan(MOF)', $request->pembekal_jenis_akaun)) {
                 // return redirect('/insertfile');
-                return view('1_pembekal.fileupload', compact('fizaPembekal'));
+                return view('1_pembekal.fileupload');
+
             } elseif (in_array('Kerja', $request->pembekal_jenis_akaun))
              {
                 return redirect('/cidb/create');
+                
             } elseif (in_array('Bekalan & Perkhidmatan(MOF)', $request->pembekal_jenis_akaun)) {
                 return redirect('/dokumen/create');
             } else {
@@ -176,12 +178,10 @@ class FizaPembekalController extends Controller
  
     public function insertfile($id){
         // // dd('test');
-        $id = FizaPembekal::latest('id')->first();
-        dd($id);
-        
+        $pembekal = FizaPembekal::find('id')->first();
          $kod = FizaKodBidang::all();
          return view('1_pembekal.fileupload', [
-             'pembekal' => $id, 
+             'pembekal' => $pembekal, 
              'kod'=>$kod
          ]);
  
@@ -191,24 +191,23 @@ class FizaPembekalController extends Controller
     {
 
         // $fizaPembekal = FizaPembekal::latest('id')->first();
-        // dd($id);
-        // $id = fizaPembekal->id;
+        // $kod = FizaKodBidang::all();
 
-        $sijil_mof=$request->file('pembekal_sijil_mof')->store('sijil_mof');
-        $fizaPembekal->pembekal_sijil_mof=$sijil_mof;
+        // $sijil_mof=$request->file('pembekal_sijil_mof')->store('sijil_mof');
+        // $fizaPembekal->pembekal_sijil_mof=$sijil_mof;
 
-        $sijil_bumiputera=$request->file('pembekal_sijil_perakuan_bumiputera')->store('sijil_bumiputera');
-        $fizaPembekal->pembekal_sijil_perakuan_bumiputera=$sijil_bumiputera;
+        // $sijil_bumiputera=$request->file('pembekal_sijil_perakuan_bumiputera')->store('sijil_bumiputera');
+        // $fizaPembekal->pembekal_sijil_perakuan_bumiputera=$sijil_bumiputera;
 
-        $sijil_pendaftaran_syarikat=$request->file('pembekal_sijil_pendaftaran_syarikat')->store('sijil_bumiputera');
-        $fizaPembekal->pembekal_sijil_pendaftaran_syarikat=$sijil_pendaftaran_syarikat;
+        // $sijil_pendaftaran_syarikat=$request->file('pembekal_sijil_pendaftaran_syarikat')->store('sijil_bumiputera');
+        // $fizaPembekal->pembekal_sijil_pendaftaran_syarikat=$sijil_pendaftaran_syarikat;
 
 
-        $sijil_taraf=$request->file('pembekal_sijil_taraf_bumi')->store('sijil_taraf');
-        $fizaPembekal->pembekal_sijil_taraf_bumi=$sijil_taraf;
+        // $sijil_taraf=$request->file('pembekal_sijil_taraf_bumi')->store('sijil_taraf');
+        // $fizaPembekal->pembekal_sijil_taraf_bumi=$sijil_taraf;
 
-        $sijil_gred_cidb=$request->file('pembekal_sijil_gred')->store('sijil_gred');
-        $fizaPembekal->pembekal_sijil_gred=$sijil_gred_cidb;
+        // $sijil_gred_cidb=$request->file('pembekal_sijil_gred')->store('sijil_gred');
+        // $fizaPembekal->pembekal_sijil_gred=$sijil_gred_cidb;
 
         // $fizaPembekal->id_pembekal=$id;
         $id_pembekal = $request->get('id_pembekal');
@@ -220,7 +219,7 @@ class FizaPembekalController extends Controller
         $fizaPembekal->pembekal_pengkhususan=$request->pembekal_pengkhususan;
         $fizaPembekal->pembekal_pegawai_bertauliah=$request->pembekal_pegawai_bertauliah;
         $fizaPembekal->pembekal_tarikh_sah_gred=$request->pembekal_tarikh_sah_gred;
-  
+
         $fizaPembekal->id_kod=$request->id_kod;
 
         

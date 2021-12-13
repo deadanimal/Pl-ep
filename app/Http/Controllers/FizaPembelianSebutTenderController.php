@@ -17,25 +17,34 @@ class FizaPembelianSebutTenderController extends Controller
 {
     public function index()
     {
-        $fizaPembelianSebutTender = FizaPembelianSebutTender::all();
-        // date('d-m-Y', strtotime($fizaPembelianSebutTender->created_at));
-        return view('1_pst.index', [
-            'fizaPembelianSebutTender'=>$fizaPembelianSebutTender
-       
+     
+        $role=Auth::user()->roles;
+        
+        // dd($role[0]->id);
+
+        if($role[0]->id=='1'){
+            $PembelianSebutTender = FizaPembelianSebutTender::all();
+            return view('1_pst.index', [
+                'PembelianSebutTender'=>$PembelianSebutTender]);
+        }
+        else{
+        $PembelianSebutTender = FizaPembelianSebutTender::where('created_by',Auth::user()->user_name)->get();
+        return view('1_pst.index', [ 
+            'PembelianSebutTender'=>$PembelianSebutTender   
         ]);
 
-        setlocale(LC_ALL, 'ms_MY');
-        $date = new Date($fizaPembelianSebutTender->created_at);
-        $created_at = $date->format('d/m/Y');
 
-
+        }
+     
     }
 
 
     public function create()
     {
         $katalog = FizaKatalog::all();
-        $user=User::where('jenis', 'pekerja')->get();
+        $user=User::where('jenis', 'pekerja')->
+        where('user_status','aktif')->get();
+
         return view('1_pst.create', [
             'user'=>$user,
             'katalog'=>$katalog
@@ -139,7 +148,8 @@ class FizaPembelianSebutTenderController extends Controller
     public function edit($id)
     {
         $fizaPembelianSebutTender = FizaPembelianSebutTender::find($id);
-        $user = User::where('jenis', 'pekerja')->get();
+        $user = User::where('jenis', 'pekerja')->
+        where('user_status','aktif')->get();
         // dd($user);
 
         return view('1_pst.edit', [
@@ -202,14 +212,18 @@ class FizaPembelianSebutTenderController extends Controller
     }
 
    
-    public function destroy(FizaPembelianSebutTender $fizaPembelianSebutTender)
+    public function destroy($id)
     {
-        //
+        $PembelianSebutTender = FizaPembelianSebutTender::where('id',$id)->first();
+        $PembelianSebutTender->delete();
+
+
+        return redirect('/PembelianSebutTender');
     }
 
     public function verify_signature(Request $request)
     {
-        $fizaPembelianSebutTender= FizaPembelianSebutTender::where('id', $request->id)->first();
+        $PembelianSebutTender= FizaPembelianSebutTender::where('id', $request->id)->first();
         $pst_pelulus = $request->pst_pelulus;
         $ic_diletakkan = $request->ic_diletakkan;
 

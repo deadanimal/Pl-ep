@@ -69,7 +69,6 @@ use App\Models\Roles;
 |
 */
 
-Route::resource('/Pengguna',PenggunaController::class);
 
 Route::get('/list-role',[RegisteredUserController::class,'list_role']);
 
@@ -96,7 +95,7 @@ Route::get('/update-role/{id}', function(){
     ]);
 });
 Route::post('/kemaskini-role',[RegisteredUserController::class,'update_roles']);
-
+// Route::('/delete-user/{id}',[PenggunaController::class,'delete_user']);
 
 Route::post('/dokumentambahan',[FizaPembekalController::class,'dokumentambahan']);
 Route::get('/insertfile',[FizaPembekalController::class,'insertfile']);
@@ -124,15 +123,18 @@ Route::get('/editpelulus/{id}',[FizaPelanPerancanganPerolehanController::class,'
 Route::post('/updatepelulus',[FizaPelanPerancanganPerolehanController::class,'updatepelulus']);
 
 Route::resource('/SuratNiat',FizaSenaraiSuratNiatController::class);
+Route::resource('/Pembekal',FizaPembekalController::class);
+
+
+    Route::resource('/Pengguna', PenggunaController::class);
+
 
 
 Route::group(['middleware' => ['auth']],function(){
 
-
-
     Route::resource('/KodBidang',FizaKodBidangController::class);
     Route::resource('/PelanPerancanganPerolehan',FizaPelanPerancanganPerolehanController::class);
-    Route::resource('/Pembekal',FizaPembekalController::class);
+
     Route::resource('/PenyediaanSpesifikasi',FizaPenyediaanSpesifikasiController::class);
     Route::resource('/SijilDigital',FizaSijilDigitalController::class);
     Route::resource('/faq',FizaFaqController::class);
