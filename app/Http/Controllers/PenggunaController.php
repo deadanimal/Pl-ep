@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 
+
 class PenggunaController extends Controller
 {
 
@@ -53,7 +54,8 @@ class PenggunaController extends Controller
         // $role = Roles::find($request->role_id);
         $user->roles()->attach($request->role_id);
 
-        return redirect('/Pengguna');
+        return redirect('/Pengguna')->with('success','Pengguna telah berjaya didaftarkan!');
+    
     }
 
 

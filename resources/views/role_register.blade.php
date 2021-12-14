@@ -66,7 +66,7 @@
 
                 <div class="row">
                     <div class="col-md-4">
-                        <label class="col-form-label col-sm-6 ">Roles</label>
+                        <label class="col-form-label col-sm-6 ">Peranan Pengguna</label>
                     </div>
                     <div class="mb-3 col-md-8">
                          <select name="role_id"  class="form-control">

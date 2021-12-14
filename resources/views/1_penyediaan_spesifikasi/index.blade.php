@@ -2,39 +2,54 @@
 
 @section('content')
 
+<div class="header">
+    <h1 class="header-title">
+        Spesifikasi Item
+    </h1>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Senarai Spesifikasi Item</a></li>
+        </ol>
+    </nav>
+</div>
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h3>Senarai Spesifikasi Item </h3>
+                <h5 class="card-title mb-0"></h5>
+            </div>
+            <div class="card-body">
                     <table id="datatables-1" class="table table-striped" style="width:100%">
                         <thead>
                             <tr>
                                 <th>Tajuk</th>
                                 <th>Jenis Barang</th>
                                 <th>Status</th>
-                                <th>Disediakan Oleh</th>
+                                <th></th>
+
+
                             </tr>
                         </thead>
-
                         <tbody>
-
-                            @foreach ( $fizaPenyediaanSpesifikasi as  $fizaPenyediaanSpesifikasi)
+                            @foreach ($PenyediaanSpesifikasi as $PenyediaanSpesifikasi)
                                 <tr>
-                                    <td>{{  $fizaPenyediaanSpesifikasi->spesifikasi_tajuk_template}}</td>
-                                    <td>{{  $fizaPenyediaanSpesifikasi->spesifikasi_jenis}}</td>
-                                    <td>{{  $fizaPenyediaanSpesifikasi->spesifikasi_status}}</td>
-                                    <td>{{  $fizaPenyediaanSpesifikasi->spesifikasi_created_by}}</td>
-                                    <td><a href="/PenyediaanSpesifikasi/{{$fizaPenyediaanSpesifikasi->id }}/edit"><img src="/img/edit.svg"></td>
-                                </tr>
-                            @endforeach
-
+                                    <td>{{  $PenyediaanSpesifikasi->spesifikasi_tajuk_template}}</td>
+                                    <td>{{  $PenyediaanSpesifikasi->spesifikasi_jenis}}</td>
+                                    <td>{{  $PenyediaanSpesifikasi->spesifikasi_status}}</td>
+                                    <td class="table-action">
+                                        <form method="POST" action="/PenyediaanSpesifikasi/{{$PenyediaanSpesifikasi->id}}">
+                                            @method('DELETE')
+                                            @csrf
+                                        <button class="btn" type="submit"><i class="align-middle fas fa-fw fa-trash"></i></button>
+                                        <a href="/PenyediaanSpesifikasi/{{$PenyediaanSpesifikasi->id }}/edit"><i class="align-middle fas fa-fw fa-pen"></i></a>
+                                    </tr>
+                             @endforeach 
                         </tbody>
                     </table>
-            </div>
+                </div>
+             </div>
         </div>
     </div>
-</div>
 
 @stop
 

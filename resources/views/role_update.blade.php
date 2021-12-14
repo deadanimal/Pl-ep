@@ -93,11 +93,13 @@ Pengguna
                 <label class="col-form-label col-sm-6 ">Peranan Pengguna</label>
             </div>
             <div class="mb-3 col-md-6">
-                  @foreach ($user->roles as $role)
-                  <ul>
+               @foreach ($user->roles as $role)
+                    <input type="checkbox" id="{{$role->id}}" name="{{$user->role()}}" value="{{$role->id}}>
+                @endforeach
+                  {{-- <ul>
                       <li>{{$role->role_name}}</li>
                   </ul>
-                  @endforeach
+                  @endforeach --}}
             </div>
         </div>
 

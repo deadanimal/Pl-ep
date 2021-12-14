@@ -2,14 +2,24 @@
 
 @section('content')
 
+<div class="header">
+    <h1 class="header-title">
+        Penyediaan Spesifikasi
+    </h1>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Cipta Penyediaan Spesifikasi</a></li>
+        </ol>
+    </nav>
+</div>
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-
-                <h3> Borang Penyediaan Spesifikasi Item</h3>
-
-                <br><br>
+                <h5 class="card-title mb-0"></h5>
+            </div>
+            <div class="card-body">
+                
                 <form method="POST" action="/PenyediaanSpesifikasi" enctype="multipart/form-data">
                 @csrf
 

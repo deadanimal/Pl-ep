@@ -52,7 +52,7 @@ class FizaPengesyoranController extends Controller
 
 
         $fizaPengesyoran->save();
-        return redirect('/Pengesyoran');
+        return redirect('/Pengesyoran')->with('success','Data telah berjaya disimpan!');
 
 
     }
@@ -97,13 +97,16 @@ class FizaPengesyoranController extends Controller
         // $fizaPengesyoran->spesifikasi_id=$request->spesifikasi_id;
     
         $fizaPengesyoran->save();
-        return redirect('/Pengesyoran');
+        return redirect('/Pengesyoran')->with('success','Data telah berjaya dikemaskini!');
 
     }
 
 
-    public function destroy(FizaPengesyoran $fizaPengesyoran)
+    public function destroy($id)
     {
-        //
+        $pengesyoran = FizaPengesyoran::where('id', $id)->first();
+        $pengesyoran->delete();
+
+        return redirect('/Pengesyoran')->with('message','Data telah berjaya dipadam!');
     }
 }

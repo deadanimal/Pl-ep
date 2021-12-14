@@ -1,10 +1,10 @@
-<form method="POST" action="/Roles/{{$user->id}}">
+<form method="POST" action="/Peranan Pengguna/{{$user->id}}">
     @method('PUT')
 
     <br> Nama Pengguna: {{$user->user_name}}
     <br> Emel: {{$user->email}}
     <br> Jenis Pengguna {{$user->jenis}}
-    <br> Roles:                        
+    <br> Peranan Pengguna:                        
       <select name="role_id"  class="form-control">
         <option hidden>SILA PILIH</option>
             @foreach($role as  $role)

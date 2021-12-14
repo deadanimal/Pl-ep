@@ -45,7 +45,7 @@ class FizaNotaPenerimaanController extends Controller
         $fizaNotaPenerimaan->penghantaran_id=$request->penghantaran_id;
 
         $fizaNotaPenerimaan->save();
-        return redirect('/NotaPenerimaan');
+        return redirect('/NotaPenerimaan')->with('success','Data berjaya ditambah!');
 
 
     }
@@ -85,14 +85,17 @@ class FizaNotaPenerimaanController extends Controller
 
 
         $fizaNotaPenerimaan->save();
-        return redirect('/NotaPenerimaan');
+        return redirect('/NotaPenerimaan')->with('message','Data berjaya dikemaskini!');
 
 
     }
 
 
-    public function destroy(FizaNotaPenerimaan $fizaNotaPenerimaan)
+    public function destroy($id)
     {
-        //
+        $notaterima = FizaNotaPenerimaan::where('id',$id)->first();
+        $notaterima ->delete();
+
+        return redirect-('/NotaPenerimaan')>with('success','Data telah berjaya dipadam!');
     }
 }

@@ -25,17 +25,30 @@
                                 <th>Jenis Jadual</th>
                                 <th>Kekerapan</th>
                                 <th>Jenis Jadual</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($jadual as $jadual)
+
                             <tr>
-                                @foreach ($jadual as $jadual)
                                     <td> {{$jadual->jadual_jenis_pemenuhan}}</td>
                                     <td> {{$jadual->jadual_kekerapan}}</td>
                                     <td> {{$jadual->jadual_jenis}}</td>
+                                    <td class="table-action">
+                                        <form method="POST" action="/JadualPemenuhan/{{$jadual->id}}">
+                                            @method('DELETE')
+                                            @csrf
+                                        <button class="btn" type="submit"><i class="align-middle fas fa-fw fa-trash"></i></button>
+                                        <a href="/JadualPemenuhan/{{$jadual->id}}/edit"><i class="align-middle fas fa-fw fa-pen"></i></a>
+                    
+                                        </form>
+                    
+                                    </td>
         
-                                @endforeach
+                              
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
             </div>

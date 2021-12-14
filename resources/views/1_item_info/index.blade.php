@@ -2,11 +2,21 @@
 
 @section('content')
 
+<div class="header">
+    <h1 class="header-title">
+   Katalog
+    </h1>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Senarai Item</a></li>
+        </ol>
+    </nav>
+</div>
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h3>Senarai Item</h3>
+                <h5 class="card-title mb-0"></h5>
             </div>
             <div class="card-body">
                 <table id="datatables-1" class="table table-striped" style="width:100%">
@@ -16,7 +26,6 @@
                             <th>Tarikh Mula</th>
                             <th>Tarikh Tamat</th>
                             <th></th>
-                            <th>Tindakan</th>
 
                         
                         </tr>
@@ -34,10 +43,8 @@
 										title="Senarai Katalog"></i></a>
                                     <a href='/ItemInfo/addcart/{{$ItemInfo->id}}'><i class="align-middle fas fa-fw fa-shopping-cart" data-bs-placement="left"
 										title="Tambah ke Kart"></i></a>
-                                </td>
-
-                                <td> <button onclick="compareItem()">Bandingkan Item</button>
-                                <td> <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#defaultModalPrimary">Pertanyaan Item</button>
+                                    <button onclick="compareItem()">Bandingkan Item</button>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#defaultModalPrimary">Pertanyaan Item</button>
                                     <div class="modal fade" id="defaultModalPrimary" tabindex="-1" role="dialog" aria-hidden="true">
 										<div class="modal-dialog" role="document">
 											<div class="modal-content">
@@ -60,6 +67,7 @@
                                                         @endforeach
                                                         </select>
 
+
                                                     {{-- <select name=pembekal_id class="form-control">
                                                         @foreach ($pembekal as $pembekal)
                                                         <option value="pembekal_id">{{$pembekal->pembekal_company_name}}</option>
@@ -78,8 +86,10 @@
                                                      {{-- <button type="submit">Hantar</button> --}}
                                                     <br> <br>
 													<button type="submit" class="btn btn-primary">Hantar</button>
+                                                    
                                                 
                                                 </form>
+                                            </td>
                                                 
 
 													{{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

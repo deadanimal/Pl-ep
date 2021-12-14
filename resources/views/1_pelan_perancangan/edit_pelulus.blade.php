@@ -245,5 +245,11 @@
         <div style=float-right>
          <button  class="btn btn-success" type="submit">Kemaskini</button> 
         </div>
+        </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 @stop

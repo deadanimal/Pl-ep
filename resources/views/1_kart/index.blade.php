@@ -1,7 +1,25 @@
 @extends('layouts.base')
+
 @section('content')
+
+<div class="header">
+    <h1 class="header-title">
+  Pembelian
+    </h1>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Bakul Item</a></li>
+        </ol>
+    </nav>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0"></h5>
+            </div>
+            <div class="card-body">
  
-<h1>Bakul Item</h1>
 
 @if ($itemKart)
     @foreach ($itemKart as $itemKart)
@@ -12,7 +30,7 @@
     @endforeach
 @endif
 
-<a  href="/NotaMinta" class="btn-primary">Hantar</a>
+<button type=submit class="btn-primary">Hantar</button>
 
 @endsection
 

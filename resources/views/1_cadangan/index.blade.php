@@ -34,8 +34,14 @@
                             @foreach ($Cadangan as $Cadangan)
                             <td>{{$Cadangan->cadangan_mesyuarat_date}}</td>
                             <td class="table-action">
+                                <form method="POST" action="/Cadangan/{{$Cadangan->id}}">
+                                    @csrf
+                                    @method('DELETE')
+                                <button type="submit" class="btn"><i class="align-middle fas fa-fw fa-trash"></i></button>
                                 <a href="/Cadangan/{{$Cadangan->id}}/edit"><i class="align-middle fas fa-fw fa-pen"></i></a>
-                                <a href="#"><i class="align-middle fas fa-fw fa-trash"></i></a>
+
+                                </form>
+                            
                             </td>
                             </tr>
                         @endforeach

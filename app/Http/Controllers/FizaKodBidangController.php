@@ -14,9 +14,9 @@ class FizaKodBidangController extends Controller
 
     public function index()
     {
-        $fizaKodBidang = FizaKodBidang::all();
+        $KodBidang = FizaKodBidang::all();
         return view ('1_kod_bidang.index',[
-             'fizaKodBidang'=>$fizaKodBidang]);
+             'KodBidang'=>$KodBidang]);
         // dd('mainmain');
     }
 
@@ -42,8 +42,7 @@ class FizaKodBidangController extends Controller
 
 
         $fizaKodBidang->save();
-        return redirect('/KodBidang');
-    
+        return redirect('/KodBidang')->with('success', 'Kod Bidang Berjaya Didaftarkan!');
     }
 
  
@@ -71,11 +70,16 @@ class FizaKodBidangController extends Controller
         $fizaKodBidang->kod_updated_by=$request->kod_updated_by;
 
         $fizaKodBidang->save();
-        return redirect('/KodBidang');
+        return redirect('/KodBidang')->with('success','Kod Bidang Berjaya Dikemaskini');
     }
 
-    public function destroy(FizaKodBidang $fizaKodBidang)
+    public function destroy($id)
     {
-        //
+        $KodBidang = FizaKodBidang::where('id',$id)->first();
+
+        $KodBidang->delete();
+
+
+        return redirect('/KodBidang')->with('message', 'Data telah berjaya dipadam!');
     }
 }

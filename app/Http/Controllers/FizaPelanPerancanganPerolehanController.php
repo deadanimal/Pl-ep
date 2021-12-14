@@ -92,7 +92,7 @@ class FizaPelanPerancanganPerolehanController extends Controller
         $notification_obj->noti_status= $fizaPelanPerancanganPerolehan->pelan_status;
                         
         app('App\Http\Controllers\FizaNotificationCenterController')->store($notification_obj);
-        return redirect('/PelanPerancanganPerolehan');
+        return redirect('/PelanPerancanganPerolehan')->with('success', 'Pelan Perancangan Telah Disimpan');
 
     }
     
@@ -153,13 +153,17 @@ class FizaPelanPerancanganPerolehanController extends Controller
         $receiver = User::where('id',$request->pelan_pengesah)->first();
         Mail::to($receiver->email)->send(new PelanPerancangan);
 
-        return redirect('/PelanPerancanganPerolehan');
+        return redirect('/PelanPerancanganPerolehan')->with('success', 'Pelan Perancangan telah disimpan dan dihantar untuk pengesahan!');
     }
 
 
-    public function destroy(FizaPelanPerancanganPerolehan $fizaPelanPerancanganPerolehan)
+    public function destroy($id)
     {
-        //
+        $PelanPerancanganPerolehan=FizaPelanPerancanganPerolehan::where('id',$id)->first();
+
+        $PelanPerancanganPerolehan->delete();
+        return redirect('/PelanPerancanganPerolehan')->with('success', 'Data telah dipadam!');
+
     }
 
     public function indexpengesah()
@@ -339,7 +343,7 @@ class FizaPelanPerancanganPerolehanController extends Controller
             'user'=>$user]);
             return $pdf->download($fizaPelanPerancanganPerolehan->pelan_title.'.pdf');
     }
-    
+
 
 
 

@@ -58,7 +58,7 @@
 
                 <div class="row">
                     <div class="col-md-4">
-                        <label class="col-form-label col-sm-6 ">Roles</label>
+                        <label class="col-form-label col-sm-6 ">Peranan Pengguna</label>
                     </div>
                     <div class="col-md-8">
                         @foreach ($user->roles as $role)
@@ -73,7 +73,7 @@
 
         <br>
         <div>
-            <a href=/dashboard class="btn btn-primary" style=float:absolute>Kembali</a>
+            <a href=/dashboard class="btn btn-success" style=float:absolute>Kembali</a>
         </div>
 
 

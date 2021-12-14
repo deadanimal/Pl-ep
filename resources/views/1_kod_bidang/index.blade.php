@@ -32,15 +32,19 @@
 
                     <tbody>
 
-                        @foreach ( $fizaKodBidang as  $fizaKodBidang)
+                        @foreach ( $KodBidang as  $KodBidang)
                             <tr>
-                                <td>{{$fizaKodBidang->kod_type}}</td>
-                                <td> {{$fizaKodBidang->kod_category}}</td>
-                                <td>{{$fizaKodBidang->kod_pengkhususan}}</td>
-                                <td>{{$fizaKodBidang->kod_description}}</td>
+                                <td>{{$KodBidang->kod_type}}</td>
+                                <td> {{$KodBidang->kod_category}}</td>
+                                <td>{{$KodBidang->kod_pengkhususan}}</td>
+                                <td>{{$KodBidang->kod_description}}</td>            
                                 <td class="table-action">
-                                        <a href="/KodBidang/{{$fizaKodBidang->id}}/edit"><i class="align-middle fas fa-fw fa-pen"></i></a>
-                                        <a href="#"><i class="align-middle fas fa-fw fa-trash"></i></a>
+                                    <form method="POST" action="/KodBidang/{{$KodBidang->id}}">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button class="btn" type="submit"><i class="align-middle fas fa-fw fa-trash"></i></button>
+                                        <a href="/KodBidang/{{$KodBidang->id}}/edit"><i class="align-middle fas fa-fw fa-pen"></i></a>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

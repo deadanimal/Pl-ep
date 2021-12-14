@@ -48,7 +48,7 @@
                     </div>
 
                     <div>
-                        <x-label for="Roles" :value="__('Roles')"/>
+                        <x-label for="Peranan Pengguna" :value="__('Peranan Pengguna')"/>
                         <select name="roles" class="form-control" required autofocus >
                             <option hidden>SILA PILIH</option>
                                 @foreach($role as  $role)

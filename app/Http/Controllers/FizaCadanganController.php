@@ -47,7 +47,7 @@ class FizaCadanganController extends Controller
         // $fizaCadangan->cadangan_ulasan_penilaian=$request->cadangan_ulasan_penilaian;
 
         $fizaCadangan->save();
-        return redirect('/Cadangan');
+        return redirect('/Cadangan')->with('success','Cadangan telah berjaya disimpan!');
     }
 
 
@@ -86,12 +86,15 @@ class FizaCadanganController extends Controller
 
         
    $fizaCadangan->save();
-        return redirect('/Cadangan');
+        return redirect('/Cadangan')->with('success','Cadangan telah berjaya dikemaskini!');
     }
 
 
-    public function destroy(FizaCadangan $fizaCadangan)
+    public function destroy($id)
     {
-        //
+        $Cadangan = FizaCadangan::where('id',$id)->first();
+        $Cadangan->delete();
+
+        return redirect('/Cadangan')->with('success','Cadangan telah berjaya dipadam!');
     }
 }

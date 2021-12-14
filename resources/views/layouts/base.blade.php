@@ -24,9 +24,9 @@
             <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
             <script type="text/javascript" src=https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js></script>
 
+            <link rel="stylesheet" type="text/css" href="sweetalert2.min.css">
 
-            <script src="sweetalert2.min.js"></script>
-            <link rel="stylesheet" href="sweetalert2.min.css">
+            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     
             @yield('styles')
             
@@ -39,12 +39,18 @@
                 table,input[type=text]{
                     text-transform: capitalize;
             }
+
+            th{
+                text-align: center;
+            }            
             </style>
     </head>
 
     <body>
-        
-        
+        @include('sweet::alert')
+        {{-- <script src="sweetalert2.all.min.js" type="text/javascript"></script> --}}
+
+
         <div class="wrapper">
             <nav id="sidebar" class="sidebar">
                 <a class="sidebar-brand" href="/">
@@ -111,6 +117,7 @@
                                 {{-- <li class="sidebar-item"><a class="sidebar-link" href="pages-blank.html">Blank Page</a></li> --}}
                             </ul>
                         </li>
+                        
 
                         <li class="sidebar-item">
                             <a data-bs-target="#pages" data-bs-toggle="collapse" class="sidebar-link collapsed">
@@ -359,11 +366,22 @@
                 </div>--}}
     
         <script>
-            Swal.fire(
-            'Tahniah',
-            'Data anda telah berjaya dihantar!',
-            'success'
-            )
+            Swal.fire({
+            title: 'Padam Data?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                'Data anda telah dipadam!',
+                'success'
+                )
+            }
+         })
+        
         </script>
 
         <script>

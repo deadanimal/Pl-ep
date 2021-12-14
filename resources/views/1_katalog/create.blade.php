@@ -2,13 +2,23 @@
 
 @section('content')
 
+<div class="header">
+    <h1 class="header-title">
+  Katalog
+    </h1>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Pendaftaran Item</a></li>
+        </ol>
+    </nav>
+</div>
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <div class="card-body">
-                    <h3>Pendaftaran Katalog</h3>
-                    <br>
+                <h5 class="card-title mb-0"></h5>
+            </div>
+            <div class="card-body">
                     <form method="POST" action="/Katalog">
                         @csrf
                        

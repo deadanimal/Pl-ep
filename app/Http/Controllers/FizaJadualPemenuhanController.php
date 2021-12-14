@@ -13,7 +13,8 @@ class FizaJadualPemenuhanController extends Controller
     {
         $jadual = FizaJadualPemenuhan::all();
         return view ('1_jadual.index',[
-            'jadual'=>$jadual]);
+            'jadual'=>$jadual
+        ]);
     }
 
 
@@ -39,7 +40,7 @@ class FizaJadualPemenuhanController extends Controller
         $fizaJadualPemenuhan->jadual_created_by=$request->jadual_created_by ;
   
         $fizaJadualPemenuhan->save();
-        return redirect('/JadualPemenuhan');
+        return redirect('/JadualPemenuhan')->with('success','Data telah berjaya disimpan!');
     }
 
     public function show(FizaJadualPemenuhan $fizaJadualPemenuhan)
@@ -71,11 +72,14 @@ class FizaJadualPemenuhanController extends Controller
         $fizaJadualPemenuhan->jadual_updated_by=$request->jadual_updated_by ;
 
        $fizaJadualPemenuhan->save();
-        return redirect('/JadualPemenuhan');
+        return redirect('/JadualPemenuhan')->with('success','Data telah berjaya dikemaskini!');
     }
 
-    public function destroy(FizaJadualPemenuhan $fizaJadualPemenuhan)
+    public function destroy($id)
     {
-        //
+        $JadualPemenuhan = FizaJadualPemenuhan::where('id',$id)->first();
+        $JadualPemenuhan->delete();
+
+        return redirect('/JadualPemenuhan')->with('message', 'Data telah berjaya dipadam!');
     }
 }

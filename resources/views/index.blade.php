@@ -16,20 +16,20 @@
 
 	<nav class="navbar navbar-expand navbar-dark absolute-top w-100 py-2">
 		<div class="container">
+			<a class="navbar-brand fw-bold" href="/">
+				<img src="/pl-2.png" width="30%">
+			</a>
 		</div>
 	</nav>
-
 	<section class="pt-7 pb-5 landing-bg text-white overflow-hidden">
-		<div class="container py-4">
+		<div class="container py-1">
 			<div class="row">
 				<div class="col-xl-11 mx-auto">
 					<div class="row">
 						<div class="col-md-12 col-xl-8 text-center mx-auto">
-							<div class="d-block my-4">
-								<h1 class="display-4 fw-bold mb-3 text-white">Sistem Pengurusan ePerolehan</h1>
-								<h5 class="display-4 fw-bold mb-3 text-white">Perbadanan Labuan</h5>
-
-							</div>
+								<h4 class="display-4 fw-bold mb-3 text-white">Sistem Pengurusan ePerolehan</h4>
+								<h4 class="display-4 fw-bold mb-3 text-white">Perbadanan Labuan</h4>
+								{{-- <p class="lead fw-light mb-3 landing-text">Perbadanan Labuan</p> --}}
 						</div>
 					</div>
 				</div>

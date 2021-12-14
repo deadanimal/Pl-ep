@@ -16,9 +16,9 @@ class FizaPenyediaanSpesifikasiController extends Controller
      */
     public function index()
     {
-        $fizaPenyediaanSpesifikasi = FizaPenyediaanSpesifikasi::all();
+        $PenyediaanSpesifikasi = FizaPenyediaanSpesifikasi::all();
         return view ('1_penyediaan_spesifikasi.index',[
-            'fizaPenyediaanSpesifikasi'=>$fizaPenyediaanSpesifikasi]);
+            'PenyediaanSpesifikasi'=>$PenyediaanSpesifikasi]);
     }
 
 

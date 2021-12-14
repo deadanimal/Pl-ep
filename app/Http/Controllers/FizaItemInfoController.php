@@ -67,7 +67,7 @@ class FizaItemInfoController extends Controller
         $log_item = [$item, $description, $user_id];
 
         app('App\Http\Controllers\AuditLogController')->log($log_item);
-        return redirect('/ItemInfo'); 
+        return redirect('/ItemInfo')->with('success','Data telah berjaya disimpan'); 
     }
 
     public function show(FizaItemInfo $fizaItemInfo)
@@ -103,7 +103,7 @@ class FizaItemInfoController extends Controller
 
 
         $fizaItemInfo->save();
-        return redirect('/ItemInfo');
+        return redirect('/ItemInfo')->with('message', 'Data telah berjaya dipadam!');
     }
 
     public function destroy(FizaItemInfo $fizaItemInfo)

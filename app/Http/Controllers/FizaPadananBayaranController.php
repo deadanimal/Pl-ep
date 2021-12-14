@@ -47,7 +47,7 @@ class FizaPadananBayaranController extends Controller
 
 
         $fizaPadananBayaran->save();
-        return redirect('/fizaPadananBayaran');
+        return redirect('/fizaPadananBayaran')->with('success','Data telah berjaya ditambah!');
 
 
     }
@@ -88,7 +88,7 @@ class FizaPadananBayaranController extends Controller
         $fizaPadananBayaran->user_id=$request->user_id;
 
         $fizaPadananBayaran->save();
-        return redirect('/fizaPadananBayaran');
+        return redirect('/fizaPadananBayaran')->with('success','Data telah berjaya dikemaskini!');
     }
 
     /**
@@ -97,8 +97,11 @@ class FizaPadananBayaranController extends Controller
      * @param  \App\Models\FizaPadananBayaran  $fizaPadananBayaran
      * @return \Illuminate\Http\Response
      */
-    public function destroy(FizaPadananBayaran $fizaPadananBayaran)
+    public function destroy($id)
     {
-        //
+        $padananbayaran = FizaPadananBayaran::where('id',$id)->first();
+        $padananbayaran ->delete();
+
+        return redirect('/PadananBayaran')->with('message','Data telah berjaya dipadam!');
     }
 }

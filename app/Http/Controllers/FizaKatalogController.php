@@ -39,7 +39,7 @@ class FizaKatalogController extends Controller
         // $fizaKatalog->user_id=$request->user_id;
 
         $fizaKatalog->save();
-        return redirect('/Katalog');
+        return redirect('/Katalog')->with('success','Data telah berjaya ditambah!');
     
     }
 
@@ -71,14 +71,17 @@ class FizaKatalogController extends Controller
         $fizaKatalog->user_id=$request->user_id;
 
         $fizaKatalog->save();
-        return redirect('/Katalog');
+        return redirect('/Katalog')->with('success','Data telah berjaya dikemaskini!');
 
     }
 
 
-    public function destroy(FizaKatalog $fizaKatalog)
+    public function destroy($id)
     {
-        //
+        $katalog = FizaKatalog::where('id', $id)->first();
+        $katalog->delete();
+
+        return redirect('/Katalog')->with('success', 'Data telah berjaya dipadam!');
     }
 
     public function listkatalog($id)

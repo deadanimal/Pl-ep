@@ -1,7 +1,24 @@
 @extends('layouts.base')
+
 @section('content')
-    
-        <div class="card-body">
+
+<div class="header">
+    <h1 class="header-title">
+  Katalog
+    </h1>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Senarai Item</a></li>
+        </ol>
+    </nav>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0"></h5>
+            </div>
+            <div class="card-body">
             <table id="datatables-1" class="table table-striped" style="width:100%">
                 <thead>
                         <tr>
