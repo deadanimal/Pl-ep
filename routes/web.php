@@ -98,14 +98,14 @@ Route::post('/kemaskini-role',[RegisteredUserController::class,'update_roles']);
 // Route::('/delete-user/{id}',[PenggunaController::class,'delete_user']);
 
 Route::post('/dokumentambahan',[FizaPembekalController::class,'dokumentambahan']);
-Route::get('/insertfile',[FizaPembekalController::class,'insertfile']);
+Route::get('/insertfile/{id}',[FizaPembekalController::class,'insertfile']);
 
 
-Route::post('/doc-mof',[FizaPembekalController::class,'docmof']);
-Route::get('/mof',[FizaPembekalController::class,'mof']);
+Route::post('/docmof',[FizaPembekalController::class,'docmof']);
+Route::get('/mof/{id}',[FizaPembekalController::class,'mof']);
 
-Route::post('/doc-cidb',[FizaPembekalController::class,'doccidb']);
-Route::get('/cidb',[FizaPembekalController::class,'cidb']);
+Route::post('/doccidb',[FizaPembekalController::class,'doccidb']);
+Route::get('/cidb/{id}',[FizaPembekalController::class,'cidb']);
 
 Route::get('/listkatalog/{id}',[FizaKatalogController::class,'listkatalog']);
 
@@ -124,9 +124,7 @@ Route::post('/updatepelulus',[FizaPelanPerancanganPerolehanController::class,'up
 
 Route::resource('/SuratNiat',FizaSenaraiSuratNiatController::class);
 Route::resource('/Pembekal',FizaPembekalController::class);
-
-
-    Route::resource('/Pengguna', PenggunaController::class);
+Route::resource('/Pengguna', PenggunaController::class);
 
 
 
@@ -192,7 +190,7 @@ Route::post('/log',[AuditLogController::class,'log']);
 
 
 Route::get('/', function () {
-    $faq= FizaFaq::all();
+    $faq= FizaFaq::where('faq_status','aktif')->get();
     return view(
         'index',[
         'faq'=>$faq 

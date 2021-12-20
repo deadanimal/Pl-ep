@@ -28,9 +28,7 @@
                     </thead>
 
                     <tbody>
-
                         <tr>
-
                             @foreach ($Cadangan as $Cadangan)
                             <td>{{$Cadangan->cadangan_mesyuarat_date}}</td>
                             <td class="table-action">
@@ -39,11 +37,9 @@
                                     @method('DELETE')
                                 <button type="submit" class="btn"><i class="align-middle fas fa-fw fa-trash"></i></button>
                                 <a href="/Cadangan/{{$Cadangan->id}}/edit"><i class="align-middle fas fa-fw fa-pen"></i></a>
-
                                 </form>
-                            
                             </td>
-                            </tr>
+                        </tr>
                         @endforeach
                     </tbody>
                 </table>

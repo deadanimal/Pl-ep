@@ -74,11 +74,11 @@
                                 <legend>Dokumen yang perlu dilampirkan:</legend>
                                 <br><br>
 
-                                {{-- <input type="hidden" name="id_pembekal"  value="{{$pembekal->id}}"> --}}
+                                <input type="hidden" name="id_pembekal"  value="{{$pembekal->id}}">
 
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
-                                        <label class="col-form-label col-sm-6 ">No Sijil MOF</label>
+                                        <label class="col-form-label col-sm-6">No Sijil MOF</label>
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <input type="text" name="pembekal_no_sijil_mof" class="form-control">
@@ -102,7 +102,7 @@
                                         <input type="date" class="form-control" name="pembekal_tarikh_sah_mof">
                                     </div>
                                 </div>
-{{-- 
+
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
                                         <label class="col-form-label col-sm-6 ">Sijil MOF </label>
@@ -110,11 +110,11 @@
                                     <div class="mb-3 col-md-6">
                                         <input type="file" class="form-control" name="pembekal_sijil_mof">
                                     </div>
-                                </div> --}}
+                                </div>
 
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
-                                        <label class="col-form-label col-sm-6 ">Sijil Perakuan Bumiputera </label>
+                                        <label class="col-form-label col-sm-6 "> Sijil Perakuan Bumiputera </label>
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <input type="file" class="form-control" name="pembekal_sijil_perakuan_bumiputera">
@@ -195,7 +195,7 @@
                                     </div>
                                 </div>
 
-                                {{-- <div class="row">
+                              {{-- <div class="row">
                                     <div class="mb-3 col-md-6">
                                         <label class="col-form-label col-sm-6 ">Kod Bidang</label>
                                     </div>
@@ -269,6 +269,4 @@
                                     }
                                 });
                             });
-                        </script>
-
-                    @stop
+       </script>

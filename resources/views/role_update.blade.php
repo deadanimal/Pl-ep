@@ -47,8 +47,7 @@ Pengguna
                 </select> 
             </div>
          </div>
-            
-        
+    
         <div class="row">
             <div class="mb-3 col-md-6">
                 <label class="col-form-label col-sm-6 ">No Kad Pengenalan</label>
@@ -74,7 +73,10 @@ Pengguna
                 <option value="{{$role->id}}">{{$role->role_name}}</option>
                     @endforeach 
                     </select> --}}
-
+                  {{-- <ul>
+                      <li>{{$role->role_name}}</li>
+                  </ul>
+                  @endforeach --}}
 
         <div class="row">
             <div class="mb-3 col-md-6">
@@ -88,26 +90,47 @@ Pengguna
             </div>
         </div>
 
-        <div class="row">
+{{-- 
+      <div class="row">
             <div class="mb-3 col-md-6">
                 <label class="col-form-label col-sm-6 ">Peranan Pengguna</label>
             </div>
+      
             <div class="mb-3 col-md-6">
-               @foreach ($user->roles as $role)
-                    <input type="checkbox" id="{{$role->id}}" name="{{$user->role()}}" value="{{$role->id}}>
+               <ul>    
+                @foreach ($user->roles() as $role)
+                   <li>{{$role->role_name}} 
+                    <form method="POST" action="/Pembekal/{{$role->id}}">
+                    @method('DELETE')
+                    @csrf
+                    <button class="btn" type="submit"><i class="align-middle fas fa-fw fa-trash"></i></button></li>
+               </ul>
+            </form>
                 @endforeach
-                  {{-- <ul>
-                      <li>{{$role->role_name}}</li>
-                  </ul>
-                  @endforeach --}}
+               </ul>
             </div>
-        </div>
+        </div>  --}}
+
+ <div class="row">
+            <div class="col-md-6">
+                <label class="col-form-label col-sm-6 ">Tambah Peranan</label>
+            </div>
+            <div class="mb-3 col-md-6">
+                 <select name="role_id"  class="form-control">
+                    <option hidden>Sila Pilih</option>
+                        @foreach($role as  $role)
+                    <option value="{{$role->id}}">{{$role->role_name}}</option>
+                        @endforeach 
+                 </select>
+            </div>
+        </div> 
 
         <br> 
         <button class="btn-success" >Kembali</button>
         <button type=submit class="btn-primary">Kemaskini</button>
         
         </form>
+        
             </div>
         </div>
     </div>

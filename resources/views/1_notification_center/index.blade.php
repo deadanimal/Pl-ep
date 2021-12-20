@@ -17,9 +17,15 @@ Pengguna
                 <h5 class="card-title mb-0"></h5>
             </div>
             <div class="card-body">
-    <ul>
         @foreach ($NotificationCenter as $NotificationCenter)
-        <li>{{$NotificationCenter->noti_type}} {{$NotificationCenter->noti_template}} {{$NotificationCenter->noti_subject}} {{$NotificationCenter->noti_content}}</li>
+        <table>
+            <tr>
+                <td>{{date('d/m/Y H:i', strtotime($NotificationCenter->created_at))}}:</td>
+                <td></td>
+                <td> {{$NotificationCenter->noti_type}} </td>
+                <td> {{$NotificationCenter->noti_template}}</td>
+                <td> {{$NotificationCenter->noti_subject}}</td>
+                <td> {{$NotificationCenter->noti_content}}</td>
    
     @endforeach
     </ul>

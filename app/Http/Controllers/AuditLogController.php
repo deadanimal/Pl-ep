@@ -11,7 +11,7 @@ class AuditLogController extends Controller
 
     public function index()
     {
-        $AuditLog = AuditLog::all();
+        $AuditLog = AuditLog::orderBy('created_at', 'desc')->get();
         $user = User::all();
 
         return view('audit_log.index', [

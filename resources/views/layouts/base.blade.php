@@ -39,10 +39,11 @@
                 table,input[type=text]{
                     text-transform: capitalize;
             }
-
-            th{
+          
+            table{
                 text-align: center;
-            }            
+            }
+         
             </style>
     </head>
 
@@ -385,10 +386,19 @@
         </script>
 
         <script>
-            $(document).ready(function() {
-               $('#datatables-1').DataTable();
-           } );
+        //     $(document).ready(function() {
+        //        $('#datatables-1').DataTable();
+        //    } );
+
+           document.addEventListener("DOMContentLoaded", function() {
+			// Datatables Responsive
+			$('#datatables-1').DataTable({
+				responsive: true,
+                sorting:false
+			});
+		});
    
+
             </script>
     </main>
 

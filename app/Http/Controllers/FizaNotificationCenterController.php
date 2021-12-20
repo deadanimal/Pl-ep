@@ -9,14 +9,10 @@ use Illuminate\Support\Facades\Auth;
 
 class FizaNotificationCenterController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        $fizaNotificationCenter = FizaNotificationCenter::all();
+        $fizaNotificationCenter = FizaNotificationCenter::orderBy('created_at', 'desc')->get();
         return view ('1_notification_center.index',[
             'NotificationCenter'=>$fizaNotificationCenter]);
     }

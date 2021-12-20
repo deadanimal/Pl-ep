@@ -16,8 +16,8 @@ class CreateFizaFaqsTable extends Migration
         Schema::create('fiza_faqs', function (Blueprint $table) {
             $table->id();
             $table->string('faq_section')->nullable();
-            $table->string('faq_question')->nullable();
-            $table->string('faq_answer')->nullable();
+            $table->long('faq_question')->nullable();
+            $table->long('faq_answer')->nullable();
             $table->string('faq_status')->nullable();
             $table->foreignId('user_id')->nullable();
             $table->string('faq_created_by')->nullable();

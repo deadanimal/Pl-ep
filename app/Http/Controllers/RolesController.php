@@ -54,8 +54,6 @@ class RolesController extends Controller
 
         // $role = new Roles();
 
-
-
     }
     public function show(Roles $roles)
     {
@@ -85,18 +83,19 @@ class RolesController extends Controller
     public function update($id)
     {
        
-
-
-        
-
         //$user->Roles();
 
 
     }
 
-    public function destroy(Roles $roles)
+    public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->roles();
+
+        $user->roles()->detach($role->role_name);
+
+    
     }
 
     public function set_role_pembekal(Request $request) {
@@ -107,5 +106,7 @@ class RolesController extends Controller
 
         $role_name = Role::where('role_name', $role_name)->first();
         $user->roles()->attach($role_name);
+
+
     }
 }

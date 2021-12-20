@@ -1,30 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-	<meta charset="utf-8">
-	<link rel="icon" type="image/png" href="/PL.png">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="author" content="Bootlab">
+	<head>
+		<meta charset="utf-8">
+		<link rel="icon" type="image/png" href="/PL.png">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="author" content="Bootlab">
+	
+		<link href="/css/modern.css" rel="stylesheet">
 
-	<link href="/css/modern.css" rel="stylesheet">
-
-</head>
+	
+	
+	</head>
 
 <body>
 
-	<nav class="navbar navbar-expand navbar-dark absolute-top w-100 py-2">
+	<nav class="navbar navbar-expand navbar-dark absolute-top w-100 py-1">
 		<div class="container">
 			<a class="navbar-brand fw-bold" href="/">
 				<img src="/pl-2.png" width="30%">
 			</a>
 		</div>
 	</nav>
-	<section class="pt-7 pb-5 landing-bg text-white overflow-hidden">
+	<section class="pt-3 pb-3 landing-bg text-white overflow-hidden">
 		<div class="container py-1">
 			<div class="row">
-				<div class="col-xl-11 mx-auto">
+				<div class="col-xl-12 mx-auto">
 					<div class="row">
 						<div class="col-md-12 col-xl-8 text-center mx-auto">
 								<h4 class="display-4 fw-bold mb-3 text-white">Sistem Pengurusan ePerolehan</h4>
@@ -112,178 +114,84 @@
 		</div>
 	</section>
 
-	 <section class="py-6 bg-white">
+	<section class="py-6 bg-white">
 		<div class="container">
 
-			<div class="mb-4 text-center" id="faq">
+			<div class="mb-4 text-center">
 				<h2>Soalan Lazim</h2>
-				<p class="text-muted">Here's what some of our 3,000 customers have to say about working with our products.</p>
+			</div>
+			{{-- @foreach ($faq as $faq)
+			<div class="row">
+				<div class="col-md-6 col-lg-4">
+
+					<blockquote class="card border">
+						<div class="card-body p-4">
+							<div class="d-flex align-items-center mb-3">
+								<div class="ps-3">
+									<h5 class="mb-1 mt-2">{{$faq->faq_question}}</h5><small class="d-block text-muted h5 fw-normal">{{$faq->faq_section}}</small>
+								</div>
+							</div>
+							<p class="lead mb-2">{{$faq->faq_answer}}</p>
+						</div>			
+					</blockquote>
 			</div>
 		</div>
-	 </section>
-	 
-		
+		@endforeach
 
+	</div>
 
-			{{-- <div class="row">
-				<div class="col-md-6 col-lg-4">
-					<blockquote class="card border">
-						<div class="card-body p-4">
-							<div class="d-flex align-items-center mb-3">
-								<div>
-									<img src="img/brands/b.svg" width="48" height="48" alt="Bootstrap" />
-								</div>
-								<div class="ps-3">
-									<h5 class="mb-1 mt-2">Nikita</h5><small class="d-block text-muted h5 fw-normal">Bootstrap Themes</small>
-								</div>
-							</div>
-							<p class="lead mb-2">“We are totally amazed with a simplicity and the design of the template. Probably saved us hundreds of hours of
-								development. We are absolutely amazed with the support Bootlab has provided us.”</p>
+</section> --}}
 
-							<div class="landing-stars">
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-							</div>
-						</div>
-					</blockquote>
-					<blockquote class="card border">
-						<div class="card-body p-4">
-							<div class="d-flex align-items-center mb-3">
-								<div>
-									<img src="img/brands/b.svg" width="48" height="48" alt="Bootstrap" />
-								</div>
-								<div class="ps-3">
-									<h5 class="mb-1 mt-2">Jason</h5><small class="d-block text-muted h5 fw-normal">Bootstrap Themes</small>
-								</div>
-							</div>
-							<p class="lead mb-2">“As a DB guy, this template has made my life easy porting over an old website to a new responsive version. I
-								can focus more on the data and less on the layout.”</p>
-
-							<div class="landing-stars">
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-							</div>
-						</div>
-					</blockquote>
-				</div>
-				<div class="col-md-6 col-lg-4">
-					<blockquote class="card border">
-						<div class="card-body p-4">
-							<div class="d-flex align-items-center mb-3">
-								<div>
-									<img src="img/brands/b.svg" width="48" height="48" alt="Bootstrap" />
-								</div>
-								<div class="ps-3">
-									<h5 class="mb-1 mt-2">Alejandro</h5><small class="d-block text-muted h5 fw-normal">Bootstrap Themes</small>
-								</div>
-							</div>
-							<p class="lead mb-2">“Everything is so properly set up that any new additions I'd make would feel like a native extension of the
-								theme versus a simple hack. I definitely feel like this will save me hundredths of hours I'd otherwise spend on designing.”</p>
-
-							<div class="landing-stars">
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-							</div>
-						</div>
-					</blockquote>
-					<blockquote class="card border">
-						<div class="card-body p-4">
-							<div class="d-flex align-items-center mb-3">
-								<div>
-									<img src="img/brands/b.svg" width="48" height="48" alt="Bootstrap" />
-								</div>
-								<div class="ps-3">
-									<h5 class="mb-1 mt-2">Richard</h5><small class="d-block text-muted h5 fw-normal">Bootstrap Themes</small>
-								</div>
-							</div>
-							<p class="lead mb-2">“This template was just what we were after; its modern, works perfectly and is visually beautiful , we couldn't
-								be happier. The support really is excellent, I look forward to working with these guys for a long time to come!”</p>
-
-							<div class="landing-stars">
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-							</div>
-						</div>
-					</blockquote>
-				</div>
-				<div class="col-md-6 col-lg-4 d-block d-md-none d-lg-block">
-					<blockquote class="card border">
-						<div class="card-body p-4">
-							<div class="d-flex align-items-center mb-3">
-								<div>
-									<img src="img/brands/b.svg" width="48" height="48" alt="Bootstrap" />
-								</div>
-								<div class="ps-3">
-									<h5 class="mb-1 mt-2">Jordi</h5><small class="d-block text-muted h5 fw-normal">Bootstrap Themes</small>
-								</div>
-							</div>
-							<p class="lead mb-2">“I ran into a problem and contacted support. Within 24 hours, I not only received a response but even an
-								updated version that solved my problem and works like a charm. Fantastic customer service!”</p>
-
-							<div class="landing-stars">
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-							</div>
-						</div>
-					</blockquote>
-					<blockquote class="card border">
-						<div class="card-body p-4">
-							<div class="d-flex align-items-center mb-3">
-								<div>
-									<img src="img/brands/b.svg" width="48" height="48" alt="Bootstrap" />
-								</div>
-								<div class="ps-3">
-									<h5 class="mb-1 mt-2">Martin</h5><small class="d-block text-muted h5 fw-normal">Bootstrap Themes</small>
-								</div>
-							</div>
-							<p class="lead mb-2">“I just began to test and use this theme and I can find that it cover my expectatives. Good support from the
-								developer.”</p>
-
-							<div class="landing-stars">
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-							</div>
-						</div>
-					</blockquote>
-				</div>
+			 {{-- <div class="mb-4 text-center" id="faq">
+				<h2>Soalan Lazim</h2>
+				<p class="text-muted"></p>
 			</div>
-		</div> --}}
-	{{-- <div class="text-center my-4">
-			<h2>Soalan Lazim</h2>
-		</div>
-		<div class="row">
+			<div class="text-center my-6">
+				<h2></h2>
+			</div>
+			<div class="row">
 			@foreach ($faq as $faq)
-			<div class="col-sm-6">
-				<div class="card">
-					<div class="card-body">
-						<h5 class="h6 card-title">{{$faq->faq_section}} - {{$faq->faq_question}}</h5>
-						<p class="mb-0">{{$faq->faq_answer}}</p>
+				<div class="col-sm-6">
+					<div class="card">
+						<div class="card-body">
+							<h5 class="h6 card-title">{{$faq->faq_question}}</h5>
+							<p class="mb-0">{{$faq->faq_answer}}</p>
+						</div>
 					</div>
 				</div>
-			</div>            
-			 @endforeach
-		</div> 
+				@endforeach
+					
+		</div> --}}
+		@foreach ($faq as $faq)
+			
+		<div class="row">
+			<div class="col-12 col-lg-12">
+				<div class="accordion" id="accordionExample">
+					<div class="card">
+						<div class="card-header" id="headingThree">
+							<h5 class="card-title my-2">
+								<a href="#" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true"
+									aria-controls="collapseOne">
+									{{$faq->faq_question}}
+								</a>
+							</h5>
+						</div>
+						<div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+							<div class="card-body">
+								{{$faq->faq_answer}}
+							</div>
+						</div>
+					</div>
 
+				</div>
 
-	</section> --}}
+			</div>
+			@endforeach
+			
+	</div>
+	 </section> 
+	 
+		
 
 	<footer class="footer">
 		<div class="container-fluid">
@@ -291,7 +199,6 @@
 				<div class="col-8 text-start">
 					<ul class="list-inline">
 						<li class="list-inline-item">
-					
 							<p>Sistem Pengurusan ePerolehan</p>
 						</li>
 						{{-- <li class="list-inline-item">

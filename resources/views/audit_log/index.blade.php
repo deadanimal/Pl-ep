@@ -19,16 +19,19 @@ Pengguna
             </div>
             <div class="card-body">
 
-<table>
-    @foreach ($AuditLog as $AuditLog)
-    <tr>      
-    <td>    {{$AuditLog->description}} </td>
-    </tr>
-    @endforeach
-</table>
+        <table>
+            @foreach ($AuditLog as $AuditLog)
+            <tr>  
+                <td>{{date('d/m/Y H:i', strtotime($AuditLog->created_at))}}:</td>
+                <td></td>
+                <td>{{$AuditLog->description}}</td>
+            </tr>
+            @endforeach
+        </table>
             </div>
         </div>
     </div>
 </div>
 
-@endsection
+
+@stop

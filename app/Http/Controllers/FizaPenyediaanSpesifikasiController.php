@@ -74,7 +74,7 @@ class FizaPenyediaanSpesifikasiController extends Controller
         }
 
         $fizaPenyediaanSpesifikasi->save();
-        return redirect('/PenyediaanSpesifikasi');
+        return redirect('/PenyediaanSpesifikasi')->with('success','Data telah berjaya disimpan!');
     }
 
 
@@ -86,9 +86,9 @@ class FizaPenyediaanSpesifikasiController extends Controller
 
     public function edit($id)
     {
-        $fizaPenyediaanSpesifikasi = FizaPenyediaanSpesifikasi::find($id);
+        $PenyediaanSpesifikasi = FizaPenyediaanSpesifikasi::find($id);
         return view ('1_penyediaan_spesifikasi.edit',[
-            'fizaPenyediaanSpesifikasi'=>$fizaPenyediaanSpesifikasi]);
+            'PenyediaanSpesifikasi'=>$PenyediaanSpesifikasi]);
     }
 
     public function update(Request $request, $id)
@@ -134,13 +134,18 @@ class FizaPenyediaanSpesifikasiController extends Controller
 
 
         $fizaPenyediaanSpesifikasi->save();
-        return redirect('/PenyediaanSpesifikasi');
+        return redirect('/PenyediaanSpesifikasi')->with('success','Data telah berjaya dikemaskini!');
 
     }
 
 
-    public function destroy(FizaPenyediaanSpesifikasi $fizaPenyediaanSpesifikasi)
+    public function destroy($id)
+
     {
-        //
+        $PenyediaanSpesifikasi = FizaPenyediaanSpesifikasi::where('id',$id)->first();
+
+        $PenyediaanSpesifikasi->delete();
+
+        return  redirect('/PenyediaanSpesifikasi')->with('message','Data telah berjaya dipadam!');
     }
 }

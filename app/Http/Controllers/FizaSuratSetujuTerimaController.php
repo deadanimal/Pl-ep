@@ -76,16 +76,10 @@ class FizaSuratSetujuTerimaController extends Controller
         $fizaSuratSetujuTerima->niat_id=$request->niat_id;
 
         $fizaSuratSetujuTerima->save();
-        return redirect('/SuratSetujuTerima');
+        return redirect('/SuratSetujuTerima')->with('success', 'Data anda telah berjaya dikemaskini!');
         
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\FizaSuratSetujuTerima  $fizaSuratSetujuTerima
-     * @return \Illuminate\Http\Response
-     */
     public function show(FizaSuratSetujuTerima $fizaSuratSetujuTerima)
     {
         //
@@ -148,7 +142,7 @@ class FizaSuratSetujuTerimaController extends Controller
         $fizaSuratSetujuTerima->niat_id=$request->niat_id;
 
         $fizaSuratSetujuTerima->save();
-        return redirect('/fizaSuratSetujuTerima');
+        return redirect('/fizaSuratSetujuTerima')->with('success', 'Data anda telah berjaya dikemaskini!');
     }
 
     /**

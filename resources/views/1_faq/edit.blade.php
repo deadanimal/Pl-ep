@@ -8,7 +8,7 @@
     </h1>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Cipta Soalan Lazim</a></li>
+            <li class="breadcrumb-item"><a href="#">Kemaskini Soalan Lazim</a></li>
         </ol>
     </nav>
 </div>

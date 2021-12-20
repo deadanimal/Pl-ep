@@ -19,7 +19,7 @@
                 <h5 class="card-title mb-0"></h5>
             </div>
             <div class="card-body">
-            <form method="POST" action="/PenyediaanSpesifikasi/{{$fizaPenyediaanSpesifikasi->id}}" enctype="multipart/form-data">
+            <form method="POST" action="/PenyediaanSpesifikasi/{{$PenyediaanSpesifikasi->id}}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
@@ -28,7 +28,7 @@
                     <label class="col-form-label col-sm-6 ">Tajuk Spesifikasi </label>
                 </div>
                 <div class="mb-3 col-md-6">
-                    <input type="text" class="form-control" name="spesifikasi_tajuk" value="{{$fizaPenyediaanSpesifikasi->spesifikasi_tajuk}}">
+                    <input type="text" class="form-control" name="spesifikasi_tajuk" value="{{$PenyediaanSpesifikasi->spesifikasi_tajuk}}">
                 </div>
             </div>
 
@@ -38,7 +38,7 @@
                     <label class="col-form-label col-sm-6 ">Jenis Barang</label>
                 </div>
                 <div class="mb-3 col-md-6">
-                    <input type="text" class="form-control" name="spesifikasi_jenis_barang" value="{{$fizaPenyediaanSpesifikasi->spesifikasi_jenis_barang}}">
+                    <input type="text" class="form-control" name="spesifikasi_jenis_barang" value="{{$PenyediaanSpesifikasi->spesifikasi_jenis_barang}}">
                 </div>
             </div>
             
@@ -49,7 +49,7 @@
                     <label class="col-form-label col-sm-6 ">Butiran Item</label>
                 </div>
                 <div class="mb-3 col-md-6">
-                    <input type="text" class="form-control" name="spesifikasi_description" value="{{$fizaPenyediaanSpesifikasi->spesifikasi_description}}">
+                    <input type="text" class="form-control" name="spesifikasi_description" value="{{$PenyediaanSpesifikasi->spesifikasi_description}}">
                 </div>
             </div>
 
@@ -58,7 +58,7 @@
                     <label class="col-form-label col-sm-6 ">Unit Ukuran </label>
                 </div>
                 <div class="mb-3 col-md-6">
-                    <input type="text" class="form-control" name="spesifikasi_unit_ukuran" value="{{$fizaPenyediaanSpesifikasi->spesifikasi_unit_ukuran}}">
+                    <input type="text" class="form-control" name="spesifikasi_unit_ukuran" value="{{$PenyediaanSpesifikasi->spesifikasi_unit_ukuran}}">
                 </div>
             </div>
 
@@ -68,7 +68,7 @@
                     <label class="col-form-label col-sm-6 ">Jenis Harga</label>
                 </div>
                 <div class="mb-3 col-md-6">
-                    <input type="text" class="form-control" name="spesifikasi_jenis_harga" value="{{$fizaPenyediaanSpesifikasi->spesifikasi_jenis_harga}}">
+                    <input type="text" class="form-control" name="spesifikasi_jenis_harga" value="{{$PenyediaanSpesifikasi->spesifikasi_jenis_harga}}">
                 </div>
             </div>
 
@@ -78,7 +78,7 @@
                     <label class="col-form-label col-sm-6 ">Jumlah Harga Indikatif</label>
                 </div>
                 <div class="mb-3 col-md-6">
-                        <input type="number" class="form-control" name="spesifikasi_jumlah_harga_indikatif" value="{{$fizaPenyediaanSpesifikasi->spesifikasi_jumlah_harga_indikatif}}">
+                        <input type="number" class="form-control" name="spesifikasi_jumlah_harga_indikatif" value="{{$PenyediaanSpesifikasi->spesifikasi_jumlah_harga_indikatif}}">
                 </div>
             </div>
 
@@ -88,7 +88,7 @@
                     <label class="col-form-label col-sm-6 ">Jumlah Harga</label>
                 </div>
                 <div class="mb-3 col-md-6">
-                    <input type="number" class="form-control" name="spesifikasi_jumlah_harga" value="{{$fizaPenyediaanSpesifikasi->spesifikasi_jumlah_harga}}">
+                    <input type="number" class="form-control" name="spesifikasi_jumlah_harga" value="{{$PenyediaanSpesifikasi->spesifikasi_jumlah_harga}}">
                 </div>
             </div>
 
@@ -98,7 +98,7 @@
                     <label class="col-form-label col-sm-6 ">Alamat Penghantaran </label>
                 </div>
                 <div class="mb-3 col-md-6">
-                    <input type="text" class="form-control" name="spesifikasi_alamat_penghantaran" value="{{$fizaPenyediaanSpesifikasi->spesifikasi_jumlah_harga}}">
+                    <input type="text" class="form-control" name="spesifikasi_alamat_penghantaran" value="{{$PenyediaanSpesifikasi->spesifikasi_jumlah_harga}}">
                 </div>
             </div>
 
@@ -108,7 +108,7 @@
                     <label class="col-form-label col-sm-6 ">Catatan Spesifikasi Item</label>
                 </div>
                 <div class="mb-3 col-md-6">
-                    <textarea rows="4" cols="50" class="form-control" name="spesifikasi_catatan">{{$fizaPenyediaanSpesifikasi->spesifikasi_catatan}}</textarea>
+                    <textarea rows="4" cols="50" class="form-control" name="spesifikasi_catatan">{{$PenyediaanSpesifikasi->spesifikasi_catatan}}</textarea>
                 </div>
             </div>
             
@@ -120,7 +120,7 @@
                 </div>
 
                 <div class="mb-3 col-md-6">
-                    <input type="number" class="form-control" name="spesifikasi_skor_maksima" value="{{$fizaPenyediaanSpesifikasi->spesifikasi_skor_maksima}}">
+                    <input type="number" class="form-control" name="spesifikasi_skor_maksima" value="{{$PenyediaanSpesifikasi->spesifikasi_skor_maksima}}">
                 </div>
             </div>
 
@@ -130,7 +130,7 @@
                     <label class="col-form-label col-sm-6 ">Jumlah Skor Teknikal</label>
                 </div>
                 <div class="mb-3 col-md-6">
-                    <input type="number" class="form-control" name="spesifikasi_jumlah_skor_teknikal" value="{{$fizaPenyediaanSpesifikasi->spesifikasi_jumlah_skor_teknikal}}">
+                    <input type="number" class="form-control" name="spesifikasi_jumlah_skor_teknikal" value="{{$PenyediaanSpesifikasi->spesifikasi_jumlah_skor_teknikal}}">
                 </div>
             </div>
 
@@ -140,18 +140,22 @@
                     <label class="col-form-label col-sm-6 ">Skor Lulus Teknikal</label>
                 </div>
                 <div class="mb-3 col-md-6">
-                    <input type="number" class="form-control" name="spesifikasi_skor_lulus_teknikal" value="{{$fizaPenyediaanSpesifikasi->spesifikasi_skor_lulus_teknikal}}">
+                    <input type="number" class="form-control" name="spesifikasi_skor_lulus_teknikal" value="{{$PenyediaanSpesifikasi->spesifikasi_skor_lulus_teknikal}}">
                 </div>
             </div>
 
             
             <div class="row">
                 <div class="mb-3 col-md-6">
-                    <label class="col-form-label col-sm-6 ">Skema Teknikal</label>
+                    <label class="col-form-label col-sm-6">Skema Teknikal</label>
                 </div>
-                <div class="mb-3 col-md-6">
-                    <input type="file" class="form-control" name="spesifikasi_skema_teknikal" value="{{$fizaPenyediaanSpesifikasi->spesifikasi_skema_teknikal}}">
+                <div class="mb-3 col-md-4">
+                    <input type="file" class="form-control" name="spesifikasi_skema_teknikal" value="{{$PenyediaanSpesifikasi->spesifikasi_skema_teknikal}}">
                 </div>
+                <div class="mb-3 col-md-2">
+                    <a href="/storage/{{$PenyediaanSpesifikasi->spesifikasi_skema_teknikal}}" target="_blank" download>Muat Turun Fail</a> 
+                </div>
+              
             </div>
             
            
@@ -160,7 +164,7 @@
                     <label class="col-form-label col-sm-6 ">Jumlah Skor Kewangan</label>
                 </div>
                 <div class="mb-3 col-md-6">
-                    <input type="number" class="form-control" name="spesifikasi_jumlah_skor_kewangan" value="{{$fizaPenyediaanSpesifikasi->spesifikasi_jumlah_skor_kewangan}}">
+                    <input type="number" class="form-control" name="spesifikasi_jumlah_skor_kewangan" value="{{$PenyediaanSpesifikasi->spesifikasi_jumlah_skor_kewangan}}">
                 </div>
             </div>
 
@@ -170,7 +174,7 @@
                     <label class="col-form-label col-sm-6 ">Skor Lulus Kewangan </label>
                 </div>
                 <div class="mb-3 col-md-6">
-                    <input type="number" class="form-control" name="spesifikasi_skor_lulus_kewangan" value="{{$fizaPenyediaanSpesifikasi->spesifikasi_skor_lulus_kewangan}}">
+                    <input type="number" class="form-control" name="spesifikasi_skor_lulus_kewangan" value="{{$PenyediaanSpesifikasi->spesifikasi_skor_lulus_kewangan}}">
                 </div>
             </div>
 
@@ -180,8 +184,11 @@
                     <label class="col-form-label col-sm-6 ">Skema Kewangan</label>
                 </div>
 
-                <div class="mb-3 col-md-6">
-                    <input type="file" class="form-control"  name="spesifikasi_skema_kewangan" value="{{$fizaPenyediaanSpesifikasi->spesifikasi_skema_kewangan}}">
+                <div class="mb-3 col-md-4">
+                    <input type="file" class="form-control"  name="spesifikasi_skema_kewangan" value="{{$PenyediaanSpesifikasi->spesifikasi_skema_kewangan}}">
+                </div>
+                <div class="mb-3 col-md-2">
+                    <a href="/storage/{{$PenyediaanSpesifikasi->spesifikasi_skema_kewangan}}" target="_blank" download>Muat Turun Fail</a> 
                 </div>
             </div>
 
@@ -191,7 +198,7 @@
                     <label class="col-form-label col-sm-6 ">Skor Lulus Keseluruhan</label>
                 </div>
                 <div class="mb-3 col-md-6">
-                    <input type="text" class="form-control" name="spesifikasi_skor_lulus_keseluruhan" value="{{$fizaPenyediaanSpesifikasi->spesifikasi_skor_lulus_keseluruhan}}">
+                    <input type="text" class="form-control" name="spesifikasi_skor_lulus_keseluruhan" value="{{$PenyediaanSpesifikasi->spesifikasi_skor_lulus_keseluruhan}}">
                 </div>
             </div>
 
