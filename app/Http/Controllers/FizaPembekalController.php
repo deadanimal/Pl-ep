@@ -15,7 +15,7 @@ class FizaPembekalController extends Controller
         $role=Auth::user()->roles;
         //dd($role->id[0]);
         if($role[0]->id=='1'){
-            $pembekal = FizaPembekal::orderBy('latest')->get();
+            $pembekal = FizaPembekal::all();
         return view ('1_pembekal.index',[
             'pembekal'=>$pembekal]);
         }
@@ -113,9 +113,7 @@ class FizaPembekalController extends Controller
         if (!is_null($request->pembekal_jenis_akaun)) {
             if (in_array('Kerja', $request->pembekal_jenis_akaun) && in_array('Bekalan & Perkhidmatan(MOF)', $request->pembekal_jenis_akaun)) {
                 return redirect('/insertfile/'.$fizaPembekal->id);
-
-                // $receiver = User::where({{)->first();
-                Mail::to($user->email)->send(new PendaftaranPembekal);
+                
 
             } elseif (in_array('Kerja',$request->pembekal_jenis_akaun))
              {
@@ -128,6 +126,10 @@ class FizaPembekalController extends Controller
             } else {
 
                 return redirect('/Pembekal');
+                foreach ($user->role as $role) {
+                    $receiver = User::where($role_id[0]=='1')->get();
+                    Mail::to($receiver->email)->send(new PendaftaranPembekal);
+                }
 
             }
 
@@ -263,6 +265,10 @@ class FizaPembekalController extends Controller
         // $fizaPembekal->id_pembekal=$temp;
         // $fizaPembekal->id_pembekal=$temp;
         $fizaPembekal->save();
+        foreach ($user->role as $role) {
+            $receiver = User::where($role_id[0]=='1')->get();
+            Mail::to($receiver->email)->send(new PendaftaranPembekal);
+        }
         // session(['id_pembekal' => '$fizaPembekal->id']);
         // Session::put('id_pembekal', '$fizaPembekal->id');
     
@@ -296,6 +302,10 @@ class FizaPembekalController extends Controller
         $pembekal->pembekal_sijil_gred=$pembekal_sijil_gred;
 
         $pembekal->save();
+        foreach ($user->role as $role) {
+            $receiver = User::where($role_id[0]=='1')->get();
+            Mail::to($receiver->email)->send(new PendaftaranPembekal);
+        }
 
         return redirect('/Pembekal');
     }
@@ -335,6 +345,11 @@ class FizaPembekalController extends Controller
 
 
         $pembekal->save();
+
+        foreach ($user->role as $role) {
+            $receiver = User::where($role_id[0]=='1')->get();
+            Mail::to($receiver->email)->send(new PendaftaranPembekal);
+        }
 
         return redirect('/Pembekal');
     }

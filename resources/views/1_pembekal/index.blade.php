@@ -45,7 +45,7 @@
                                 <td>{{  $pembekal->pembekal_company_name}}</td>
                                 <td>{{  $pembekal->pembekal_pemilik }}</td>
                                 <td>{{  $pembekal->pembekal_status}}</td>
-                                <td>{{date('d/m/Y', strtotime($pembekal->created_at))}}
+                                <td>{{date('d/m/Y H:i', strtotime($pembekal->created_at))}}
                                 <td class="table-action">
                                     <form method="POST" action="/Pembekal/{{$pembekal->id}}">
                                         @method('DELETE')
