@@ -17,7 +17,7 @@
                     kontrak_no_fizikal --}}
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">No fizikal</label>
+                           <label class="col-form-label col-sm-6">No fizikal</label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <input type="text" class="form-control" name="kontrak_no_fizikal">
@@ -27,7 +27,7 @@
 
                      <div class="row">
                          <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Tempoh Penghantaran</label>
+                           <label class="col-form-label col-sm-6">Tempoh Penghantaran</label>
                          </div>
                          <div class="mb-3 col-md-6">
                              <input type="number" class="form-control" name="kontrak_tempoh_penghantaran">
@@ -37,7 +37,7 @@
 
                      <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Pilihan Kontrak</label>
+                           <label class="col-form-label col-sm-6">Pilihan Kontrak</label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <input type="text" class="form-control" name="kontrak_pilihan">
@@ -48,7 +48,7 @@
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">No Rujukan Bon </label>
+                           <label class="col-form-label col-sm-6">No Rujukan Bon </label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <input type="text" class="form-control" name="kontrak_no_rujukan_bon">
@@ -58,7 +58,7 @@
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Institusi Kewangan </label>
+                           <label class="col-form-label col-sm-6">Institusi Kewangan </label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <input type="text" class="form-control" name="kontrak_institusi_kewangan">
@@ -68,7 +68,7 @@
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Amaun (RM)</label>
+                           <label class="col-form-label col-sm-6">Amaun (RM)</label>
                         </div>
                         <div class="mb-3 col-md-6">
                              <input type="number" class="form-control" name="kontrak_amaun">
@@ -77,7 +77,7 @@
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Tarikh Kuatkuasa</label>
+                           <label class="col-form-label col-sm-6">Tarikh Kuatkuasa</label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <input type="date" class="form-control" name="kontrak_tarikh_kuatkuasa">
@@ -87,7 +87,7 @@
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Tarikh Tamat Kontrak </label>
+                           <label class="col-form-label col-sm-6">Tarikh Tamat Kontrak </label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <input type="date" class="form-control" name="kontrak_tarikh_tamat">
@@ -97,7 +97,7 @@
 {{-- 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">File Bon </label>
+                           <label class="col-form-label col-sm-6">File Bon </label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <input type="file" class="form-control" name="kontrak_file_bon">
@@ -106,7 +106,7 @@
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Pelulus Kontrak</label>
+                           <label class="col-form-label col-sm-6">Pelulus Kontrak</label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <input type="text" class="form-control" name="kontrak_pelulus">
@@ -117,7 +117,7 @@
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Catatan Pelulus</label>
+                           <label class="col-form-label col-sm-6">Catatan Pelulus</label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <input type="text" class="form-control" name="kontrak_catatan_pelulus">

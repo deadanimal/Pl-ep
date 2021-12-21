@@ -24,7 +24,7 @@
     @method('PUT')
     <div class="row">
         <div class="mb-3 col-md-6">
-            <label class="col-form-label col-sm-6 ">Kategori Item</label>
+           <label class="col-form-label col-sm-6">Kategori Item</label>
         </div>
         <div class="mb-3 col-md-6">
              <input  type=text class=form-control name=katalog_kategori value="{{$Katalog->katalog_kategori}}">  
@@ -33,7 +33,7 @@
 
     <div class="row">
         <div class="mb-3 col-md-6">
-            <label class="col-form-label col-sm-6 ">Kumpulan </label>
+           <label class="col-form-label col-sm-6">Kumpulan </label>
         </div>
         <div class="mb-3 col-md-6">
             <input type=text class=form-control name=katalog_kumpulan value="{{$Katalog->katalog_kumpulan}}">
@@ -42,7 +42,7 @@
 
     <div class="row">
          <div class="mb-3 col-md-6">
-            <label class="col-form-label col-sm-6 ">Jenis Katalog </label>
+           <label class="col-form-label col-sm-6">Jenis Katalog </label>
          </div>
          <div class="mb-3 col-md-6">
              <input type=text class=form-control name=katalog_jenis value="{{$Katalog->katalog_jenis}}">

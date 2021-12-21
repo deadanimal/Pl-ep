@@ -18,7 +18,7 @@
                     <br><br>
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Jenis Pemenuhan </label>
+                           <label class="col-form-label col-sm-6">Jenis Pemenuhan </label>
                         </div>
                          <div class="mb-3 col-md-6">
                         <input type="text"  class="form-control" name="jadual_jenis_pemenuhan" value="{{$fizaJadualPemenuhan->jadual_jenis_pemenuhan}}">
@@ -27,7 +27,7 @@
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Kekerapan</label>
+                           <label class="col-form-label col-sm-6">Kekerapan</label>
                         </div>
                         <div class="mb-3 col-md-6">
                                 <input type="text" class="form-control" name="jadual_kekerapan" value="{{$fizaJadualPemenuhan->jadual_kekerapan}}"> 
@@ -36,7 +36,7 @@
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Bilangan</label>
+                           <label class="col-form-label col-sm-6">Bilangan</label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <input type="number" class="form-control" name="jadual_bil" value="{{$fizaJadualPemenuhan->jadual_bil}}">
@@ -45,7 +45,7 @@
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Bulan Mula </label>
+                           <label class="col-form-label col-sm-6">Bulan Mula </label>
                         </div>
                          <div class="mb-3 col-md-6">
                             <input type="month" class="form-control" name="jadual_bulan_mula" id="month1" value="{{$fizaJadualPemenuhan->jadual_bulan_mula}}">
@@ -55,7 +55,7 @@
                     {{-- <br>Tahun Mula <input type="" --}}
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Bulan Akhir  </label>
+                           <label class="col-form-label col-sm-6">Bulan Akhir  </label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <input type="month" class="form-control" name="jadual_bulan_akhir" id="month2" value="{{$fizaJadualPemenuhan->jadual_bulan_akhir}}">
@@ -65,7 +65,7 @@
                     
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Jenis Jadual</label>
+                           <label class="col-form-label col-sm-6">Jenis Jadual</label>
                         </div>
                          <div class="mb-3 col-md-6">
                         <input type="text" class="form-control" name="jadual_jenis" value="{{$fizaJadualPemenuhan->jadual_jenis}}">

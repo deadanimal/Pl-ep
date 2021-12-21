@@ -32,7 +32,7 @@
 
             <div class="row">
                 <div class="col-md-4">
-                    <label class="col-form-label col-sm-6 ">Jenis Pengguna </label>
+                   <label class="col-form-label col-sm-6">Jenis Pengguna </label>
                 </div>
                 <div class="mb-3 col-md-8">
                     {{$user->jenis}}
@@ -41,7 +41,7 @@
          
             <div class="row">
                 <div class="col-md-4">
-                    <label class="col-form-label col-sm-6 "> No Kad Pengenalan </label>
+                   <label class="col-form-label col-sm-6"> No Kad Pengenalan </label>
                 </div>
                 <div class="mb-3 col-md-8">
                     {{$user->user_identity_no}}
@@ -50,7 +50,7 @@
 
             <div class="row">
                 <div class="col-md-4">
-                    <label class="col-form-label col-sm-6 ">Emel</label>
+                   <label class="col-form-label col-sm-6">Emel</label>
                 </div>
                 <div class="mb-3 col-md-8">
                 {{$user->email}}
@@ -59,7 +59,7 @@
 
             <div class="row">
                 <div class="col-md-4">
-                    <label class="col-form-label col-sm-6 ">Peranan Pengguna</label>
+                   <label class="col-form-label col-sm-6">Peranan Pengguna</label>
                 </div>
                 <div class="col-md-8">
                     @foreach ($user->roles as $role)

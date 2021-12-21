@@ -25,7 +25,7 @@
 
                 <div class="row">
                     <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Tajuk Spesifikasi </label>
+                       <label class="col-form-label col-sm-6">Tajuk Spesifikasi </label>
                     </div>
                     <div class="mb-3 col-md-6">
                         <input type="text"  class="form-control" name="spesifikasi_tajuk">
@@ -34,7 +34,7 @@
 
                 <div class="row">
                     <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Jenis Barang </label>
+                           <label class="col-form-label col-sm-6">Jenis Barang </label>
                     </div>
                     <div class="mb-3 col-md-6">
                         <input type="text" class="form-control" name="spesifikasi_jenis_barang">
@@ -43,7 +43,7 @@
 
                  <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Butiran Item </label>
+                           <label class="col-form-label col-sm-6">Butiran Item </label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <input type="text" class="form-control" name="spesifikasi_description">
@@ -52,7 +52,7 @@
 
                  <div class="row">
                      <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Unit Ukuran</label>
+                       <label class="col-form-label col-sm-6">Unit Ukuran</label>
                      </div>
                      <div class="mb-3 col-md-6">
                         <input type="text" class="form-control" name="spesifikasi_unit_ukuran">
@@ -61,7 +61,7 @@
 
                  <div class="row">
                     <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Jenis Harga </label>
+                       <label class="col-form-label col-sm-6">Jenis Harga </label>
                     </div>
                     <div class="mb-3 col-md-6">
                         <input type="text" class="form-control" name="spesifikasi_jenis_harga">
@@ -71,7 +71,7 @@
 
                 <div class="row">
                     <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Jumlah Harga Indikatif</label>
+                       <label class="col-form-label col-sm-6">Jumlah Harga Indikatif</label>
                     </div>
                     <div class="mb-3 col-md-6">
                         <input type="text" class="form-control" name="spesifikasi_jumlah_harga_indikatif">
@@ -80,7 +80,7 @@
 
                 <div class="row">
                     <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Jumlah Harga</label>
+                       <label class="col-form-label col-sm-6">Jumlah Harga</label>
                     </div>
                     <div class="mb-3 col-md-6">
                          <input type="text" class="form-control" name="spesifikasi_jumlah_harga">
@@ -89,7 +89,7 @@
 
                 <div class="row">
                     <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Alamat Penghantaran</label>
+                       <label class="col-form-label col-sm-6">Alamat Penghantaran</label>
                     </div>
                     <div class="mb-3 col-md-6">
                         <input type="text" class="form-control" name="spesifikasi_alamat_penghantaran">
@@ -99,7 +99,7 @@
 
                 <div class="row">
                     <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Skema Teknikal </label>
+                       <label class="col-form-label col-sm-6">Skema Teknikal </label>
                     </div>
                     <div class="mb-3 col-md-6">
                         <input type="file" class="form-control" name="spesifikasi_skema_teknikal">
@@ -109,7 +109,7 @@
 
                 <div class="row">
                     <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Catatan Spesifikasi Item </label>
+                       <label class="col-form-label col-sm-6">Catatan Spesifikasi Item </label>
                     </div>
                     <div class="mb-3 col-md-6">
                          <textarea rows="4" cols="50" class="form-control" name="spesifikasi_catatan"></textarea>
@@ -119,7 +119,7 @@
                 
                 <div class="row">
                      <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Skema Kewangan</label>
+                       <label class="col-form-label col-sm-6">Skema Kewangan</label>
                      </div>
                      <div class="mb-3 col-md-6">
                         <input type="file" class="form-control" name="spesifikasi_skema_kewangan">

@@ -25,7 +25,7 @@
 
             <div class="row">
                 <div class="mb-3 col-md-6">
-                    <label class="col-form-label col-sm-6 ">Tajuk Spesifikasi </label>
+                   <label class="col-form-label col-sm-6">Tajuk Spesifikasi </label>
                 </div>
                 <div class="mb-3 col-md-6">
                     <input type="text" class="form-control" name="spesifikasi_tajuk" value="{{$PenyediaanSpesifikasi->spesifikasi_tajuk}}">
@@ -35,7 +35,7 @@
             
             <div class="row">
                 <div class="mb-3 col-md-6">
-                    <label class="col-form-label col-sm-6 ">Jenis Barang</label>
+                   <label class="col-form-label col-sm-6">Jenis Barang</label>
                 </div>
                 <div class="mb-3 col-md-6">
                     <input type="text" class="form-control" name="spesifikasi_jenis_barang" value="{{$PenyediaanSpesifikasi->spesifikasi_jenis_barang}}">
@@ -46,7 +46,7 @@
             
             <div class="row">
                 <div class="mb-3 col-md-6">
-                    <label class="col-form-label col-sm-6 ">Butiran Item</label>
+                   <label class="col-form-label col-sm-6">Butiran Item</label>
                 </div>
                 <div class="mb-3 col-md-6">
                     <input type="text" class="form-control" name="spesifikasi_description" value="{{$PenyediaanSpesifikasi->spesifikasi_description}}">
@@ -55,7 +55,7 @@
 
             <div class="row">
                 <div class="mb-3 col-md-6">
-                    <label class="col-form-label col-sm-6 ">Unit Ukuran </label>
+                   <label class="col-form-label col-sm-6">Unit Ukuran </label>
                 </div>
                 <div class="mb-3 col-md-6">
                     <input type="text" class="form-control" name="spesifikasi_unit_ukuran" value="{{$PenyediaanSpesifikasi->spesifikasi_unit_ukuran}}">
@@ -65,7 +65,7 @@
             
             <div class="row">
                 <div class="mb-3 col-md-6">
-                    <label class="col-form-label col-sm-6 ">Jenis Harga</label>
+                   <label class="col-form-label col-sm-6">Jenis Harga</label>
                 </div>
                 <div class="mb-3 col-md-6">
                     <input type="text" class="form-control" name="spesifikasi_jenis_harga" value="{{$PenyediaanSpesifikasi->spesifikasi_jenis_harga}}">
@@ -75,7 +75,7 @@
             
             <div class="row">
                 <div class="mb-3 col-md-6">
-                    <label class="col-form-label col-sm-6 ">Jumlah Harga Indikatif</label>
+                   <label class="col-form-label col-sm-6">Jumlah Harga Indikatif</label>
                 </div>
                 <div class="mb-3 col-md-6">
                         <input type="number" class="form-control" name="spesifikasi_jumlah_harga_indikatif" value="{{$PenyediaanSpesifikasi->spesifikasi_jumlah_harga_indikatif}}">
@@ -85,7 +85,7 @@
             
             <div class="row">
                 <div class="mb-3 col-md-6">
-                    <label class="col-form-label col-sm-6 ">Jumlah Harga</label>
+                   <label class="col-form-label col-sm-6">Jumlah Harga</label>
                 </div>
                 <div class="mb-3 col-md-6">
                     <input type="number" class="form-control" name="spesifikasi_jumlah_harga" value="{{$PenyediaanSpesifikasi->spesifikasi_jumlah_harga}}">
@@ -95,7 +95,7 @@
             
             <div class="row">
                 <div class="mb-3 col-md-6">
-                    <label class="col-form-label col-sm-6 ">Alamat Penghantaran </label>
+                   <label class="col-form-label col-sm-6">Alamat Penghantaran </label>
                 </div>
                 <div class="mb-3 col-md-6">
                     <input type="text" class="form-control" name="spesifikasi_alamat_penghantaran" value="{{$PenyediaanSpesifikasi->spesifikasi_jumlah_harga}}">
@@ -105,7 +105,7 @@
             
             <div class="row">
                 <div class="mb-3 col-md-6">
-                    <label class="col-form-label col-sm-6 ">Catatan Spesifikasi Item</label>
+                   <label class="col-form-label col-sm-6">Catatan Spesifikasi Item</label>
                 </div>
                 <div class="mb-3 col-md-6">
                     <textarea rows="4" cols="50" class="form-control" name="spesifikasi_catatan">{{$PenyediaanSpesifikasi->spesifikasi_catatan}}</textarea>
@@ -116,7 +116,7 @@
            
             <div class="row">
                 <div class="mb-3 col-md-6">
-                    <label class="col-form-label col-sm-6 ">Skor Maksima </label>
+                   <label class="col-form-label col-sm-6">Skor Maksima </label>
                 </div>
 
                 <div class="mb-3 col-md-6">
@@ -127,7 +127,7 @@
             
             <div class="row">
                 <div class="mb-3 col-md-6">
-                    <label class="col-form-label col-sm-6 ">Jumlah Skor Teknikal</label>
+                   <label class="col-form-label col-sm-6">Jumlah Skor Teknikal</label>
                 </div>
                 <div class="mb-3 col-md-6">
                     <input type="number" class="form-control" name="spesifikasi_jumlah_skor_teknikal" value="{{$PenyediaanSpesifikasi->spesifikasi_jumlah_skor_teknikal}}">
@@ -137,7 +137,7 @@
             
             <div class="row">
                 <div class="mb-3 col-md-6">
-                    <label class="col-form-label col-sm-6 ">Skor Lulus Teknikal</label>
+                   <label class="col-form-label col-sm-6">Skor Lulus Teknikal</label>
                 </div>
                 <div class="mb-3 col-md-6">
                     <input type="number" class="form-control" name="spesifikasi_skor_lulus_teknikal" value="{{$PenyediaanSpesifikasi->spesifikasi_skor_lulus_teknikal}}">
@@ -161,7 +161,7 @@
            
             <div class="row">
                 <div class="mb-3 col-md-6">
-                    <label class="col-form-label col-sm-6 ">Jumlah Skor Kewangan</label>
+                   <label class="col-form-label col-sm-6">Jumlah Skor Kewangan</label>
                 </div>
                 <div class="mb-3 col-md-6">
                     <input type="number" class="form-control" name="spesifikasi_jumlah_skor_kewangan" value="{{$PenyediaanSpesifikasi->spesifikasi_jumlah_skor_kewangan}}">
@@ -171,7 +171,7 @@
             
             <div class="row">
                 <div class="mb-3 col-md-6">
-                    <label class="col-form-label col-sm-6 ">Skor Lulus Kewangan </label>
+                   <label class="col-form-label col-sm-6">Skor Lulus Kewangan </label>
                 </div>
                 <div class="mb-3 col-md-6">
                     <input type="number" class="form-control" name="spesifikasi_skor_lulus_kewangan" value="{{$PenyediaanSpesifikasi->spesifikasi_skor_lulus_kewangan}}">
@@ -181,7 +181,7 @@
             
             <div class="row">
                 <div class="mb-3 col-md-6">
-                    <label class="col-form-label col-sm-6 ">Skema Kewangan</label>
+                   <label class="col-form-label col-sm-6">Skema Kewangan</label>
                 </div>
 
                 <div class="mb-3 col-md-4">
@@ -195,7 +195,7 @@
             
             <div class="row">
                 <div class="mb-3 col-md-6">
-                    <label class="col-form-label col-sm-6 ">Skor Lulus Keseluruhan</label>
+                   <label class="col-form-label col-sm-6">Skor Lulus Keseluruhan</label>
                 </div>
                 <div class="mb-3 col-md-6">
                     <input type="text" class="form-control" name="spesifikasi_skor_lulus_keseluruhan" value="{{$PenyediaanSpesifikasi->spesifikasi_skor_lulus_keseluruhan}}">

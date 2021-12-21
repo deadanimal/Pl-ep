@@ -14,7 +14,7 @@
  
                 <div class="row">
                     <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Kuantiti Item</label>
+                       <label class="col-form-label col-sm-6">Kuantiti Item</label>
                     </div>
                     <div class="mb-3 col-md-6">
                         <input type="number" class="form-control" name="penghantaran_kuantiti">
@@ -23,7 +23,7 @@
 
                 <div class="row">
                    <div class="mb-3 col-md-6">
-                     <label class="col-form-label col-sm-6 ">Tarikh Penghantaran</label>
+                    <label class="col-form-label col-sm-6">Tarikh Penghantaran</label>
                    </div>
                    <div class="mb-3 col-md-6">
                         <input type="date" class="form-control" name="penghantaran_date">

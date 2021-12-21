@@ -57,7 +57,7 @@
                     </ol> --}}
                 </nav>
             </div>
-            <div class="row">
+            
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
@@ -70,157 +70,137 @@
                 <form method="POST" action="/Pembekal" enctype="multipart/form-data">
                     @csrf
                     <fieldset>
-                        <div class="row">
-                            <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-10 ">Pilih Jenis Akaun</label>
-                            </div>
-                            <div class="mb-3 col-md-6">
-                                {{-- <div class="form-check">
-                                                        <input type="checkbox" name="pembekal_jenis_akaun[]" value="Akaun Asas" class="form-check-input">Akaun Asas
-                                                    </div> --}}
-
-                                <div class="form-check">
-                                    <input type="checkbox" name="pembekal_jenis_akaun[]" value="Bekalan & Perkhidmatan(MOF)"
-                                        class="form-check-input">Bekalan dan Perkhidmatan (MOF)
-                                </div>
-                                <div class="form-check">
-                                    <input type="checkbox" name="pembekal_jenis_akaun[]" value="Kerja" class="form-check-input">CIDB
+                    
+                            <div class="mb-3 row">
+                                <label class= "col-form-label col-sm-3 text-sm-end">Pilih Jenis Akaun
+                                     <span class="text-danger">*</span></label>
+                         
+                                <div class="mb-2 col-sm-7">
+                                    <div class="form-check">
+                                        <input type="checkbox" name="pembekal_jenis_akaun[]" value="Bekalan & Perkhidmatan(MOF)" class="form-check-input">
+                                        Bekalan dan Perkhidmatan (MOF)
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="pembekal_jenis_akaun[]" value="Kerja" class="form-check-input" >CIDB
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
                         <legend>Maklumat Syarikat</legend>
 
-                        <div class="row">
-                            <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">Nama Syarikat</label>
-                            </div>
-                            <div class="mb-3 col-md-6">
+                        <div class="mb-3 row">
+                            <label class= "col-form-label col-sm-3 text-sm-end">Nama Syarikat<span class="text-danger">*</span></label>
+                            <div class="mb-2 col-sm-7">
                                 <input type=text style=text-transform:uppercase name=pembekal_company_name class="form-control">
                             </div>
                         </div>
 
-                        {{-- <div class="row">
-                                                    <div class="mb-3 col-md-6">
-                                                        <label class="col-form-label col-sm-6 ">Jenis Pembekal</label>
+                        {{-- 
+                                                    <div class="mb-2 col-sm-7"> 
+                                                        <label class= "col-form-label col-sm-3 text-sm-end">Jenis Pembekal<span class="text-danger">*</span></label>
                                                     </div>
-                                                    <div class="mb-3 col-md-6">
+                                                    <div class="mb-2 col-sm-7"> 
                                                         <input type=text style=text-transform:uppercase name=pembekal_jenis class="form-control">
                                                     </div>
                                                 </div> --}}
 
-                        <div class="row">
-                            <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">Jenis Perniagaan</label>
-                            </div>
-                            <div class="mb-3 col-md-6">
-                                <input type=text style=text-transform:uppercase name=pembekal_jenis_company class="form-control">
-                            </div>
+                        <div class="mb-3 row">
+                                <label class= "col-form-label col-sm-3 text-sm-end">Jenis Perniagaan<span class="text-danger">*</span></label>
+                                <div class="mb-2 col-sm-7">
+                                    <input type=text style=text-transform:uppercase name=pembekal_jenis_company class="form-control">
+                                </div>
                         </div>
 
-                        <div class="row">
-                            <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">No Pendaftaran Syarikat</label>
-                            </div>
-                            <div class="mb-3 col-md-6">
+                        <div class="mb-3 row">
+                                <label class= "col-form-label col-sm-3 text-sm-end">No Pendaftaran Syarikat<span class="text-danger">*</span></label>
+                            <div class="mb-2 col-sm-7">
                                 <input type=text style=text-transform:uppercase name=pembekal_no_pendaftaran class="form-control">
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">Sijil SSM</label>
-                            </div>
-                            <div class="mb-3 col-md-6">
-                                <input type=file name=pembekal_sijil_ssm class="form-control">
-                            </div>
+                        <div class="mb-3 row">
+                                <label class= "col-form-label col-sm-3 text-sm-end">Sijil SSM<span class="text-danger">*</span></label>
+                                <div class="mb-2 col-sm-7">
+                                    <input type=file name=pembekal_sijil_ssm class="form-control">
+                                </div>
                         </div>
 
-                        <div class="row">
-                            <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">Lesen Perniagaan</label>
-                            </div>
-                            <div class="mb-3 col-md-6">
+                        
+                        <div class="mb-3 row">
+                                <label class= "col-form-label col-sm-3 text-sm-end">Lesen Perniagaan<span class="text-danger">*</span></label>
+                            <div class="mb-2 col-sm-7"> 
                                 <input type=file name=pembekal_lesen_perniagaan class="form-control">
                             </div>
                         </div>
 
-
-                        <div class="row">
-                            <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">Tarikh Penubuhan</label>
-                            </div>
-                            <div class="mb-3 col-md-6">
-                                <input type=date name=pembekal_date_establish class="form-control">
-                            </div>
+                        <div class="mb-3 row">
+                                <label class= "col-form-label col-sm-3 text-sm-end">Tarikh Penubuhan<span class="text-danger">*</span></label>
+                                <div class="mb-2 col-sm-7"> 
+                                    <input type=date name=pembekal_date_establish class="form-control">
+                                </div>
                         </div>
 
-                        <div class="row">
-                            <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">No Cukai Pendapatan</label>
-                            </div>
-                            <div class="mb-3 col-md-6">
-                                <input type=text style=text-transform:uppercase name=pembekal_income_tax_no class="form-control"
-                                    style=text-transform:uppercase>
-                            </div>
+                        
+                        <div class="mb-3 row">
+                                <label class= "col-form-label col-sm-3 text-sm-end">No Cukai Pendapatan<span class="text-danger">*</span></label>
+                                <div class="mb-2 col-sm-7"> 
+                                    <input type=text name=pembekal_income_tax_no class="form-control">
+                                </div>
                         </div>
 
 
-                        <div class="row">
-                            <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">Alamat Syarikat</label>
-                            </div>
-                            <div class="mb-3 col-md-6">
-                                <input type=text style=text-transform:uppercase name=pembekal_company_address
-                                    class="form-control">
-                            </div>
-                        </div>
+                        
+                         <div class="mb-3 row">
+                                <label class= "col-form-label col-sm-3 text-sm-end">Alamat Syarikat<span class="text-danger">*</span></label>
+                            
+                                <div class="mb-2 col-sm-7"> 
+                                    <input type=text style=text-transform:uppercase name=pembekal_company_address class="form-control">
+                                </div>
+                         </div>
 
-                        <div class="row">
-                            <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">Bandar</label>
-                            </div>
-                            <div class="mb-3 col-md-6">
+                        
+                        <div class="mb-3 row">
+                            <label class= "col-form-label col-sm-3 text-sm-end">Bandar<span class="text-danger">*</span></label>
+                            <div class="mb-2 col-sm-7"> 
                                 <input type=text style=text-transform:uppercase name=pembekal_city class="form-control">
                             </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">Poskod</label>
-                            </div>
-                            <div class="mb-3 col-md-6">
+
+                        
+                         <div class="mb-3 row">
+                                <label class= "col-form-label col-sm-3 text-sm-end">Poskod<span class="text-danger">*</span></label>
+                   
+                            <div class="mb-2 col-sm-7"> 
                                 <input type=number name=pembekal_postcode class="form-control">
                             </div>
                         </div>
 
 
-                        <div class="row">
-                            <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">Negeri</label>
+                        
+                            <div class="mb-3 row">
+                                <label class= "col-form-label col-sm-3 text-sm-end">Negeri<span class="text-danger">*</span></label>
+                                <div class="mb-2 col-sm-7"> 
+                                    <select name=pembekal_state class="form-control">
+                                        <option hidden>Sila Pilih</option>
+                                        <option value="Johor">Johor</option>
+                                        <option value="Kedah">Kedah</option>
+                                        <option value="Kelantan">Kelantan</option>
+                                        <option value="W.P Kuala Lumpur">W.P Kuala Lumpur</option>
+                                        <option value="W.P Labuan">W.P Labuan</option>
+                                        <option value="Melaka">Melaka</option>
+                                        <option value="Negeri Sembilan">Negeri Sembilan</option>
+                                        <option value="Pahang">Pahang</option>
+                                        <option value="Pulau Pinang">Pulau Pinang</option>
+                                        <option value="Perak">Perak</option>
+                                        <option value="Perlis">Perlis</option>
+                                        <option value="W.P Putrajaya">W.P Putrajaya</option>
+                                        <option value="Sabah">Sabah</option>
+                                        <option value="Sarawak">Sarawak</option>
+                                        <option value="Selangor">Selangor</option>
+                                        <option value="Terengganu">Terengganu</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="mb-3 col-md-6">
-                                <select name=pembekal_state class="form-control">
-                                    <option hidden>Sila Pilih</option>
-                                    <option value="Johor">Johor</option>
-                                    <option value="Kedah">Kedah</option>
-                                    <option value="Kelantan">Kelantan</option>
-                                    <option value="W.P Kuala Lumpur">W.P Kuala Lumpur</option>
-                                    <option value="W.P Labuan">W.P Labuan</option>
-                                    <option value="Melaka">Melaka</option>
-                                    <option value="Negeri Sembilan">Negeri Sembilan</option>
-                                    <option value="Pahang">Pahang</option>
-                                    <option value="Penang">Penang</option>
-                                    <option value="Perak">Perak</option>
-                                    <option value="Perlis">Perlis</option>
-                                    <option value="W.P Putrajaya">W.P Putrajaya</option>
-                                    <option value="Sabah">Sabah</option>
-                                    <option value="Sarawak">Sarawak</option>
-                                    <option value="Selangor">Selangor</option>
-                                    <option value="Terengganu">Terengganu</option>
-                                </select>
-                            </div>
-                        </div>
                     </fieldset>
         <br><br>
 
@@ -228,29 +208,28 @@
                 <legend> Maklumat Pemilik Syarikat</legend>
 
 
-                <div class="row">
-                    <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 "> Nama Pemilik Syarikat</label>
-                    </div>
-                    <div class="mb-3 col-md-6">
+                
+                <div class="mb-3 row">
+                        <label class= "col-form-label col-sm-3 text-sm-end"> Nama Pemilik Syarikat<span class="text-danger">*</span></label>
+                
+                    <div class="mb-2 col-sm-7"> 
                         <input type=text style=text-transform:uppercase name=pembekal_pemilik class="form-control">
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Kewarganegaraan</label>
-                    </div>
-                    <div class="mb-3 col-md-6">
+                
+                <div class="mb-3 row">
+                        <label class= "col-form-label col-sm-3 text-sm-end">Kewarganegaraan<span class="text-danger">*</span></label>
+                    
+                    <div class="mb-2 col-sm-7"> 
                         <input type=text style=text-transform:uppercase name=pembekal_citizenship class="form-control">
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Jenis Pengenalan</label>
-                    </div>
-                    <div class="mb-3 col-md-6">
+                
+                <div class="mb-3 row">
+                        <label class= "col-form-label col-sm-3 text-sm-end">Jenis Pengenalan<span class="text-danger">*</span></label>
+                    <div class="mb-2 col-sm-7"> 
                         <select name=pembekal_identity_type class="form-control">
                             <option hidden>Sila Pilih</option>
                             <option value="kad pengenalan">Kad Pengenalan</option>
@@ -259,20 +238,19 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">No Kad Pengenalan / No Pasport</label>
-                    </div>
-                    <div class="mb-3 col-md-6">
+                
+                <div class="mb-3 row">
+                        <label class= "col-form-label col-sm-3 text-sm-end">No Kad Pengenalan / No Pasport<span class="text-danger">*</span></label>
+                   
+                    <div class="mb-2 col-sm-7"> 
                         <input type=text style=text-transform:uppercase name=pembekal_identity_no class="form-control">
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">No Telefon Bimbit</label>
-                    </div>
-                    <div class="mb-3 col-md-6">
+                
+                <div class="mb-3 row">
+                        <label class= "col-form-label col-sm-3 text-sm-end">No Telefon Bimbit<span class="text-danger">*</span></label>
+                    <div class="mb-2 col-sm-7"> 
                         <input type="number" name=pembekal_tel_no class="form-control">
                     </div>
                 </div>
@@ -283,47 +261,42 @@
             <fieldset>
                 <legend>Maklumat Cukai Barang dan Perkhidmatan</legend>
 
-                <div class="row">
-                    <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">No Cukai Barang dan Perkhidmatan</label>
-                    </div>
-                    <div class="mb-3 col-md-6">
+                
+                <div class="mb-3 row">
+                        <label class= "col-form-label col-sm-3 text-sm-end">No Cukai Barang dan Perkhidmatan<span class="text-danger">*</span></label>
+                    <div class="mb-2 col-sm-7"> 
                         <input type=text name=pembekal_cbp_no class="form-control" style=text-transform:uppercase>
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Tarikh Sah Laku</label>
-                    </div>
-                    <div class="mb-3 col-md-6">
+                
+                <div class="mb-3 row">
+                        <label class= "col-form-label col-sm-3 text-sm-end">Tarikh Sah Laku<span class="text-danger">*</span></label>
+                    <div class="mb-2 col-sm-7"> 
                         <input type=date name=pembekal_cbp_effective_date class="form-control">
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Tarikh Kelulusan</label>
-                    </div>
-                    <div class="mb-3 col-md-6">
+                
+                <div class="mb-3 row">
+                        <label class= "col-form-label col-sm-3 text-sm-end">Tarikh Kelulusan<span class="text-danger">*</span></label>
+                    <div class="mb-2 col-sm-7"> 
                         <input type=date name=pembekal_cbp_approval_date class="form-control">
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Tarikh Tamat Tempoh</label>
-                    </div>
-                    <div class="mb-3 col-md-6">
+
+                <div class="mb-3 row">
+                        <label class= "col-form-label col-sm-3 text-sm-end">Tarikh Tamat Tempoh<span class="text-danger">*</span></label>
+                    <div class="mb-2 col-sm-7"> 
                         <input type=date name=pembekal_cbp_end_date class="form-control">
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Lampiran Dokumen</label>
-                    </div>
-                    <div class="mb-3 col-md-6">
+                
+                <div class="mb-3 row">
+                        <label class= "col-form-label col-sm-3 text-sm-end">Lampiran Dokumen<span class="text-danger">*</span></label>
+                    <div class="mb-2 col-sm-7"> 
                         <input type=file name=pembekal_cbp_approval_doc class="form-control">
                     </div>
                 </div>
@@ -333,11 +306,11 @@
             <fieldset>
                 <legend>Maklumat Bank </legend>
 
-                <div class="row">
-                    <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Nama Bank</label>
-                    </div>
-                    <div class="mb-3 col-md-6">
+                
+                    <div class="mb-3 row">
+                        <label class= "col-form-label col-sm-3 text-sm-end">Nama Bank<span class="text-danger">*</span></label>
+                   
+                    <div class="mb-2 col-sm-7"> 
                         <select name="pembekal_bank" class="form-control">
                             <option hidden>Sila Pilih</option>
                             <option value=ABNAMYK> THE ROYAL BANK OF SCOTLAND</option>
@@ -409,22 +382,21 @@
                             <option value=UMBB9999>MIDF AMANAH INVESTMENT BANK BHD SPI</option>
                             <option value=UMBBMYK1>MIDF AMANAH INVESTMENT BANK BHD</option>
                             <option value=UOVBMYKL>UNITED OVERSEAS BANK MALAYSIA BEHAD</option>
-                        </select>
+                            </select>
+                        </div>
                     </div>
-                </div>
 
-                <div class="row">
-                    <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">No Akaun</label>
-                    </div>
-                    <div class="mb-3 col-md-6">
+                
+                    <div class="mb-3 row">
+                        <label class= "col-form-label col-sm-3 text-sm-end">No Akaun<span class="text-danger">*</span></label>
+                    <div class="mb-2 col-sm-7"> 
                         <input type=number name=pembekal_akaun_no class="form-control">
                     </div>
-                </div>
-            </fieldset>
+                    </div>
+                </fieldset>
 
-            <br><br>
-            <button class="btn btn-primary" type="submit">Daftar</button>
+                <br><br>
+                <button class="btn btn-primary" type="submit">Daftar</button>
         </form>
                         </div>
                     </div>

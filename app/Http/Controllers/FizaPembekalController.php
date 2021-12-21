@@ -140,9 +140,13 @@ class FizaPembekalController extends Controller
 
     }
 
-    public function show(FizaPembekal $fizaPembekal)
+    public function show($id)
     {
-        //
+        $pembekal = FizaPembekal::find($id);
+
+        return view('1_pembekal.info_pembekal',[
+            'pembekal'=>$pembekal
+        ]);
     }
 
   

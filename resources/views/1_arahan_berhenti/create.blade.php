@@ -26,7 +26,7 @@
 
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
-                                        <label class="col-form-label col-sm-6 ">Justifikasi Arahan </label>
+                                       <label class="col-form-label col-sm-6">Justifikasi Arahan </label>
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <textarea class="form-control" name="arahan_justifikasi" rows="3" cols="4"></textarea> 
@@ -35,7 +35,7 @@
 
                                  <div class="row">
                                     <div class="mb-3 col-md-6">
-                                        <label class="col-form-label col-sm-6 ">Keterangan</label>
+                                       <label class="col-form-label col-sm-6">Keterangan</label>
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <textarea class="form-control" name="arahan_keterangan" rows="3" cols="4"></textarea> 

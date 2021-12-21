@@ -87,7 +87,7 @@
 
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
-                                        <label class="col-form-label col-sm-6 ">No Rujukan Pendaftaran </label>
+                                       <label class="col-form-label col-sm-6">No Rujukan Pendaftaran </label>
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <input type="text" class="form-control" name="pembekal_no_rujukan_pendaftaran">
@@ -96,7 +96,7 @@
 
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
-                                        <label class="col-form-label col-sm-6 "> Tarikh Sah Sijil MOF</label>
+                                       <label class="col-form-label col-sm-6"> Tarikh Sah Sijil MOF</label>
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <input type="date" class="form-control" name="pembekal_tarikh_sah_mof">
@@ -105,7 +105,7 @@
 
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
-                                        <label class="col-form-label col-sm-6 ">Sijil MOF </label>
+                                       <label class="col-form-label col-sm-6">Sijil MOF </label>
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <input type="file" class="form-control" name="pembekal_sijil_mof">
@@ -114,7 +114,7 @@
 
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
-                                        <label class="col-form-label col-sm-6 "> Sijil Perakuan Bumiputera </label>
+                                       <label class="col-form-label col-sm-6"> Sijil Perakuan Bumiputera </label>
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <input type="file" class="form-control" name="pembekal_sijil_perakuan_bumiputera">
@@ -123,7 +123,7 @@
 
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
-                                        <label class="col-form-label col-sm-6 ">Sijil Perakuan Pendaftaran Syarikat</label>
+                                       <label class="col-form-label col-sm-6">Sijil Perakuan Pendaftaran Syarikat</label>
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <input type="file" class="form-control"
@@ -133,7 +133,7 @@
 
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
-                                        <label class="col-form-label col-sm-6 ">Sijil Taraf Bumi </label>
+                                       <label class="col-form-label col-sm-6">Sijil Taraf Bumi </label>
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <input type="file" class="form-control" name="pembekal_sijil_taraf_bumi">
@@ -142,7 +142,7 @@
 
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
-                                        <label class="col-form-label col-sm-6 ">No Pendaftaran PPK</label>
+                                       <label class="col-form-label col-sm-6">No Pendaftaran PPK</label>
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <input type="text" class="form-control" name='pembekal_no_pendaftaran_ppk'>
@@ -151,7 +151,7 @@
 
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
-                                        <label class="col-form-label col-sm-6 ">Tarikh Sah PPK </label>
+                                       <label class="col-form-label col-sm-6">Tarikh Sah PPK </label>
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <input type="date" class="form-control" name=pembekal_tarikh_sah_ppk>
@@ -160,7 +160,7 @@
 
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
-                                        <label class="col-form-label col-sm-6 ">Pengkhususan</label>
+                                       <label class="col-form-label col-sm-6">Pengkhususan</label>
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <input type="text" class="form-control" name=pembekal_pengkhususan>
@@ -170,7 +170,7 @@
 
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
-                                        <label class="col-form-label col-sm-6 ">Pegawai Bertauliah </label>
+                                       <label class="col-form-label col-sm-6">Pegawai Bertauliah </label>
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <input type="text" class="form-control" name='pembekal_pegawai_bertauliah'>
@@ -179,7 +179,7 @@
 
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
-                                        <label class="col-form-label col-sm-6 ">Sijil Gred CIDB </label>
+                                       <label class="col-form-label col-sm-6">Sijil Gred CIDB </label>
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <input type="file" class="form-control" name='pembekal_sijil_gred'>
@@ -188,7 +188,7 @@
 
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
-                                        <label class="col-form-label col-sm-6 "> Tarikh Sah Gred </label>
+                                       <label class="col-form-label col-sm-6"> Tarikh Sah Gred </label>
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <input type="date" class="form-control" name='pembekal_tarikh_sah_gred'>
@@ -197,7 +197,7 @@
 
                               {{-- <div class="row">
                                     <div class="mb-3 col-md-6">
-                                        <label class="col-form-label col-sm-6 ">Kod Bidang</label>
+                                       <label class="col-form-label col-sm-6">Kod Bidang</label>
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <select class="form-control" name="kod_id[]" multiple style="width: 100%">

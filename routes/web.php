@@ -177,12 +177,7 @@ Route::group(['middleware' => ['auth']],function(){
     Route::resource('/Roles',RolesController::class);
 });
 
-
-
 Route::get('/cetak-pelan/{id}',[FizaPelanPerancanganPerolehanController::class,'cetakpelan']);
-
-
-
 // Route::resource('/ArahanBerhenti', ArahanBerhentiController::class);
 Route::resource('/AuditLog', AuditLogController::class);
 Route::post('/log',[AuditLogController::class,'log']);
@@ -190,7 +185,7 @@ Route::post('/log',[AuditLogController::class,'log']);
 
 
 Route::get('/', function () {
-    $faq= FizaFaq::where('faq_status','aktif')->orderBy('latest')->get();
+    $faq= FizaFaq::where('faq_status','aktif')->get();
     return view(
         'index',[
         'faq'=>$faq 

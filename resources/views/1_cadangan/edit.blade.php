@@ -25,7 +25,7 @@
 
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">Cadangan Tarikh Mesyuarat </label>
+                               <label class="col-form-label col-sm-6">Cadangan Tarikh Mesyuarat </label>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <input type="date" class="form-control" name="cadangan_mesyuarat_date" value="{{$Cadangan->cadangan_mesyuarat_date}}">
@@ -34,7 +34,7 @@
                             
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">Cadangan Lokasi Mesyuarat</label>
+                               <label class="col-form-label col-sm-6">Cadangan Lokasi Mesyuarat</label>
                             </div>
                             <div class="mb-3 col-md-6">
                                  <input type="text" class="form-control" name="cadangan_mesyuarat_place" value="{{$Cadangan->cadangan_mesyuarat_place}}">
@@ -44,7 +44,7 @@
                             
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">Mesyuarat Status</label>
+                               <label class="col-form-label col-sm-6">Mesyuarat Status</label>
                             </div>
                             <div class="mb-3 col-md-6">
                                  <textarea class="form-control" name="cadangan_mesyuarat_status" row="4" col="3">{{$Cadangan->cadangan_mesyuarat_status}}</textarea>
@@ -53,7 +53,7 @@
 
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 "><br>Kehadiran </label>
+                               <label class="col-form-label col-sm-6"><br>Kehadiran </label>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <input type="text" class="form-control" name="cadangan_kehadiran" value="{{$Cadangan->cadangan_kehadiran}}">
@@ -62,7 +62,7 @@
 
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">Bilangan Pembekal yang Mendapat Kelulusan Teknikal </label>
+                               <label class="col-form-label col-sm-6">Bilangan Pembekal yang Mendapat Kelulusan Teknikal </label>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <input type="number" class="form-control" name="cadangan_bil_pembekal_lulus_teknikal" value="{{$Cadangan->cadangan_bil_pembekal_lulus_teknikal}}">
@@ -71,7 +71,7 @@
 
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">Bilangan Pembekal yang Mendapat Kelulus Kewangan</label>
+                               <label class="col-form-label col-sm-6">Bilangan Pembekal yang Mendapat Kelulus Kewangan</label>
                             </div>
                             <div class="mb-3 col-md-6">
                                  <input type="number" class="form-control" name="cadangan_bil_pembekal_lulus_kewangan" value="{{$Cadangan->cadangan_bil_pembekal_lulus_kewangan}}">
@@ -80,7 +80,7 @@
 
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">Cadangan Ulasan Penilaian </label>
+                               <label class="col-form-label col-sm-6">Cadangan Ulasan Penilaian </label>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <input type="text" class="form-control" name="cadangan_ulasan_penilaian" value="{{$Cadangan->cadangan_ulasan_penilaian}}">

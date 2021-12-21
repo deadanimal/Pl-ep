@@ -20,4 +20,9 @@ class FizaKatalog extends Model
     {
         return $this->hasOne(FizaPembelianSebutTender::class);
     }
+
+    public function notaminta()
+    {
+        return $this->hasOne(FizaNotaMinta::class);
+    }
 }

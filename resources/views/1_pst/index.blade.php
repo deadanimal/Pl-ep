@@ -33,7 +33,7 @@
                         <tr>
                             <td> {{$PembelianSebutTender->pst_tajuk}}</td> 
                             <td> {{$PembelianSebutTender->pst_zon_lokasi}}</td>
-                            <td> {{$PembelianSebutTender->created_at}}</td>
+                            <td> {{date('d-m-Y H:i', strtotime($PembelianSebutTender->created_at))}}</td>
                             <td class="table-action">
                                 <form method="POST" action="/PembelianSebutTender/{{$PembelianSebutTender->id}}">
                                     @method('DELETE')

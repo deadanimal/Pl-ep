@@ -148,12 +148,14 @@ class FizaPembelianSebutTenderController extends Controller
     public function edit($id)
     {
         $fizaPembelianSebutTender = FizaPembelianSebutTender::find($id);
+        $katalog = FizaKatalog::where('id',$fizaPembelianSebutTender->pst_katalog_kumpulan)->get();
         $user = User::where('jenis', 'pekerja')->
         where('user_status','aktif')->get();
         // dd($user);
 
         return view('1_pst.edit', [
             'PembelianSebutTender'=>$fizaPembelianSebutTender,
+            'katalog'=>$katalog,
             'user'=>$user
         ]);
     }

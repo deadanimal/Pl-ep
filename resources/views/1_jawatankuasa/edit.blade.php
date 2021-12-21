@@ -55,7 +55,7 @@ jawatankuasa_updated_date --}}
                         
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">Jawatankuasa Spesifikasi </label>
+                               <label class="col-form-label col-sm-6">Jawatankuasa Spesifikasi </label>
                              </div>
                              <div class="mb-3 col-md-6">
                                     <select name="jawatankuasa_spesifikasi" class="form-control">
@@ -70,7 +70,7 @@ jawatankuasa_updated_date --}}
                             
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 "><br> Jawatankuasa Teknikal </label>
+                               <label class="col-form-label col-sm-6"><br> Jawatankuasa Teknikal </label>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <select name="jawatankuasa_teknikal" class="form-control">
@@ -85,7 +85,7 @@ jawatankuasa_updated_date --}}
                     
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">Jawatankuasa Kewangan </label>
+                               <label class="col-form-label col-sm-6">Jawatankuasa Kewangan </label>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <select name="jawatankuasa_kewangan" class="form-control">
@@ -100,7 +100,7 @@ jawatankuasa_updated_date --}}
                     
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">Jawatankuasa Kerja</label>
+                               <label class="col-form-label col-sm-6">Jawatankuasa Kerja</label>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <select name="jawatankuasa_kerja" class="form-control">
@@ -115,7 +115,7 @@ jawatankuasa_updated_date --}}
                         
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">Jawatankuasa Terbuka </label>
+                               <label class="col-form-label col-sm-6">Jawatankuasa Terbuka </label>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <select name="jawatankuasa_terbuka" class="form-control">
@@ -130,7 +130,7 @@ jawatankuasa_updated_date --}}
                      
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">Jawatankuasa Penilaian</label>
+                               <label class="col-form-label col-sm-6">Jawatankuasa Penilaian</label>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <select name="jawatankuasa_penilaian" class="form-control">

@@ -24,7 +24,7 @@ Pembelian
 
                 <div class="row">
                     <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Tajuk </label>
+                       <label class="col-form-label col-sm-6">Tajuk </label>
                     </div>
                     <div class="mb-3 col-md-6">
                         <input type="text" class="form-control" name="sst_tajuk">
@@ -33,7 +33,7 @@ Pembelian
 
                 <div class="row">
                     <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Insurans Jaminan </label>
+                       <label class="col-form-label col-sm-6">Insurans Jaminan </label>
                     </div>
                      <div class="mb-3 col-md-6">
                         <input type="text" class="form-control" name="sst_insurans_jaminan">
@@ -42,7 +42,7 @@ Pembelian
 
                 <div class="row">
                     <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Bon Surat Setuju Terima</label>
+                       <label class="col-form-label col-sm-6">Bon Surat Setuju Terima</label>
                     </div>
                     <div class="mb-3 col-md-6">
                         <input type="text" class="form-control" name="sst_bon">
@@ -51,7 +51,7 @@ Pembelian
 
                 <div class="row">
                     <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Semakan Surat Setuju Terima </label>
+                       <label class="col-form-label col-sm-6">Semakan Surat Setuju Terima </label>
                     </div>
                     <div class="mb-3 col-md-6">
                         <input type="text" class="form-control" name="sst_semakan">
@@ -61,7 +61,7 @@ Pembelian
                 
                 <div class="row">
                     <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">SST Sl1m </label>
+                       <label class="col-form-label col-sm-6">SST Sl1m </label>
                     </div>
                     <div class="mb-3 col-md-6">
                         <input type="text" class="form-control" name="sst_sl1m">
@@ -70,7 +70,7 @@ Pembelian
 
                 <div class="row">
                     <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Pentadbir Kontrak</label>
+                       <label class="col-form-label col-sm-6">Pentadbir Kontrak</label>
                     </div>
                     <div class="mb-3 col-md-6">
                         <input type="text" class="form-control" name="sst_pentadbir_kontrak">
@@ -79,7 +79,7 @@ Pembelian
 
                 <div class="row">
                     <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Perjanjian</label>
+                       <label class="col-form-label col-sm-6">Perjanjian</label>
                     </div>
                     <div class="mb-3 col-md-6">
                         <input type="text" class="form-control" name="sst_perjanjian">
@@ -89,7 +89,7 @@ Pembelian
                 {{-- <br>FILE <input type="file" class="form-control" name="sst_file"> --}}
                 <div class="row">
                     <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Penandatangan </label>
+                       <label class="col-form-label col-sm-6">Penandatangan </label>
                     </div>
                     <div class="mb-3 col-md-6">
                         <input type="text" class="form-control" name="sst_penandatangan">
@@ -98,7 +98,7 @@ Pembelian
 
                 <div class="row">
                     <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Pelulus</label>
+                       <label class="col-form-label col-sm-6">Pelulus</label>
                     </div>
                     <div class="mb-3 col-md-6">
                         <input type="text" class="form-control" name="sst_pelulus">
@@ -107,7 +107,7 @@ Pembelian
 
                 <div class="row">
                     <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Catatan Pelulus</label>
+                       <label class="col-form-label col-sm-6">Catatan Pelulus</label>
                     </div>
                     <div class="mb-3 col-md-6">
                         <input type="text" class="form-control" name="sst_catatan_pelulus">
@@ -116,7 +116,7 @@ Pembelian
 
                 <div class="row">
                     <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">No Akaun </label>
+                       <label class="col-form-label col-sm-6">No Akaun </label>
                     </div>
                     <div class="mb-3 col-md-6">
                         <input type="text" class="form-control" name="sst_no_akaun">
@@ -125,7 +125,7 @@ Pembelian
 
                 <div class="row">
                     <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Nama Bank </label>
+                       <label class="col-form-label col-sm-6">Nama Bank </label>
                     </div>
                     <div class="mb-3 col-md-6">
                         <input type="text" class="form-control" name="sst_nama_bank">
@@ -134,7 +134,7 @@ Pembelian
 
                 <div class="row">
                     <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Harga Cadangan Tawaran </label>
+                       <label class="col-form-label col-sm-6">Harga Cadangan Tawaran </label>
                     </div>
                     <div class="mb-3 col-md-6">
                          <input type="text" class="form-control" name="sst_harga_cadangan_tawaran">
@@ -143,7 +143,7 @@ Pembelian
 
                 <div class="row">
                     <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Amaun Cukai Barang dan Perkhidmatan (CBP)</label>
+                       <label class="col-form-label col-sm-6">Amaun Cukai Barang dan Perkhidmatan (CBP)</label>
                     </div>
                     <div class="mb-3 col-md-6">
                         <input type="number" class="form-control" name="sst_amaun_cbp">
@@ -152,7 +152,7 @@ Pembelian
 
                 <div class="row">
                     <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Amaun Keseluruhan</label>
+                       <label class="col-form-label col-sm-6">Amaun Keseluruhan</label>
                     </div>
                     <div class="mb-3 col-md-6">
                         <input type="number" class="form-control" name="sst_amaun_keseluruhan">
@@ -162,7 +162,7 @@ Pembelian
 
                 <div class="row">
                     <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Jenis Potongan </label>
+                       <label class="col-form-label col-sm-6">Jenis Potongan </label>
                     </div>
                     <div class="mb-3 col-md-6">
                         <input type="text" class="form-control" name="sst_jenis_potongan">
@@ -171,7 +171,7 @@ Pembelian
 
                 <div class="row">
                     <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Amaun Potongan </label>
+                       <label class="col-form-label col-sm-6">Amaun Potongan </label>
                     </div>
                     <div class="mb-3 col-md-6">
                         <input type="number" class="form-control" name="sst_amaun_potongan">
@@ -182,7 +182,7 @@ Pembelian
                     <legend>Maklumat Saksi</legend>
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Nama Saksi </label>
+                           <label class="col-form-label col-sm-6">Nama Saksi </label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <input type="text" class="form-control" name="sst_nama_saksi">
@@ -191,7 +191,7 @@ Pembelian
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">No Pengenalan</label>
+                           <label class="col-form-label col-sm-6">No Pengenalan</label>
                         </div>
                         <div class="mb-3 col-md-6">
                              <input type="text" class="form-control" name="sst_no_pengenalan">
@@ -200,7 +200,7 @@ Pembelian
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Jawatan</label>
+                           <label class="col-form-label col-sm-6">Jawatan</label>
                         </div>
                         <div class="mb-3 col-md-6">
                          <input type="text" class="form-control" name="sst_jawatan">
@@ -209,7 +209,7 @@ Pembelian
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Alamat </label>
+                           <label class="col-form-label col-sm-6">Alamat </label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <input type="text" class="form-control" name="sst_alamat">
@@ -218,7 +218,7 @@ Pembelian
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">No Tel Bimbit </label>
+                           <label class="col-form-label col-sm-6">No Tel Bimbit </label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <input type="number" class="form-control" name="sst_no_tel">
@@ -227,7 +227,7 @@ Pembelian
                 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">No Fax </label>
+                           <label class="col-form-label col-sm-6">No Fax </label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <input type="number" class="form-control" name="sst_no_fax">
@@ -236,7 +236,7 @@ Pembelian
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Emel</label>
+                           <label class="col-form-label col-sm-6">Emel</label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <input type="email" class="form-control" name="sst_email">

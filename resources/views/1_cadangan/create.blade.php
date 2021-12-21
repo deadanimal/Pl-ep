@@ -24,7 +24,7 @@
                         
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Cadangan Tarikh Mesyuarat </label>
+                           <label class="col-form-label col-sm-6">Cadangan Tarikh Mesyuarat </label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <input type="date" class="form-control" name="cadangan_mesyuarat_date">
@@ -33,7 +33,7 @@
 
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">Cadangan Lokasi </label>
+                               <label class="col-form-label col-sm-6">Cadangan Lokasi </label>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <input type="text" class="form-control" name="cadangan_mesyuarat_place">

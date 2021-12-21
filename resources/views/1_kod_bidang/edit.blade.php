@@ -33,7 +33,7 @@
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Kategori Kod</label>
+                           <label class="col-form-label col-sm-6">Kategori Kod</label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <input type=text name=kod_category class="form-control" value="{{$fizaKodBidang->kod_type}}">
@@ -42,7 +42,7 @@
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Pengkhususan Kod</label>
+                           <label class="col-form-label col-sm-6">Pengkhususan Kod</label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <input type=text name="kod_pengkhususan"class="form-control" value="{{$fizaKodBidang->kod_pengkhususan}}">

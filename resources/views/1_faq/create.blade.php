@@ -26,7 +26,7 @@
                     
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 "> Seksyen </label>
+                               <label class="col-form-label col-sm-6"> Seksyen </label>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <input type=text class=form-control name=faq_section>
@@ -35,7 +35,7 @@
 
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 "> Soalan </label>
+                               <label class="col-form-label col-sm-6"> Soalan </label>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <input type=text class=form-control name=faq_question>
@@ -44,7 +44,7 @@
 
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 "> Jawapan </label>
+                               <label class="col-form-label col-sm-6"> Jawapan </label>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <textarea class=form-control name=faq_answer rows="4" cols="3"></textarea>

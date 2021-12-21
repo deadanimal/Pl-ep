@@ -70,7 +70,7 @@
 
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
-                                        <label class="col-form-label col-sm-6 ">No Sijil MOF</label>
+                                       <label class="col-form-label col-sm-6">No Sijil MOF</label>
                                     </div>
                                     <div class="mb-3 col-md-6">     
                                             <input type="text" name="pembekal_no_sijil_mof" class="form-control">                        
@@ -80,7 +80,7 @@
 
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
-                                        <label class="col-form-label col-sm-6 ">Tarikh Sah Sijil MOF</label>
+                                       <label class="col-form-label col-sm-6">Tarikh Sah Sijil MOF</label>
                                     </div>
                                     <div class="mb-3 col-md-6">     
                                             <input type="date" name="pembekal_tarikh_sah_mof" class="form-control">                        
@@ -91,7 +91,7 @@
 
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
-                                        <label class="col-form-label col-sm-6 ">Sijil MOF</label>
+                                       <label class="col-form-label col-sm-6">Sijil MOF</label>
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <input type="file" name="pembekal_sijil_mof" class="form-control">
@@ -100,7 +100,7 @@
 
                                     <div class="row">
                                         <div class="mb-3 col-md-6">
-                                            <label class="col-form-label col-sm-6 ">Sijil Perakuan Bumiputera</label>
+                                           <label class="col-form-label col-sm-6">Sijil Perakuan Bumiputera</label>
                                         </div>
                                         <div class="mb-3 col-md-6">
                                             <input type="file" name="pembekal_sijil_perakuan_bumiputera" class="form-control">
@@ -109,7 +109,7 @@
 
                                     <div class="row">
                                         <div class="mb-3 col-md-6">
-                                            <label class="col-form-label col-sm-6 ">Sijil Pendaftaran Syarikat</label>
+                                           <label class="col-form-label col-sm-6">Sijil Pendaftaran Syarikat</label>
                                         </div>
                                         <div class="mb-3 col-md-6">
                                          
@@ -120,7 +120,7 @@
 
                                     <div class="row">
                                         <div class="mb-3 col-md-6">
-                                            <label class="col-form-label col-sm-6 ">No Rujukan Pendaftaran</label>
+                                           <label class="col-form-label col-sm-6">No Rujukan Pendaftaran</label>
                                         </div>
                                         <div class="mb-3 col-md-6">
                                          
@@ -133,7 +133,7 @@
 
                                     <div class="row">
                                         <div class="mb-3 col-md-6">
-                                            <label class="col-form-label col-sm-6 ">Sijil Taraf Bumi</label>
+                                           <label class="col-form-label col-sm-6">Sijil Taraf Bumi</label>
                                         </div>
                                         <div class="mb-3 col-md-6">
                                          

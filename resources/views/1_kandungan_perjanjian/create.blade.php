@@ -14,7 +14,7 @@
                     {{-- kandungan_id --}}
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">  Nama </label>
+                           <label class="col-form-label col-sm-6">  Nama </label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <input type="text" class="form-control" name="kandungan_nama">
@@ -23,7 +23,7 @@
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 "> Template Kandungan</label>
+                           <label class="col-form-label col-sm-6"> Template Kandungan</label>
                         </div>
                         <div class="mb-3 col-md-6">
                          <input type="file" class="form-control" name="kandungan_template">

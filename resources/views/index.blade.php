@@ -10,8 +10,7 @@
 	
 		<link href="/css/modern.css" rel="stylesheet">
 
-	
-	
+		<title>Sistem ePerolehan</title>
 	</head>
 
 <body>

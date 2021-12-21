@@ -32,7 +32,7 @@
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Tajuk Pelan Perolehan</label>
+                           <label class="col-form-label col-sm-6">Tajuk Pelan Perolehan</label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <input type=text name=pelan_title class="form-control">
@@ -41,7 +41,7 @@
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Tahun Pelan</label>
+                           <label class="col-form-label col-sm-6">Tahun Pelan</label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <input type=number name="pelan_year"class="form-control" maxlength="4" placeholder="2021">
@@ -74,7 +74,7 @@
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Kaedah Perolehan</label></div>
+                           <label class="col-form-label col-sm-6">Kaedah Perolehan</label></div>
                         <div class="mb-3 col-md-6">
                             <select name="pelan_method" class="form-control">
                             <option hidden>Sila Pilih</option>
@@ -87,7 +87,7 @@
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Tarikh Jemputan Pelan</label>
+                           <label class="col-form-label col-sm-6">Tarikh Jemputan Pelan</label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <input  type=date name=pelan_invitation_date class="form-control" >
@@ -96,7 +96,7 @@
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Jumlah Anggaran Pelan </label>
+                           <label class="col-form-label col-sm-6">Jumlah Anggaran Pelan </label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <input  type=number name=pelan_estimated_amount class="form-control" min="0"  step=".01" placeholder="0.00">
@@ -105,7 +105,7 @@
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Peruntukan Tahunan </label>
+                           <label class="col-form-label col-sm-6">Peruntukan Tahunan </label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <input  type=number name=pelan_peruntukan_tahunan class="form-control" min="0"  step=".01" placeholder="0.00">
@@ -114,7 +114,7 @@
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Tarikh Perlaksanaan Iklan</label>
+                           <label class="col-form-label col-sm-6">Tarikh Perlaksanaan Iklan</label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <input  type=date name=pelan_tarikh_perlaksanaan_iklan class="form-control">
@@ -123,7 +123,7 @@
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Tarikh Penyediaan Spesifikasi</label>
+                           <label class="col-form-label col-sm-6">Tarikh Penyediaan Spesifikasi</label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <input  type=date name=pelan_tarikh_penyediaan_spesifikasi class="form-control">
@@ -132,7 +132,7 @@
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Tarikh Penyediaan Dokumen Tender</label>
+                           <label class="col-form-label col-sm-6">Tarikh Penyediaan Dokumen Tender</label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <input  type=date name=pelan_tarikh_penyediaan_doc_tender class="form-control">
@@ -141,7 +141,7 @@
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Tarikh Penilaian Tender</label>
+                           <label class="col-form-label col-sm-6">Tarikh Penilaian Tender</label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <input  type=date name=pelan_tarikh_penilaian_tender class="form-control">
@@ -150,7 +150,7 @@
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Tarikh Perlaksanaan Persidangan</label>
+                           <label class="col-form-label col-sm-6">Tarikh Perlaksanaan Persidangan</label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <input  type=date name=pelan_tarikh_perlaksanaan_persidangan class="form-control">
@@ -159,7 +159,7 @@
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Tarikh SST Dikeluarkan</label>
+                           <label class="col-form-label col-sm-6">Tarikh SST Dikeluarkan</label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <input  type=date name=pelan_tarikh_sst_dikeluarkan class="form-control">
@@ -168,7 +168,7 @@
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Catatan Pelan</label>
+                           <label class="col-form-label col-sm-6">Catatan Pelan</label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <textarea name=pelan_catatan class="form-control" rows="3" cols="4"></textarea>
@@ -177,7 +177,7 @@
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Nama Pegawai Pengesah</label>
+                           <label class="col-form-label col-sm-6">Nama Pegawai Pengesah</label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <select name=pelan_pengesah class="form-control">
@@ -191,7 +191,7 @@
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Nama Pegawai Pelulus</label>
+                           <label class="col-form-label col-sm-6">Nama Pegawai Pelulus</label>
                         </div>
                         <div class="mb-3 col-md-6">
                             {{-- <input type=text name="pelan_pelulus" class="form-control"> --}}

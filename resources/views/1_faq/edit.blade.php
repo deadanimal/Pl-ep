@@ -28,7 +28,7 @@
                     
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 "> Seksyen </label>
+                               <label class="col-form-label col-sm-6"> Seksyen </label>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <input type=text class=form-control name=faq_section value="{{$Faq->faq_section}}">
@@ -37,7 +37,7 @@
 
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 "> Soalan </label>
+                               <label class="col-form-label col-sm-6"> Soalan </label>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <input type=text class=form-control name=faq_question  value="{{$Faq->faq_question}}">
@@ -46,7 +46,7 @@
 
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 "> Jawapan </label>
+                               <label class="col-form-label col-sm-6"> Jawapan </label>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <input type=text class=form-control name=faq_answer  value="{{$Faq->faq_answer}}">
@@ -55,7 +55,7 @@
 
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 "> Status </label>
+                               <label class="col-form-label col-sm-6"> Status </label>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <select  class=form-control name="faq_status">

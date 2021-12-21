@@ -24,7 +24,7 @@
 
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">Panel Item</label>
+                               <label class="col-form-label col-sm-6">Panel Item</label>
                             </div>
                             <div class="mb-3 col-md-6">
                             <input type="text" class="form-control" name="pst_item_panel">
@@ -33,7 +33,7 @@
 
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">Sistem Panel</label>
+                               <label class="col-form-label col-sm-6">Sistem Panel</label>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <input type="text" class="form-control" name="pst_sistem_panel">
@@ -52,7 +52,7 @@
 
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">Kumpulan Katalog</label>
+                               <label class="col-form-label col-sm-6">Kumpulan Katalog</label>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <select class="form-control" name="pst_katalog_kumpulan">
@@ -67,7 +67,7 @@
                         
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">Tajuk Pembelian SebutHarga & Tender</label>
+                               <label class="col-form-label col-sm-6">Tajuk Pembelian SebutHarga & Tender</label>
                             </div> 
                             <div class="mb-3 col-md-6">
                                 <input type="text" class="form-control" name="pst_tajuk">
@@ -76,7 +76,7 @@
 
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 "> No Rujukan Fail </label>
+                               <label class="col-form-label col-sm-6"> No Rujukan Fail </label>
                             </div>
                             <div class="mb-3 col-md-6">
                                  <input type="text" class="form-control" name="pst_no_rujukan_fail">
@@ -85,7 +85,7 @@
 
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 "> Jumlah Harga Jangkaan Indikatif</label>
+                               <label class="col-form-label col-sm-6"> Jumlah Harga Jangkaan Indikatif</label>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <input type="number" class="form-control" name="pst_jumlah_harga_indikatif_jangkaan">
@@ -94,7 +94,7 @@
 
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">  Kaedah Perolehan </label>
+                               <label class="col-form-label col-sm-6">  Kaedah Perolehan </label>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <input type="text" class="form-control" name="pst_kaedah_perolehan">
@@ -103,7 +103,7 @@
 
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">  Jenis PST </label>
+                               <label class="col-form-label col-sm-6">  Jenis PST </label>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <input type="text" class="form-control" name="pst_jenis">
@@ -112,7 +112,7 @@
                         
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 "> Terbuka Kepada </label>
+                               <label class="col-form-label col-sm-6"> Terbuka Kepada </label>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <input type="text" class="form-control" name="pst_terbuka_kepada">
@@ -121,7 +121,7 @@
 
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 "> Zon </label>
+                               <label class="col-form-label col-sm-6"> Zon </label>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <input type="text" class="form-control" name="pst_zon_lokasi">
@@ -130,7 +130,7 @@
 
                          <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">Kategori Jenis Perolehan</label>
+                               <label class="col-form-label col-sm-6">Kategori Jenis Perolehan</label>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <input type=text name=pst_kategori_jenis_perolehan class="form-control">
@@ -140,7 +140,7 @@
 
                          <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">Kategori Perolehan</label>
+                               <label class="col-form-label col-sm-6">Kategori Perolehan</label>
                             </div> 
                             <div class="mb-3 col-md-6">
                                 <input type="text" class="form-control" name="pst_kategori_perolehan">
@@ -149,7 +149,7 @@
 
                          <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">Jenis kontrak </label>
+                               <label class="col-form-label col-sm-6">Jenis kontrak </label>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <input type="text" class="form-control" name="pst_jenis_kontrak">
@@ -158,7 +158,7 @@
 
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 "> Jenis Pemenuhan</label>
+                               <label class="col-form-label col-sm-6"> Jenis Pemenuhan</label>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <input type="text" class="form-control" name="pst_jenis_pemenuhan">
@@ -168,7 +168,7 @@
                     
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">Tempoh Kontrak </label>
+                               <label class="col-form-label col-sm-6">Tempoh Kontrak </label>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <input type="text" class="form-control" name="pst_tempoh_kontrak">
@@ -181,7 +181,7 @@
                 
                 <div class="row">
                     <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Jumlah Pembekal Yang Layak </label>
+                       <label class="col-form-label col-sm-6">Jumlah Pembekal Yang Layak </label>
                     </div>
                     <div class="mb-3 col-md-6">
                         <input type="number" class="form-control" name="pst_jumlah_pembekal_layak">
@@ -193,7 +193,7 @@
                 user_id --}}
                 <div class="row">
                     <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 "> Nama Pelulus</label>
+                       <label class="col-form-label col-sm-6"> Nama Pelulus</label>
                     </div>
                     <div class="mb-3 col-md-6">
                         {{-- <input type="text" class="form-control" name="pst_pelulus"> --}}
@@ -209,7 +209,7 @@
 
                 <div class="row">
                     <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 "> Catatan Pelulus </label>
+                       <label class="col-form-label col-sm-6"> Catatan Pelulus </label>
                     </div>
                     <div class="mb-3 col-md-6">
                         <input type="text" class="form-control" name="pst_catatan_pelulus">
@@ -219,7 +219,7 @@
                 
                 <div class="row">
                     <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">  Perihal Taklimat </label>
+                       <label class="col-form-label col-sm-6">  Perihal Taklimat </label>
                     </div>
                     <div class="mb-3 col-md-6">
                         <input type="text" class="form-control" name="pst_perihal_taklimat">
@@ -228,7 +228,7 @@
 
                 <div class="row">
                     <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Tarikh Taklimat</label>
+                       <label class="col-form-label col-sm-6">Tarikh Taklimat</label>
                     </div>
                     <div class="mb-3 col-md-6">
                         <input type="date" class="form-control" name="pst_taklimat_date">
@@ -237,7 +237,7 @@
 
                 <div class="row">
                     <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Alamat Taklimat</label>
+                       <label class="col-form-label col-sm-6">Alamat Taklimat</label>
                     </div>
                     <div class="mb-3 col-md-6">
                         <input type="text" class="form-control" name="pst_taklimat_alamat">
@@ -246,7 +246,7 @@
 
                 <div class="row">
                     <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 "> Link </label>
+                       <label class="col-form-label col-sm-6"> Link </label>
                     </div>
                     <div class="mb-3 col-md-6">
                         <input type="url" class="form-control" name="pst_link">
@@ -255,7 +255,7 @@
 
                 <div class="row">
                     <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Penyelaras</label>
+                       <label class="col-form-label col-sm-6">Penyelaras</label>
                     </div>
                     <div class="mb-3 col-md-6">
                         <select class="form-control" name="pst_penyelaras">
@@ -269,7 +269,7 @@
 
                 <div class="row">
                     <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Kehadiran Maksimum </label>
+                       <label class="col-form-label col-sm-6">Kehadiran Maksimum </label>
                     </div>
                     <div class="mb-3 col-md-6">
                         <input type="text" class="form-control" name="pst_kehadiran_max">
@@ -278,7 +278,7 @@
 
                 <div class="row">
                     <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Status </label>
+                       <label class="col-form-label col-sm-6">Status </label>
                     </div>
                     <div class="mb-3 col-md-6">
                          <input type="text" class="form-control" name="pst_status">
@@ -290,7 +290,7 @@
                 pst_updated_date --}}
                 <div class="row">
                     <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Jenis Pemotongan</label>
+                       <label class="col-form-label col-sm-6">Jenis Pemotongan</label>
                     </div>
                     <div class="mb-3 col-md-6">
                         <input type="text" class="form-control" name="pst_jenis_potongan">
@@ -300,7 +300,7 @@
 
                 <div class="row">
                     <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Deskripsi Pemotongan</label>
+                       <label class="col-form-label col-sm-6">Deskripsi Pemotongan</label>
                     </div>
                     <div class="mb-3 col-md-6">
                         <input type="text" class="form-control" name="pst_potongan_description">
@@ -309,7 +309,7 @@
 
                 <div class="row">
                     <div class="mb-3 col-md-6">
-                        <label class="col-form-label col-sm-6 ">Amaun Pemotongan</label>
+                       <label class="col-form-label col-sm-6">Amaun Pemotongan</label>
                     </div>
                     <div class="mb-3 col-md-6">
                         <input type="text" class="form-control" name="pst_amaun_potongan">

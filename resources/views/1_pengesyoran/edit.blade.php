@@ -14,7 +14,7 @@
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Tarikh Mesyuarat </label>
+                           <label class="col-form-label col-sm-6">Tarikh Mesyuarat </label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <input type="date" class="form-control" name="syor_mesyuarat_date" value="{{$pengesyoran->syor_mesyuarat_date}}">
@@ -23,7 +23,7 @@
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Lokasi Mesyuarat </label>
+                           <label class="col-form-label col-sm-6">Lokasi Mesyuarat </label>
                         </div> 
                         <div class="mb-3 col-md-6">
                             <input type="text" class="form-control" name="syor_mesyuarat_place"  value="{{$pengesyoran->syor_mesyuarat_place}}">
@@ -32,7 +32,7 @@
                             {{-- jawatankuasa_id --}}
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Kertas Taklimat</label>
+                           <label class="col-form-label col-sm-6">Kertas Taklimat</label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <a href="/storage/{{$pengesyoran->syor_kertas_taklimat}}" target="_blank" download>Muat Turun Fail</a> 
@@ -46,7 +46,7 @@
                     
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Kedudukan Pembekal</label>
+                           <label class="col-form-label col-sm-6">Kedudukan Pembekal</label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <input type="text" class="form-control" name="syor_kedudukan_pembekal"  value="{{$pengesyoran->syor_kedudukan_pembekal}}">
@@ -55,7 +55,7 @@
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Catatan</label>
+                           <label class="col-form-label col-sm-6">Catatan</label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <input type="text" class="form-control" name="syor_catatan"  value="{{$pengesyoran-> syor_catatan}}">
@@ -65,7 +65,7 @@
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6 ">Jumlah Skor </label>
+                           <label class="col-form-label col-sm-6">Jumlah Skor </label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <input type="number" class="form-control" name="syor_jumlah_skor"  value="{{$pengesyoran->syor_jumlah_skor}}">

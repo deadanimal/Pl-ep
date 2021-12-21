@@ -25,7 +25,7 @@
                         {{-- item_id --}}
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">Nama Item </label>
+                               <label class="col-form-label col-sm-6">Nama Item </label>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <input type=text class=form-control name=item_name>
@@ -35,7 +35,7 @@
 
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">Harga Item</label>
+                               <label class="col-form-label col-sm-6">Harga Item</label>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <input type="number" min="1" step="any" class=form-control name=item_price>
@@ -44,7 +44,7 @@
                              
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">Unit Item </label>
+                               <label class="col-form-label col-sm-6">Unit Item </label>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <input type="text" class=form-control name=item_unit>
@@ -53,7 +53,7 @@
 
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 "> Tarikh Mula</label>
+                               <label class="col-form-label col-sm-6"> Tarikh Mula</label>
                             </div>
                             <div class="mb-3 col-md-6">
                                  <input type="date" class=form-control name= start_date>
@@ -62,7 +62,7 @@
 
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 "> Tarikh Tamat</label>
+                               <label class="col-form-label col-sm-6"> Tarikh Tamat</label>
                             </div>
                             <div class="mb-3 col-md-6"> 
                                 <input type="date" class=form-control name= end_date>
@@ -71,7 +71,7 @@
 
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="col-form-label col-sm-6 ">Jenis Item </label>
+                               <label class="col-form-label col-sm-6">Jenis Item </label>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <select name=katalog_id class="form-control">

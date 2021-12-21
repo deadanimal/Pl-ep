@@ -71,7 +71,7 @@
 
                                     <div class="row">
                                         <div class="mb-3 col-md-6">
-                                            <label class="col-form-label col-sm-6 ">No Pendaftaran PPK</label>
+                                           <label class="col-form-label col-sm-6">No Pendaftaran PPK</label>
                                         </div>
                                         <div class="mb-3 col-md-6">
                                                 <input type="text" name="pembekal_no_pendaftaran_ppk" class="form-control">
@@ -80,7 +80,7 @@
 
                                     <div class="row">
                                         <div class="mb-3 col-md-6">
-                                            <label class="col-form-label col-sm-6 ">Tarikh Sah PPK</label>
+                                           <label class="col-form-label col-sm-6">Tarikh Sah PPK</label>
                                         </div>
                                         <div class="mb-3 col-md-6">
                                   
@@ -91,7 +91,7 @@
 
                                     <div class="row">
                                         <div class="mb-3 col-md-6">
-                                            <label class="col-form-label col-sm-6 ">Pengkhususan</label>
+                                           <label class="col-form-label col-sm-6">Pengkhususan</label>
                                         </div>
                                         <div class="mb-3 col-md-6">
                                   
@@ -102,7 +102,7 @@
 
                                     <div class="row">
                                         <div class="mb-3 col-md-6">
-                                            <label class="col-form-label col-sm-6 ">Pegawai Bertauliah</label>
+                                           <label class="col-form-label col-sm-6">Pegawai Bertauliah</label>
                                         </div>
                                         <div class="mb-3 col-md-6">
                                             
@@ -113,7 +113,7 @@
 
                                     <div class="row">
                                         <div class="mb-3 col-md-6">
-                                            <label class="col-form-label col-sm-6 ">Sijil Gred CIDB</label>
+                                           <label class="col-form-label col-sm-6">Sijil Gred CIDB</label>
                                         </div>
                                         <div class="mb-3 col-md-6">
                                             
@@ -124,7 +124,7 @@
 
                                     <div class="row">
                                         <div class="mb-3 col-md-6">
-                                            <label class="col-form-label col-sm-6 ">Tarikh Sah Sijil</label>
+                                           <label class="col-form-label col-sm-6">Tarikh Sah Sijil</label>
                                         </div>
                                         <div class="mb-3 col-md-6">
                                             

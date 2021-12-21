@@ -33,7 +33,7 @@
 
             <div class="row">
                 <div class="col-md-4">
-                    <label class="col-form-label col-sm-6 ">Jenis Pengguna </label>
+                   <label class="col-form-label col-sm-6">Jenis Pengguna </label>
                 </div>
                 <div class="mb-3 col-md-8">
                     <select name="jenis"  class="form-control">
@@ -47,7 +47,7 @@
          
             <div class="row">
                 <div class="col-md-4">
-                    <label class="col-form-label col-sm-6 "> No Kad Pengenalan </label>
+                   <label class="col-form-label col-sm-6"> No Kad Pengenalan </label>
                 </div>
                 <div class="mb-3 col-md-8">
                     <input type="text"  class="form-control" name="user_identity_no">
@@ -56,7 +56,7 @@
 
             <div class="row">
                 <div class="col-md-4">
-                    <label class="col-form-label col-sm-6 ">Emel</label>
+                   <label class="col-form-label col-sm-6">Emel</label>
                 </div>
                 <div class="mb-3 col-md-8">
                     <input type-=email  class="form-control" name=email>
@@ -65,7 +65,7 @@
 
                 <div class="row">
                     <div class="col-md-4">
-                        <label class="col-form-label col-sm-6 ">Peranan Pengguna</label>
+                       <label class="col-form-label col-sm-6">Peranan Pengguna</label>
                     </div>
                     <div class="mb-3 col-md-8">
                          <select name="role_id"  class="form-control">

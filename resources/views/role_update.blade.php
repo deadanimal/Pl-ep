@@ -28,7 +28,7 @@ Pengguna
 
         <div class="row">
             <div class="mb-3 col-md-6">
-                <label class="col-form-label col-sm-6 ">Nama: </label>
+               <label class="col-form-label col-sm-6">Nama: </label>
             </div>
             <div class="mb-3 col-md-6">
                 <input type="text" name="user_name" value="{{$user->user_name}}" class="form-control"> 
@@ -37,7 +37,7 @@ Pengguna
 
          <div class="row">
             <div class="mb-3 col-md-6">
-                <label class="col-form-label col-sm-6 "> Jenis Pengguna</label>
+               <label class="col-form-label col-sm-6"> Jenis Pengguna</label>
             </div>
             <div class="mb-3 col-md-6">
                 <select name="jenis" class="form-control">
@@ -50,7 +50,7 @@ Pengguna
     
         <div class="row">
             <div class="mb-3 col-md-6">
-                <label class="col-form-label col-sm-6 ">No Kad Pengenalan</label>
+               <label class="col-form-label col-sm-6">No Kad Pengenalan</label>
             </div>
             <div class="mb-3 col-md-6">
                  <input type="text" name="user_identity_no" value="{{$user->user_identity_no}}" class="form-control"> 
@@ -60,7 +60,7 @@ Pengguna
         
         <div class="row">
             <div class="mb-3 col-md-6">
-                <label class="col-form-label col-sm-6 ">Emel</label>
+               <label class="col-form-label col-sm-6">Emel</label>
             </div>
             <div class="mb-3 col-md-6">
                  <input type="email" name="email" value="{{$user->email}}" class="form-control"> 
@@ -80,7 +80,7 @@ Pengguna
 
         <div class="row">
             <div class="mb-3 col-md-6">
-                <label class="col-form-label col-sm-6 ">Status Pengguna: </label>
+               <label class="col-form-label col-sm-6">Status Pengguna: </label>
             </div>
             <div class="mb-3 col-md-6">
                 <select name="user_status" class="form-control">
@@ -93,7 +93,7 @@ Pengguna
 {{-- 
       <div class="row">
             <div class="mb-3 col-md-6">
-                <label class="col-form-label col-sm-6 ">Peranan Pengguna</label>
+               <label class="col-form-label col-sm-6">Peranan Pengguna</label>
             </div>
       
             <div class="mb-3 col-md-6">
@@ -113,7 +113,7 @@ Pengguna
 
  <div class="row">
             <div class="col-md-6">
-                <label class="col-form-label col-sm-6 ">Tambah Peranan</label>
+               <label class="col-form-label col-sm-6">Tambah Peranan</label>
             </div>
             <div class="mb-3 col-md-6">
                  <select name="role_id"  class="form-control">
