@@ -11,12 +11,12 @@ class AuditLogController extends Controller
 
     public function index()
     {
-        $AuditLog = AuditLog::orderBy('created_at', 'desc')->get();
-        $user = User::all();
+        $AuditLog = AuditLog::where('user_id',Auth::user()->id)
+        ->orderBy('created_at', 'desc')->get();
+
 
         return view('audit_log.index', [
-            'AuditLog'=>$AuditLog, 
-            'user'=>$user
+            'AuditLog'=>$AuditLog
             ] );
     }
 
@@ -31,7 +31,7 @@ class AuditLogController extends Controller
         
         $AuditLog->item = $request->item;
         $AuditLog->description = $request->description;
-        $AuditLog->user_id = $request->user_id;
+        $AuditLog->user_id = Auth::user()->id;
 
         $AuditLog->save();
         

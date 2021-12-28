@@ -19,7 +19,7 @@
                 <h5 class="card-title mb-0"></h5>
             </div>
             <div class="card-body">
-                <table id="datatables-1" class="table table-striped">
+                <table id="datatables-reponsive" class="table table-striped">
                         <thead>
                             <tr>
                                 <th>Seksyen </th>

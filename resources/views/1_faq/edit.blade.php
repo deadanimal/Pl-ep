@@ -49,7 +49,7 @@
                                <label class="col-form-label col-sm-6"> Jawapan </label>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <input type=text class=form-control name=faq_answer  value="{{$Faq->faq_answer}}">
+                                <textarea class=form-control name=faq_answer rows="4" cols="3">{{$Faq->faq_answer}}</textarea>
                             </div>
                         </div>
 

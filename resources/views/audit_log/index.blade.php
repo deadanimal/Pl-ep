@@ -1,5 +1,6 @@
-@extends('layouts.base')
-@section('content')
+<head>
+<link href="css/modern.css" rel="stylesheet">
+</head>
 
 <div class="header">
     <h1 class="header-title">
@@ -18,20 +19,38 @@ Pengguna
                 <h5 class="card-title mb-0"></h5>
             </div>
             <div class="card-body">
-
-        <table>
-            @foreach ($AuditLog as $AuditLog)
-            <tr>  
-                <td>{{date('d/m/Y H:i', strtotime($AuditLog->created_at))}}:</td>
-                <td></td>
-                <td>{{$AuditLog->description}}</td>
-            </tr>
-            @endforeach
-        </table>
+                <table id="datatables-buttons" class="table table-striped" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Tarikh</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                         @foreach ($AuditLog as $AuditLog)
+                        <tr>  
+                            <td>{{$AuditLog->description}}</td>
+                            <td><small>{{date('d/m/Y H:i', strtotime($AuditLog->created_at))}}</small></td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
 </div>
 
+<script src="js/app.js"></script>
 
-@stop
+	<script>
+		document.addEventListener("DOMContentLoaded", function() {
+			// Datatables with Buttons
+			var datatablesButtons = $("#datatables-buttons").DataTable({
+				responsive: true,
+				lengthChange: !1,
+				buttons: ["copy", "print"]
+			});
+			datatablesButtons.buttons().container().appendTo("#datatables-buttons_wrapper .col-md-6:eq(0)");
+		});
+	</script>
+

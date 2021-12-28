@@ -17,7 +17,7 @@
                 <h5 class="card-title mb-0"></h5>
             </div>
             <div class="card-body">
-    <table id="datatables-1" class="table table-striped" style="width:100%">
+    <table id="datatables-reponsive" class="table table-striped" style="width:100%">
     <thead>
         <tr>
         <th> Nama </th>

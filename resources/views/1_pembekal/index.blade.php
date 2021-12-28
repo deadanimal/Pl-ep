@@ -26,7 +26,7 @@
                 <h5 class="card-title mb-0"></h5>
             </div>
             <div class="card-body">
-                <table id="datatables-1" class="table table-striped" style="width:100%">
+                <table id="datatables-reponsive" class="table table-striped" style="width:100%">
                     <thead>
                         <tr>
                             <th>Jenis Akaun</th>
@@ -44,7 +44,15 @@
                                 <td>{{  $pembekal->pembekal_jenis_akaun}}</td>
                                 <td>{{  $pembekal->pembekal_company_name}}</td>
                                 <td>{{  $pembekal->pembekal_pemilik }}</td>
-                                <td>{{  $pembekal->pembekal_status}}</td>
+                                <td> @if ($pembekal->pembekal_status === 'Menunggu Pengesahan')                             
+                                                    <span class="badge rounded-pill bg-primary">Belum Selesai</span>
+                                    @elseif ($pembekal->pembekal_status === 'Ditolak')                             
+                                                    <span class="badge rounded-pill bg-danger">Ditolak</span>
+                                            @else
+                                                    <span class="badge rounded-pill bg-success">Diluluskan</span>
+                                            
+                                            @endif
+                                </td>
                                 <td>{{date('d/m/Y H:i', strtotime($pembekal->created_at))}}
                                 <td class="table-action">
                                     <form method="POST" action="/Pembekal/{{$pembekal->id}}">

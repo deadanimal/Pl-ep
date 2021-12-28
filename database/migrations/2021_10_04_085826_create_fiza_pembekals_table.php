@@ -22,10 +22,11 @@ class CreateFizaPembekalsTable extends Migration
             $table->string('pembekal_sijil_ssm')->nullable();
             $table->string('pembekal_lesen_perniagaan')->nullable();
             $table->string('pembekal_pemilik')->nullable();
+            $table->string('pembekal_email')->unique()->nullable();
             $table->string('pembekal_citizenship')->nullable();
             $table->string('pembekal_identity_type')->nullable();
-            $table->string('pembekal_identity_no')->nullable();
-            $table->string('pembekal_company_name')->nullable();
+            $table->string('pembekal_identity_no')->unique()->nullable();
+            $table->string('pembekal_company_name')->unique()->nullable();
             $table->date('pembekal_establish_date')->nullable();
             $table->string('pembekal_income_tax_no')->nullable();
             $table->string('pembekal_company_address')->nullable();

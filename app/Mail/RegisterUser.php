@@ -13,15 +13,19 @@ class RegisterUser extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
+    public $user;
+
+        /**
      * Create a new message instance.
      *
+     * @param  \App\Models\User $user
      * @return void
      */
-    public function __construct()
+
+    public function __construct(User $user)
     {
-        // $this->User=$user;
-        //$this->user=Auth::user()->id;
+        $this->user = $user;
+        // $this->user=Auth::user()->id;
     }
 
 

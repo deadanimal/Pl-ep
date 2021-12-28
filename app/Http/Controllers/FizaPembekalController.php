@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
 use App\Models\FizaPembekal;
 use Illuminate\Http\Request;
 use App\Models\FizaKodBidang;
+use App\Mail\PermohonanAkaunPembekal;
+use App\Mail\PendaftaranPembekal;
 
 class FizaPembekalController extends Controller
 {
@@ -65,6 +68,7 @@ class FizaPembekalController extends Controller
         $fizaPembekal->pembekal_country=$request->pembekal_country;
         $fizaPembekal->pembekal_tel_no=$request->pembekal_tel_no;
         $fizaPembekal->pembekal_fax_no=$request->pembekal_fax_no;
+        $fizaPembekal->pembekal_email=$request->pembekal_email;
 
         $fizaPembekal->pembekal_cbp_no=$request->pembekal_cbp_no;
         $fizaPembekal->pembekal_cbp_effective_date=$request->pembekal_cbp_effective_date;
@@ -110,35 +114,36 @@ class FizaPembekalController extends Controller
   
         $fizaPembekal->save();
 
+
+        $receiver = User::whereHas("roles", function ($admin) {
+            $admin->where('roles.id','1');
+        })->get();
+
+
+            foreach ($receiver as $receiver) {
+                Mail::to($receiver->email)->send(new PendaftaranPembekal($pembekal));
+            }
+        //dd($receiver);
+    
         if (!is_null($request->pembekal_jenis_akaun)) {
             if (in_array('Kerja', $request->pembekal_jenis_akaun) && in_array('Bekalan & Perkhidmatan(MOF)', $request->pembekal_jenis_akaun)) {
                 return redirect('/insertfile/'.$fizaPembekal->id);
-                
-
-            } elseif (in_array('Kerja',$request->pembekal_jenis_akaun))
-             {
+            } elseif (in_array('Kerja', $request->pembekal_jenis_akaun)) {
                 return redirect('/cidb/'.$fizaPembekal->id);
-                
-            } elseif (in_array('Bekalan & Perkhidmatan(MOF)',$request->pembekal_jenis_akaun)) {
-
+            } elseif (in_array('Bekalan & Perkhidmatan(MOF)', $request->pembekal_jenis_akaun)) {
                 return redirect('/mof/'.$fizaPembekal->id);
-
-            } else {
-
+            }
+        } else {
                 return redirect('/Pembekal');
-                foreach ($user->role as $role) {
-                    $receiver = User::where($role_id[0]=='1')->get();
-                    Mail::to($receiver->email)->send(new PendaftaranPembekal);
-                }
 
             }
-
-        }else{
-            return redirect('/Pembekal');
         }
+    
+        
 
 
-    }
+
+    
 
     public function show($id)
     {
@@ -158,8 +163,10 @@ class FizaPembekalController extends Controller
         ]);
     }
 
-    public function update(Request $request, FizaPembekal $fizaPembekal)
+    public function update(Request $request,$id)
     {
+
+        $fizaPembekal = FizaPembekal::find($id);
 
       //$fizaPembekal->pembekal_jenis_akaun=$request->pembekal_jenis_akaun;
       $fizaPembekal->pembekal_jenis=$request->pembekal_jenis;
@@ -180,6 +187,8 @@ class FizaPembekalController extends Controller
       $fizaPembekal->pembekal_country=$request->pembekal_country;
       $fizaPembekal->pembekal_tel_no=$request->pembekal_tel_no;
       $fizaPembekal->pembekal_fax_no=$request->pembekal_fax_no;
+      $fizaPembekal->pembekal_email=$request->pembekal_email;
+
 
       $fizaPembekal->pembekal_cbp_no=$request->pembekal_cbp_no;
       $fizaPembekal->pembekal_cbp_effective_date=$request->pembekal_cbp_effective_date;
@@ -202,12 +211,22 @@ class FizaPembekalController extends Controller
     
       $fizaPembekal->pembekal_bank=$request->pembekal_bank;
       $fizaPembekal->pembekal_akaun_no=$request->pembekal_akaun_no;
-      $fizaPembekal->pembekal_status=$request->pembekal_status;
-    
+
+     $pembekal = FizaPembekal::where('pembekal_email',$request->pembekal_email)->get()->first();
+    //  dd($pembekal);
       // $fizaPembekal->kod_id=$request->kod_id;
 
+      if ($request->status_pembekal=="Diluluskan"){
+        $fizaPembekal->pembekal_status="diluluskan";
+    }
+    else if($request->status_pembekal=="Ditolak"){
+        $fizaPembekal->pembekal_status="ditolak";
+        
+    }
     
         $fizaPembekal->save();
+        Mail::to($request->pembekal_email)->send(new PermohonanAkaunPembekal($pembekal));
+
         return redirect('/Pembekal');
     }
 

@@ -98,10 +98,8 @@ class FizaPembelianSebutTenderController extends Controller
 
         $fizaPembelianSebutTender->save();
 
-        Session::put('pst_id',$fizaPembelianSebutTender->id);
-        $temp=Session::get('pst_id');
-
-
+        // Session::put('pst_id',$fizaPembelianSebutTender->id);
+        // $temp=Session::get('pst_id');
 
         $receiver = User::where('id',$request->pst_pelulus)->first();
 
@@ -118,11 +116,12 @@ class FizaPembelianSebutTenderController extends Controller
 
         //System Notification
         $notification_obj = (object)[];
-        $notification_obj->noti_type="1";
-        $notification_obj->noti_template="$fizaPembelianSebutTender->pst_kaedah_perolehan";
+        $notification_obj->noti_type="";
+        $notification_obj->noti_template=$fizaPembelianSebutTender->pst_kaedah_perolehan;
         $notification_obj->noti_subject="telah dihantar dan anda telah dilantik sebagai Pegawai Pelulus";
         $notification_obj->noti_status='Menunggu Pengesahan';
-        $notification_obj->noti_content="$fizaPembelianSebutTender->created_at";
+        $notification_obj->noti_content='';
+        $notification_obj->user_id=User::where('id',$request->pst_pelulus)->first();
 
                         
         app('App\Http\Controllers\FizaNotificationCenterController')->store($notification_obj);

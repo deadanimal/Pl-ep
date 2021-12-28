@@ -19,7 +19,7 @@
                 <h5 class="card-title mb-0"></h5>
             </div>
             <div class="card-body">
-        <form action="/daftar-role" method="POST">
+        <form action="/Pengguna" method="POST">
             @csrf
             <div class="row">
                 <div class="col-md-4">

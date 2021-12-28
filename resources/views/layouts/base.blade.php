@@ -9,12 +9,12 @@
             <meta name="csrf-token" content="{{ csrf_token() }}">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-            <meta name="description" content="Responsive Bootstrap 4 Admin &amp; Dashboard Template">
+            <meta name="description" content="Responsive Bootstrap 5 Admin &amp; Dashboard Template">
             <meta name="author" content="Bootlab">
     
     
             {{-- <title>{{ config('app.name', 'ePerolehan') }}</title> --}}
-            <title>Sistem ePerolehan</title>
+            <title>Sistem Perolehan</title>
             <!-- Fonts -->
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
     
@@ -47,9 +47,7 @@
             </style>
     </head>
 
-    <body>
-        @include('sweet::alert')
-        {{-- <script src="sweetalert2.all.min.js" type="text/javascript"></script> --}}
+<body>
 
 
         <div class="wrapper">
@@ -58,13 +56,13 @@
                     <svg>
                         <use xlink:href="#ion-ios-pulse-strong"></use>
                     </svg>
-                   Sistem ePerolehan
+                   Perbadanan Labuan
                 </a>
                 <div class="sidebar-content">
                     <div class="sidebar-content">
                         <div class="sidebar-user">
-                            <img src="/PL.png" class="img-fluid rounded-circle mb-2" alt="Linda Miller" />
-                            <div class="fw-bold">Perbadanan Labuan</div>
+                            <img src="/PL.png" class="img-fluid rounded-circle mb-2" />
+                            <div class="fw-bold">Sistem ePerolehan</div>
                             <small>{{Auth::user()->user_name}}</small>
                         </div>
                     
@@ -329,7 +327,7 @@
                     <div class="container-fluid">
     
                         @yield('content')
-                        @yield('scripts')
+                        {{-- @yield('scripts') --}}
                     </div>
                 </main>
                     {{--<div class="header">
@@ -392,11 +390,13 @@
 
            document.addEventListener("DOMContentLoaded", function() {
 			// Datatables Responsive
-			$('#datatables-1').DataTable({
+			$('#datatables-reponsive').DataTable({      
 				responsive: true,
-                sorting:false
+       
 			});
 		});
+
+        
    
 
             </script>

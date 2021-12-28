@@ -12,7 +12,9 @@ class FizaNotificationCenterController extends Controller
 
     public function index()
     {
-        $fizaNotificationCenter = FizaNotificationCenter::orderBy('created_at', 'desc')->get();
+        $fizaNotificationCenter = FizaNotificationCenter::where('user_id',Auth::user()->id)
+        ->orderBy('created_at', 'desc')->get();
+        
         return view ('1_notification_center.index',[
             'NotificationCenter'=>$fizaNotificationCenter]);
     }
@@ -49,12 +51,6 @@ class FizaNotificationCenterController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\FizaNotificationCenter  $fizaNotificationCenter
-     * @return \Illuminate\Http\Response
-     */
     public function edit(FizaNotificationCenter $fizaNotificationCenter)
     {
         $fizaNotificationCenter = FizaNotificationCenter::all();

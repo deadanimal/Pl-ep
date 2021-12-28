@@ -2,12 +2,24 @@
 
 @section('content')
 
+<div class="header">
+    <h1 class="header-title">
+   Pembelian
+    </h1>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#"> Kemaskini Pengesyoran</a></li>
+        </ol>
+    </nav>
+</div>
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-header">
+                <h5 class="card-title mb-0"></h5>
+            </div>
+            <div class="card-body">
 
-                <h3> Kemaskini Pengesyoran</h3>
                 <form method="POST" action="/Pengesyoran/{{$pengesyoran->id}}" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
@@ -79,9 +91,10 @@
                     spesifikasi_id --}}
 
                     <br> <button type="submit" class="btn-primary">Hantar</button>
-                </form>
-            </div>
+                        </form>
+                    </div>
         </div>
     </div>
 </div>
+
 @stop

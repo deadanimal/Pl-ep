@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Roles;
@@ -9,7 +9,6 @@ use App\Models\RoleUser;
 use App\Mail\RegisterUser;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-
 
 
 class PenggunaController extends Controller
@@ -49,7 +48,7 @@ class PenggunaController extends Controller
         //$user->role_id = $request->role_id;
         $user->save();
 
-        Mail::to($user->email)->send(new RegisterUser);
+        Mail::to($user->email)->send(new RegisterUser($user));
 
         // $role = Roles::find($request->role_id);
         $user->roles()->attach($request->role_id);

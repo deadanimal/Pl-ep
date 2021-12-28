@@ -4,7 +4,7 @@
     <style>
         label {
             display: inline-block;
-            width: 150px;
+            width: 100px;
             text-align: justify;
         }
     </style>
@@ -36,7 +36,7 @@
             <fieldset>
                 
                 <div class="mb-3 row">
-                    <label class= "col-form-label col-sm-3 text-sm-end">Jenis Akaun </label>
+                    <label class= "col-form-label col-sm-3 ">Jenis Akaun </label>
                 <div class="mb-2 col-sm-7">
                     <input type=text name=pembekal_jenis_akaun class="form-control" value="{{$pembekal->pembekal_jenis_akaun}}" readonly>
                 </div>
@@ -60,14 +60,14 @@
                 <br><br>
 
                 <div class="mb-3 row">
-                        <label class= "col-form-label col-sm-3 text-sm-end">Nama Syarikat</label>
+                        <label class= "col-form-label col-sm-3 ">Nama Syarikat</label>
                     <div class="mb-2 col-sm-7">
                         <input type=text name=pembekal_company_name class="form-control" value="{{$pembekal->pembekal_company_name}}">
                     </div>
                 </div>
 
                 <div class="mb-3 row">
-                       <label class= "col-form-label col-sm-3 text-sm-end">Jenis Perniagaan</label>
+                       <label class= "col-form-label col-sm-3 ">Jenis Perniagaan</label>
                     <div class="mb-2 col-sm-7">
                         <input type=text name=pembekal_jenis_company class="form-control" value="{{$pembekal->pembekal_jenis_company}}">
                     </div>
@@ -75,7 +75,7 @@
 
           
                 <div class="mb-3 row">
-                       <label class= "col-form-label col-sm-3 text-sm-end">No Pendaftaran Syarikat</label>
+                       <label class= "col-form-label col-sm-3 ">No Pendaftaran Syarikat</label>
                     <div class="mb-2 col-sm-7">
                         <input type=text name=pembekal_no_pendaftaran class="form-control" value="{{$pembekal->pembekal_no_pendaftaran}}">
                     </div>
@@ -83,11 +83,8 @@
 
                 
                 <div class="mb-3 row">
-                    <label class= "col-form-label col-sm-3 text-sm-end">Sijil SSM</label>
+                    <label class= "col-form-label col-sm-3">Sijil SSM</label>
                     <div class= "mb-2 col-sm-7">
-                        <input type=file name=pembekal_sijil_ssm class="form-control">
-                    </div>
-                    <div class="col-sm-2">
                         <a href="/storage/{{$pembekal->pembekal_sijil_ssm}}" target="_blank" download>Muat Turun Fail</a>
                     </div>
                 </div>
@@ -95,17 +92,14 @@
 
               
                     <div class="mb-3 row">
-                       <label class= "col-form-label col-sm-3 text-sm-end">Lesen Perniagaan</label>
+                       <label class= "col-form-label col-sm-3 ">Lesen Perniagaan</label>
                         <div class="mb-2 col-md-7">
-                            <input type=file name=pembekal_lesen_perniagaan class="form-control">
-                        </div>
-                        <div class="col-sm-2">
                             <a href="/storage/{{$pembekal->pembekal_lesen_perniagaan}}" target="_blank" download>Muat Turun Fail</a>
                         </div>
                     </div>
 
                     <div class="mb-3 row">
-                        <label class= "col-form-label col-sm-3 text-sm-end">Tarikh Penubuhan</label>
+                        <label class= "col-form-label col-sm-3 ">Tarikh Penubuhan</label>
                         <div class="mb-2 col-md-7">
                             <input type=date name=pembekal_date_establish class="form-control" value={{$pembekal->pembekal_date_establish}}>
                         </div>
@@ -113,7 +107,7 @@
 
 
                     <div class="mb-3 row">
-                        <label class= "col-form-label col-sm-3 text-sm-end">No Cukai Pendapatan</label>
+                        <label class= "col-form-label col-sm-3 ">No Cukai Pendapatan</label>
                         <div class="mb-2 col-md-7">
                             <input type=text name=pembekal_income_tax_no class="form-control" value="{{$pembekal->pembekal_income_tax_no}}">
                         </div>
@@ -121,7 +115,7 @@
 
 
                     <div class="mb-3 row">
-                        <label class= "col-form-label col-sm-3 text-sm-end">Alamat Syarikat</label>
+                        <label class= "col-form-label col-sm-3 ">Alamat Syarikat</label>
                         <div  class="mb-2 col-md-7">
                             <input type=text name=pembekal_company_address class="form-control" value="{{$pembekal->pembekal_company_address}}">
                         </div>
@@ -129,21 +123,21 @@
 
          
                     <div class="mb-3 row">
-                       <label class= "col-form-label col-sm-3 text-sm-end">Bandar</label>
+                       <label class= "col-form-label col-sm-3 ">Bandar</label>
                        <div  class="mb-2 col-md-7">
                             <input type=text name=pembekal_city class="form-control" value="{{$pembekal->pembekal_city}}">
                         </div>
                     </div>
              
                     <div class="mb-3 row">
-                       <label class= "col-form-label col-sm-3 text-sm-end">Poskod</label>
+                       <label class= "col-form-label col-sm-3 ">Poskod</label>
                        <div  class="mb-2 col-md-7">
                             <input type=number name=pembekal_postcode class="form-control" value={{$pembekal->pembekal_postcode}}>
                         </div>
                     </div>
                 
                     <div class="mb-3 row">
-                       <label class= "col-form-label col-sm-3 text-sm-end">Negeri</label>
+                       <label class= "col-form-label col-sm-3 ">Negeri</label>
                        <div  class="mb-2 col-md-7">
                             <select name=pembekal_state class="form-control">
                                 <option @if ($pembekal->pembekal_state == 'Johor') selected @endif value='Johor'>Johor</option>
@@ -174,7 +168,7 @@
         <legend> Maklumat Pemilik Syarikat</legend>
         
             <div class="mb-3 row">
-                <label class= "col-form-label col-sm-3 text-sm-end"> Nama Pemilik Syarikat</label>
+                <label class= "col-form-label col-sm-3 "> Nama Pemilik Syarikat</label>
                 <div  class="mb-2 col-md-7">
                     <input type=text name=pembekal_pemilik class="form-control" value="{{$pembekal->pembekal_pemilik}}">
                 </div>
@@ -182,7 +176,7 @@
        
 
             <div class="mb-3 row">
-                <label class= "col-form-label col-sm-3 text-sm-end">Kewarganegaraan</label>
+                <label class= "col-form-label col-sm-3 ">Kewarganegaraan</label>
                 <div  class="mb-2 col-md-7">
                     <input type=text name=pembekal_citizenship class="form-control" value="{{$pembekal->pembekal_citizenship}}">
                 </div>
@@ -190,7 +184,7 @@
   
 
             <div class="mb-3 row">
-               <label class= "col-form-label col-sm-3 text-sm-end">Jenis Pengenalan</label> 
+               <label class= "col-form-label col-sm-3 ">Jenis Pengenalan</label> 
                <div  class="mb-2 col-md-7">
                     <select name=pembekal_identity_type class="form-control">
                         <option @if($pembekal->pembekal_identity_type=='kad pengenalan') selected @endif value='kad pengenalan'>Kad Pengenalan</option>
@@ -201,15 +195,22 @@
        
 
             <div class="mb-3 row">
-               <label class= "col-form-label col-sm-3 text-sm-end">No Kad Pengenalan / No Pasport</label>
+               <label class= "col-form-label col-sm-3 ">No Kad Pengenalan / No Pasport</label>
                <div  class="mb-2 col-md-7">
                     <input type=text name=pembekal_identity_no class="form-control"  value="{{$pembekal->pembekal_identity_no}}">
                 </div>
             </div>
+
+            <div class="mb-3 row">
+                <label class= "col-form-label col-sm-3 ">Email</label>
+                <div  class="mb-2 col-md-7">
+                     <input type=email name=pembekal_email class="form-control"  value="{{$pembekal->pembekal_email}}">
+                 </div>
+             </div>
     
 
             <div class="mb-3 row">
-               <label class= "col-form-label col-sm-3 text-sm-end">No Telefon Bimbit</label>
+               <label class= "col-form-label col-sm-3 ">No Telefon Bimbit</label>
                <div  class="mb-2 col-md-7">
                     <input type="number" name=pembekal_tel_no class="form-control" value="{{$pembekal->pembekal_tel_no}}">
                 </div>
@@ -222,7 +223,7 @@
         <legend>Maklumat Cukai Barang dan Perkhidmatan</legend>
 
             <div class="mb-3 row">
-               <label class= "col-form-label col-sm-3 text-sm-end">No Cukai Barang & Perkhidmatan</label>
+               <label class= "col-form-label col-sm-3 ">No Cukai Barang & Perkhidmatan</label>
                <div  class="mb-2 col-md-7">
                     <input type=text name=pembekal_cbp_no class="form-control" value="{{$pembekal->pembekal_cbp_no}}">
                 </div>
@@ -230,7 +231,7 @@
         
 
             <div class="mb-3 row">
-               <label class= "col-form-label col-sm-3 text-sm-end">Tarikh Sah Laku</label>
+               <label class= "col-form-label col-sm-3 ">Tarikh Sah Laku</label>
                 <div  class="mb-2 col-md-7">
                     <input type=date name=pembekal_cbp_effective_date class="form-control" value="{{$pembekal->pembekal_cbp_effective_date}}">
                 </div>
@@ -238,7 +239,7 @@
             
 
             <div class="mb-3 row">
-               <label class= "col-form-label col-sm-3 text-sm-end">Tarikh Kelulusan</label>
+               <label class= "col-form-label col-sm-3 ">Tarikh Kelulusan</label>
                 <div  class="mb-2 col-md-7">
                     <input type=date name=pembekal_cbp_approval_date class="form-control" value="{{$pembekal->pembekal_cbp_approval_date}}">
                 </div>
@@ -246,7 +247,7 @@
        
 
             <div class="mb-3 row">
-               <label class= "col-form-label col-sm-3 text-sm-end">Tarikh Tamat Tempoh</label>
+               <label class= "col-form-label col-sm-3 ">Tarikh Tamat Tempoh</label>
                 <div  class="mb-2 col-md-7">
                     <input type=date name=pembekal_cbp_end_date class="form-control" value="{{$pembekal->pembekal_cbp_end_date}}">
                 </div>
@@ -254,13 +255,11 @@
 
 
             <div class="mb-3 row">
-               <label class= "col-form-label col-sm-3 text-sm-end">Lampiran Dokumen</label>
+               <label class= "col-form-label col-sm-3 ">Lampiran Dokumen</label>
                 <div  class="mb-2 col-md-7">
-                    <input type=file name=pembekal_cbp_approval_doc class="form-control" value="{{$pembekal->pembekal_cbp_approval_doc}}">
+                 <a href="/storage/{{$pembekal->pembekal_cbp_approval_doc}}" target="_blank" download>Muat Turun Fail</a>
                 </div>
-                <div class="col-sm-2">
-                    <a href="/storage/{{$pembekal->pembekal_cbp_approval_doc}}" target="_blank" download>Muat Turun Fail</a>
-                </div>
+
             </div>
         
     </fieldset>
@@ -271,7 +270,7 @@
 
         
             <div class="mb-3 row">
-               <label class= "col-form-label col-sm-3 text-sm-end">Nama Bank</label>
+               <label class= "col-form-label col-sm-3 ">Nama Bank</label>
                 <div  class="mb-2 col-md-7">
                     <select name="pembekal_bank" class="form-control">
                         <option @if($pembekal->pembekal_bank=='ABNAMYK')selected @endif value='ABNAMYK'> THE ROYAL BANK OF SCOTLAND</option>
@@ -349,7 +348,7 @@
        
 
             <div class="mb-3 row">
-               <label class= "col-form-label col-sm-3 text-sm-end">No Akaun</label>
+               <label class= "col-form-label col-sm-3 ">No Akaun</label>
             <div  class="mb-2 col-md-7">
                 <input type=number name=pembekal_akaun_no class="form-control" value="{{$pembekal->pembekal_akaun_no}}">
             </div>
@@ -358,8 +357,10 @@
     </fieldset>
 
     <br><br>
-
-    <button class="btn-primary" type="submit">Kemaskini</button>
+    <div style=float-right>
+        <button class="btn btn-primary" type="submit" name="status_pembekal" value="Ditolak"> Ditolak</button> 
+        <button  class="btn btn-success" type="submit" name="status_pembekal" value="Diluluskan">Diluluskan</button> 
+       </div>
     </form>
 
 @stop

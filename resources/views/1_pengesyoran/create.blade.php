@@ -2,12 +2,23 @@
 
 @section('content')
 
+<div class="header">
+    <h1 class="header-title">
+    Pembelian
+    </h1>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#"> Pengesyoran</a></li>
+        </ol>
+    </nav>
+</div>
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-
-                <h3>Pengesyoran</h3>
+                <h5 class="card-title mb-0"></h5>
+            </div>
+            <div class="card-body">
                 <form method="POST" action="/Pengesyoran" enctype="multipart/form-data">
                 @csrf
  
@@ -84,6 +95,7 @@
         </div>
     </div>
 </div>
+
 @stop
 
 

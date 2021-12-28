@@ -10,18 +10,17 @@ use App\Models\FizaPembekal;
 use App\Models\User;
 
 
+
 class PendaftaranPembekal extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
-    public function __construct()
+
+     public $pembekal; 
+
+    public function __construct(FizaPembekal $pembekal)
     {
-        //
+        $this->pembekal = $pembekal;
     }
 
  
