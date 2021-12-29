@@ -8,7 +8,8 @@
     </h1>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Cipta Nota Minta</a></li>
+            <li class="breadcrumb-item"><a href="#">
+Cipta Nota Minta</a></li>
         </ol>
     </nav>
 </div>

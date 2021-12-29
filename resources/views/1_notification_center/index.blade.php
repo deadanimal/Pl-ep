@@ -6,7 +6,8 @@ Pengguna
     </h1>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Sistem Notifikasi</a></li>
+            <li class="breadcrumb-item"><a href="#">
+Sistem Notifikasi</a></li>
         </ol>
     </nav>
 </div>

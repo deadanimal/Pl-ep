@@ -1,3 +1,5 @@
+
+   
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,12 +22,8 @@
     
             <!-- Styles -->
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-            <link rel="stylesheet" type="text/css" href=https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css>
             <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-            <script type="text/javascript" src=https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js></script>
-
             <link rel="stylesheet" type="text/css" href="sweetalert2.min.css">
-
             <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     
             @yield('styles')
@@ -48,7 +46,15 @@
     </head>
 
 <body>
+    <script>
 
+        document.addEventListener("DOMContentLoaded", function() {
+            // Datatables Responsive
+            $("#datatables-reponsive").DataTable({
+                responsive: true
+            });
+        });
+    </script>
 
         <div class="wrapper">
             <nav id="sidebar" class="sidebar">
@@ -281,27 +287,6 @@
                                     <i class="align-middle fas fa-bell"></i>
                                 </a>
                             </li>
-                                {{-- <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0" aria-labelledby="alertsDropdown">
-                                    <div class="list-group">
-                                        <a href="/NotificationCenter" class="list-group-item">
-                                            <div class="row g-0 align-items-center">
-                                                <div class="col-2">
-                                                    <i class="ms-1 text-danger fas fa-fw fa-bell"></i>
-                                                </div>
-                                                <div class="col-10">
-                                                    <div class="text-dark">Update completed</div>
-                                                    <div class="text-muted small mt-1">Restart server 12 to complete the update.</div>
-                                                    <div class="text-muted small mt-1">2h ago</div>
-                                                </div>
-                                            </div>
-                                        </a>
-
-                                    </div>
-                                    <div class="dropdown-menu-footer">
-                                        <a href="#" class="text-muted">Show all notifications</a>
-                                    </div>
-                                </div> 
-                            </li>--}}
                             <li class="nav-item dropdown ms-lg-2">
                                 <a class="nav-link dropdown-toggle position-relative" href="#" id="userDropdown" data-bs-toggle="dropdown">
                                     <i class="align-middle fas fa-cog"></i>
@@ -327,82 +312,14 @@
                     <div class="container-fluid">
     
                         @yield('content')
-                        {{-- @yield('scripts') --}}
+                        @yield('scripts')
+
+                        <script src="js/app.js"></script>
                     </div>
                 </main>
-                    {{--<div class="header">
-                            <h1 class="header-title">
-                            </h1>
-                               <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="#">Forms</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Form Layouts</li>
-                                </ol>
-                            </nav> 
-                        </div> 
-                        <div class="row">
-                            <div class="col-12 col-xl-12">
-                                <div class="card">
-  
-                               
-                            </div>--}}
-    
-                    
-                    
-
-            {{-- <main class="content">
-				<div class="container-fluid">
-					<div class="header">
-                        <div class="card-body">
-                            <div class="my-5">&nbsp;</div>
-                            <div class="container">
-                                @yield('content')
-                            </div>
-                            @yield('scripts')
-                        </div>
-                    </div>
-                </div>--}}
-    
-        <script>
-            Swal.fire({
-            title: 'Padam Data?',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-            }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire(
-                'Data anda telah dipadam!',
-                'success'
-                )
-            }
-         })
-        
-        </script>
-
-        <script>
-        //     $(document).ready(function() {
-        //        $('#datatables-1').DataTable();
-        //    } );
-
-           document.addEventListener("DOMContentLoaded", function() {
-			// Datatables Responsive
-			$('#datatables-reponsive').DataTable({      
-				responsive: true,
-       
-			});
-		});
-
-        
-   
-
-            </script>
-    </main>
-
+            </div>
+        </div>
 </body>
-
-
 </html>
+
+  

@@ -50,18 +50,13 @@
                    Pembekal
                 </h1>
                 <nav aria-label="breadcrumb">
-                    {{-- <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="dashboard-default.html">Dashboard</a></li>
-                        <li class="breadcrumb-item"><a href="#">DataTables</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">DataTables Fixed Header</li>
-                    </ol> --}}
+                    <p class="header-subtitle">Pendaftaran Pembekal Baharu</p>
                 </nav>
             </div>
             
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-title">Pendaftaran Pembekal Baharu</h5>
                             {{-- <h6 class="card-subtitle text-muted">The Fixed Header DataTables extension ensures the table headers don't leave the user's
                                 viewport when scrolling down". See official documentation</h6> --}}
                         </div>

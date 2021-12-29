@@ -52,7 +52,8 @@
                 <nav aria-label="breadcrumb">
                     {{-- <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="dashboard-default.html">Dashboard</a></li>
-                        <li class="breadcrumb-item"><a href="#">DataTables</a></li>
+                        <li class="breadcrumb-item"><a href="#">
+DataTables</a></li>
                         <li class="breadcrumb-item active" aria-current="page">DataTables Fixed Header</li>
                     </ol> --}}
                 </nav>

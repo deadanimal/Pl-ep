@@ -6,7 +6,8 @@ Pembekal
     </h1>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Arahan Memberhentikan</a></li>
+            <li class="breadcrumb-item"><a href="#">
+Arahan Memberhentikan</a></li>
         </ol>
     </nav>
 </div>

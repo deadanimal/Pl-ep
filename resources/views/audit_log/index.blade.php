@@ -1,6 +1,5 @@
-<head>
-<link href="css/modern.css" rel="stylesheet">
-</head>
+@extends('layouts.base')
+@section('content')
 
 <div class="header">
     <h1 class="header-title">
@@ -8,7 +7,8 @@ Pengguna
     </h1>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Audit Log</a></li>
+            <li class="breadcrumb-item"><a href="#">
+Audit Log</a></li>
         </ol>
     </nav>
 </div>
@@ -53,4 +53,5 @@ Pengguna
 			datatablesButtons.buttons().container().appendTo("#datatables-buttons_wrapper .col-md-6:eq(0)");
 		});
 	</script>
+    @stop
 

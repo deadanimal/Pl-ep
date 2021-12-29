@@ -17,7 +17,8 @@
     </h1>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Kemaskini Maklumat Pembekal</a></li>
+            <li class="breadcrumb-item"><a href="#">
+Kemaskini Maklumat Pembekal</a></li>
         </ol>
     </nav>
 </div>

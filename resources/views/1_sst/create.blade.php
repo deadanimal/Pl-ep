@@ -8,7 +8,8 @@ Pembelian
     </h1>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Surat Setuju Terima</a></li>
+            <li class="breadcrumb-item"><a href="#">
+Surat Setuju Terima</a></li>
         </ol>
     </nav>
 </div>

@@ -121,7 +121,7 @@ class FizaPembekalController extends Controller
 
 
             foreach ($receiver as $receiver) {
-                Mail::to($receiver->email)->send(new PendaftaranPembekal($pembekal));
+                Mail::to($receiver->email)->send(new PendaftaranPembekal($fizaPembekal));
             }
         //dd($receiver);
     
@@ -212,7 +212,7 @@ class FizaPembekalController extends Controller
       $fizaPembekal->pembekal_bank=$request->pembekal_bank;
       $fizaPembekal->pembekal_akaun_no=$request->pembekal_akaun_no;
 
-     $pembekal = FizaPembekal::where('pembekal_email',$request->pembekal_email)->get()->first();
+     
     //  dd($pembekal);
       // $fizaPembekal->kod_id=$request->kod_id;
 
@@ -225,6 +225,7 @@ class FizaPembekalController extends Controller
     }
     
         $fizaPembekal->save();
+        $pembekal = FizaPembekal::where('pembekal_email',$request->pembekal_email)->get()->first();
         Mail::to($request->pembekal_email)->send(new PermohonanAkaunPembekal($pembekal));
 
         return redirect('/Pembekal');
