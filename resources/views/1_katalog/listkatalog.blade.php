@@ -9,7 +9,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">
- Katalog di Bawah Kategori {{$Katalog->katalog_kategori}} - {{$Katalog->katalog_kumpulan}}</a></li>
+ Item di Bawah Kategori {{$Katalog->katalog_kategori}} - {{$Katalog->katalog_kumpulan}}</a></li>
         </ol>
     </nav>
 </div>
@@ -34,8 +34,7 @@
                             <td>{{$ItemInfo->item_name}}</td>
                             <td>{{$ItemInfo->item_price}}</td>
 
-                            <td class="table-action">
-                                <a href='/ItemInfo/{{$ItemInfo->id}}/edit'><i class="align-middle fas fa-fw fa-info"  data-bs-placement="left"
+                            <td><a href='/ItemInfo/{{$ItemInfo->id}}/edit'><i class="align-middle fas fa-fw fa-info"  data-bs-placement="left"
                                     title="Maklumat Item"></i></a>
                             </td>
                         </tr>

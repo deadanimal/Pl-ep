@@ -55,6 +55,7 @@ use App\Http\Controllers\RoleUserController;
 use App\Http\Controllers\ItemKartController;
 
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\Auth\NewPasswordController;
 use App\Models\Roles;
 
 
@@ -181,36 +182,38 @@ Route::get('/cetak-pelan/{id}',[FizaPelanPerancanganPerolehanController::class,'
 // Route::resource('/ArahanBerhenti', ArahanBerhentiController::class);
 Route::resource('/AuditLog', AuditLogController::class);
 Route::post('/log',[AuditLogController::class,'log']);
+ 
 
+
+// Route::get('/', function () {
+//     $faq= FizaFaq::where('faq_status','aktif')->get();
+//     return view(
+//         'index',[
+//         'faq'=>$faq 
+//         ]);
+// });
 
 
 Route::get('/', function () {
-    $faq= FizaFaq::where('faq_status','aktif')->get();
-    return view(
-        'index',[
-        'faq'=>$faq 
-        ]);
-});
-
-Route::get('4',function () {
-    return view(
-        'layouts.base'
-    );
+    return view('layouts.base2');
 });
 
 
-Route::get('2', function () {
-    $faq= FizaFaq::where('faq_status','aktif')->get();
-    return view('layouts.base', [
-        'faq'=>$faq
-    ]);
-});
+
+// Route::get('2', function () {
+//     $faq= FizaFaq::where('faq_status','aktif')->get();
+//     return view('layouts.base', [
+//         'faq'=>$faq
+//     ]);
+// });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+
 
 
 Route::get('/comparison/{barang_1}/{barang_2}/{barang_3}', [FizaKatalogController::class, 'compare_barang']);

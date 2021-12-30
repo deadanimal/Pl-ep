@@ -1,4 +1,5 @@
 @extends('layouts.base')
+
 @section('content')
 
 <div class="header">
@@ -8,16 +9,16 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">
-Pelan Perancangan Baharu</a></li>
+ Cipta Pelan Perolehan</a></li>
         </ol>
     </nav>
 </div>
+
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-header">
                 <h5 class="card-title mb-0"></h5>
-            </div>
             <div class="card-body">
 
                 <form method="POST" action="/PelanPerancanganPerolehan">

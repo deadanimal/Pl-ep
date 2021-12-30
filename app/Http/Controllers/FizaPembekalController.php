@@ -134,17 +134,12 @@ class FizaPembekalController extends Controller
                 return redirect('/mof/'.$fizaPembekal->id);
             }
         } else {
-                return redirect('/Pembekal');
+                return redirect('/')->with('success','Permohonan anda telah dihantar dan perlu menunggu kelulusan daripada pegawai kami.Terima Kasih ');
 
             }
         }
     
-        
-
-
-
     
-
     public function show($id)
     {
         $pembekal = FizaPembekal::find($id);
@@ -296,7 +291,7 @@ class FizaPembekalController extends Controller
         // session(['id_pembekal' => '$fizaPembekal->id']);
         // Session::put('id_pembekal', '$fizaPembekal->id');
     
-        return redirect('/Pembekal')->with('success','Pendaftaran anda telah dihantar dan perlu menunggu pengesahan daripada pegawai kami');
+        return redirect('/Pembekal')->with('success','Pendaftaran anda telah dihantar dan perlu menunggu kelulusan daripada pegawai kami');
 
     }
 
@@ -376,6 +371,23 @@ class FizaPembekalController extends Controller
         }
 
         return redirect('/Pembekal');
+    }
+
+    public function pengesahanTandatangan(Request $request)
+    {
+        $pembekal = FizaPembekal::find($id);
+
+            $pegawai=Auth::User();
+            $pengesahan_ic = $request->pengesahan_ic;
+
+        if($pegawai->user_identity_no == $pengesahan_ic) {
+            $pembekal->pembekal_status = 'Diluluskan';
+            $pembekal->save();
+
+            return view('/Pembekal');
+        } else {
+            return view('gagal');
+        }
     }
         
 

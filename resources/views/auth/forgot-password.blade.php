@@ -1,36 +1,61 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+<!DOCTYPE html>
+<html lang="en">
 
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
-        </div>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Modern, flexible and responsive Bootstrap 5 admin &amp; dashboard template">
+	<meta name="author" content="Bootlab">
 
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
+	<title>Sistem ePerolehan</title>
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+	<!-- PICK ONE OF THE STYLES BELOW -->
+	<link href="css/modern.css" rel="stylesheet"> 
 
-        <form method="POST" action="{{ route('password.email') }}">
-            @csrf
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120946860-7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-            <!-- Emel Address -->
-            <div>
-                <x-label for="email" :value="__('Emel')" />
+  gtag('config', 'UA-120946860-7');
+</script></head>
+<main class="main h-100 w-100">
+    <div class="container h-100">
+        <div class="row h-100">
+            <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+                <div class="d-table-cell align-middle">
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            </div>
+                    <div class="text-center mt-4">
+                        <div class="text-center">
+                            <img src="/PL.png" alt="Linda Miller" class="img-fluid rounded-circle" width="30%" height="30%" />
+                        </div>
+                        <br>
+                        <h1 class="h2">Sistem  Pengurusan ePerolehan</h1>
+                        <h3>Perbadanan Labuan</h3>
+                        <p class="lead">
+                Lupa Kata Laluan
+                        </p>
+                    </div>
 
-            <div class="flex items-center justify-end mt-4">
-                <x-button>
-                    {{ __('Emel Password Reset Link') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="m-sm-4">
+
+                            <form method="POST" action="{{ route('password.email') }}">
+                                @csrf
+
+                                <!-- Emel Address -->
+                                <div class="mb-3">
+											<label>Emel</label>
+                                            <input id="email" class="form-control" type="email" name="email" :value="old('email')" required autofocus />
+                                </div>
+
+                                <div class="text-center mt-3">
+                                    <button class="btn btn-lg btn-primary">{{ __('Emel Password Reset Link') }}
+                                    </button>
+                                </div>
+                            </form>
+

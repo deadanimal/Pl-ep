@@ -32,7 +32,6 @@ class CreateFizaPelanPerancanganPerolehansTable extends Migration
             $table->foreignId('user_id')->nullable();
             $table->string('pelan_created_by')->nullable();
             $table->string('pelan_updated_by')->nullable();
-
             $table->String('pelan_nilai_perolehan_keseluruhan')->nullable();
             $table->String('pelan_peruntukan_tahunan')->nullable();
             $table->String('pelan_tarikh_perlaksanaan_iklan')->nullable();

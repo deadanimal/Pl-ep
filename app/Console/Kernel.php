@@ -24,9 +24,10 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        $schedule->call(function () {
         // $schedule->command('inspire')->hourly();
-            $schedule->call(function () {
-                DB::table('user')->update();
+        app('App\Http\Controllers\Auth\NewPasswordController')->password_reset_scheduler();
+
             })->daily();
   
     

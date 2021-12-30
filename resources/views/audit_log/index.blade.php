@@ -1,5 +1,16 @@
 @extends('layouts.base')
 @section('content')
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Datatables with Buttons
+        var datatablesButtons = $("#datatables-buttons").DataTable({
+            responsive: true,
+            lengthChange: !1,
+            buttons: ["copy", "print"]
+        });
+        datatablesButtons.buttons().container().appendTo("#datatables-buttons_wrapper .col-md-6:eq(0)");
+    });
+</script>
 
 <div class="header">
     <h1 class="header-title">
@@ -11,7 +22,6 @@ Pengguna
 Audit Log</a></li>
         </ol>
     </nav>
-</div>
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -42,16 +52,6 @@ Audit Log</a></li>
 
 <script src="js/app.js"></script>
 
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			// Datatables with Buttons
-			var datatablesButtons = $("#datatables-buttons").DataTable({
-				responsive: true,
-				lengthChange: !1,
-				buttons: ["copy", "print"]
-			});
-			datatablesButtons.buttons().container().appendTo("#datatables-buttons_wrapper .col-md-6:eq(0)");
-		});
-	</script>
+	
     @stop
 

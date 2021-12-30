@@ -27,14 +27,14 @@
                             <th>Nama Perolehan</th>
                             <th>Kategori Perolehan</th>
                             <th>Status</th>
-                            <th>Tindakan</th>
+                            <th></th>
                         </tr>
                     </thead>
+                    @foreach ( $fizaPelanPerancanganPerolehan as  $fizaPelanPerancanganPerolehan)
 
                     <tbody>
-
-                        @foreach ( $fizaPelanPerancanganPerolehan as  $fizaPelanPerancanganPerolehan)
                             <tr>
+
                                 <td>{{  $fizaPelanPerancanganPerolehan->pelan_year}}</td>
                                 <td>{{  $fizaPelanPerancanganPerolehan->pelan_title}}</td>
                                 <td>{{  $fizaPelanPerancanganPerolehan->pelan_category }}</td>

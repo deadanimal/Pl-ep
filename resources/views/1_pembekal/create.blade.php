@@ -67,7 +67,7 @@
                     <fieldset>
                     
                             <div class="mb-3 row">
-                                <label class= "col-form-label col-sm-3">Pilih Jenis Akaun
+                                <label class= "col-form-label col-sm-3 text-sm-end">Pilih Jenis Akaun
                                      <span class="text-danger">*</span></label>
                          
                                 <div class="mb-2 col-sm-7">
@@ -84,52 +84,52 @@
                         <legend>Maklumat Syarikat</legend>
 
                         <div class="mb-3 row">
-                            <label class= "col-form-label col-sm-3">Nama Syarikat<span class="text-danger">*</span></label>
-                            <div class="mb-2 col-sm-7">
-                                <input type="text" required  name=pembekal_company_name class="form-control">
+                            <label class= "col-form-label col-sm-3 text-sm-end">Nama Syarikat<span class="text-danger">*</span></label>
+                            <div class="mb-2 col-sm-7 text-sm-end">
+                                <input type="text"   name=pembekal_company_name class="form-control">
                             </div>
                         </div>
 
                         {{-- 
                                                     <div class="mb-2 col-sm-7"> 
-                                                        <label class= "col-form-label col-sm-3">Jenis Pembekal<span class="text-danger">*</span></label>
+                                                        <label class= "col-form-label col-sm-3 text-sm-end">Jenis Pembekal<span class="text-danger">*</span></label>
                                                     </div>
                                                     <div class="mb-2 col-sm-7"> 
-                                                        <input type="text" required  name=pembekal_jenis class="form-control">
+                                                        <input type="text"   name=pembekal_jenis class="form-control">
                                                     </div>
                                                 </div> --}}
 
                         <div class="mb-3 row">
-                                <label class= "col-form-label col-sm-3">Jenis Perniagaan<span class="text-danger">*</span></label>
+                                <label class= "col-form-label col-sm-3 text-sm-end">Jenis Perniagaan<span class="text-danger">*</span></label>
                                 <div class="mb-2 col-sm-7">
-                                    <input type="text" required  name=pembekal_jenis_company class="form-control">
+                                    <input type="text"   name=pembekal_jenis_company class="form-control">
                                 </div>
                         </div>
 
                         <div class="mb-3 row">
-                                <label class= "col-form-label col-sm-3">No Pendaftaran Syarikat<span class="text-danger">*</span></label>
+                                <label class= "col-form-label col-sm-3 text-sm-end">No Pendaftaran Syarikat<span class="text-danger">*</span></label>
                             <div class="mb-2 col-sm-7">
-                                <input type="text" required  name=pembekal_no_pendaftaran class="form-control">
+                                <input type="text"   name=pembekal_no_pendaftaran class="form-control">
                             </div>
                         </div>
 
                         <div class="mb-3 row">
-                                <label class= "col-form-label col-sm-3">Sijil SSM<span class="text-danger">*</span></label>
+                                <label class= "col-form-label col-sm-3 text-sm-end">Sijil SSM<span class="text-danger">*</span></label>
                                 <div class="mb-2 col-sm-7">
-                                    <input type="file" required name=pembekal_sijil_ssm class="form-control">
+                                    <input type="file"  name=pembekal_sijil_ssm class="form-control">
                                 </div>
                         </div>
 
                         
                         <div class="mb-3 row">
-                                <label class= "col-form-label col-sm-3">Lesen Perniagaan<span class="text-danger">*</span></label>
+                                <label class= "col-form-label col-sm-3 text-sm-end">Lesen Perniagaan<span class="text-danger">*</span></label>
                             <div class="mb-2 col-sm-7"> 
-                                <input type="file" required name=pembekal_lesen_perniagaan class="form-control">
+                                <input type="file"  name=pembekal_lesen_perniagaan class="form-control">
                             </div>
                         </div>
 
                         <div class="mb-3 row">
-                                <label class= "col-form-label col-sm-3">Tarikh Penubuhan<span class="text-danger">*</span></label>
+                                <label class= "col-form-label col-sm-3 text-sm-end">Tarikh Penubuhan<span class="text-danger">*</span></label>
                                 <div class="mb-2 col-sm-7"> 
                                     <input type=date name=pembekal_date_establish class="form-control">
                                 </div>
@@ -137,34 +137,34 @@
 
                         
                         <div class="mb-3 row">
-                                <label class= "col-form-label col-sm-3">No Cukai Pendapatan<span class="text-danger">*</span></label>
+                                <label class= "col-form-label col-sm-3 text-sm-end">No Cukai Pendapatan<span class="text-danger">*</span></label>
                                 <div class="mb-2 col-sm-7"> 
-                                    <input type="text" required name=pembekal_income_tax_no class="form-control">
+                                    <input type="text"  name=pembekal_income_tax_no class="form-control">
                                 </div>
                         </div>
 
 
                         
                          <div class="mb-3 row">
-                                <label class= "col-form-label col-sm-3">Alamat Syarikat<span class="text-danger">*</span></label>
+                                <label class= "col-form-label col-sm-3 text-sm-end">Alamat Syarikat<span class="text-danger">*</span></label>
                             
                                 <div class="mb-2 col-sm-7"> 
-                                    <input type="text" required  name=pembekal_company_address class="form-control">
+                                    <input type="text"   name=pembekal_company_address class="form-control">
                                 </div>
                          </div>
 
                         
                         <div class="mb-3 row">
-                            <label class= "col-form-label col-sm-3">Bandar<span class="text-danger">*</span></label>
+                            <label class= "col-form-label col-sm-3 text-sm-end">Bandar<span class="text-danger">*</span></label>
                             <div class="mb-2 col-sm-7"> 
-                                <input type="text" required  name=pembekal_city class="form-control">
+                                <input type="text"   name=pembekal_city class="form-control">
                             </div>
                         </div>
 
 
                         
                          <div class="mb-3 row">
-                                <label class= "col-form-label col-sm-3">Poskod<span class="text-danger">*</span></label>
+                                <label class= "col-form-label col-sm-3 text-sm-end">Poskod<span class="text-danger">*</span></label>
                    
                             <div class="mb-2 col-sm-7"> 
                                 <input type=number name=pembekal_postcode class="form-control">
@@ -174,7 +174,7 @@
 
                         
                             <div class="mb-3 row">
-                                <label class= "col-form-label col-sm-3">Negeri<span class="text-danger">*</span></label>
+                                <label class= "col-form-label col-sm-3 text-sm-end">Negeri<span class="text-danger">*</span></label>
                                 <div class="mb-2 col-sm-7"> 
                                     <select name=pembekal_state class="form-control">
                                         <option hidden>Sila Pilih</option>
@@ -206,25 +206,25 @@
 
                 
                 <div class="mb-3 row">
-                        <label class= "col-form-label col-sm-3"> Nama Pemilik Syarikat<span class="text-danger">*</span></label>
+                        <label class= "col-form-label col-sm-3 text-sm-end"> Nama Pemilik Syarikat<span class="text-danger">*</span></label>
                 
                     <div class="mb-2 col-sm-7"> 
-                        <input type="text" required  name=pembekal_pemilik class="form-control">
+                        <input type="text"   name=pembekal_pemilik class="form-control">
                     </div>
                 </div>
 
                 
                 <div class="mb-3 row">
-                        <label class= "col-form-label col-sm-3">Kewarganegaraan<span class="text-danger">*</span></label>
+                        <label class= "col-form-label col-sm-3 text-sm-end">Kewarganegaraan<span class="text-danger">*</span></label>
                     
                     <div class="mb-2 col-sm-7"> 
-                        <input type="text" required  name=pembekal_citizenship class="form-control">
+                        <input type="text"   name=pembekal_citizenship class="form-control">
                     </div>
                 </div>
 
                 
                 <div class="mb-3 row">
-                        <label class= "col-form-label col-sm-3">Jenis Pengenalan<span class="text-danger">*</span></label>
+                        <label class= "col-form-label col-sm-3 text-sm-end">Jenis Pengenalan<span class="text-danger">*</span></label>
                     <div class="mb-2 col-sm-7"> 
                         <select name=pembekal_identity_type class="form-control">
                             <option hidden>Sila Pilih</option>
@@ -236,24 +236,24 @@
 
                 
                 <div class="mb-3 row">
-                        <label class= "col-form-label col-sm-3">No Kad Pengenalan / No Pasport<span class="text-danger">*</span></label>
+                        <label class= "col-form-label col-sm-3 text-sm-end">No Kad Pengenalan / No Pasport<span class="text-danger">*</span></label>
                    
                     <div class="mb-2 col-sm-7"> 
-                        <input type="text" required  name=pembekal_identity_no class="form-control">
+                        <input type="text"   name=pembekal_identity_no class="form-control">
                     </div>
                 </div>
 
                 <div class="mb-3 row">
-                    <label class= "col-form-label col-sm-3">Email<span class="text-danger">*</span></label>
+                    <label class= "col-form-label col-sm-3 text-sm-end">Email<span class="text-danger">*</span></label>
                
                 <div class="mb-2 col-sm-7"> 
-                    <input type="email" required  name=pembekal_email class="form-control">
+                    <input type="email"   name=pembekal_email class="form-control">
                 </div>
             </div>
 
                 
                 <div class="mb-3 row">
-                        <label class= "col-form-label col-sm-3">No Telefon Bimbit<span class="text-danger">*</span></label>
+                        <label class= "col-form-label col-sm-3 text-sm-end">No Telefon Bimbit<span class="text-danger">*</span></label>
                     <div class="mb-2 col-sm-7"> 
                         <input type="number" name=pembekal_tel_no class="form-control">
                     </div>
@@ -267,15 +267,15 @@
 
                 
                 <div class="mb-3 row">
-                        <label class= "col-form-label col-sm-3">No Cukai Barang dan Perkhidmatan<span class="text-danger">*</span></label>
+                        <label class= "col-form-label col-sm-3 text-sm-end">No Cukai Barang dan Perkhidmatan<span class="text-danger">*</span></label>
                     <div class="mb-2 col-sm-7"> 
-                        <input type="text" required name=pembekal_cbp_no class="form-control" >
+                        <input type="text"  name=pembekal_cbp_no class="form-control" >
                     </div>
                 </div>
 
                 
                 <div class="mb-3 row">
-                        <label class= "col-form-label col-sm-3">Tarikh Sah Laku<span class="text-danger">*</span></label>
+                        <label class= "col-form-label col-sm-3 text-sm-end">Tarikh Sah Laku<span class="text-danger">*</span></label>
                     <div class="mb-2 col-sm-7"> 
                         <input type=date name=pembekal_cbp_effective_date class="form-control">
                     </div>
@@ -283,7 +283,7 @@
 
                 
                 <div class="mb-3 row">
-                        <label class= "col-form-label col-sm-3">Tarikh Kelulusan<span class="text-danger">*</span></label>
+                        <label class= "col-form-label col-sm-3 text-sm-end">Tarikh Kelulusan<span class="text-danger">*</span></label>
                     <div class="mb-2 col-sm-7"> 
                         <input type=date name=pembekal_cbp_approval_date class="form-control">
                     </div>
@@ -291,7 +291,7 @@
 
 
                 <div class="mb-3 row">
-                        <label class= "col-form-label col-sm-3">Tarikh Tamat Tempoh<span class="text-danger">*</span></label>
+                        <label class= "col-form-label col-sm-3 text-sm-end">Tarikh Tamat Tempoh<span class="text-danger">*</span></label>
                     <div class="mb-2 col-sm-7"> 
                         <input type=date name=pembekal_cbp_end_date class="form-control">
                     </div>
@@ -299,9 +299,9 @@
 
                 
                 <div class="mb-3 row">
-                        <label class= "col-form-label col-sm-3">Lampiran Dokumen<span class="text-danger">*</span></label>
+                        <label class= "col-form-label col-sm-3 text-sm-end">Lampiran Dokumen<span class="text-danger">*</span></label>
                     <div class="mb-2 col-sm-7"> 
-                        <input type="file" required name=pembekal_cbp_approval_doc class="form-control">
+                        <input type="file"  name=pembekal_cbp_approval_doc class="form-control">
                     </div>
                 </div>
 
@@ -312,7 +312,7 @@
 
                 
                     <div class="mb-3 row">
-                        <label class= "col-form-label col-sm-3">Nama Bank<span class="text-danger">*</span></label>
+                        <label class= "col-form-label col-sm-3 text-sm-end">Nama Bank<span class="text-danger">*</span></label>
                    
                     <div class="mb-2 col-sm-7"> 
                         <select name="pembekal_bank" class="form-control">
@@ -392,7 +392,7 @@
 
                 
                     <div class="mb-3 row">
-                        <label class= "col-form-label col-sm-3">No Akaun<span class="text-danger">*</span></label>
+                        <label class= "col-form-label col-sm-3 text-sm-end">No Akaun<span class="text-danger">*</span></label>
                     <div class="mb-2 col-sm-7"> 
                         <input type=number name=pembekal_akaun_no class="form-control">
                     </div>
