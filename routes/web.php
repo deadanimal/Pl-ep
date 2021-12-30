@@ -185,18 +185,18 @@ Route::post('/log',[AuditLogController::class,'log']);
  
 
 
-// Route::get('/', function () {
-//     $faq= FizaFaq::where('faq_status','aktif')->get();
-//     return view(
-//         'index',[
-//         'faq'=>$faq 
-//         ]);
-// });
-
-
 Route::get('/', function () {
-    return view('layouts.base2');
+    $faq= FizaFaq::where('faq_status','aktif')->get();
+    return view(
+        'index',[
+        'faq'=>$faq 
+        ]);
 });
+
+
+// Route::get('/', function () {
+//     return view('layouts.base2');
+// });
 
 
 
