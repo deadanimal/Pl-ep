@@ -22,7 +22,15 @@ class DatabaseSeeder extends Seeder
             'user_identity_no'=>'9999',
             'jenis'=>'pekerja',
             'password' => Hash::make('password'),
-            'user_status'=>'aktif'
+            'user_status'=>'aktif',
+            'user_jenis_pengenalan'=>'Kad Pengenalan',
+            'user_kewarganegaraan'=>'Malaysia',
+            'user_phone'=>'0123456789',
+            'user_fax'=>'1800882525',
+            'user_alamat'=>'No 91, Jalan Kenanga',
+            'user_poskod'=>'839390',
+            'user_negeri'=>'Melaka'
+
           
         ]);
 

@@ -55,7 +55,6 @@ use App\Http\Controllers\RoleUserController;
 use App\Http\Controllers\ItemKartController;
 
 use App\Http\Controllers\Auth\RegisteredUserController;
-use App\Http\Controllers\Auth\NewPasswordController;
 use App\Models\Roles;
 
 
@@ -126,6 +125,8 @@ Route::post('/updatepelulus',[FizaPelanPerancanganPerolehanController::class,'up
 Route::resource('/SuratNiat',FizaSenaraiSuratNiatController::class);
 Route::resource('/Pembekal',FizaPembekalController::class);
 Route::resource('/Pengguna', PenggunaController::class);
+Route::post('/TetapanPengguna/{id}',[PenggunaController::class,'update_password']);
+
 
 
 
@@ -182,7 +183,7 @@ Route::get('/cetak-pelan/{id}',[FizaPelanPerancanganPerolehanController::class,'
 // Route::resource('/ArahanBerhenti', ArahanBerhentiController::class);
 Route::resource('/AuditLog', AuditLogController::class);
 Route::post('/log',[AuditLogController::class,'log']);
- 
+
 
 
 Route::get('/', function () {
@@ -194,18 +195,13 @@ Route::get('/', function () {
 });
 
 
-// Route::get('/', function () {
-//     return view('layouts.base2');
-// });
 
-
-
-// Route::get('2', function () {
-//     $faq= FizaFaq::where('faq_status','aktif')->get();
-//     return view('layouts.base', [
-//         'faq'=>$faq
-//     ]);
-// });
+Route::get('2', function () {
+    $faq= FizaFaq::where('faq_status','aktif')->get();
+    return view('layouts.base', [
+        'faq'=>$faq
+    ]);
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -214,7 +210,4 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 
-
-
 Route::get('/comparison/{barang_1}/{barang_2}/{barang_3}', [FizaKatalogController::class, 'compare_barang']);
-

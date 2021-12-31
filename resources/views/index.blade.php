@@ -161,29 +161,33 @@
 				@endforeach
 					
 		</div> --}}
-		@foreach ($faq as $faq)
-			
+	
+		<div class="row">
+			<div class="col-12 col-lg-12">
 				<div class="accordion" id="accordionExample">
+
 					<div class="card">
-						<div class="card-header" id="headingOne">
+						@foreach ($faq as $faq)
+						<div class="card-header" id="headingThree">
 							<h5 class="card-title my-2">
-								<a href="#" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
+								<a href="#" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true"
 									aria-controls="collapseOne">
 									{{$faq->faq_question}}
 								</a>
 							</h5>
 						</div>
-						<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+						<div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
 							<div class="card-body">
 								{{$faq->faq_answer}}
-								 
 							</div>
+							
 						</div>
 					</div>
-				</div>
-			@endforeach
+					@endforeach
 
-	
+				</div>
+
+			</div>
 			
 	</div>
 	 </section> 

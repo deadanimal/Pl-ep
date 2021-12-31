@@ -22,6 +22,13 @@ class CreateUsersTable extends Migration
             $table->enum('jenis', ['pekerja', 'pembekal', 'juruaudit']);
             $table->string('password');
             $table->string('user_status')->nullable();
+            $table->string('user_jenis_pengenalan')->nullable();
+            $table->string('user_kewarganegaraan')->nullable();
+            $table->string('user_alamat')->nullable();
+            $table->string('user_poskod')->nullable();
+            $table->string('user_negeri')->nullable();
+            $table->string('user_phone')->nullable();
+            $table->string('user_fax')->nullable();
             $table->rememberToken();
             $table->timestamps();
 

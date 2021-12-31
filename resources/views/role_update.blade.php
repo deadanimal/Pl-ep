@@ -13,124 +13,185 @@ Kemaskini Maklumat Pengguna</a></li>
         </ol>
     </nav>
 </div>
-<div class="row">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="card-title mb-0"></h5>
-            </div>
-            <div class="card-body">
-
-    <form action="/Pengguna/{{$user->id}}" method="POST">
-        @csrf
-        @method('PUT')
-
-        <input hidden name="id" value="{{$user->id}}">
-
-        <div class="row">
-            <div class="mb-3 col-md-6">
-               <label class="col-form-label col-sm-6">Nama: </label>
-            </div>
-            <div class="mb-3 col-md-6">
-                <input type="text" name="user_name" value="{{$user->user_name}}" class="form-control"> 
-            </div>
-        </div>
-
-         <div class="row">
-            <div class="mb-3 col-md-6">
-               <label class="col-form-label col-sm-6"> Jenis Pengguna</label>
-            </div>
-            <div class="mb-3 col-md-6">
-                <select name="jenis" class="form-control">
-                    <option @if ($user->jenis == 'pekerja') selected @endif value='pekerja'>Staff Perbadanan Labuan</option>
-                    <option @if ($user->jenis == 'pembekal') selected @endif value='pembekal'>Pembekal</option>
-                    <option @if ($user->jenis == 'juruaudit') selected @endif value='juruaudit'>JuruAudit</option>
-                </select> 
-            </div>
-         </div>
+    <div class="row">
+        <div class="col-md-3 col-xl-2">
     
-        <div class="row">
-            <div class="mb-3 col-md-6">
-               <label class="col-form-label col-sm-6">No Kad Pengenalan</label>
-            </div>
-            <div class="mb-3 col-md-6">
-                 <input type="text" name="user_identity_no" value="{{$user->user_identity_no}}" class="form-control"> 
-            </div>
-        </div>
-        
-        
-        <div class="row">
-            <div class="mb-3 col-md-6">
-               <label class="col-form-label col-sm-6">Emel</label>
-            </div>
-            <div class="mb-3 col-md-6">
-                 <input type="email" name="email" value="{{$user->email}}" class="form-control"> 
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Tetapan</h5>
+                </div>
+    
+                <div class="list-group list-group-flush" role="tablist">
+                    <a class="list-group-item list-group-item-action active" data-bs-toggle="list" href="#account" role="tab">
+                        Maklumat Pengguna
+                    </a>
+                    <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#password" role="tab">
+                        Kata Laluan
+                    </a>
+                </div>
             </div>
         </div>
-        
-        {{-- <br>Role <select name="role_id"> --}}
-                {{-- <option hidden>SILA PILIH</option> --}}
-                    {{-- @foreach($role as  $role)
-                <option value="{{$role->id}}">{{$role->role_name}}</option>
-                    @endforeach 
-                    </select> --}}
-                  {{-- <ul>
-                      <li>{{$role->role_name}}</li>
-                  </ul>
-                  @endforeach --}}
+    
+        <div class="col-md-9 col-xl-10">
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="account" role="tabpanel">
+    
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Maklumat Asas</h5>
+                        </div>
+                        <div class="card-body">
+                                <input hidden name="id" value="{{$user->id}}">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="mb-3">
+                                            <label>Nama</label>
+                                            <input type="text" class="form-control"  name="user_name" value="{{$user->user_name}}" disabled>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label>Jenis Pengguna</label>
+                                            <input type="text" class="form-control"  name="user_name" value="{{$user->jenis}}" disabled>
+                                        </div>
 
-        <div class="row">
-            <div class="mb-3 col-md-6">
-               <label class="col-form-label col-sm-6">Status Pengguna: </label>
-            </div>
-            <div class="mb-3 col-md-6">
-                <select name="user_status" class="form-control">
-                    <option @if ($user->jenis == 'aktif') selected @endif value="aktif">Aktif</option>
-                    <option @if ($user->jenis == 'tidak aktif') selected @endif value="tidak aktif">Tidak Aktif</option>
-                </select>
-            </div>
-        </div>
+                                        <div class="mb-3">
+                                            <label>No Kad Pengenalan</label>
+                                            <input type="text" class="form-control"  name="user_identity_no" value="{{$user->user_identity_no}}" disabled>
+                                        </div>
 
-{{-- 
-      <div class="row">
-            <div class="mb-3 col-md-6">
-               <label class="col-form-label col-sm-6">Peranan Pengguna</label>
-            </div>
-      
-            <div class="mb-3 col-md-6">
-               <ul>    
-                @foreach ($user->roles() as $role)
-                   <li>{{$role->role_name}} 
-                    <form method="POST" action="/Pembekal/{{$role->id}}">
-                    @method('DELETE')
-                    @csrf
-                    <button class="btn" type="submit"><i class="align-middle fas fa-fw fa-trash"></i></button></li>
-               </ul>
-            </form>
-                @endforeach
-               </ul>
-            </div>
-        </div>  --}}
+                                        <div class="mb-3">
+                                            <label>Status Pengguna</label>
+                                            <input type="text" class="form-control"  name="user_status" value="{{$user->user_status}}" disabled>
+                                        </div>
 
- <div class="row">
-            <div class="col-md-6">
-               <label class="col-form-label col-sm-6">Tambah Peranan</label>
-            </div>
-            <div class="mb-3 col-md-6">
-                 <select name="role_id"  class="form-control">
-                    <option hidden>Sila Pilih</option>
-                        @foreach($role as  $role)
-                    <option value="{{$role->id}}">{{$role->role_name}}</option>
-                        @endforeach 
-                 </select>
-            </div>
-        </div> 
+                                        <div class="mb-3">
+                                            <label>Peranan</label>
+                                            @foreach ($user->roles as $role)
+                                            <ul>
+                                                <li>{{$role->role_name}}</li>
+                                            </ul>
+                                            @endforeach
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </form>
+    
+                        </div>
+                    </div>
+    
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-actions float-end">
+                                <a href="#" class="me-1">
+                                    <i class="align-middle" data-feather="refresh-cw"></i>
+                                </a>
+                                <div class="d-inline-block dropdown show">
+                                    <a href="#" data-bs-toggle="dropdown" data-bs-display="static">
+                                        <i class="align-middle" data-feather="more-vertical"></i>
+                                    </a>
+    
+                                </div>
+                            </div>
+                            <h5 class="card-title mb-0">Maklumat Peribadi Pengguna</h5>
+                        </div>
+                        <div class="card-body">
+                            <form action="/Pengguna/{{$user->id}}" method="POST">
+                                @csrf
+                                @method('PUT')
+                        
+                                <input hidden name="id" value="{{$user->id}}">
+                                <div class="row">
+                                    <div class="mb-3 col-md-6">
+                                        <label for="inputFirstName">Jenis Pengenalan</label>
+                                        <select name="user_jenis_pengenalan" class="form-control">
+                                            <option hidden>Sila Pilih</option>
+                                            <option @if ($user->user_jenis_pengenalan == 'Kad Pengenalan') selected @endif value="Kad Pengenalan">Kad Pengenalan</option>
+                                            <option @if ($user->user_jenis_pengenalan == 'Pasport') selected @endif value="Pasport">Pasport</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3 col-md-6">
+                                        <label for="inputLastName">Kewarganegaraan</label>
+                                        <input type="text" class="form-control" name="user_kewarganegaraan" value="{{$user->user_kewarganegaraan}}">
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="inputAddress2">Alamat</label>
+                                    <input type="text" class="form-control" name="user_alamat" value="{{$user->user_alamat}}">
+                                </div>
 
-        <br> 
-        <button class="btn-success" >Kembali</button>
-        <button type=submit class="btn-primary">Kemaskini</button>
-        
-        </form>
+                                <div class="row">
+
+                                    <div class="mb-3 col-md-6">
+                                        <label>Poskod</label>
+                                        <input type="number" class="form-control" name=user_poskod value="{{$user->user_poskod}}">
+                                    </div>
+
+                                    <div class="mb-3 col-md-6">
+                                        <label>Negeri</label>
+                                            <select name=user_negeri class="form-control">
+                                                <option hidden>Sila Pilih</option>
+                                                <option @if ($user->user_negeri== 'Johor') selected @endif value='Johor'>Johor</option>
+                                                <option @if ($user->user_negeri== 'Kedah') selected @endif value='Kedah'>Kedah</option>
+                                                <option @if ($user->user_negeri== 'Kelantan') selected @endif value='Kelantan'>Kelantan</option>
+                                                <option @if ($user->user_negeri== 'W.P Kuala Lumpur') selected @endif value='W.P Kuala Lumpur'>W.P Kuala Lumpur</option>
+                                                <option @if ($user->user_negeri== 'W.P Labuan') selected @endif value='W.P Labuan'>W.P Labuan</option>
+                                                <option @if ($user->user_negeri== 'Melaka') selected @endif value='Melaka'>Melaka</option>
+                                                <option @if ($user->user_negeri== 'Negeri Sembilan') selected @endif value='Negeri Sembilan'>Negeri Sembilan</option> 
+                                                <option @if ($user->user_negeri== 'Pahang') selected @endif value='Pahang'>Pahang</option>
+                                                <option @if ($user->user_negeri== 'Pulau Pinang') selected @endif value='Pulau Pinang'>Pulau Pinang</option>
+                                                <option @if ($user->user_negeri== 'Perlis') selected @endif value="Perlis">Perlis</option>
+                                                <option @if ($user->user_negeri== 'Perak') selected @endif value='Perak'>Perak</option>
+                                                <option @if ($user->user_negeri== 'W.P Putrajaya') selected @endif value='W.P Putrajaya'>W.P Putrajaya</option>
+                                                <option @if ($user->user_negeri== 'Sabah') selected @endif value='Sabah'>Sabah</option>
+                                                <option @if ($user->user_negeri== 'Sarawak') selected @endif value='Sarawak'>Sarawak</option>
+                                                <option @if ($user->user_negeri== 'Selangor') selected @endif value='Selangor'>Selangor</option>
+                                                <option @if ($user->user_negeri== 'Terengganu') selected @endif value='Terengganu'>Terengganu</option>
+                                                <option @if ($user->user_negeri== 'Johor') selected @endif value='Johor'>Johor</option>
+                
+                                            </select> 
+                                    </div>
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="mb-3 col-md-6">
+                                        <label>No Telefon Bimbit</label>
+                                        <input type="number" class="form-control" name=user_phone value="{{$user->user_phone}}">
+                                    </div>
+
+                                    <div class="mb-3 col-md-6">
+                                        <label>No Faks</label>
+                                        <input type="number" class="form-control" name=user_fax value="{{$user->user_fax}}">
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary">Simpan</button>
+                            </form>
+    
+                        </div>
+                    </div>
+    
+                </div>
+                <div class="tab-pane fade" id="password" role="tabpanel">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Kata Laluan</h5>
+    
+                            <form method="POST" action="/Pengguna{{$user->id}}">
+                                {{-- <div class="mb-3">
+                                    <label for="inputPasswordCurrent">Kata Laluan Semasa</label>
+                                    <input type="password" class="form-control" name="password">
+                                </div> --}}
+                                <div class="mb-3">
+                                    <label for="inputPasswordNew">Kata Laluan Baru</label>
+                                    <input type="password" class="form-control" name="password">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="inputPasswordNew2">Pengesahan Kata Laluan</label>
+                                    <input type="password" class="form-control" name="password">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Simpan</button>
+                            </form>
         
             </div>
         </div>
