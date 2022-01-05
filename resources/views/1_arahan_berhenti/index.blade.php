@@ -1,13 +1,15 @@
 @extends('layouts.base')
+
 @section('content')
+
 <div class="header">
     <h1 class="header-title">
-Pembekal
+      Pembekal
     </h1>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">
-Arahan Memberhentikan</a></li>
+ Arahan Memberhentikan</a></li>
         </ol>
     </nav>
 </div>
@@ -18,36 +20,41 @@ Arahan Memberhentikan</a></li>
                 <h5 class="card-title mb-0"></h5>
             </div>
             <div class="card-body">
-                
                 <table id="datatables-reponsive" class="table table-striped" style="width:100%">
                     <thead>
                         <tr>
                             <th>Tarikh Arahan</th>
+                            <th>Arahan Dibuat</th>
                             <th></th>
                         </tr>
                     </thead>
+                    @foreach ( $ArahanMemberhentikan as  $ArahanMemberhentikan)
+
                     <tbody>
-                        @foreach ($ArahanMemberhentikan as $ArahanMemberhentikan)
                             <tr>
-                                <td> {{$ArahanMemberhentikan->arahan_created_by}}</td>               
+                                <td>{{date('d-m-Y', strtotime($ArahanMemberhentikan->created_at))}}</td>
+                                <td>{{$ArahanMemberhentikan->created_by}}</td>
                                 <td class="table-action">
-                                    <form method="POST" action="/ArahanMemberhentikan/{{$ArahanMemberhentikan->id}}">
-                                        @method('DELETE')
-                                        @csrf
-                                    <button class="btn" type="submit"><i class="align-middle fas fa-fw fa-trash"></i></button>
-                                    <a href="/ArahanMemberhentikan/{{$ArahanMemberhentikan->id}}/edit"><i class="align-middle fas fa-fw fa-pen"></i></a>
-                                    <a href="/ArahanMemberhentikan/{{$ArahanMemberhentikan->id}}"><i class="align-middle fas fa-fw fa-user"></i></a>
-                                    </form>
+                                    @if ($ArahanMemberhentikan->pelan_status=="Menunggu pengesahan")
+                                            <a href="#"><i class="align-middle fas fa-fw fa-pen"></i></a>  
+                                            <a href="#"><i class="align-middle fas fa-fw fa-trash"></i></a>
+                                            <a href="/cetak-pelan/{{$ArahanMemberhentikan->id}}"><i class="align-middle fas fa-fw fa-download"></i></i></a>
+                                    @else
+                                    <a href="/ArahanMemberhentikan/{{$ArahanMemberhentikan->id}}/edit"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
+                                    <a href="#"><i class="align-middle fas fa-fw fa-trash"></i></a>
+                                    <a href="/cetak-pelan/{{$ArahanMemberhentikan->id}}"><i class="align-middle fas fa-fw fa-download"></i></i></a>
+                                    @endif
 
                                 </td>
                             </tr>
                         @endforeach
-                    </tbody>  
+                    </tbody>
                 </table>
             </div>
         </div>
     </div>
 </div>
+
 
 
 @stop

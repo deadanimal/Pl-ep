@@ -2,6 +2,24 @@
 
 @section('content')
 
+<script>
+$("#jenis_pengguna").change(function() {
+    if ($(this).val() == "pembekal") {
+      $('#pembekal_id_div').show();
+      $('#pembekal_id').attr('required', '');
+      $('#pembekal_id').attr('data-error', 'This field is required.');
+    } else {
+      $('#pembekal_id_div').hide();
+      $('#pembekal_id').removeAttr('required');
+      $('#pembekal_id').removeAttr('data-error');
+    }
+  });
+
+  $("#jenis_pengguna").trigger("change");
+</script>
+
+
+
 <div class="header">
     <h1 class="header-title">
     Pengguna
@@ -34,10 +52,10 @@
 
             <div class="row">
                 <div class="col-md-4">
-                   <label class="col-form-label col-sm-6">Jenis Pengguna </label>
+                   <label for="jenis_pengguna" class="col-form-label col-sm-6">Jenis Pengguna </label>
                 </div>
                 <div class="mb-3 col-md-8">
-                    <select name="jenis"  class="form-control">
+                    <select name="jenis"  class="form-control" id="jenis_pengguna">
                         <option hidden>Sila Pilih</option>
                         <option value="pekerja">Staff Perbadanan Labuan</option>
                         <option value="pembekal">Pembekal</option>
@@ -60,7 +78,7 @@
                    <label class="col-form-label col-sm-6">Emel</label>
                 </div>
                 <div class="mb-3 col-md-8">
-                    <input type-=email  class="form-control" name=email>
+                    <input type-="email"  class="form-control" name="email">
                 </div>
             </div>
 
@@ -83,15 +101,29 @@
                                 <option value="Pegawai Pengesah">Pegawai Pengesah</option>
                                 <option value="Pegawai Pelulus">Pegawai Pelulus</option>
                                 <option value="JuruAudit">Juru Audit</option>
-                                <option value="Staff Pembekal">Staff Pembekal</option> --}}
-                        </select>
+                                <option value="Staff Pembekal">Staff Pembekal</option> 
+                        </select>--}}
                     </div>
+                </div>
+                  
+                <div class="row" id="pembekal_id_div">
+                    <div class="col-md-4">
+                       <label class="col-form-label col-sm-6">Syarikat Pembekal</label>
+                    </div>
+                    <div class="mb-3 col-md-8">
+                         <select class="form-control" name="pembekal_id" id="pembekal_id">
+                             <option hidden>Sila Pilih</option>
+                             @foreach ($pembekal as $pembekal)
+                             <option value="{{$pembekal->id}}">{{$pembekal->pembekal_company_name}}</option>
+                             @endforeach
+                         </select>
+                  </div>
                 </div>
         
 
         <br>
         <div>
-            <button type=submit class="btn btn-primary" style=float:absolute>Daftar</button>
+            <button type="submit" class="btn btn-primary" style="float:absolute">Daftar</button>
         </div>
     </form>
     </div>

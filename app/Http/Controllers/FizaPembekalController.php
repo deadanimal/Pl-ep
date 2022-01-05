@@ -373,23 +373,7 @@ class FizaPembekalController extends Controller
         return redirect('/Pembekal');
     }
 
-    public function pengesahanTandatangan(Request $request)
-    {
-        $pembekal = FizaPembekal::find($id);
-
-            $pegawai=Auth::User();
-            $pengesahan_ic = $request->pengesahan_ic;
-
-        if($pegawai->user_identity_no == $pengesahan_ic) {
-            $pembekal->pembekal_status = 'Diluluskan';
-            $pembekal->save();
-
-            return view('/Pembekal');
-        } else {
-            return view('gagal');
-        }
-    }
-        
+    
 
 
 

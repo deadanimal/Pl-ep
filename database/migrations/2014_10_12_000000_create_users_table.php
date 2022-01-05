@@ -29,6 +29,7 @@ class CreateUsersTable extends Migration
             $table->string('user_negeri')->nullable();
             $table->string('user_phone')->nullable();
             $table->string('user_fax')->nullable();
+            $table->foreignId('pembekal_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
 

@@ -8,17 +8,25 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="author" content="Bootlab">
 	
-		<link href="/css/modern.css" rel="stylesheet">
+		<link href="css/modern.css" rel="stylesheet">
 
 		<title>Sistem ePerolehan</title>
+
+		<style>
+			.a {
+  				padding: 50px;
+				
+			}
+		</style>
+
 	</head>
 
 <body>
 
 	<nav class="navbar navbar-expand navbar-dark absolute-top w-100 py-1">
 		<div class="container">
-			<a class="navbar-brand fw-bold" href="/">
-				<img src="/pl-2.png" width="30%">
+			<a class="navbar-brand fw-bold" href="/" >
+				<img src="/pl-2.png" width="50%"  class="a;">
 			</a>
 		</div>
 	</nav>

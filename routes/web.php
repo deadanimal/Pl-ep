@@ -197,10 +197,7 @@ Route::get('/', function () {
 
 
 Route::get('2', function () {
-    $faq= FizaFaq::where('faq_status','aktif')->get();
-    return view('layouts.base', [
-        'faq'=>$faq
-    ]);
+    return view('layouts.base2');
 });
 
 Route::get('/dashboard', function () {
@@ -211,3 +208,5 @@ require __DIR__.'/auth.php';
 
 
 Route::get('/comparison/{barang_1}/{barang_2}/{barang_3}', [FizaKatalogController::class, 'compare_barang']);
+
+Route::post('/edit_password/{id}',[PenggunaController::class,'update_password']);

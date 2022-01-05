@@ -42,6 +42,14 @@
                                         <textarea class="form-control" name="arahan_keterangan" rows="3" cols="4"></textarea> 
                                     </div>
                                  </div>
+
+                                 <button type="submit" class="btn-primary">Hantar</button>
+
+                            </form>
+                    </div>
+                </div>
+            </div>
+        </div>
                                 
 
     

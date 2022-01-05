@@ -23,7 +23,9 @@
             <link rel="stylesheet" type="text/css" href=https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css>
             <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
             <script type="text/javascript" src=https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js></script>
+
             <link rel="stylesheet" type="text/css" href="sweetalert2.min.css">
+
             <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     
             @yield('styles')
@@ -38,7 +40,7 @@
                     text-transform: capitalize;
             }
 
-            th{
+            table{
                 text-align: center;
             }            
             </style>
@@ -110,10 +112,8 @@
                                     <i class="align-middle me-2 fas fa-fw fa-briefcase"></i> <span class="align-middle">Pengurusan Pembekal</span>
                                 </a>
                                 <ul id="pembekal" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                                    <li class="sidebar-item"><a class="sidebar-link" href="/PelanPerancanganPerolehan">Senarai Pelan</a></li>
-                                    <li class="sidebar-item"><a class="sidebar-link" href="/PelanPerancanganPerolehan/create">Cipta Pelan Baru</a></li>
-                                    <li class="sidebar-item"><a class="sidebar-link" href="/indexPengesah">Pelan Yang Menunggu Pengesahan</a></li>
-                                    <li class="sidebar-item"><a class="sidebar-link" href="/indexKelulusan">Pelan Yang Menunggu Pengesahan<</a></li>
+                                    <li class="sidebar-item"><a class="sidebar-link" href="/Pembekal">Kemaskini Profil</a></li>
+                                    <li class="sidebar-item"><a class="sidebar-link" href="/ArahanMemberhentikan/create">Arahan Memberhentikan</a></li>
                                 </ul>
                             </li>
         
@@ -166,11 +166,6 @@
                                 </ul>
                             </li>
         
-                            <li class="sidebar-item">
-                                <a class="sidebar-link" href="tables-bootstrap.html">
-                                    <i class="align-middle me-2 fas fa-fw fa-list"></i> <span class="align-middle">Tables</span>
-                                </a>
-                            </li>
         
                             <li class="sidebar-item">
                                 <a data-bs-target="#datatables" data-bs-toggle="collapse" class="sidebar-link collapsed">
@@ -251,12 +246,6 @@
                         @yield('scripts')
                     </div>
                 </main>
-                </div>
-        </div>
-    </body>
-    </html>
-</html>
-
                     
         <script>
             Swal.fire({

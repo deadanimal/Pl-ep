@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Roles;
+use App\Models\FizaPembekal;
 use App\Models\RoleUser;
 use App\Mail\RegisterUser;
 use Illuminate\Support\Facades\Auth;
@@ -28,10 +29,12 @@ class PenggunaController extends Controller
     {
         $role= Roles::all();
         $user = User::all();
+        $pembekal = FizaPembekal::where('pembekal_status','diluluskan')->get();
 
         return view('role_register',[
             'role'=>$role,
-            'user' =>$user
+            'user' =>$user,
+            'pembekal'=>$pembekal
         ]);
     }
 
@@ -45,6 +48,7 @@ class PenggunaController extends Controller
         $user->email = $request ->email;
         $user->jenis = $request ->jenis;
         $user->password = Hash::make('password');
+        $user->pembekal_id = $request ->pembekal_id;
         $user->user_status="aktif";
         //$user->role_id = $request->role_id;
         $user->save();
@@ -149,25 +153,27 @@ class PenggunaController extends Controller
 
     // }
 
-    public function update_password(Request $request) {
 
-        $user= User::find($request->get('id'));
+    public function update_password(Request $request)
+    {
+        // $user= User::where('id',Auth::user()->id)->first();
 
-        if(strcmp($request->get('password'), $request->get('password')) == 0){
-            // Current password and new password same
-            return redirect()->back()->with("error","New Password cannot be same as your current password");
-        }
-
-        $validate = $request->validate([
-            'current-password' => 'required',
-            'new-password' => 'required|string|min:8|confirmed',
-        ]);
-
-        //Change Password
         $user = Auth::user();
-        $user->password = bcrypt($request->get('new-password'));
-        $user->save();
+        $new_password = Hash::make($request->password);
 
-        return redirect()->back()->with("success","Password successfully changed!");
+        //$user = User::find(auth()->user()->id)->update(['password' => Hash::make($request->password)]);
+       
+        if (strcmp($user->password,$new_password)!==0){
+            $user->save();
+            return redirect('/Pengguna')->with('success','Katalaluan berjaya dikemaskini');
+           
+        } else {
+      
+
+            
+            return redirect()->back()->with('error','Katalaluan yang dimasukkan adalah sama dengan kata laluan semasa');
+            
+
+        }
     }
 }

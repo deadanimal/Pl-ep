@@ -8,21 +8,56 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="Modern, flexible and responsive Bootstrap 5 admin &amp; dashboard template">
 	<meta name="author" content="Bootlab">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+
+	<!-- font awesome  -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
 
 	<title>Sistem ePerolehan</title>
 
 	<!-- PICK ONE OF THE STYLES BELOW -->
 	<link href="css/modern.css" rel="stylesheet"> 
+	
+	
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120946860-7"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'UA-120946860-7');
-</script></head>
+	<style>
+			.login_oueter {
+				width: 360px;
+				max-width: 100%;
+			}
+			.logo_outer{
+				text-align: center;
+			}
+			.logo_outer img{
+				width:120px;
+				margin-bottom: 40px;
+			}
+</style>
+
+
+</head>
+
+	<script>
+		function password_show_hide() {
+		var x = document.getElementById("password");
+		var show_eye = document.getElementById("show_eye");
+		var hide_eye = document.getElementById("hide_eye");
+		hide_eye.classList.remove("d-none");
+		if (x.type === "password") {
+			x.type = "text";
+			show_eye.style.display = "none";
+			hide_eye.style.display = "block";
+		} else {
+			x.type = "password";
+			show_eye.style.display = "block";
+			hide_eye.style.display = "none";
+		}
+		}
+	</script>
+
 <!-- SET YOUR THEME -->
 
         <!-- Session Status -->
@@ -30,12 +65,17 @@
 
         <!-- Validation Errors -->
         <auth-validation-errors class="mb-4" :errors="$errors" />
+		
 
 	<main class="main h-100 w-100">
 		<div class="container h-100">
 			<div class="row h-100">
+				 
 				<div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
 					<div class="d-table-cell align-middle">
+						<div class="card">
+							<div class="card-body">
+								<div class="m-sm-4">
 
 						<div class="text-center mt-4">
 							<div class="text-center">
@@ -49,14 +89,35 @@
 							</p>
 						</div>
 
-						<div class="card">
-							<div class="card-body">
-								<div class="m-sm-4">
+
 
 									<form method="POST" action="{{ route('login') }}">
 										@csrf
 
-										<!-- MYKAD -->
+										<div class="col-12">
+											<div class="input-group mb-3">
+											  <div class="input-group-prepend">
+												<span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+											  </div>
+											  <input name="user_identity_no" type="number" class="input form-control" id="No Kad Pengenalan" placeholder="No Kad Pengenalan" aria-label="No Kad Pengenalan" aria-describedby="basic-addon1" />
+											</div>
+										  </div>
+										  <div class="col-12">
+											<div class="input-group mb-3">
+											  <div class="input-group-prepend">
+												<span class="input-group-text" id="basic-addon1"><i class="fas fa-lock"></i></span>
+											  </div>
+											  <input name="password" type="password" value="" class="input form-control" id="password" placeholder="password" required="true" aria-label="password" aria-describedby="basic-addon1" />
+											  <div class="input-group-append">
+												<span class="input-group-text" onclick="password_show_hide();">
+												  <i class="fas fa-eye" id="show_eye"></i>
+												  <i class="fas fa-eye-slash d-none" id="hide_eye"></i>
+												</span>
+											  </div>
+											</div>
+										  </div>
+
+										{{-- <!-- MYKAD -->
 										<div class="mb-3">
 											<label> No Kad Pengenalan</label>
 											<input id="user_identity_no" class="form-control form-control-lg" type="text" name="user_identity_no" :value="old('user_identity_no')" required autofocus />
@@ -65,8 +126,7 @@
 										<!-- Password -->
 										<div class="mb-3">
 											<label>Kata Laluan</label>
-											<input id="password" class="form-control form-control-lg" type="password" name="password" required autocomplete="current-password" />
-										</div>
+											{{-- <input id="password"type="password" name="password" required autocomplete="current-password" /> --}}
 
 										<!-- Remember Me -->
 										<div class="block mt-4">
@@ -74,7 +134,7 @@
 												<input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
 												<span class="ml-2 text-sm text-gray-600">{{ __('Ingat Saya') }}</span>
 											</label>
-										</div>
+										</div> 
 
 										<div class="flex items-center justify-end mt-4">
 											@if (Route::has('password.request'))
