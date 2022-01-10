@@ -88,16 +88,10 @@ class FizaPembekalController extends Controller
             $pembekal_cbp_approval_doc=$request->file('pembekal_cbp_approval_doc')->store('pembekal_cbp_approval_doc');
             $fizaPembekal->pembekal_cbp_approval_doc = $pembekal_cbp_approval_doc;
         }
-        // $fizaPembekal->pembekal_jenis_peniagaan=$request->pembekal_jenis_peniagaan;
+    
         $fizaPembekal->pembekal_bank=$request->pembekal_bank;
         $fizaPembekal->pembekal_akaun_no=$request->pembekal_akaun_no;
         $fizaPembekal->pembekal_status="Menunggu Pengesahan";
-        // $fizaPembekal->pembekal_amaun_yuran=$request->pembekal_amaun_yuran;
-        // $fizaPembekal->pembekal_yuran_status=$request->pembekal_yuran_status;
-        // $fizaPembekal->user_id=$request->user_id;
-
-        // $fizaPembekal->pembekal_created_by=$request->pembekal_created_by;
-        // $fizaPembekal->kod_id=$request->kod_id;
 
         if(!empty($request->pembekal_jenis_akaun)){
             $fizaPembekal->pembekal_jenis_akaun = implode(" , " ,$request->pembekal_jenis_akaun);
@@ -114,27 +108,38 @@ class FizaPembekalController extends Controller
   
         $fizaPembekal->save();
 
-
         $receiver = User::whereHas("roles", function ($admin) {
-            $admin->where('roles.id','1');
-        })->get();
+            $admin->where('roles.id','1'); })->get();
+        
+            dd($receiver->id);
 
-
-            foreach ($receiver as $receiver) {
+         //System Notification
+            $notification_obj = (object)[];
+            $notification_obj->noti_template='';
+            $notification_obj->noti_subject="Pendaftaran Pembekal";
+            $notification_obj->noti_status='Belum Dibaca';
+            $notification_obj->noti_content=$fizaPembekal->pembekal_company_name . 'telah menghantar permohonan sebagai pembekal.Sila ke laman Pembekal untuk menyemak dan membuat pengesahan maklumat pembekal';
+            $notification_obj->user_id=$receiver->id;
+            app('App\Http\Controllers\FizaNotificationCenterController')->store($notification_obj);
+                    
+            foreach ($receiver as $receiver) 
                 Mail::to($receiver->email)->send(new PendaftaranPembekal($fizaPembekal));
-            }
+            
         //dd($receiver);
     
         if (!is_null($request->pembekal_jenis_akaun)) {
+
             if (in_array('Kerja', $request->pembekal_jenis_akaun) && in_array('Bekalan & Perkhidmatan(MOF)', $request->pembekal_jenis_akaun)) {
                 return redirect('/insertfile/'.$fizaPembekal->id);
+
             } elseif (in_array('Kerja', $request->pembekal_jenis_akaun)) {
                 return redirect('/cidb/'.$fizaPembekal->id);
+
             } elseif (in_array('Bekalan & Perkhidmatan(MOF)', $request->pembekal_jenis_akaun)) {
                 return redirect('/mof/'.$fizaPembekal->id);
             }
         } else {
-                return redirect('/')->with('success','Permohonan anda telah dihantar dan perlu menunggu kelulusan daripada pegawai kami.Terima Kasih ');
+                return redirect('/')->with('success','Permohonan anda telah dihantar dan perlu menunggu kelulusan daripada pegawai kami.Terima Kasih');
 
             }
         }

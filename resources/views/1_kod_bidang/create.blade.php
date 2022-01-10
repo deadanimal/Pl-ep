@@ -60,7 +60,7 @@
                         </div>
                     </div>
 
-                   <button  class="btn btn-success" type="submit">Daftar</button> 
+                   <button  class="btn btn-primary" type="submit">Daftar</button> 
 
                 </form>
             </div> 

@@ -1,3 +1,5 @@
+
+   
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,23 +11,19 @@
             <meta name="csrf-token" content="{{ csrf_token() }}">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-            <meta name="description" content="Responsive Bootstrap 4 Admin &amp; Dashboard Template">
+            <meta name="description" content="Responsive Bootstrap 5 Admin &amp; Dashboard Template">
             <meta name="author" content="Bootlab">
     
     
             {{-- <title>{{ config('app.name', 'ePerolehan') }}</title> --}}
-            <title>Sistem ePerolehan</title>
+            <title>Sistem Perolehan</title>
             <!-- Fonts -->
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
     
             <!-- Styles -->
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-            <link rel="stylesheet" type="text/css" href=https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css>
             <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-            <script type="text/javascript" src=https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js></script>
-
             <link rel="stylesheet" type="text/css" href="sweetalert2.min.css">
-
             <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     
             @yield('styles')
@@ -39,25 +37,24 @@
                 table,input[type=text]{
                     text-transform: capitalize;
             }
-
+          
             table{
                 text-align: center;
-            }            
+            }
+         
             </style>
     </head>
 
-    <body>
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                // Datatables Responsive
-                $("#datatables-reponsive").DataTable({
-                    responsive: true
-                });
-            });
-        </script>
-        @include('sweet::alert')
-        {{-- <script src="sweetalert2.all.min.js" type="text/javascript"></script> --}}
+<body>
+    <script>
 
+        document.addEventListener("DOMContentLoaded", function() {
+            // Datatables Responsive
+            $("#datatables-reponsive").DataTable({
+                responsive: true
+            });
+        });
+    </script>
 
         <div class="wrapper">
             <nav id="sidebar" class="sidebar">
@@ -65,13 +62,13 @@
                     <svg>
                         <use xlink:href="#ion-ios-pulse-strong"></use>
                     </svg>
-                   Sistem ePerolehan
+                   Perbadanan Labuan
                 </a>
                 <div class="sidebar-content">
                     <div class="sidebar-content">
                         <div class="sidebar-user">
-                            <img src="/PL.png"  alt="Perbadanan Labuan" />
-                            <div class="fw-bold">Perbadanan Labuan</div>
+                            <img src="/PL.png" class="img-fluid rounded-circle mb-2" />
+                            <div class="fw-bold">Sistem ePerolehan</div>
                             <small>{{Auth::user()->user_name}}</small>
                         </div>
                     
@@ -112,8 +109,10 @@
                                     <i class="align-middle me-2 fas fa-fw fa-briefcase"></i> <span class="align-middle">Pengurusan Pembekal</span>
                                 </a>
                                 <ul id="pembekal" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                                    <li class="sidebar-item"><a class="sidebar-link" href="/Pembekal">Kemaskini Profil</a></li>
-                                    <li class="sidebar-item"><a class="sidebar-link" href="/ArahanMemberhentikan/create">Arahan Memberhentikan</a></li>
+                                    <li class="sidebar-item"><a class="sidebar-link" href="/PelanPerancanganPerolehan">Senarai Pelan</a></li>
+                                    <li class="sidebar-item"><a class="sidebar-link" href="/PelanPerancanganPerolehan/create">Cipta Pelan Baru</a></li>
+                                    <li class="sidebar-item"><a class="sidebar-link" href="/indexPengesah">Pelan Yang Menunggu Pengesahan</a></li>
+                                    <li class="sidebar-item"><a class="sidebar-link" href="/indexKelulusan">Pelan Yang Menunggu Pengesahan<</a></li>
                                 </ul>
                             </li>
         
@@ -166,6 +165,11 @@
                                 </ul>
                             </li>
         
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="tables-bootstrap.html">
+                                    <i class="align-middle me-2 fas fa-fw fa-list"></i> <span class="align-middle">Tables</span>
+                                </a>
+                            </li>
         
                             <li class="sidebar-item">
                                 <a data-bs-target="#datatables" data-bs-toggle="collapse" class="sidebar-link collapsed">
@@ -227,12 +231,14 @@
                                         <i class="align-middle fas fa-cog"></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                                        <a class="dropdown-item" href="/Pengguna/{{Auth::user()->id}}"><i class="align-middle me-1 fas fa-fw fa-user"></i> Profil Saya</a>
-                                            <div class="dropdown-divider"></div>
-                                                <form action="/logout" method="POST">
-                                                @csrf
-                                                <button type="submit" class="btn" ><i class="align-middle me-1 fas fa-fw fa-arrow-alt-circle-right"></i>Log Keluar</button>
-                                                </form>
+                                        <a class="dropdown-item" href="/Pengguna/{{Auth::user()->id}}/edit"><i class="align-middle me-1 fas fa-fw fa-user"></i> Profil Saya</a>
+                
+                                        <div class="dropdown-divider"></div>
+                                        {{-- <a class="dropdown-item" href="#"> --}}
+                                            <form action="/logout" method="POST">
+                                            @csrf
+                                            <button type="submit" class="btn" ><i class="align-middle me-1 fas fa-fw fa-arrow-alt-circle-right"></i>Log Keluar</button>
+                                            </form>
                                     </div>
                                 </li>
                             </ul>
@@ -244,32 +250,13 @@
     
                         @yield('content')
                         @yield('scripts')
+
+                        <script src="js/app.js"></script>
                     </div>
                 </main>
-                    
-        <script>
-            Swal.fire({
-            title: 'Padam Data?',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-            }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire(
-                'Data anda telah dipadam!',
-                'success'
-                )
-            }
-         })
-        
-        </script>
-
-      
-    </main>
-
+            </div>
+        </div>
 </body>
-
-
 </html>
+
+  00-

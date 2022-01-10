@@ -18,6 +18,10 @@
                 <h5 class="card-title mb-0"></h5>
             </div>
             <div class="card-body">
+                <div align="right"> 
+                    <button class="btn-success" onclick="window.location.href='/Pengguna/create'">+Tambah</a></button>
+                </div>
+                <br>
     <table id="datatables-reponsive" class="table table-striped" style="width:100%">
     <thead>
         <tr>
@@ -41,7 +45,7 @@
                         @csrf
                     <button class="btn" type="submit"><i class="align-middle fas fa-fw fa-trash"></i></button>
                     <a href="/Pengguna/{{$users->id}}/edit"><i class="align-middle fas fa-fw fa-pen"></i></a>
-                    <a href="/Pengguna/{{$users->id}}"><i class="align-middle fas fa-fw fa-user"></i></a>
+                    <a href="/kemaskini-maklumat/{{$users->id}}"><i class="align-middle fas fa-fw fa-user"></i></a>
 
                     </form>
 

@@ -93,7 +93,7 @@ class RolesController extends Controller
         $user = User::find($id);
         $user->roles();
 
-        $user->roles()->detach($role->role_name);
+        $user->roles()->detach($role->id);
 
     
     }
@@ -105,7 +105,7 @@ class RolesController extends Controller
         $user = User::find($user_id);
 
         $role_name = Role::where('role_name', $role_name)->first();
-        $user->roles()->attach($role_name);
+        $user->roles()->attach($id);
 
 
     }

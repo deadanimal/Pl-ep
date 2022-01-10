@@ -17,12 +17,20 @@ class ItemKartController extends Controller
      */
     public function index()
     {
-        $itemKart = itemKart::all();
-        $fizaItemInfo = FizaItemInfo::all();
+        //     $itemInfo = FizaItemInfo::all();
+        //     dd($itemInfo);
 
+        //     $itemKart = itemKart::first();
+        //     $id = $itemKart->kart_id;
+        //     $itemInfo = FizaItemInfo::where('id',$id)->get();
+
+        $list_nama_barang = itemKart::join('fiza_item_infos', 'item_karts.item_id', 'fiza_item_infos.id')
+        ->select('*')
+        ->get();
+
+        // dd($list_nama_barang);
         return view('1_kart.index', [
-            'itemKart'=> $itemKart, 
-            'fizaItemInfo'=>$fizaItemInfo
+            'list_nama_barang'=> $list_nama_barang,
         ]);
     }
 

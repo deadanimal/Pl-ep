@@ -18,14 +18,29 @@ class FizaItemInfoController extends Controller
 
     public function index()
     {
-        $fizaItemInfo = FizaItemInfo::all();
-        $fizaKatalog=FizaKatalog::all();
-        $pembekal = FizaPembekal::all();
-        return view ('1_item_info.index',[
-            'ItemInfo'=>$fizaItemInfo,
-            'Katalog'=>$fizaKatalog,
-            'pembekal'=>$pembekal
-        ]);
+        $role=Auth::user()->roles;
+        //dd($role->id[0]);
+        if ($role[0]->id=='1') {
+            $ItemInfo = FizaItemInfo::all();
+            $Katalog=FizaKatalog::all();
+    
+    
+            return view('1_item_info.index', [
+                'ItemInfo'=>$ItemInfo,
+                'Katalog'=>$Katalog,
+            ]);
+        }
+        else{
+            $ItemInfo = FizaItemInfo::where('pembekal_id', Auth::user()->pembekal_id)->get();
+            $Katalog=FizaKatalog::all();
+    
+            return view('1_item_info.index', [
+                'ItemInfo'=>$ItemInfo,
+                'Katalog'=>$Katalog,
+                
+    
+            ]);
+        }
     }
 
     /**
@@ -53,7 +68,7 @@ class FizaItemInfoController extends Controller
         $fizaItemInfo->start_date=$request->item_start_date;
         $fizaItemInfo->end_date=$request->item_end_date;
         $fizaItemInfo->katalog_id=$request->katalog_id;
-        // $fizaItemInfo->pembekal_id=$request->pembekal_id;
+        $fizaItemInfo->pembekal_id=Auth::user()->pembekal_id;
         $fizaItemInfo->item_created_by=Auth::user()->user_name;
 
 
@@ -62,7 +77,7 @@ class FizaItemInfoController extends Controller
         // $user_id = $request->user()->id;
         $item ="Item Info";
         $user_id= Auth::user()->id;
-        $description = "$fizaItemInfo->item_created_by telah menambahkan info untuk item $fizaItemInfo->item_name";
+        $description = $fizaItemInfo->item_created_by. "telah menambahkan info untuk item". $fizaItemInfo->item_name;
 
         $log_item = [$item, $description, $user_id];
 
@@ -139,6 +154,18 @@ class FizaItemInfoController extends Controller
     {
         $itemKart->delete();
         return redirect('/ItemKart');
+    }
+
+    public function katalog_belian()
+    {
+        $fizaItemInfo = FizaItemInfo::all();
+        $fizaKatalog=FizaKatalog::all();
+        $pembekal = FizaPembekal::all();
+        return view ('1_item_info.katalog_belian',[
+            'ItemInfo'=>$fizaItemInfo,
+            'Katalog'=>$fizaKatalog,
+            'pembekal'=>$pembekal
+        ]);
     }
 
 }

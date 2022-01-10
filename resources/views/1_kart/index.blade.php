@@ -20,18 +20,33 @@ Bakul Item</a></li>
                 <h5 class="card-title mb-0"></h5>
             </div>
             <div class="card-body">
- 
+                <table id="datatables-reponsive" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Nama Item</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           
+                                @if ($list_nama_barang)
+                                    {{--<li>Pembelian ID: {{$list_nama_barang->kart_id}}</li> --}}
+                                @foreach ($list_nama_barang as $list_nama_barang)
+                                <tr>
+                                <td>{{$list_nama_barang->item_name}}</td>
+                                <td> <a href="/ItemKart/removecart/{{ $list_nama_barang->id }}">Remove Cart </a></td>
+                                </tr>
+                                @endforeach
+                                @endif
+                        </tbody> 
+                </table>
+                 <button type=submit class="btn-primary">Hantar</button>
 
-@if ($itemKart)
-    @foreach ($itemKart as $itemKart)
-         <ul>
-            <li>Pembelian ID: {{ $itemKart->id }}
-             <a href="/ItemKart/removecart/{{ $itemKart->id }}">Remove Cart </a></li>
-        </ul>
-    @endforeach
-@endif
-
-<button type=submit class="btn-primary">Hantar</button>
+            </div>
+    
+        </div>
+    </div>
+</div>
 
 @endsection
 

@@ -20,18 +20,16 @@ Senarai Item</a></li>
                 <h5 class="card-title mb-0"></h5>
             </div>
             <div class="card-body">
-                <div align="right"> 
-                    <button class="btn-success" onclick="window.location.href='/ItemInfo/create'">+Tambah</a></button>
-                </div>
-                <br>
                 <table id="datatables-reponsive" class="table table-striped" style="width:100%">
                     <thead>
                         <tr>
                             <th>Nama Item</th>
                             <th>Tarikh Mula</th>
                             <th>Tarikh Tamat</th>
+                            <th>Nama Pembekal</th>
                             <th></th>
 
+                        
                         </tr>
                     </thead>
 
@@ -42,7 +40,7 @@ Senarai Item</a></li>
                                 <td>{{$ItemInfo->item_name}}</td>
                                 <td>{{date('d-m-Y', strtotime($ItemInfo->start_date))}}</td>
                                 <td>{{date('d-m-Y', strtotime($ItemInfo->end_date))}}</td>
-                               
+                                <td>{{$ItemInfo->pembekal_id}}</td>
                                 <td class="table-action">
 
                                     <a href='/ItemInfo/addcart/{{$ItemInfo->id}}'><i class="align-middle fas fa-fw fa-shopping-cart" data-bs-placement="left"
@@ -67,6 +65,7 @@ Senarai Item</a></li>
                                                     <form method="POST" action="/PertanyaanItem">
                                                     @csrf
                                                 
+                                                   
                                                     <div class="mb-3 row">
                                                         <label class="col-form-label col-sm-6 text-sm-end">Kuantiti Item yang Diterima</label>
                                                         <div class="col-sm-6">
@@ -138,12 +137,8 @@ Senarai Item</a></li>
                     </tbody>
                 </table>
             </div>
-            <div align="right"> 
-                <a href="/ItemKart">Pergi Ke Bakul Item </a>
-                <br>
-                <a href="/PenyediaanSpesifikasi/create">Terus ke Penyediaan Spesifikasi Item </a>
-            </div>
-           
+            <a href="/ItemKart">Pergi Ke Bakul Item </a>
+            <a href="/PenyediaanSpesifikasi/create">Terus ke Penyediaan Spesifikasi Item </a>
         </div>
     </div>
 </div>

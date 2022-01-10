@@ -2,6 +2,7 @@
 
 namespace App\Models;
 use App\Models\FizaKodBidang;
+use App\Models\FizaItemInfo;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -27,6 +28,6 @@ class FizaPembekal extends Model
 
     public function user()
     {
-        return $this-hasMany(User::class);
+        return $this->hasMany(User::class);
     }
 }

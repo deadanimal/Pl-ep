@@ -186,6 +186,7 @@ Route::post('/log',[AuditLogController::class,'log']);
 
 
 
+
 Route::get('/', function () {
     $faq= FizaFaq::where('faq_status','aktif')->get();
     return view(
@@ -210,3 +211,8 @@ require __DIR__.'/auth.php';
 Route::get('/comparison/{barang_1}/{barang_2}/{barang_3}', [FizaKatalogController::class, 'compare_barang']);
 
 Route::post('/edit_password/{id}',[PenggunaController::class,'update_password']);
+
+Route::get('/kemaskini-maklumat/{id}', [PenggunaController::class,'edit_user']);
+Route::any('/kemaskini-pengguna/{id}', [PenggunaController::class,'update_user']);
+Route::get('/KatalogBelian{id}',[FizaItemInfoController::class,'katalog_belian']);
+

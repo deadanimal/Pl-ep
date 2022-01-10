@@ -4,12 +4,11 @@
 
 <div class="header">
     <h1 class="header-title">
-   Katalog
+  Katalog
     </h1>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">
- Item di Bawah Kategori {{$Katalog->katalog_kategori}} - {{$Katalog->katalog_kumpulan}}</a></li>
+            <li class="breadcrumb-item"><a href="#">Item Kumpulan {{$Katalog->katalog_kumpulan}}</a></li>
         </ol>
     </nav>
 </div>

@@ -14,11 +14,26 @@ class FizaNotaMintaController extends Controller
 {
     public function index()
     {
-        $fizaNotaMinta = FizaNotaMinta::all();
-        return view('1_nota_minta.index', [
-            'fizaNotaMinta'=>$fizaNotaMinta
-        ]);
+        $role=Auth::user()->roles;
+        //dd($role->id[0]);
+        if($role[0]->id=='1'){
+            $fizaNotaMinta = FizaNotaMinta::all();
+            return view('1_nota_minta.index', [
+                'fizaNotaMinta'=>$fizaNotaMinta
+            ]);
+        }
+
+        else{
+            $fizaNotaMinta = FizaNotaMinta::where('ro_created_by',Auth::user()->user_name)->get();
+            return view('1_nota_minta.index', [
+                'fizaNotaMinta'=>$fizaNotaMinta
+            ]);
+        }
     }
+
+
+   
+    
 
 
     public function create()
@@ -66,7 +81,7 @@ class FizaNotaMintaController extends Controller
         $log_item = [$item, $description, $user_id];
         app('App\Http\Controllers\AuditLogController')->log($log_item);
 
-        return redirect('/ItemInfo');
+        return redirect('/KatalogBelian/'.$fizaNotaMinta->id);
     }
     
 

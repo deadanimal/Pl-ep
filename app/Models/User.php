@@ -10,6 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 use App\Models\Roles;
 
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -45,5 +46,10 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Roles::class);
         
+    }
+
+    public function pembekal()
+    {
+        return $this->belongsTo(FizaPembekal::class);
     }
 }

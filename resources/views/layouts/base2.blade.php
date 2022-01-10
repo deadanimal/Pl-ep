@@ -9,7 +9,7 @@
 	<meta name="description" content="Modern, flexible and responsive Bootstrap 5 admin &amp; dashboard template">
 	<meta name="author" content="Bootlab">
 
-	<title>Spark - Bootstrap 5 Admin &amp; Dashboard Template</title>
+	<title>Sistem ePerolehan</title>
 
 	<!-- PICK ONE OF THE STYLES BELOW -->
 	 <link href="css/modern.css" rel="stylesheet"> 
@@ -17,6 +17,15 @@
 </head>
 
 <body>
+	<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Datatables Responsive
+            $("#datatables-reponsive").DataTable({
+                responsive: true
+            });
+        });
+    </script>
+
 	<div class="splash active">
 		<div class="splash-icon"></div>
 	</div>
@@ -49,7 +58,7 @@
 							<li class="sidebar-item"><a class="sidebar-link" href="/PelanPerancanganPerolehan">Senarai Pelan</a></li>
 							<li class="sidebar-item"><a class="sidebar-link" href="/PelanPerancanganPerolehan/create">Cipta Pelan Baru</a></li>
 							<li class="sidebar-item"><a class="sidebar-link" href="/indexPengesah">Pelan Yang Menunggu Pengesahan</a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="/indexKelulusan">Pelan Yang Menunggu Kelulusan</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="/indexpelulus">Pelan Yang Menunggu Kelulusan</a></li>
 						</ul>
 					</li>
 
@@ -68,10 +77,8 @@
 							<i class="align-middle me-2 fas fa-fw fa-briefcase"></i> <span class="align-middle">Pengurusan Pembekal</span>
 						</a>
 						<ul id="pembekal" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-							<li class="sidebar-item"><a class="sidebar-link" href="/PelanPerancanganPerolehan">Senarai Pelan</a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="/PelanPerancanganPerolehan/create">Cipta Pelan Baru</a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="/indexPengesah">Pelan Yang Menunggu Pengesahan</a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="/indexKelulusan">Pelan Yang Menunggu Pengesahan<</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="/ArahanMemberhentikan/create">Arahan Berhenti</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="/Pembekal">Permohonan Kemaskini Profil</a></li>
 						</ul>
 					</li>
 
@@ -122,12 +129,6 @@
 							<li class="sidebar-item"><a class="sidebar-link" href="/Cadangan/create">Membuat Cadangan</a></li>
 							<li class="sidebar-item"><a class="sidebar-link" href="/Cadangan">Senarai Cadangan</a></li>
 						</ul>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="tables-bootstrap.html">
-							<i class="align-middle me-2 fas fa-fw fa-list"></i> <span class="align-middle">Tables</span>
-						</a>
 					</li>
 
 					<li class="sidebar-item">

@@ -20,6 +20,10 @@ Senarai Item</a></li>
                 <h5 class="card-title mb-0"></h5>
             </div>
             <div class="card-body">
+            <div align="right"> 
+                    <button class="btn-success" onclick="window.location.href='/Katalog/create'">+Tambah</a></button>
+                </div>
+                <br>
             <table id="datatables-reponsive" class="table table-striped" style="width:100%">
                 <thead>
                         <tr>

@@ -50,6 +50,7 @@ class PenggunaController extends Controller
         $user->password = Hash::make('password');
         $user->pembekal_id = $request ->pembekal_id;
         $user->user_status="aktif";
+        // dd($user);
         //$user->role_id = $request->role_id;
         $user->save();
 
@@ -138,42 +139,67 @@ class PenggunaController extends Controller
 
         return redirect('/Pengguna');
     }
+    public function edit_user($id)
+    {
 
-    // public function update_password($id){
+    // dd($id);
+        $user = User::find($id);
+        $role= Roles::all();
 
-    //     // dd($id);
-    //     $user = User::find($id);
-    //     $user->jenis = $request ->jenis;
+        // $role = RoleUser::all();
+
+        // dd($role);
+
+        return view('user-edit',[
+            'role'=>$role,
+            'user' =>$user
+        ]);
+
+    }
 
 
-    //     return view('role_update',[
-    //         'role'=>$role,
-    //         'user' =>$user
-    //     ]);
+    public function update_user(Request $request, $id)
+    {
+        $user= User::find($request->get('id'));
 
-    // }
+        $user->user_name = $request->user_name;
+        $user->user_identity_no = $request ->user_identity_no;
+        $user->email = $request ->email;
+        $user->jenis = $request ->jenis;
+        $user->user_status = $request->user_status;
+
+        // $user->roles()->attach($request->role_id);
+        $user->save();
+
+        return redirect('/Pengguna')->with('success','Maklumat telah berjaya dikemaskini!');
+    }
 
 
     public function update_password(Request $request)
     {
-        // $user= User::where('id',Auth::user()->id)->first();
+        $user= User::where('id',Auth::user()->id)->first();
 
-        $user = Auth::user();
-        $new_password = Hash::make($request->password);
+        // $user = Auth::user();
+        $new_password = $request->password;
 
         //$user = User::find(auth()->user()->id)->update(['password' => Hash::make($request->password)]);
        
-        if (strcmp($user->password,$new_password)!==0){
+        if ($user->password!=$new_password){
             $user->save();
             return redirect('/Pengguna')->with('success','Katalaluan berjaya dikemaskini');
            
         } else {
-      
-
-            
-            return redirect()->back()->with('error','Katalaluan yang dimasukkan adalah sama dengan kata laluan semasa');
+            return redirect()->back()->with('warning','Katalaluan yang dimasukkan adalah sama dengan kata laluan semasa');
             
 
         }
+    }
+
+    public function padam_peranan(Request $request)
+    {
+        $user = User::find($id);
+        $user->roles()->detach($roles_id); //detach satu
+        
+        return redirect()->back();
     }
 }
