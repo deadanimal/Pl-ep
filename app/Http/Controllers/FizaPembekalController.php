@@ -38,7 +38,7 @@ class FizaPembekalController extends Controller
     {
         $kod = FizaKodBidang::all();
         $pembekal=FizaPembekal::all();
-        return view ('1_pembekal.create', [
+        return view ('1_pembekal.create', 
             'kod'=>$kod,
             'pembekal'=>$pembekal
         ]);
@@ -111,7 +111,7 @@ class FizaPembekalController extends Controller
         $receiver = User::whereHas("roles", function ($admin) {
             $admin->where('roles.id','1'); })->get();
         
-            dd($receiver->id);
+            // dd($receiver->id);
 
          //System Notification
             $notification_obj = (object)[];
