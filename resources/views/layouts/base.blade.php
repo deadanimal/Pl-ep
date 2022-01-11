@@ -89,8 +89,8 @@
                                 <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                                     <li class="sidebar-item"><a class="sidebar-link" href="/PelanPerancanganPerolehan">Senarai Pelan</a></li>
                                     <li class="sidebar-item"><a class="sidebar-link" href="/PelanPerancanganPerolehan/create">Cipta Pelan Baru</a></li>
-                                    <li class="sidebar-item"><a class="sidebar-link" href="/indexPengesah">Pelan Yang Menunggu Pengesahan</a></li>
-                                    <li class="sidebar-item"><a class="sidebar-link" href="/indexKelulusan">Pelan Yang Menunggu Kelulusan</a></li>
+                                    <li class="sidebar-item"><a class="sidebar-link" href="/indexpengesah">Pelan Yang Menunggu Pengesahan</a></li>
+                                    <li class="sidebar-item"><a class="sidebar-link" href="/indexpelulus">Pelan Yang Menunggu Kelulusan</a></li>
                                 </ul>
                             </li>
         
@@ -166,12 +166,6 @@
                             </li>
         
                             <li class="sidebar-item">
-                                <a class="sidebar-link" href="tables-bootstrap.html">
-                                    <i class="align-middle me-2 fas fa-fw fa-list"></i> <span class="align-middle">Tables</span>
-                                </a>
-                            </li>
-        
-                            <li class="sidebar-item">
                                 <a data-bs-target="#datatables" data-bs-toggle="collapse" class="sidebar-link collapsed">
                                     <i class="align-middle me-2 fas fa-fw fa-table"></i> <span class="align-middle">Pemenuhan</span>
                                 </a>
@@ -231,7 +225,7 @@
                                         <i class="align-middle fas fa-cog"></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                                        <a class="dropdown-item" href="/Pengguna/{{Auth::user()->id}}/edit"><i class="align-middle me-1 fas fa-fw fa-user"></i> Profil Saya</a>
+                                        <a class="dropdown-item" href="/Pengguna/{{Auth::user()->id}}/edit"><i class="align-middle me-1 fas fa-fw fa-user"></i> Tetapan Akaun</a>
                 
                                         <div class="dropdown-divider"></div>
                                         {{-- <a class="dropdown-item" href="#"> --}}
@@ -258,5 +252,3 @@
         </div>
 </body>
 </html>
-
-  00-

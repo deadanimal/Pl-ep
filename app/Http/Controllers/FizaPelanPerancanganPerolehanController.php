@@ -18,7 +18,7 @@ class FizaPelanPerancanganPerolehanController extends Controller
 
     public function index()
     {
-        $fizaPelanPerancanganPerolehan = FizaPelanPerancanganPerolehan::where('pelan_created_by',Auth::user()->id)->get();
+        $fizaPelanPerancanganPerolehan = FizaPelanPerancanganPerolehan::where('pelan_created_by',Auth::user()->user_name)->get();
 
         return view ('1_pelan_perancangan.index',[
             'fizaPelanPerancanganPerolehan'=>$fizaPelanPerancanganPerolehan

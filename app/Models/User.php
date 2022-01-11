@@ -50,6 +50,6 @@ class User extends Authenticatable
 
     public function pembekal()
     {
-        return $this->belongsTo(FizaPembekal::class);
+        return $this->hasOne(FizaPembekal::class);
     }
 }
