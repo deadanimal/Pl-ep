@@ -38,7 +38,7 @@ class FizaPembekalController extends Controller
     {
         $kod = FizaKodBidang::all();
         $pembekal=FizaPembekal::all();
-        return view ('1_pembekal.create', 
+        return view ('1_pembekal.create',[ 
             'kod'=>$kod,
             'pembekal'=>$pembekal
         ]);
