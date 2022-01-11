@@ -2,21 +2,7 @@
 
 @section('content')
 
-<script>
-$("#jenis_pengguna").change(function() {
-    if ($(this).val() == "pembekal") {
-      $('#pembekal_id_div').show();
-      $('#pembekal_id').attr('required', '');
-      $('#pembekal_id').attr('data-error', 'This field is required.');
-    } else {
-      $('#pembekal_id_div').hide();
-      $('#pembekal_id').removeAttr('required');
-      $('#pembekal_id').removeAttr('data-error');
-    }
-  });
 
-  $("#jenis_pengguna").trigger("change");
-</script>
 
 
 
@@ -58,7 +44,7 @@ $("#jenis_pengguna").change(function() {
                     <select name="jenis"  class="form-control" id="jenis_pengguna">
                         <option hidden>Sila Pilih</option>
                         <option value="pekerja">Staff Perbadanan Labuan</option>
-                        <option value="pembekal">Pembekal</option>
+                        <option value="pembekal" id="pembekal">Pembekal</option>
                         <option value="juruaudit">Juruaudit</option>
                     </select>
                 </div>
@@ -88,7 +74,7 @@ $("#jenis_pengguna").change(function() {
                     </div>
                     <div class="mb-3 col-md-8">
                          <select name="role_id"  class="form-control">
-                            <option hidden>Sila Pilih</option>
+                            <option hidden value="">Sila Pilih</option>
                                 @foreach($role as  $role)
                             <option value="{{$role->id}}">{{$role->role_name}}</option>
                                 @endforeach 
@@ -130,6 +116,22 @@ $("#jenis_pengguna").change(function() {
         </div>
     </div>
 </div>
+
+<script>
+    $("#jenis_pengguna").change(function() {
+        if ($(this).val() == "pembekal") {
+          $('#pembekal_id_div').show();
+          $('#pembekal_id').attr('required', '');
+          $('#pembekal_id').attr('data-error', 'This field is required.');
+        } else {
+          $('#pembekal_id_div').hide();
+          $('#pembekal_id').removeAttr('required');
+          $('#pembekal_id').removeAttr('data-error');
+        }
+      });
+    
+      $("#jenis_pengguna").trigger("change");
+    </script>
     
 
 @stop
