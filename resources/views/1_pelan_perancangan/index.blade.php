@@ -49,6 +49,10 @@
                                             <a href="#"><i class="align-middle fas fa-fw fa-trash"></i></a>
                                             <a href="/cetak-pelan/{{$fizaPelanPerancanganPerolehan->id}}"><i class="align-middle fas fa-fw fa-download"></i></i></a>
                                     @else
+                                    <form method="POST" action="/PelanPerancanganPerolehan/{{$fizaPelanPerancanganPerolehan->id}}">
+                                        @method('DELETE')
+                                        @csrf
+                                    <button class="btn" type="submit"><i class="align-middle fas fa-fw fa-trash"></i></button>
                                     <a href="/editpelulus/{{$fizaPelanPerancanganPerolehan->id}}"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
                                     <a href="#"><i class="align-middle fas fa-fw fa-trash"></i></a>
                                     <a href="/cetak-pelan/{{$fizaPelanPerancanganPerolehan->id}}"><i class="align-middle fas fa-fw fa-download"></i></i></a>
