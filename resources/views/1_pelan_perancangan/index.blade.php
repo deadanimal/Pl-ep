@@ -34,28 +34,29 @@
                             <th></th>
                         </tr>
                     </thead>
-                    @foreach ( $fizaPelanPerancanganPerolehan as  $fizaPelanPerancanganPerolehan)
+         
 
                     <tbody>
-                            <tr>
 
-                                <td>{{  $fizaPelanPerancanganPerolehan->pelan_year}}</td>
-                                <td>{{  $fizaPelanPerancanganPerolehan->pelan_title}}</td>
-                                <td>{{  $fizaPelanPerancanganPerolehan->pelan_category }}</td>
-                                <td>{{  $fizaPelanPerancanganPerolehan->pelan_status }}</td>
+                            <tr>
+                                @foreach ( $pelanPerancanganPerolehan as  $pelanPerancanganPerolehan)
+                                <td>{{  $pelanPerancanganPerolehan->pelan_year}}</td>
+                                <td>{{  $pelanPerancanganPerolehan->pelan_title}}</td>
+                                <td>{{  $pelanPerancanganPerolehan->pelan_category }}</td>
+                                <td>{{  $pelanPerancanganPerolehan->pelan_status }}</td>
                                 <td class="table-action">
-                                    @if ($fizaPelanPerancanganPerolehan->pelan_status=="Menunggu pengesahan")
+                                    @if ($pelanPerancanganPerolehan->pelan_status=="Menunggu pengesahan")
                                             <a href="#"><i class="align-middle fas fa-fw fa-pen"></i></a>  
                                             <a href="#"><i class="align-middle fas fa-fw fa-trash"></i></a>
-                                            <a href="/cetak-pelan/{{$fizaPelanPerancanganPerolehan->id}}"><i class="align-middle fas fa-fw fa-download"></i></i></a>
+                                            <a href="/cetak-pelan/{{$pelanPerancanganPerolehan->id}}"><i class="align-middle fas fa-fw fa-download"></i></i></a>
                                     @else
-                                    <form method="POST" action="/PelanPerancanganPerolehan/{{$fizaPelanPerancanganPerolehan->id}}">
+                                    <form method="POST" action="/PelanPerancanganPerolehan/{{$pelanPerancanganPerolehan->id}}">
                                         @method('DELETE')
                                         @csrf
                                     <button class="btn" type="submit"><i class="align-middle fas fa-fw fa-trash"></i></button>
-                                    <a href="/editpelulus/{{$fizaPelanPerancanganPerolehan->id}}"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
+                                    <a href="/editpelulus/{{$pelanPerancanganPerolehan->id}}"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
                                     <a href="#"><i class="align-middle fas fa-fw fa-trash"></i></a>
-                                    <a href="/cetak-pelan/{{$fizaPelanPerancanganPerolehan->id}}"><i class="align-middle fas fa-fw fa-download"></i></i></a>
+                                    <a href="/cetak-pelan/{{$pelanPerancanganPerolehan->id}}"><i class="align-middle fas fa-fw fa-download"></i></i></a>
                                     @endif
 
                                 </td>

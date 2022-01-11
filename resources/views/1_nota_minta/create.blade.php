@@ -78,6 +78,7 @@ Cipta Nota Minta</a></li>
                         {{-- <br>  <button href=/ItemInfo class="btn-success"> Pilihan Item </button> --}}
                         <div>
                         <br> <button class="btn-primary" type="submit" style="float: right" >Teruskan</button>
+                        <a href="/KatalogBelian/1">sjajsksaj</a>
                         </div>
 
                     </form>

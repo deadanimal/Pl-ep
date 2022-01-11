@@ -125,7 +125,7 @@ class FizaItemInfoController extends Controller
     public function addcart(Request $request, FizaItemInfo $ItemInfo)
     {
         $fizaKart = FizaKart::where('aktif', true)->first();
-        $user_id=Auth::user()->id; 
+        $user_id=Auth::user()->id;
 
         
         if ($fizaKart) {
@@ -143,7 +143,7 @@ class FizaItemInfoController extends Controller
         // $value = $request->session()->get('');
 
         
-        return redirect('/ItemInfo');
+        return redirect()->back();
     }
 
     public function removecart(Request $request,ItemKart $itemKart)
@@ -152,7 +152,7 @@ class FizaItemInfoController extends Controller
         return redirect('/ItemKart');
     }
 
-    public function katalog_belian()
+    public function katalog_belian($id)
     {
         $fizaItemInfo = FizaItemInfo::all();
         $fizaKatalog=FizaKatalog::all();
