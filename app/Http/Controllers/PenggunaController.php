@@ -60,7 +60,8 @@ class PenggunaController extends Controller
         // $role = Roles::find($request->role_id);
         $user->roles()->attach($request->role_id);
 
-        return redirect('/Pengguna')->with('success', 'Pengguna telah berjaya didaftarkan!');
+        return redirect('/Pengguna')->with('success','Pengguna telah berjaya didaftarkan!');
+
     }
 
 
@@ -131,8 +132,9 @@ class PenggunaController extends Controller
         // $role= Roles::all();
 
         $user = User::where('id', $id)->first();
-
+        $user->roles()->detach(); 
         $user->delete();
+
 
 
         return redirect('/Pengguna');
@@ -165,7 +167,7 @@ class PenggunaController extends Controller
         $user->jenis = $request ->jenis;
         $user->user_status = $request->user_status;
 
-        // $user->roles()->attach($request->role_id);
+        $user->roles()->attach($request->role_id);
         $user->save();
 
         return redirect('/Pengguna')->with('success', 'Maklumat telah berjaya dikemaskini!');

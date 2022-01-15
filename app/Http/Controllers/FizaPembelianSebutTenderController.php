@@ -25,8 +25,10 @@ class FizaPembelianSebutTenderController extends Controller
         if($role[0]->id=='1'){
             $PembelianSebutTender = FizaPembelianSebutTender::all();
             return view('1_pst.index', [
-                'PembelianSebutTender'=>$PembelianSebutTender]);
+                'PembelianSebutTender'=>$PembelianSebutTender
+            ]);
         }
+
         else{
         $PembelianSebutTender = FizaPembelianSebutTender::where('created_by',Auth::user()->user_name)->get();
         return view('1_pst.index', [ 
@@ -45,9 +47,13 @@ class FizaPembelianSebutTenderController extends Controller
         $user=User::where('jenis', 'pekerja')->
         where('user_status','aktif')->get();
 
+        $penyelaras=User::where('jenis', 'pekerja')->
+        where('user_status','aktif')->get();
+
         return view('1_pst.create', [
             'user'=>$user,
-            'katalog'=>$katalog
+            'katalog'=>$katalog,
+            'penyelaras'=>$penyelaras
         ]);
     }
 
@@ -99,42 +105,45 @@ class FizaPembelianSebutTenderController extends Controller
         $fizaPembelianSebutTender->save();
 
         // Session::put('pst_id',$fizaPembelianSebutTender->id);
-        // $temp=Session::get('pst_id');
+
+        
 
         $receiver = User::where('id',$request->pst_pelulus)->first();
 
         if ($request->status_pst=="hantar"){
             $fizaPembelianSebutTender->pst_status="Menunggu Kelulusan";
-         Mail::to($receiver->email)->send(new SebutHargaBaru);
+            Mail::to($receiver->email)->send(new SebutHargaBaru);
+            return redirect('/Jawatankuasa/create');
         }
         else if($request->status_pst=="draf"){
             $fizaPembelianSebutTender->pst_status="Draf";
+            return redirect('/PembelianSebutTender');
             
         }
 
         // dd($temp);
 
         //System Notification
-        $notification_obj = (object)[];
-        $notification_obj->noti_type="";
-        $notification_obj->noti_template=$fizaPembelianSebutTender->pst_kaedah_perolehan;
-        $notification_obj->noti_subject="telah dihantar dan anda telah dilantik sebagai Pegawai Pelulus";
-        $notification_obj->noti_status='Menunggu Pengesahan';
-        $notification_obj->noti_content='';
-        $notification_obj->user_id=User::where('id',$request->pst_pelulus)->first();
+        // $notification_obj = (object)[];
+        // $notification_obj->noti_type="";
+        // $notification_obj->noti_template=$fizaPembelianSebutTender->pst_kaedah_perolehan;
+        // $notification_obj->noti_subject="telah dihantar dan anda telah dilantik sebagai Pegawai Pelulus";
+        // $notification_obj->noti_status='Menunggu Pengesahan';
+        // $notification_obj->noti_content='';
+        // $notification_obj->user_id=User::where('id',$request->pst_pelulus)->first();
 
                         
-        app('App\Http\Controllers\FizaNotificationCenterController')->store($notification_obj);
+        // app('App\Http\Controllers\FizaNotificationCenterController')->store($notification_obj);
     
       
         //audit log
-        $item ="Sebutharga Tender";
-        $user_id= Auth::user()->id;
-        $description = "$fizaPembelianSebutTender->created_by telah menghantar sebutharga untuk $fizaPembelianSebutTender->pst_item_panel";
-        $log_item = [$item, $description, $user_id];
-        app('App\Http\Controllers\AuditLogController')->log($log_item);
+        // $item ="Sebutharga Tender";
+        // $user_id= Auth::user()->id;
+        // $description = "$fizaPembelianSebutTender->created_by telah menghantar sebutharga untuk $fizaPembelianSebutTender->pst_item_panel";
+        // $log_item = [$item, $description, $user_id];
+        // app('App\Http\Controllers\AuditLogController')->log($log_item);
 
-        return redirect('/Jawatankuasa/create')->with($fizaPembelianSebutTender->id);
+        
 
     }
 
@@ -151,11 +160,14 @@ class FizaPembelianSebutTenderController extends Controller
         $user = User::where('jenis', 'pekerja')->
         where('user_status','aktif')->get();
         // dd($user);
+        $penyelaras= User::where('jenis','pekerja')
+        ->where('user_status','aktif')->get();
 
         return view('1_pst.edit', [
             'PembelianSebutTender'=>$fizaPembelianSebutTender,
             'katalog'=>$katalog,
-            'user'=>$user
+            'user'=>$user,
+            'penyelaras'=>$penyelaras
         ]);
     }
 

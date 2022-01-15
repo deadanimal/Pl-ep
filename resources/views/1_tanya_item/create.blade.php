@@ -3,7 +3,7 @@
 <form method="POST" action="/PertanyaanItem">
     @csrf
 
-    <br> Nama Pembekal <input type="text" class="form-control" name="pembekal_id">
+    <br> Nama Pembekal <input type="text" class="form-select" name="pembekal_id">
     {{-- <select name=pembekal_id class="form-control">
         @foreach ($pembekal as $pembekal)
         <option value="pembekal_id">{{$pembekal->pembekal_company_name}}</option>

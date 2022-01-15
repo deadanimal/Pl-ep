@@ -4,7 +4,7 @@
     @csrf
     @method('PUT')
 {{-- jawatankuasa_id --}}
-    <br> Jenis Jawatankuasa <select class="form-control" name="jenis_jawatankuasa">
+    <br> Jenis Jawatankuasa <select class="form-select" name="jenis_jawatankuasa">
 
     <option @if ($Jawatankuasa->jenis_jawatankuasa == 'Jawatankuasa Spesifikasi') selected @endif value='Jawatankuasa Spesifikasi'>Jawatankuasa Spesifikasi</option>
     <option @if ($Jawatankuasa->jenis_jawatankuasa == 'Jawatankuasa Teknikal') selected @endif value='Jawatankuasa Teknikal'>Jawatankuasa Teknikal</option>
@@ -41,8 +41,8 @@ jawatankuasa_updated_date --}}
                         @csrf
                         
                     {{-- jawatankuasa_id --}}
-                        {{-- <br> Jenis Jawatankuasa <select class="form-control" name="jenis_jawatankuasa">
-                        <option hidden>Sila Pilih</option>
+                        {{-- <br> Jenis Jawatankuasa <select class="form-select" name="jenis_jawatankuasa">
+                        <option hidden value="">Sila Pilih</option>
                         <option value="Jawatankuasa Spesifikasi">Jawatankuasa Spesifikasi</option>
                         <option value="Jawatankuasa Teknikal">Jawatankuasa Teknikal </option>
                         <option value="Jawatankuasa Kewangan">Jawatankuasa Kewangan </option>
@@ -58,8 +58,8 @@ jawatankuasa_updated_date --}}
                                <label class="col-form-label col-sm-6">Jawatankuasa Spesifikasi </label>
                              </div>
                              <div class="mb-3 col-md-6">
-                                    <select name="jawatankuasa_spesifikasi" class="form-control">
-                                    <option hidden>Sila Pilih</option>
+                                    <select name="jawatankuasa_spesifikasi" class="form-select">
+                                    <option hidden value="">Sila Pilih</option>
                                     @foreach ($user as $user6)
                                 <option value="{{$user6->id}}">{{$user6->user_name}}</option>
                                 @endforeach
@@ -73,8 +73,8 @@ jawatankuasa_updated_date --}}
                                <label class="col-form-label col-sm-6"><br> Jawatankuasa Teknikal </label>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <select name="jawatankuasa_teknikal" class="form-control">
-                                     <option hidden>Sila Pilih</option>
+                                <select name="jawatankuasa_teknikal" class="form-select">
+                                     <option hidden value="">Sila Pilih</option>
                                 @foreach ($user as $user1)
                                     <option value={{$user1->id}}>{{$user1->user_name}}</option>
                                 @endforeach
@@ -88,8 +88,8 @@ jawatankuasa_updated_date --}}
                                <label class="col-form-label col-sm-6">Jawatankuasa Kewangan </label>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <select name="jawatankuasa_kewangan" class="form-control">
-                                    <option hidden>Sila Pilih</option>
+                                <select name="jawatankuasa_kewangan" class="form-select">
+                                    <option hidden value="">Sila Pilih</option>
                                     @foreach ($user as $user2)
                                         <option value={{$user2->id}}>{{$user2->user_name}}</option>
                                     @endforeach
@@ -103,8 +103,8 @@ jawatankuasa_updated_date --}}
                                <label class="col-form-label col-sm-6">Jawatankuasa Kerja</label>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <select name="jawatankuasa_kerja" class="form-control">
-                                    <option hidden>Sila Pilih</option>
+                                <select name="jawatankuasa_kerja" class="form-select">
+                                    <option hidden value="">Sila Pilih</option>
                                         @foreach ($user as $user3)
                                     <option value={{$user3->id}}>{{$user3->user_name}}</option>
                                         @endforeach
@@ -118,8 +118,8 @@ jawatankuasa_updated_date --}}
                                <label class="col-form-label col-sm-6">Jawatankuasa Terbuka </label>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <select name="jawatankuasa_terbuka" class="form-control">
-                                    <option hidden>Sila Pilih</option>
+                                <select name="jawatankuasa_terbuka" class="form-select">
+                                    <option hidden value="">Sila Pilih</option>
                                     @foreach ($user as $user4)
                                     <option value={{$user4->id}}>{{$user4->user_name}}</option>
                                     @endforeach   
@@ -133,8 +133,8 @@ jawatankuasa_updated_date --}}
                                <label class="col-form-label col-sm-6">Jawatankuasa Penilaian</label>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <select name="jawatankuasa_penilaian" class="form-control">
-                                    <option hidden>Sila Pilih</option>
+                                <select name="jawatankuasa_penilaian" class="form-select">
+                                    <option hidden value="">Sila Pilih</option>
                                     @foreach ($user as $user2)
                                     <option value={{$user2->id}}>{{$user2->user_name}}</option>
                                     @endforeach

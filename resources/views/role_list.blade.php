@@ -43,7 +43,7 @@
                     <form method="POST" action="/Pengguna/{{$users->id}}">
                         @method('DELETE')
                         @csrf
-                    <button class="btn" type="submit"><i class="align-middle fas fa-fw fa-trash"></i></button>
+                    <button class="btn" type="submit" onclick="executeExample('warningConfirm')" id="padam"><i class="align-middle fas fa-fw fa-trash"></i></button>
                     <a href="/Pengguna/{{$users->id}}/edit"><i class="align-middle fas fa-fw fa-pen"></i></a>
                     <a href="/kemaskini-maklumat/{{$users->id}}"><i class="align-middle fas fa-fw fa-user"></i></a>
 
@@ -59,6 +59,26 @@
     </div>
 </div>
 </div>
+
+    <script>
+            Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+            )
+        }
+        })
+        </script>
 
 
 @stop

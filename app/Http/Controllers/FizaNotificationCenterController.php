@@ -12,8 +12,7 @@ class FizaNotificationCenterController extends Controller
 
     public function index()
     {
-        $fizaNotificationCenter = FizaNotificationCenter::where('user_id',Auth::user()->id)
-        ->orderBy('created_at', 'desc')->get();
+        $fizaNotificationCenter = FizaNotificationCenter::where('user_id',Auth::user()->id)->get();
         
         return view ('1_notification_center.index',[
             'NotificationCenter'=>$fizaNotificationCenter]);
@@ -37,7 +36,7 @@ class FizaNotificationCenterController extends Controller
         $fizaNotificationCenter->noti_status=$request->noti_status;
 
         // $fizaNotificationCenter->noti_created_by=$request->user()->user_name;
-        // $fizaNotificationCenter->user_id=$request->user_id;
+        $fizaNotificationCenter->user_id=$request->user_id;
 
 
         $fizaNotificationCenter->save();

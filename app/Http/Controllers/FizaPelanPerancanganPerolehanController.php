@@ -43,9 +43,12 @@ class FizaPelanPerancanganPerolehanController extends Controller
 
     public function store(Request $request)
     {
+       
         $fizaPelanPerancanganPerolehan = new FizaPelanPerancanganPerolehan;
+      
 
         $fizaPelanPerancanganPerolehan->pelan_jenis=$request->pelan_jenis;
+
         $fizaPelanPerancanganPerolehan->pelan_year=$request->pelan_year;
         $fizaPelanPerancanganPerolehan->pelan_title=$request->pelan_title;
         $fizaPelanPerancanganPerolehan->pelan_description=$request->pelan_description;
@@ -75,7 +78,18 @@ class FizaPelanPerancanganPerolehanController extends Controller
 
         if ($request->status_pelan=="hantar"){
             $fizaPelanPerancanganPerolehan->pelan_status="Menunggu Pengesahan";
-         Mail::to($receiver->email)->send(new PelanPerancangan);
+
+            Mail::to($receiver->email)->send(new PelanPerancangan);
+            //System Notification
+            $notification_obj = (object)[];
+            $notification_obj->noti_type ='';
+            $notification_obj->noti_template='';
+            $notification_obj->noti_subject='Pelan Perancangan Perolehan';
+            $notification_obj->noti_content=$fizaPelanPerancanganPerolehan->pelan_created_by.' Telah Menghantar dan sedang menunggu pengesahan daripada anda ';
+            $notification_obj->noti_status= $fizaPelanPerancanganPerolehan->pelan_status;
+            $notification_obj->user_id = $receiver->id;
+
+            app('App\Http\Controllers\FizaNotificationCenterController')->store($notification_obj);
         }
         else if($request->status_pelan=="draf"){
             $fizaPelanPerancanganPerolehan->pelan_status="Draf";
@@ -83,15 +97,18 @@ class FizaPelanPerancanganPerolehanController extends Controller
         }
 
         $fizaPelanPerancanganPerolehan->save();
+        $fizaPelanPerancanganPerolehan->pelan_no_siri='PL/PerancanganPerolehan/'.date('Y').'/'.$fizaPelanPerancanganPerolehan->id;
+        $fizaPelanPerancanganPerolehan->save();
 
-        $notification_obj = (object)[];
-        $notification_obj->noti_type = $fizaPelanPerancanganPerolehan->pelan_created_by;
-        $notification_obj->noti_template='Telah Mencipta';
-        $notification_obj->noti_subject='Pelan Perancangan';
-        $notification_obj->noti_content='dan';
-        $notification_obj->noti_status= $fizaPelanPerancanganPerolehan->pelan_status;
-                        
-        app('App\Http\Controllers\FizaNotificationCenterController')->store($notification_obj);
+         //audit log;
+         $item ="Pelan Perancangan Perolehan";
+         $user_id=Auth::user()->id;
+         $description =$fizaPelanPerancanganPerolehan->pelan_created_by. 'Telah Menghantar'. $item ;
+         $log_item = [$item, $description, $user_id];
+
+         app('App\Http\Controllers\AuditLogController')->log($log_item);
+
+   
         return redirect('/PelanPerancanganPerolehan')->with('success', 'Pelan Perancangan Telah Disimpan');
 
     }
@@ -152,6 +169,7 @@ class FizaPelanPerancanganPerolehanController extends Controller
         $fizaPelanPerancanganPerolehan->save();
         $receiver = User::where('id',$request->pelan_pengesah)->first();
         Mail::to($receiver->email)->send(new PelanPerancangan);
+        
 
         return redirect('/PelanPerancanganPerolehan')->with('success', 'Pelan Perancangan telah disimpan dan dihantar untuk pengesahan!');
     }

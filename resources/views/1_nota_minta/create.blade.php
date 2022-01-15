@@ -38,7 +38,12 @@ Cipta Nota Minta</a></li>
                                <label class="col-form-label col-sm-6">Jenis Perolehan </label>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <input type="text" class="form-control" name="ro_jenis_perolehan">
+                                <select class="form-select" name="ro_jenis_perolehan" required>
+                                    <option hidden value="">Sila Pilih</option>
+                                    <option value="Perolehan Bekalan">Perolehan Bekalan</option>
+                                    <option value="Perolehan Perkhidmatan">Perolehan Perkhidmatan</option>
+                                    <option value="Perolehan Kerja">Perolehan Kerja</option>
+                                </select>
                             </div>
                         </div>
                         
@@ -66,8 +71,8 @@ Cipta Nota Minta</a></li>
                             </div>
                             <div class="mb-3 col-md-6">
                                 {{-- <input type="text" class="form-control" name="ro_pelulus"> --}}
-                                <select class="form-control" name="ro_pelulus">
-                                    <option hidden>Sila Pilih</option>
+                                <select class="form-select" name="ro_pelulus">
+                                    <option hidden value="">Sila Pilih</option>
                                     @foreach ($user as $user)
                                     <option value={{$user->id}}>{{$user->user_name}}</option>
                                     @endforeach
@@ -78,7 +83,7 @@ Cipta Nota Minta</a></li>
                         {{-- <br>  <button href=/ItemInfo class="btn-success"> Pilihan Item </button> --}}
                         <div>
                         <br> <button class="btn-primary" type="submit" style="float: right" >Teruskan</button>
-                        <a href="/KatalogBelian/1">sjajsksaj</a>
+
                         </div>
 
                     </form>

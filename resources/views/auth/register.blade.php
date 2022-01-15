@@ -32,7 +32,7 @@
 
                     <div>
                         <x-label for="Jenis Pengguna" :value="__('Jenis')"/>
-                        <select name="jenis" class="form-control" required autofocus />
+                        <select name="jenis" class="form-select" required autofocus />
                             <option value="Pekerja">Staff PL</option>
                             <option value="Pembekal">Pembekal</option>
                             <option value="Juruaudit">Juruaudit</option>
@@ -49,8 +49,8 @@
 
                     <div>
                         <x-label for="Peranan Pengguna" :value="__('Peranan Pengguna')"/>
-                        <select name="roles" class="form-control" required autofocus >
-                            <option hidden>SILA PILIH</option>
+                        <select name="roles" class="form-select" required autofocus >
+                            <option hidden value="">SILA PILIH</option>
                                 @foreach($role as  $role)
                             <option value="{{$role->id}}">{{$role->role_name}}</option>
                                 @endforeach 

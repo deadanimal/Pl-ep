@@ -176,8 +176,8 @@
                             <div class="mb-3 row">
                                 <label class= "col-form-label col-sm-3 text-sm-end">Negeri<span class="text-danger">*</span></label>
                                 <div class="mb-2 col-sm-7"> 
-                                    <select name=pembekal_state class="form-control">
-                                        <option hidden>Sila Pilih</option>
+                                    <select name=pembekal_state class="form-select">
+                                        <option hidden value="">Sila Pilih</option>
                                         <option value="Johor">Johor</option>
                                         <option value="Kedah">Kedah</option>
                                         <option value="Kelantan">Kelantan</option>
@@ -226,8 +226,8 @@
                 <div class="mb-3 row">
                         <label class= "col-form-label col-sm-3 text-sm-end">Jenis Pengenalan<span class="text-danger">*</span></label>
                     <div class="mb-2 col-sm-7"> 
-                        <select name=pembekal_identity_type class="form-control">
-                            <option hidden>Sila Pilih</option>
+                        <select name=pembekal_identity_type class="form-select">
+                            <option hidden value="">Sila Pilih</option>
                             <option value="kad pengenalan">Kad Pengenalan</option>
                             <option value="pasport">Pasport</option>
                         </select>
@@ -315,8 +315,8 @@
                         <label class= "col-form-label col-sm-3 text-sm-end">Nama Bank<span class="text-danger">*</span></label>
                    
                     <div class="mb-2 col-sm-7"> 
-                        <select name="pembekal_bank" class="form-control">
-                            <option hidden>Sila Pilih</option>
+                        <select name="pembekal_bank" class="form-select">
+                            <option hidden value="">Sila Pilih</option>
                             <option value=ABNAMYK> THE ROYAL BANK OF SCOTLAND</option>
                             <option value=AFBQMYKL>ASIAN FINANCE BANK BHD</option>
                             <option value=AGOBMYKL>AGRO BANK</option>

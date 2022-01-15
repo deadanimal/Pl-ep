@@ -196,20 +196,20 @@ DataTables</a></li>
                                     </div>
                                 </div>
 
-                              {{-- <div class="row">
+                              <div class="row">
                                     <div class="mb-3 col-md-6">
                                        <label class="col-form-label col-sm-6">Kod Bidang</label>
                                     </div>
                                     <div class="mb-3 col-md-6">
-                                        <select class="form-control" name="kod_id[]" multiple style="width: 100%">
+                                        <select class="form-select" name="kod_id" multiple style="width: 100%">
                                             @foreach ($kod as $kod)
                                                 <optgroup label={{$kod->kod_type}}>
-                                                    <option value="{{ $kod->id }}">{{$kod->kod_description}}</option>
+                                                    <option value="{{$kod->id}}">{{$kod->kod_description}}</option>
                                                 </optgroup>
                                             @endforeach
                                         </select>
                                     </div>
-                                </div> --}}
+                                </div>
 
                             </fieldset>
                             <br><br><br>

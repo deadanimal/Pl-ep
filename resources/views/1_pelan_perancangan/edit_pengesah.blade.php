@@ -66,8 +66,8 @@ Pengesahan Pelan</a></li>
                             <label class="col-form-label col-sm-6">Kategori Pelan</label>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <select name=pelan_category class="form-control">
-                                <option hidden>Sila Pilih</option>
+                            <select name=pelan_category class="form-select">
+                                <option hidden value="">Sila Pilih</option>
                                 <option @if ($PelanPerancanganPerolehan->pelan_category == 'bekalan') selected @endif value="bekalan">Bekalan</option>
                                 <option @if ($PelanPerancanganPerolehan->pelan_category == 'perkhidmatan') selected @endif value="perkhidmatan">Perkhidmatan</option>
                                 <option @if ($PelanPerancanganPerolehan->pelan_category == 'kerja') selected @endif value="kerja">Kerja</option>
@@ -212,8 +212,8 @@ Pengesahan Pelan</a></li>
                            <label class="col-form-label col-sm-6">Status Pelan</label>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <select name="pelan_status" class="form-control">
-                                <option hidden>Sila Pilih</option>
+                            <select name="pelan_status" class="form-select">
+                                <option hidden value="">Sila Pilih</option>
                                 <option value="Menunggu Kelulusan">Disahkan</option>
                                 <option value="Semak Semula">Semak Semula</option>
                             </select>

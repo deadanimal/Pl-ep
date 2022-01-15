@@ -258,8 +258,12 @@ Kemaskini Sebutharga / Tender</a></li>
                         <div class="mb-3 col-md-6">
                            <label class="col-form-label col-sm-6">Penyelaras</label>
                         </div>
-                        <div class="mb-3 col-md-6"> 
-                            <input type="text" class="form-control" name="pst_penyelaras" value="{{$PembelianSebutTender->pst_penyelaras}}">
+                        <div class="mb-3 col-md-6">
+                            <select name="pst_pelulus"  class="form-select">
+                            @foreach ($penyelaras as $penyelaras)
+                                <option @if ($PembelianSebutTender->pst_pelulus == $penyelaras->id) selected @endif value={{$penyelaras->id}}>{{$penyelaras->user_name}}</option>    
+                            @endforeach
+                            </select>
                         </div>
                     </div>
 
@@ -278,8 +282,8 @@ Kemaskini Sebutharga / Tender</a></li>
                            <label class="col-form-label col-sm-6">Status </label>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <select class="form-control" name="pst_status" value="{{$PembelianSebutTender->pst_status}}">
-                                <option hidden>Sila Pilih</option>
+                            <select class="form-select" name="pst_status" value="{{$PembelianSebutTender->pst_status}}">
+                                <option hidden value="">Sila Pilih</option>
                                 <option @if ($PembelianSebutTender->pst_status == 'Diluluskan') selected @endif value="Diluluskan">Diluluskan</option>
                                 <option @if ($PembelianSebutTender->pst_status == 'Tidak Diluluskan') selected @endif value="Tidak Diluluskan">Tidak Diluluskan</option>
                             </select>

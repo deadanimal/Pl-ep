@@ -17,6 +17,7 @@ class CreateFizaPelanPerancanganPerolehansTable extends Migration
             $table->id();
             $table->String('pelan_jenis')->nullable();
             $table->integer('pelan_year')->nullable();
+            $table->string('pelan_no_siri')->nullable();
             $table->String('pelan_title')->nullable();
             $table->String('pelan_description')->nullable();
             $table->String('pelan_category')->nullable();

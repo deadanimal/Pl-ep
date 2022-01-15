@@ -10,6 +10,7 @@
 <h6>Tahun:{{$fizaPelanPerancanganPerolehan->pelan_year}}</h6>
 <h5>Jenis Perolehan: {{$fizaPelanPerancanganPerolehan->pelan_jenis}}
 <h5>Tajuk: {{$fizaPelanPerancanganPerolehan->pelan_title}}</h5>
+<h5>No Siri: {{$fizaPelanPerancanganPerolehan->pelan_no_siri}}</h5>
 
 <br>Perihal: {{$fizaPelanPerancanganPerolehan->pelan_description}}
 <br>Kategori Perancangan: {{$fizaPelanPerancanganPerolehan->pelan_category}}

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\FizaPertanyaanItem;
+use App\Models\FizaItemInfo;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -20,9 +21,13 @@ class FizaPertanyaanItemController extends Controller
 
     public function create()
     {
-        $user=User::all();
+
+        $fizaPertanyaanItem = FizaPertanyaanItem::find($id);
+        $itemInfo = FizaItemInfo::where('id',$fizaPertanyaanItem->item_id)->first();
         return view ('1_tanya_item.create',[
-            'user'=> $user] );
+            'user'=> $user,
+            'itemInfo'=>$itemInfo
+            ]);
     }
 
 
@@ -30,9 +35,9 @@ class FizaPertanyaanItemController extends Controller
     {
         $fizaPertanyaanItem = new FizaPertanyaanItem;
 
-        $fizaPertanyaanItem->item_id=$request->item_id;
-        $fizaPertanyaanItem->user_id=$request->user_id;
-        $fizaPertanyaanItem->pembekal_id=$request->pembekal_id;
+        $fizaPertanyaanItem->item_id=$itemInfo->id;
+        // $fizaPertanyaanItem->user_id=$request->user_id;
+        $fizaPertanyaanItem->pembekal_id=$itemInfo->pembekal_id;
         $fizaPertanyaanItem->tanya_kuantiti=$request->tanya_kuantiti;
         $fizaPertanyaanItem->tanya_tempoh_penghantaran=$request->tanya_tempoh_penghantaran;
 
@@ -52,20 +57,22 @@ class FizaPertanyaanItemController extends Controller
         //
     }
 
-    public function edit(FizaPertanyaanItem $fizaPertanyaanItem)
+    public function edit($id)
     {
-        $fizaPertanyaanItem = FizaPertanyaanItem::all();
-        return view ('1_tanya_item.edit',[
-            'fizaPertanyaanItem'=>$fizaPertanyaanItem]);
+        $fizaPertanyaanItem = FizaPertanyaanItem::find($id);
+        $itemInfo = FizaItemInfo::where('id', $fizaPertanyaanItem->item_id)->first();
+        return view('1_tanya_item.edit', [
+            'user'=> $user,
+            'itemInfo'=>$itemInfo
+            ]);
     }
-
 
     public function update(Request $request, FizaPertanyaanItem $fizaPertanyaanItem)
     {
         
-        $fizaPertanyaanItem->item_id=$request->item_id;
-        $fizaPertanyaanItem->user_id=$request->user_id;
-        $fizaPertanyaanItem->pembekal_id=$request->pembekal_id;
+        $fizaPertanyaanItem->item_id=$itemInfo->id;
+        // $fizaPertanyaanItem->user_id=$request->user_id;
+        $fizaPertanyaanItem->pembekal_id=$itemInfo->pembekal_id;
         $fizaPertanyaanItem->tanya_kuantiti=$request->tanya_kuantiti;
         $fizaPertanyaanItem->tanya_tempoh_penghantaran=$request->tanya_tempoh_penghantaran;
 

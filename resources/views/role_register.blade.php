@@ -41,8 +41,8 @@
                    <label for="jenis_pengguna" class="col-form-label col-sm-6">Jenis Pengguna </label>
                 </div>
                 <div class="mb-3 col-md-8">
-                    <select name="jenis"  class="form-control" id="jenis_pengguna">
-                        <option hidden>Sila Pilih</option>
+                    <select name="jenis"  class="form-select" id="jenis_pengguna">
+                        <option hidden value="">Sila Pilih</option>
                         <option value="pekerja">Staff Perbadanan Labuan</option>
                         <option value="pembekal" id="pembekal">Pembekal</option>
                         <option value="juruaudit">Juruaudit</option>
@@ -73,7 +73,7 @@
                        <label class="col-form-label col-sm-6">Peranan Pengguna</label>
                     </div>
                     <div class="mb-3 col-md-8">
-                         <select name="role_id"  class="form-control">
+                         <select name="role_id"  class="form-select">
                             <option hidden value="">Sila Pilih</option>
                                 @foreach($role as  $role)
                             <option value="{{$role->id}}">{{$role->role_name}}</option>
@@ -82,7 +82,7 @@
 
 
                         {{-- <select name="role_id" class="form-control">
-                                <option hidden>Sila Pilih<option>
+                                <option hidden value="">Sila Pilih<option>
                                 <option value="Pegawai Perancangan">Pegawai Perancangan</option>
                                 <option value="Pegawai Pengesah">Pegawai Pengesah</option>
                                 <option value="Pegawai Pelulus">Pegawai Pelulus</option>
@@ -97,8 +97,8 @@
                        <label class="col-form-label col-sm-6">Syarikat Pembekal</label>
                     </div>
                     <div class="mb-3 col-md-8">
-                         <select class="form-control" name="pembekal_id" id="pembekal_id">
-                             <option hidden>Sila Pilih</option>
+                         <select class="form-select" name="pembekal_id" id="pembekal_id">
+                             <option hidden value="">Sila Pilih</option>
                              @foreach ($pembekal as $pembekal)
                              <option value="{{$pembekal->id}}">{{$pembekal->pembekal_company_name}}</option>
                              @endforeach

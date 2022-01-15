@@ -108,8 +108,8 @@
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
                                         <label for="inputFirstName">Jenis Pengenalan</label>
-                                        <select name="user_jenis_pengenalan" class="form-control">
-                                            <option hidden>Sila Pilih</option>
+                                        <select name="user_jenis_pengenalan" class="form-select">
+                                            <option hidden value="">Sila Pilih</option>
                                             <option @if ($user->user_jenis_pengenalan == 'Kad Pengenalan') selected @endif value="Kad Pengenalan">Kad Pengenalan</option>
                                             <option @if ($user->user_jenis_pengenalan == 'Pasport') selected @endif value="Pasport">Pasport</option>
                                         </select>
@@ -136,8 +136,8 @@
 
                                     <div class="mb-3 col-md-6">
                                         <label>Negeri</label>
-                                        <select name=user_negeri class="form-control">
-                                            <option hidden>Sila Pilih</option>
+                                        <select name=user_negeri class="form-select">
+                                            <option hidden value="">Sila Pilih</option>
                                             <option @if ($user->user_negeri == 'Johor') selected @endif value='Johor'>Johor</option>
                                             <option @if ($user->user_negeri == 'Kedah') selected @endif value='Kedah'>Kedah</option>
                                             <option @if ($user->user_negeri == 'Kelantan') selected @endif value='Kelantan'>Kelantan</option>

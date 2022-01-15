@@ -65,8 +65,8 @@
                             <label class="col-form-label col-sm-6">Kategori Pelan</label>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <select name=pelan_category class="form-control">
-                                <option hidden>Sila Pilih</option>
+                            <select name=pelan_category class="form-select">
+                                <option hidden value="">Sila Pilih</option>
                                 <option value="bekalan">Bekalan</option>
                                 <option value="perkhidmatan">Perkhidmatan</option>
                                 <option value="kerja">Kerja</option>
@@ -78,8 +78,8 @@
                         <div class="mb-3 col-md-6">
                            <label class="col-form-label col-sm-6">Kaedah Perolehan</label></div>
                         <div class="mb-3 col-md-6">
-                            <select name="pelan_method" class="form-control">
-                            <option hidden>Sila Pilih</option>
+                            <select name="pelan_method" class="form-select">
+                            <option hidden value="">Sila Pilih</option>
                             <option value="pembelian terus">Pembelian Terus</option>
                             <option value="sebutharga">Sebutharga</option>
                             <option value="tender">Tender</option>
@@ -182,8 +182,8 @@
                            <label class="col-form-label col-sm-6">Nama Pegawai Pengesah</label>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <select name=pelan_pengesah class="form-control">
-                                                            <option hidden>Sila Pilih</option>
+                            <select name=pelan_pengesah class="form-select">
+                                                            <option hidden value="">Sila Pilih</option>
                                 @foreach ($user as $user1)
                                 <option value={{$user1->id}}>{{$user1->user_name}}</option>
                                 @endforeach
@@ -197,8 +197,8 @@
                         </div>
                         <div class="mb-3 col-md-6">
                             {{-- <input type=text name="pelan_pelulus" class="form-control"> --}}
-                            <select class="form-control" name="pelan_pelulus">
-                                <option hidden>Sila Pilih</option>
+                            <select class="form-select" name="pelan_pelulus">
+                                <option hidden value="">Sila Pilih</option>
                                 @foreach ($user as $user2)
                                 <option value={{$user2->id}}>{{$user2->user_name}}</option>
                                 @endforeach
@@ -211,7 +211,7 @@
                    {{-- <br>Tajuk Pelan Perolehan: <input type=text name=pelan_title> --}}
                    {{-- <br>Diskripsi Pelan: <input type=text name=pelan_description> --}}
                    {{-- <br>Kategori Pelan: <select name=pelan_category>
-                   <option hidden>Sila Pilih</option>
+                   <option hidden value="">Sila Pilih</option>
                    <option value="bekalan">Bekalan</option>
                    <option value="perkhidmatan">Perkhidmatan</option>
                    <option value="kerja">Kerja</option>

@@ -114,13 +114,13 @@ class FizaPembekalController extends Controller
             // dd($receiver->id);
 
          //System Notification
-            $notification_obj = (object)[];
-            $notification_obj->noti_template='';
-            $notification_obj->noti_subject="Pendaftaran Pembekal";
-            $notification_obj->noti_status='Belum Dibaca';
-            $notification_obj->noti_content=$fizaPembekal->pembekal_company_name . 'telah menghantar permohonan sebagai pembekal.Sila ke laman Pembekal untuk menyemak dan membuat pengesahan maklumat pembekal';
-            $notification_obj->user_id=$receiver->id;
-            app('App\Http\Controllers\FizaNotificationCenterController')->store($notification_obj);
+            // $notification_obj = (object)[];
+            // $notification_obj->noti_template='';
+            // $notification_obj->noti_subject="Pendaftaran Pembekal";
+            // $notification_obj->noti_status='Belum Dibaca';
+            // $notification_obj->noti_content=$fizaPembekal->pembekal_company_name . 'telah menghantar permohonan sebagai pembekal.Sila ke laman Pembekal untuk menyemak dan membuat pengesahan maklumat pembekal';
+            // $notification_obj->user_id=$receiver->id;
+            // app('App\Http\Controllers\FizaNotificationCenterController')->store($notification_obj);
                     
             foreach ($receiver as $receiver) 
                 Mail::to($receiver->email)->send(new PendaftaranPembekal($fizaPembekal));
@@ -283,8 +283,7 @@ class FizaPembekalController extends Controller
         $fizaPembekal->pembekal_pengkhususan=$request->pembekal_pengkhususan;
         $fizaPembekal->pembekal_pegawai_bertauliah=$request->pembekal_pegawai_bertauliah;
         $fizaPembekal->pembekal_tarikh_sah_gred=$request->pembekal_tarikh_sah_gred;
-
-        // $fizaPembekal->id_kod[]=$request->id_kod;
+        // $fizaPembekal->id_kod=$request->id_kod[];
         
         // $fizaPembekal->id_pembekal=$temp;
         // $fizaPembekal->id_pembekal=$temp;

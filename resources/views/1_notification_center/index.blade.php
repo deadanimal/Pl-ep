@@ -18,18 +18,31 @@ Sistem Notifikasi</a></li>
                 <h5 class="card-title mb-0"></h5>
             </div>
             <div class="card-body">
-        @foreach ($NotificationCenter as $NotificationCenter)
-        <table>
-            <tr>
-                <td>{{date('d/m/Y H:i', strtotime($NotificationCenter->created_at))}}:</td>
-                <td></td>
-                <td> {{$NotificationCenter->noti_type}} </td>
-                <td> {{$NotificationCenter->noti_template}}</td>
-                <td> {{$NotificationCenter->noti_subject}}</td>
-                <td> {{$NotificationCenter->noti_content}}</td>
+        <table id="datatables-reponsive" class="table table-striped" style="width:100%;text-align:left" >
+            <thead>
+                <tr>
+                    <th>Tarikh</th>
+                    <th>Subjek</th>
+                    <th></th>
+
+
+                </tr>
+            </thead>
+            <tbody> 
+                @foreach ($NotificationCenter as $NotificationCenter)
+                
+             <tr> 
+              
+                    <td>{{date('d/m/Y H:i', strtotime($NotificationCenter->created_at))}}</td>
+                    <td>{{$NotificationCenter->noti_subject}}</td>
+
+                    <td> {{$NotificationCenter->noti_content}}</td>
+                        
+                    @endforeach
+                  
+                </tbody>
+            </tr>
    
-    @endforeach
-    </ul>
             </div>
         </div>
     </div>

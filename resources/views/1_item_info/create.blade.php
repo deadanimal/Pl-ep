@@ -75,8 +75,8 @@ Daftar Item</a></li>
                                <label class="col-form-label col-sm-6">Jenis Item </label>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <select name=katalog_id class="form-control">
-                                    <option hidden>Sila Pilih</option>
+                                <select name=katalog_id class="form-select">
+                                    <option hidden value="">Sila Pilih</option>
                                     @foreach ($Katalog as $Katalog)
                                     <option value="{{$Katalog->id}}">{{$Katalog->katalog_kumpulan}}</option>
                                     @endforeach

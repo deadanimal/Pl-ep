@@ -139,7 +139,7 @@
                     <div class="mb-3 row">
                        <label class= "col-form-label col-sm-3 ">Negeri</label>
                        <div  class="mb-2 col-md-7">
-                            <select name=pembekal_state class="form-control">
+                            <select name=pembekal_state class="form-select">
                                 <option @if ($pembekal->pembekal_state == 'Johor') selected @endif value='Johor'>Johor</option>
                                 <option @if ($pembekal->pembekal_state == 'Kedah') selected @endif value='Kedah'>Kedah</option>
                                 <option @if ($pembekal->pembekal_state == 'Kelantan') selected @endif value='Kelantan'>Kelantan</option>
@@ -186,7 +186,7 @@
             <div class="mb-3 row">
                <label class= "col-form-label col-sm-3 ">Jenis Pengenalan</label> 
                <div  class="mb-2 col-md-7">
-                    <select name=pembekal_identity_type class="form-control">
+                    <select name=pembekal_identity_type class="form-select">
                         <option @if($pembekal->pembekal_identity_type=='kad pengenalan') selected @endif value='kad pengenalan'>Kad Pengenalan</option>
                         <option @if($pembekal->pembekal_identity_type=='pasport') selected @endif value="pasport">Pasport</option>
                     </select>
@@ -272,7 +272,7 @@
             <div class="mb-3 row">
                <label class= "col-form-label col-sm-3 ">Nama Bank</label>
                 <div  class="mb-2 col-md-7">
-                    <select name="pembekal_bank" class="form-control">
+                    <select name="pembekal_bank" class="form-select">
                         <option @if($pembekal->pembekal_bank=='ABNAMYK')selected @endif value='ABNAMYK'> THE ROYAL BANK OF SCOTLAND</option>
                         <option @if($pembekal->pembekal_bank=='AFBQMYKL')selected @endif value='AFBQMYKL'>ASIAN FINANCE BANK BHD</option>
                         <option @if($pembekal->pembekal_bank=='AGOBMYKL')selected @endif value='AGOBMYKL'>AGRO BANK</option>

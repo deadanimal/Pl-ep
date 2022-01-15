@@ -90,7 +90,7 @@ class FizaKatalogController extends Controller
         // $fizaItemInfo = FizaItemInfo::where('id', $fizaKatalog->katalog_id)->get();
 
         $fizaItemInfo = FizaItemInfo::find($id);
-        $fizaKatalog = FizaKatalog::where('id', $fizaItemInfo->katalog_id)->first();
+        $fizaKatalog = FizaKatalog::where('id', $fizaItemInfo->katalog_id)->get()->first();
 
         return view ('1_katalog.listkatalog',[
             'Katalog'=>$fizaKatalog, 
@@ -100,9 +100,9 @@ class FizaKatalogController extends Controller
 
     public function compare_barang(ItemInfo $barang_1, ItemInfo $barang_2, ItemInfo $barang_3 )
     {
-        $barang_1 = ItemInfo::where('id', $request->item_info_id)->first();
-        $barang_2 = ItemInfo::where('id', $request->item_info_id)->first();
-        $barang_3 = ItemInfo::where('id', $request->item_info_id)->first();
+        $barang_1 = ItemInfo::where('id', $request->iteminfo->id)->first();
+        $barang_2 = ItemInfo::where('id', $request->iteminfo->id)->first();
+        $barang_3 = ItemInfo::where('id', $request->iteminfo->id)->first();
 
         return view('compare_barang', [
             'barang_1' => $barang_1,

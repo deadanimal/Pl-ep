@@ -56,8 +56,8 @@ Cipta Sebutharga / Tender</a></li>
                                <label class="col-form-label col-sm-6">Kumpulan Katalog</label>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <select class="form-control" name="pst_katalog_kumpulan">
-                                    <option hidden>Sila Pilih </option>
+                                <select class="form-select" name="pst_katalog_kumpulan">
+                                    <option hidden value="">Sila Pilih </option>
                                     @foreach ($katalog as $katalog)
                                     <option value="{{$katalog->id}}">{{$katalog->katalog_kumpulan}}</option>
                                         
@@ -198,8 +198,8 @@ Cipta Sebutharga / Tender</a></li>
                     </div>
                     <div class="mb-3 col-md-6">
                         {{-- <input type="text" class="form-control" name="pst_pelulus"> --}}
-                        <select name="pst_pelulus" class="form-control">
-                                <option hidden>Sila Pilih</option>
+                        <select name="pst_pelulus" class="form-select">
+                                <option hidden value="">Sila Pilih</option>
                                 @foreach ($user as $user3)
                                 <option value={{$user3->id}}>{{$user3->user_name}}</option>
                                 @endforeach
@@ -259,10 +259,10 @@ Cipta Sebutharga / Tender</a></li>
                        <label class="col-form-label col-sm-6">Penyelaras</label>
                     </div>
                     <div class="mb-3 col-md-6">
-                        <select class="form-control" name="pst_penyelaras">
-                            <option hidden>Sila Pilih</option>
-                            @foreach($user as $user2)
-                            <option value={{$user2->id}}>{{$user2->user_name}}</option>
+                        <select class="form-select" name="pst_penyelaras">
+                            <option hidden value="">Sila Pilih</option>
+                            @foreach($penyelaras as $penyelaras)
+                            <option value={{$penyelaras->id}}>{{$penyelaras->user_name}}</option>
                             @endforeach
                         </select>
                     </div>

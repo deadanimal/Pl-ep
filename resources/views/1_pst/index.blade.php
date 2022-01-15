@@ -20,12 +20,19 @@ Senarai Sebutharga / Tender</a></li>
                 <h5 class="card-title mb-0"></h5>
             </div>
             <div class="card-body">
+
+                <div align="right"> 
+                    <button class="btn-success" onclick="window.location.href='/PembelianSebutTender/create'">+Tambah</a></button>
+                </div>
+                <br>
+
                 <table id="datatables-reponsive" class="table table-striped" style="width:100%">
                     <thead>
                         <tr> 
                             <th> Tajuk Sebutharga </th>
                             <th> Zon </th>
                             <th> Tarikh Hantar</th>
+                            <th>Status</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -35,6 +42,7 @@ Senarai Sebutharga / Tender</a></li>
                             <td> {{$PembelianSebutTender->pst_tajuk}}</td> 
                             <td> {{$PembelianSebutTender->pst_zon_lokasi}}</td>
                             <td> {{date('d-m-Y H:i', strtotime($PembelianSebutTender->created_at))}}</td>
+                            <td>{{$PembelianSebutTender->pst_status}}</td>
                             <td class="table-action">
                                 <form method="POST" action="/PembelianSebutTender/{{$PembelianSebutTender->id}}">
                                     @method('DELETE')

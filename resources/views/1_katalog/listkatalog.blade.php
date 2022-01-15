@@ -8,7 +8,7 @@
     </h1>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Item Kumpulan {{$Katalog->katalog_kumpulan}}</a></li>
+            <li class="breadcrumb-item"><a href="#">Item Kumpulan {{$Katalog->katalog_kategori}}</a></li>
         </ol>
     </nav>
 </div>
@@ -23,19 +23,20 @@
                     <thead>
                         <tr>
                             <th>Nama Item</th>
-                            <th>Harga</th>
+                            <th>Harga (RM)</th>
                             <th></th>
-
-                        </tr> 
+                      
+    
+                        </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>{{$ItemInfo->item_name}}</td>
                             <td>{{$ItemInfo->item_price}}</td>
-
-                            <td><a href='/ItemInfo/{{$ItemInfo->id}}/edit'><i class="align-middle fas fa-fw fa-info"  data-bs-placement="left"
+                            <td></td>
+                             {{-- <td><a href='/ItemInfo/{{$ItemInfo->id}}/edit'><i class="align-middle fas fa-fw fa-info"  data-bs-placement="left" 
                                     title="Maklumat Item"></i></a>
-                            </td>
+                            </td>  --}}
                         </tr>
                     </tbody>
                 </table>
@@ -43,5 +44,4 @@
         </div>
     </div>
 </div>
-
 @stop

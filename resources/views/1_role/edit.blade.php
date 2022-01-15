@@ -5,8 +5,8 @@
     <br> Emel: {{$user->email}}
     <br> Jenis Pengguna {{$user->jenis}}
     <br> Peranan Pengguna:                        
-      <select name="role_id"  class="form-control">
-        <option hidden>SILA PILIH</option>
+      <select name="role_id"  class="form-select">
+        <option hidden value="">SILA PILIH</option>
             @foreach($role as  $role)
         <option value="{{$role->id}}">{{$role->role_name}}</option>
             @endforeach 

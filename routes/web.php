@@ -177,6 +177,7 @@ Route::group(['middleware' => ['auth']],function(){
     Route::resource('/SenaraiSemakStandard',FizaSenaraiSemakStandardController::class);
     Route::resource('/SuratSetujuTerima',FizaSuratSetujuTerimaController::class);
     Route::resource('/Roles',RolesController::class);
+   
 });
 
 Route::get('/cetak-pelan/{id}',[FizaPelanPerancanganPerolehanController::class,'cetakpelan']);

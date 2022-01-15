@@ -24,12 +24,17 @@ class FizaJawatankuasaController extends Controller
 
     public function create()
     {
+        $pst = FizaPembelianSebutTender::where('id','pst_id')->first();
 
-        $user= User::where('jenis','pekerja')
-            ->where('user_status','aktif')->get();
+        $user= User::where('jenis','pekerja')->where('user_status','aktif')->get();
+        $penyelaras= User::where('jenis','pekerja')
+        ->where('user_status','aktif')->get();
+
         // $fizaPembelianSebutTender= FizaPembelianSebutTender::find($id);
         return view ('1_jawatankuasa.create',[
-        'user'=>$user, 
+        'user'=>$user,
+        'penyelaras'=>$penyelaras ,
+        'pst'=>$pst
         ]);
     }
 
@@ -66,14 +71,14 @@ class FizaJawatankuasaController extends Controller
 
 
         //System Notification
-        $notification_obj = (object)[];
-        $notification_obj->noti_type="Anda telah dilantik";
-        $notification_obj->noti_template="Sebagai Jawatankuasa Spesifikasi";
-        $notification_obj->noti_subject="Untuk Sebutharga";
-        $notification_obj->noti_content="$fizaJawatankuasa->created_at";
-        $notification_obj->noti_status='Menunggu Pengesahan';
+        // $notification_obj = (object)[];
+        // $notification_obj->noti_type="Anda telah dilantik";
+        // $notification_obj->noti_template="Sebagai Jawatankuasa Spesifikasi";
+        // $notification_obj->noti_subject="Untuk Sebutharga";
+        // $notification_obj->noti_content="$fizaJawatankuasa->created_at";
+        // $notification_obj->noti_status='Menunggu Pengesahan';
                         
-        app('App\Http\Controllers\FizaNotificationCenterController')->store($notification_obj);
+        // app('App\Http\Controllers\FizaNotificationCenterController')->store($notification_obj);
     
 
 

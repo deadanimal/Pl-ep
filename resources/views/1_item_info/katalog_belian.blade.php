@@ -36,22 +36,20 @@ Senarai Item</a></li>
                     </thead>
 
                     <tbody>
-
                         @foreach ($ItemInfo as $ItemInfo)
                             <tr>
                                 <td>{{$ItemInfo->item_name}}</td>
                                 <td>{{date('d-m-Y', strtotime($ItemInfo->start_date))}}</td>
                                 <td>{{date('d-m-Y', strtotime($ItemInfo->end_date))}}</td>
-                               
                                 <td class="table-action">
-
                                     <a href='/ItemInfo/addcart/{{$ItemInfo->id}}'><i class="align-middle fas fa-fw fa-shopping-cart" data-bs-placement="left"
 										title="Tambah ke Kart"></i></a>
                                     <a href='/listkatalog/{{$ItemInfo->katalog_id}}'><i class="align-middle fas fa-fw fa-info"  data-bs-placement="left"
                                     title="Senarai Katalog"></i></a>
                                         
                                    <i class="align-middle fas fa-fw fa-filter"  data-bs-placement="left"
-										title="Banding item" onclick="compareItem()"></i></a></button>
+										title="Banding item" onclick="compareItem()"></i></a>
+                                        
                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#defaultModalPrimary">Pertanyaan Item</button>
                                     <div class="modal fade" id="defaultModalPrimary" tabindex="-1" role="dialog" aria-hidden="true">
 										<div class="modal-dialog" role="document">
@@ -68,20 +66,20 @@ Senarai Item</a></li>
                                                     @csrf
                                                 
                                                     <div class="mb-3 row">
-                                                        <label class="col-form-label col-sm-6 text-sm-end">Kuantiti Item yang Diterima</label>
+                                                        <label class="col-form-label col-sm-6 ">Kuantiti Item yang Diterima</label>
                                                         <div class="col-sm-6">
                                                             <input type="number" class="form-control" name="tanya_kuanititi">
                                                         </div>
                                                     </div>
                                                     
                                                     <div class="mb-3 row">
-                                                        <label class="col-form-label col-sm-6 text-sm-end">Tempoh Penghantaran</label>
+                                                        <label class="col-form-label col-sm-6 ">Tempoh Penghantaran</label>
                                                         <div class="col-sm-6"><input type="text" class="form-control" name="tanya_tempoh_penghantaran">
                                                         </div>
                                                     </div>
                                                     
-                                                     <div class="mb-3 row">
-                                                        <label class="col-form-label col-sm-6 text-sm-end"> Jenis Perolehan</label>
+                                                    <div class="mb-3 row">
+                                                        <label class="col-form-label col-sm-6 "> Jenis Perolehan</label>
                                                         <div class="col-sm-6">
                                                             <input type="text" class="form-control" name="tanya_jenis_perolehan">
                                                         </div>
@@ -89,7 +87,7 @@ Senarai Item</a></li>
                                                          
                                                     
                                                     <div class="mb-3 row">
-                                                        <label class="col-form-label col-sm-6 text-sm-end">Catatan </label>
+                                                        <label class="col-form-label col-sm-6 ">Catatan </label>
                                                         <div class="col-sm-6">
                                                              <input type="text" class="form-control" name="tanya_catatan">
                                                         </div>
@@ -97,14 +95,14 @@ Senarai Item</a></li>
 
                                                     
                                                     <div class="mb-3 row">
-                                                        <label class="col-form-label col-sm-6 text-sm-end">Ketersediaan Stok</label>
+                                                        <label class="col-form-label col-sm-6 ">Ketersediaan Stok</label>
                                                         <div class="col-sm-6">
                                                             <input type="text" class="form-control" name="tanya_ketersediaan_stok">
                                                         </div>
                                                     </div>
                                                     
                                                     <div class="mb-3 row">
-                                                        <label class="col-form-label col-sm-6 text-sm-end">Harga Baru </label>
+                                                        <label class="col-form-label col-sm-6 ">Harga Baru </label>
                                                         <div class="col-sm-6">
                                                             <input type="number"  min="1" step="any" class="form-control" name="tanya_harga_baru">
                                                         </div>
@@ -112,7 +110,7 @@ Senarai Item</a></li>
 
                                                     
                                                     <div class="mb-3 row">
-                                                        <label class="col-form-label col-sm-6 text-sm-end">Status</label>
+                                                        <label class="col-form-label col-sm-6 ">Status</label>
                                                         <div class="col-sm-6">
                                                             <input type="text" class="form-control" name="tanya_status">
                                                         </div>
@@ -124,15 +122,16 @@ Senarai Item</a></li>
                                                     
                                                 
                                                 </form>
-                                            </td>
+                                           
                                                 
 
 													{{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-													<button type="button" class="btn btn-primary">Save changes</button> --}}
+													<button type="button" class="btn btn-primary">Save changes</button>  --}}
 												</div>
 											</div>
 										</div>
 									</div>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

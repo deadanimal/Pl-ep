@@ -96,7 +96,7 @@ Kemaskini Nota Minta</a></li>
            <label class="col-form-label col-sm-6">Status Permintaan </label>
         </div>
         <div class="mb-3 col-md-6">
-            <select name="ro_status" class="form-control">
+            <select name="ro_status" class="form-select">
                 <option @if ($NotaMinta->ro_status == 'Diluluskan') selected @endif value="Diluluskan">Diluluskan</option>
                 <option @if ($NotaMinta->ro_status == 'Semak Semula') selected @endif value="Semak Semula">Semak Semula</option>
              </select>

@@ -62,7 +62,7 @@ class FizaItemInfoController extends Controller
         $fizaItemInfo->item_price=$request->item_price;
         $fizaItemInfo->item_unit=$request->item_unit;
         $fizaItemInfo->start_date=$request->item_start_date;
-        $fizaItemInfo->end_date=$request->item_end_date;
+        $fizaItemInfo->end_date=$request->end_date;
         $fizaItemInfo->katalog_id=$request->katalog_id;
         $fizaItemInfo->pembekal_id=Auth::user()->pembekal_id;
         $fizaItemInfo->item_created_by=Auth::user()->user_name;
@@ -90,10 +90,12 @@ class FizaItemInfoController extends Controller
     public function edit($id)
     {
          $fizaItemInfo = FizaItemInfo::find($id);
-         $fizaKatalog=FizaKatalog::where('id', $fizaItemInfo->katalog_id)->get();
+         $katalog=FizaKatalog::where('id',$fizaItemInfo->katalog_id)->get();
+         $pembekal = FizaPembekal::where('id',$fizaItemInfo->pembekal_id)->get();
         return view ('1_item_info.edit',[
             'fizaItemInfo'=>$fizaItemInfo,
-            'fizaKatalog'=>$fizaKatalog
+            'katalog'=>$katalog,
+            'pembekal'=>$pembekal
         ]);
     }
 
@@ -106,20 +108,28 @@ class FizaItemInfoController extends Controller
         $fizaItemInfo->item_name=$request->item_name;
         $fizaItemInfo->item_price=$request->item_price;
         $fizaItemInfo->item_unit=$request->item_unit;
-        $fizaItemInfo->item_start_date=$request->item_start_date;
-        $fizaItemInfo->item_end_date=$request->item_end_date;
+        $fizaItemInfo->start_date=$request->start_date;
+        $fizaItemInfo->end_date=$request->end_date;
         $fizaItemInfo->katalog_id=$request->katalog_id;
         $fizaItemInfo->pembekal_id=$request->pembekal_id;
         $fizaItemInfo->item_updated_by =$request->item_updated_by;
 
 
         $fizaItemInfo->save();
-        return redirect('/ItemInfo')->with('message', 'Data telah berjaya dipadam!');
+        return redirect('/ItemInfo')->with('message', 'Data telah berjaya dikemaskini!');
     }
 
-    public function destroy(FizaItemInfo $fizaItemInfo)
+    public function destroy($id)
     {
-        //
+        
+        $itemInfo = FizaItemInfo::where('id', $id)->first();
+
+        $itemInfo->delete();
+
+
+        return redirect('/ItemInfo');
+
+        
     }
 
     public function addcart(Request $request, FizaItemInfo $ItemInfo)
@@ -148,8 +158,9 @@ class FizaItemInfoController extends Controller
 
     public function removecart(Request $request,ItemKart $itemKart)
     {
+        
         $itemKart->delete();
-        return redirect('/ItemKart');
+        return redirect()->back();
     }
 
     public function katalog_belian($id)
