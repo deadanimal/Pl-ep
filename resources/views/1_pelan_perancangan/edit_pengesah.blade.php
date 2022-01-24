@@ -237,7 +237,7 @@ Pengesahan Pelan</a></li>
                     user_id--}}
                     <br><br>
                     <div style=float-right>
-                    <button  class="btn-primary" type="submit">Hantar</button> 
+                    <button  class="btn btn-primary" type="submit">Hantar</button> 
                     </div>
                     </form>
             </div>

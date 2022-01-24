@@ -149,7 +149,7 @@ jawatankuasa_updated_date --}}
                     jawatankuasa_updated_by
                     jawatankuasa_updated_date --}}
 
-                        <br><button type="submit" class="btn-primary">Hantar</button>
+                        <br><button type="submit" class="btn btn-primary">Hantar</button>
                     </form>
                 </div>
             </div>

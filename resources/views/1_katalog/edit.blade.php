@@ -56,10 +56,9 @@ katalog_updated_by
 katalog_updated_date
 user_id --}}
 
-            <div style=float-right >
-            {{-- <a href=/Katalog class="btn-success">Kembali </a> --}}
-            <button type="submit" class="btn-primary">Hantar</button>
-            </div>
+        <div align="right"> 
+            <button type="submit" class="btn btn-primary">Hantar</button>
+        </div> 
 </form>
             </div>
         </div>

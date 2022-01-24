@@ -235,8 +235,10 @@
         
                     </fieldset>
 
-                    <br>
-                    <button type="submit" class="btn-primary">Hantar</button>
+                    <div align="right"> 
+                        <button type="submit" class="btn btn-primary">Hantar</button>
+                    </div> 
+                    
                     </form>
                     </fieldset>
                 </div>

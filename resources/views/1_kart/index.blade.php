@@ -20,6 +20,7 @@ Bakul Item</a></li>
                 <h5 class="card-title mb-0"></h5>
             </div>
             <div class="card-body">
+                <form method="POST" action="/ItemKart">
                 <table id="datatables-reponsive" class="table table-striped">
                         <thead>
                             <tr>
@@ -34,13 +35,13 @@ Bakul Item</a></li>
                                 @foreach ($list_nama_barang as $list_nama_barang)
                                 <tr>
                                 <td>{{$list_nama_barang->item_name}}</td>
-                                <td> <a href="/ItemKart/removecart/{{ $list_nama_barang->id }}">Remove Cart </a></td>
+                                <td> <a href="/ItemKart/removecart/{{$list_nama_barang->id}}">Remove Cart </a></td>
                                 </tr>
                                 @endforeach
                                 @endif
                         </tbody> 
                 </table>
-                 <button type=submit class="btn-primary">Hantar</button>
+                 <button type=submit class="btn btn-primary">Hantar</button>
 
             </div>
     

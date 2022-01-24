@@ -71,7 +71,7 @@
                            <label class="col-form-label col-sm-6">Amaun (RM)</label>
                         </div>
                         <div class="mb-3 col-md-6">
-                             <input type="number" class="form-control" name="kontrak_amaun">
+                             <input type="text" class="form-control" name="kontrak_amaun" data-mask="000000000,000.00" data-reverse="true">
                         </div>
                     </div>
 
@@ -129,7 +129,6 @@
                     kontrak_updated_date
                     user_id --}}
 
-                    <br> <button type="submit" class="btn-primary">Hantar</button>
                     </form>
                 </div>
             </div>

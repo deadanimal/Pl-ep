@@ -104,5 +104,12 @@ class DatabaseSeeder extends Seeder
             'faq_updated_by'=>'syafiza senin'
         ]);
 
+        DB::table('fiza_kod_bidangs')->insert([
+            'kod_type'=>'02',
+            'kod_category'=>'PERABOT, PERALATAN PEJABAT, HIASAN DALAMAN DAN DOMESTIK',
+            'kod_pengkhususan'=>'BAHAN TARPAULIN DAN KANVAS',
+            'kod_description'=>'PEMBUAT'
+        ]);
+
     }
 }

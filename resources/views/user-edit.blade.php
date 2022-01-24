@@ -86,6 +86,7 @@ Kemaskini Maklumat Pengguna</a></li>
             </div>
             <div class="mb-3 col-md-6">
                 <select name="user_status" class="form-select">
+
                     <option @if ($user->user_status == 'aktif') selected @endif value='aktif'>Aktif</option>
                     <option @if ($user->user_status == 'tidak aktif') selected @endif value='tidak aktif'>Tidak Aktif</option>
                 </select>
@@ -143,7 +144,7 @@ Kemaskini Maklumat Pengguna</a></li>
 
         <br> 
         <a href="/Pengguna" >Kembali</button>
-        <button type=submit class="btn-primary">Kemaskini</button>
+        <button type=submit class="btn btn-primary">Kemaskini</button>
         
         </form>
         

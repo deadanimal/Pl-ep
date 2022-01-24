@@ -11,7 +11,7 @@
                 <div class="card-body">
                    <h3> Perlantikan Jawatankuasa </h3>
 
-                    <form method="POST" action="/Jawatankuasa">
+                    <form method="POST" action="/Jawatankuasa/{{$pembelianSebutTender->id}}">
                         @csrf
 {{-- 
                         <input type="hidden" name="pst_id" value="{{$pst->id}}" --}}
@@ -23,8 +23,8 @@
                              <div class="mb-3 col-md-6">
                                     <select name="jawatankuasa_spesifikasi" class="form-select">
                                     <option hidden value="">Sila Pilih</option>
-                                    @foreach ($user as $user6)
-                                <option value="{{$user6->id}}">{{$user6->user_name}}</option>
+                                    @foreach ($user as $jawatankuasa_spesifikasi)
+                                <option value="{{$jawatankuasa_spesifikasi->id}}">{{$jawatankuasa_spesifikasi->user_name}}</option>
                                 @endforeach
                                 </select>
                              </div>
@@ -38,8 +38,8 @@
                             <div class="mb-3 col-md-6">
                                 <select name="jawatankuasa_teknikal" class="form-select">
                                      <option hidden value="">Sila Pilih</option>
-                                @foreach ($user as $user1)
-                                    <option value={{$user1->id}}>{{$user1->user_name}}</option>
+                                @foreach ($user as $jawatankuasa_teknikal)
+                                    <option value={{$jawatankuasa_teknikal->id}}>{{$jawatankuasa_teknikal->user_name}}</option>
                                 @endforeach
                                 </select>
                             </div>
@@ -53,13 +53,13 @@
                             <div class="mb-3 col-md-6">
                                 <select name="jawatankuasa_kewangan" class="form-select">
                                     <option hidden value="">Sila Pilih</option>
-                                    @foreach ($user as $user2)
-                                        <option value={{$user2->id}}>{{$user2->user_name}}</option>
+                                    @foreach ($user as $jawatankuasa_kewangan)
+                                        <option value={{$jawatankuasa_kewangan->id}}>{{$jawatankuasa_kewangan->user_name}}</option>
 
                                     @endforeach
                                 </select>
                                 {{-- <button onclick="tambah_nama()">+</button> --}}
-                                <input type="text" name="jawatankuasa_kewangan_2 " id="jawatankuasa_kewangan_2" class="form-control" style="display: none"> 
+                                {{-- <input type="text" name="jawatankuasa_kewangan_2 " id="jawatankuasa_kewangan_2" class="form-control" style="display: none">  --}}
                             </div>
                         </div>
 
@@ -71,8 +71,8 @@
                             <div class="mb-3 col-md-6">
                                 <select name="jawatankuasa_kerja" class="form-select">
                                     <option hidden value="">Sila Pilih</option>
-                                        @foreach ($user as $user3)
-                                    <option value={{$user3->id}}>{{$user3->user_name}}</option>
+                                        @foreach ($user as $jawatankuasa_kerja)
+                                    <option value={{$jawatankuasa_kerja->id}}>{{$jawatankuasa_kerja->user_name}}</option>
                                         @endforeach
                                 </select>
                             </div>
@@ -86,8 +86,8 @@
                             <div class="mb-3 col-md-6">
                                 <select name="jawatankuasa_terbuka" class="form-select">
                                     <option hidden value="">Sila Pilih</option>
-                                    @foreach ($user as $user4)
-                                    <option value={{$user4->id}}>{{$user4->user_name}}</option>
+                                    @foreach ($user as $jawatankuasa_terbuka)
+                                    <option value={{$jawatankuasa_terbuka->id}}>{{$jawatankuasa_terbuka->user_name}}</option>
                                     @endforeach   
                                 </select>
                             </div>
@@ -101,8 +101,8 @@
                             <div class="mb-3 col-md-6">
                                 <select name="jawatankuasa_penilaian" class="form-select">
                                     <option hidden value="">Sila Pilih</option>
-                                    @foreach ($user as $user2)
-                                    <option value={{$user2->id}}>{{$user2->user_name}}</option>
+                                    @foreach ($user as $jawatankuasa_penilaian)
+                                    <option value={{$jawatankuasa_penilaian->id}}>{{$jawatankuasa_penilaian->user_name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -116,7 +116,12 @@
                     jawatankuasa_updated_by
                     jawatankuasa_updated_date --}}
 
-                        <br><button type="submit" class="btn-primary">Hantar</button>
+   
+                        <div align="right"> 
+                            <button class="btn btn-primary" type="submit">Hantar</a></button>
+                        </div>
+                        <br>
+        
                     </form>
                 </div>
             </div>

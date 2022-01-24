@@ -150,6 +150,13 @@
 									
 									</form>
 								</div>
+									<small><ul>
+										<li style="text-align: justify">Pengguna perlulah menukar kata laluan semasa log masuk kali pertama </li>
+										<li style="text-align: justify">Panjang kata laluan mestilah <b>sekurang-kurangnya 8 aksara</b></li>
+										<li style="text-align: justify">Kata laluan hendaklah <b>berlainan</b> dengan pengenalan identiti pengguna</li>
+										<li style="text-align: justify">Kata laluan hendaklah ditukar selepas <b>90 hari</b></li>
+									</ul></small>
+								
 							</div>
 						</div>
 

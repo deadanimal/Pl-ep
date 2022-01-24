@@ -99,32 +99,16 @@ class FizaPembekalController extends Controller
             $fizaPembekal->pembekal_jenis_akaun = "Akaun Asas";
         }
 
-        // session(['id_pembekal' => '$fizaPembekal->id']);
-        // Session::put('id_pembekal', '$fizaPembekal->id');
 
-        // $temp = Session::put('id_pembekal');
-        // $fizaPembekal->id_pembekal=$temp;
-        // dd());
+
   
-        $fizaPembekal->save();
+        // $fizaPembekal->save();
+        $admin = User::whereHas("roles", function ($admin) {
+        $admin->where('roles.id','1'); })->get();
 
-        $receiver = User::whereHas("roles", function ($admin) {
-            $admin->where('roles.id','1'); })->get();
-        
-            // dd($receiver->id);
+        Mail::to($admin->email)->send(new PendaftaranPembekal($fizaPembekal));
+        dd($admin);
 
-         //System Notification
-            // $notification_obj = (object)[];
-            // $notification_obj->noti_template='';
-            // $notification_obj->noti_subject="Pendaftaran Pembekal";
-            // $notification_obj->noti_status='Belum Dibaca';
-            // $notification_obj->noti_content=$fizaPembekal->pembekal_company_name . 'telah menghantar permohonan sebagai pembekal.Sila ke laman Pembekal untuk menyemak dan membuat pengesahan maklumat pembekal';
-            // $notification_obj->user_id=$receiver->id;
-            // app('App\Http\Controllers\FizaNotificationCenterController')->store($notification_obj);
-                    
-            foreach ($receiver as $receiver) 
-                Mail::to($receiver->email)->send(new PendaftaranPembekal($fizaPembekal));
-            
         //dd($receiver);
     
         if (!is_null($request->pembekal_jenis_akaun)) {
@@ -149,7 +133,7 @@ class FizaPembekalController extends Controller
     {
         $pembekal = FizaPembekal::find($id);
 
-        return view('1_pembekal.info_pembekal',[
+        return view('1_pembekal.show',[
             'pembekal'=>$pembekal
         ]);
     }
@@ -254,7 +238,7 @@ class FizaPembekalController extends Controller
         // $pembekal = FizaPembekal::where('id',$id)->first();
         
         
-        $fizaPembekal = FizaPembekal::where('id',$request->id_pembekal)->first();
+        $fizaPembekal = FizaPembekal::where('id', $request->id_pembekal)->first();
         // $kod = FizaKodBidang::all();
 
         $sijil_mof=$request->file('pembekal_sijil_mof')->store('sijil_mof');
@@ -272,9 +256,7 @@ class FizaPembekalController extends Controller
 
         $sijil_gred_cidb=$request->file('pembekal_sijil_gred')->store('sijil_gred');
         $fizaPembekal->pembekal_sijil_gred=$sijil_gred_cidb;
-
-        // $fizaPembekal->id_pembekal=$id;
-        // $id_pembekal = $request->get('id_pembekal');
+        
         $fizaPembekal->pembekal_no_sijil_mof=$request->pembekal_no_sijil_mof;
         $fizaPembekal->pembekal_no_rujukan_pendaftaran=$request->pembekal_no_rujukan_pendaftaran;
         $fizaPembekal->pembekal_tarikh_sah_mof=$request->pembekal_tarikh_sah_mof;
@@ -284,14 +266,15 @@ class FizaPembekalController extends Controller
         $fizaPembekal->pembekal_pegawai_bertauliah=$request->pembekal_pegawai_bertauliah;
         $fizaPembekal->pembekal_tarikh_sah_gred=$request->pembekal_tarikh_sah_gred;
         // $fizaPembekal->id_kod=$request->id_kod[];
-        
-        // $fizaPembekal->id_pembekal=$temp;
-        // $fizaPembekal->id_pembekal=$temp;
+
         $fizaPembekal->save();
-        foreach ($user->role as $role) {
-            $receiver = User::where($role_id[0]=='1')->get();
-            Mail::to($receiver->email)->send(new PendaftaranPembekal);
-        }
+
+        $administrator= User::whereHas("roles", function ($admin) {
+            $admin->where('roles.id', '1');
+        })->get();
+        Mail::to($administrator->email)->send(new PendaftaranPembekal);
+
+        
         // session(['id_pembekal' => '$fizaPembekal->id']);
         // Session::put('id_pembekal', '$fizaPembekal->id');
     
@@ -325,7 +308,7 @@ class FizaPembekalController extends Controller
         $pembekal->pembekal_sijil_gred=$pembekal_sijil_gred;
 
         $pembekal->save();
-        foreach ($user->role as $role) {
+        foreach ($user()->role as $role) {
             $receiver = User::where($role_id[0]=='1')->get();
             Mail::to($receiver->email)->send(new PendaftaranPembekal);
         }

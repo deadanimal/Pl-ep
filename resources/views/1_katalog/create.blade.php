@@ -55,7 +55,10 @@ Pendaftaran Item</a></li>
                     katalog_updated_by
                     katalog_updated_date
                     user_id --}}
-                    <button type="submit" class="btn-primary">Hantar</button>
+                    <div align="right"> 
+                        <button type="submit" class="btn btn-primary">Hantar</button>
+                    </div> 
+                    
                     </form>
                 </div>
             </div>

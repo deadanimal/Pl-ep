@@ -21,7 +21,7 @@ Senarai Item</a></li>
             </div>
             <div class="card-body">
                 <div align="right"> 
-                    <button class="btn-success" onclick="window.location.href='/ItemInfo/create'">+Tambah</a></button>
+                    <button class="btn btn-success" onclick="window.location.href='/ItemInfo/create'">+Tambah</a></button>
                 </div>
                 <br>
                 <table id="datatables-reponsive" class="table table-striped" style="width:100%">
@@ -30,8 +30,7 @@ Senarai Item</a></li>
                             <th>Nama Item</th>
                             <th>Tarikh Mula</th>
                             <th>Tarikh Tamat</th>
-                            <th></th>
-                          
+                            <th></th> 
 
                         </tr>
                     </thead>
@@ -48,7 +47,7 @@ Senarai Item</a></li>
                                         @method('DELETE')
                                         @csrf
                                     <button class="btn" type="submit"><i class="align-middle fas fa-fw fa-trash"></i></button>
-                                    <a href='/ItemInfo/{{$ItemInfo->katalog_id}}/edit'><i class="align-middle fas fa-fw fa-info"  data-bs-placement="left"
+                                    <a href='/ItemInfo/{{$ItemInfo->id}}/edit'><i class="align-middle fas fa-fw fa-info"  data-bs-placement="left"
                                     title="Senarai Katalog"></i></a>
                                 </td>
                             </tr>

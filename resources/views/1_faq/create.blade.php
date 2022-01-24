@@ -52,7 +52,9 @@ Cipta Soalan Lazim</a></li>
                             </div>
                         </div>
 
-                        <button type="submit" class="btn-primary">Hantar</button>
+                        <div align="right"> 
+                            
+                        </div> 
 
                     </form>
             </div>

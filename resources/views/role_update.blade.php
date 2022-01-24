@@ -52,8 +52,12 @@
                                     </div>
                                     <div class="mb-3">
                                         <label>Jenis Pengguna</label>
-                                        <input type="text" class="form-control" name="user_name"
-                                            value="{{ $user->jenis }}" disabled>
+                                    
+                                            <select name="jenis" class="form-select" disabled>
+                                                <option @if ($user->jenis == 'pekerja') selected @endif value="pekerja">Staff Perbadanan Labuan</option>
+                                                <option @if ($user->jenis == 'pembekal') selected @endif value="Pembekal">Pembekal</option>
+                                                <option @if ($user->jenis == 'juruaudit') selected @endif value="juruaudit">Juruaudit</option>
+                                            </select>
                                     </div>
 
                                     <div class="mb-3">
@@ -66,6 +70,7 @@
                                         <label>Status Pengguna</label>
                                         <input type="text" class="form-control" name="user_status"
                                             value="{{ $user->user_status }}" disabled>
+                                            
                                     </div>
 
                                     <div class="mb-3">
@@ -76,6 +81,8 @@
                                             </ul>
                                         @endforeach
                                     </div>
+                                    
+                                    
 
                                 </div>
                             </div>

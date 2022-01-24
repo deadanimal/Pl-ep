@@ -29,9 +29,9 @@ Senarai Cadangan</a></li>
                     </thead>
 
                     <tbody>
+                        @foreach ($Cadangan as $Cadangan)
                         <tr>
-                            @foreach ($Cadangan as $Cadangan)
-                            <td>{{$Cadangan->cadangan_mesyuarat_date}}</td>
+                            <td>{{date('d-m-Y', strtotime($Cadangan->cadangan_mesyuarat_date))}}</td>
                             <td class="table-action">
                                 <form method="POST" action="/Cadangan/{{$Cadangan->id}}">
                                     @csrf

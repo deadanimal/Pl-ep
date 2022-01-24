@@ -28,21 +28,17 @@ Senarai Item</a></li>
                             <th>Tarikh Tamat</th>
                             <th>Nama Pembekal</th>
                             <th></th>
-
-                        
                         </tr>
                     </thead>
-
                     <tbody>
-
                         @foreach ($ItemInfo as $ItemInfo)
                             <tr>
                                 <td>{{$ItemInfo->item_name}}</td>
                                 <td>{{date('d-m-Y', strtotime($ItemInfo->start_date))}}</td>
                                 <td>{{date('d-m-Y', strtotime($ItemInfo->end_date))}}</td>
                                 <td>{{$ItemInfo->pembekal_id}}</td>
-                                <td class="table-action">
-
+                                <td>nfdf</td>
+                                {{-- <td class="table-action">
                                     <a href='/ItemInfo/addcart/{{$ItemInfo->id}}'><i class="align-middle fas fa-fw fa-shopping-cart" data-bs-placement="left"
 										title="Tambah ke Kart"></i></a>
                                     <a href='/listkatalog/{{$ItemInfo->katalog_id}}'><i class="align-middle fas fa-fw fa-info"  data-bs-placement="left"
@@ -56,15 +52,14 @@ Senarai Item</a></li>
 											<div class="modal-content">
 												<div class="modal-header">
 													<h5 class="modal-title">Pertanyaan Item</h5>
-													<button  class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+													<button  class="btn btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 												</div>
 												{{-- <div class="modal-body m-3">
 													<p class="mb-0"></p>
-												</div> --}}
+												</div> 
 												<div class="modal-body m-3">
                                                     <form method="POST" action="/PertanyaanItem">
                                                     @csrf
-                                                
                                                    
                                                     <div class="mb-3 row">
                                                         <label class="col-form-label col-sm-6 text-sm-end">Kuantiti Item yang Diterima</label>
@@ -117,41 +112,29 @@ Senarai Item</a></li>
                                                         </div>
                                                     </div>
                                                 
-                                                     {{-- <button type="submit">Hantar</button> --}}
+                                                     {{-- <button type="submit">Hantar</button> 
                                                     <br> <br>
 													<button type="submit" class="btn btn-primary">Hantar</button>
                                                     
                                                 
                                                 </form>
-                                            </td>
-                                                
-
-													{{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-													<button type="button" class="btn btn-primary">Save changes</button> --}}
+                                            {{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+													<button type="button" class="btn btn-primary">Save changes</button> 
 												</div>
 											</div>
 										</div>
-									</div>
+						 			</div>
+                                </td> --}}
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
             </div>
-            <a href="/ItemKart">Pergi Ke Bakul Item </a>
+            <a href="/ItemKart/{{$notaMinta->id}}">Pergi Ke Bakul Item </a>
             <a href="/PenyediaanSpesifikasi/create">Terus ke Penyediaan Spesifikasi Item </a>
         </div>
     </div>
 </div>
-
-<script>
-    let comparison = []
-    function compareItem(id) {
-        this.comparison.append(id)
-    }
-    function makeComparison() {
-        window.location.href = 'https://url.com/comparison/' + comparison[0] + '/' + comparison[1] + '/' comparison[2];
-    }
-</script>
 
  
 

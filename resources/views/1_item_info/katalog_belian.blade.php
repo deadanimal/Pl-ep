@@ -20,10 +20,6 @@ Senarai Item</a></li>
                 <h5 class="card-title mb-0"></h5>
             </div>
             <div class="card-body">
-                <div align="right"> 
-                    <button class="btn-success" onclick="window.location.href='/ItemInfo/create'">+Tambah</a></button>
-                </div>
-                <br>
                 <table id="datatables-reponsive" class="table table-striped" style="width:100%">
                     <thead>
                         <tr>
@@ -44,19 +40,20 @@ Senarai Item</a></li>
                                 <td class="table-action">
                                     <a href='/ItemInfo/addcart/{{$ItemInfo->id}}'><i class="align-middle fas fa-fw fa-shopping-cart" data-bs-placement="left"
 										title="Tambah ke Kart"></i></a>
-                                    <a href='/listkatalog/{{$ItemInfo->katalog_id}}'><i class="align-middle fas fa-fw fa-info"  data-bs-placement="left"
-                                    title="Senarai Katalog"></i></a>
+                                    {{-- <a href='/listkatalog/{{$ItemInfo->katalog_id}}'><i class="align-middle fas fa-fw fa-info"  data-bs-placement="left"
+                                    title="Senarai Katalog"></i></a> --}}
                                         
-                                   <i class="align-middle fas fa-fw fa-filter"  data-bs-placement="left"
-										title="Banding item" onclick="compareItem()"></i></a>
+                                   {{-- <i class="align-middle fas fa-fw fa-filter"  data-bs-placement="left"
+										title="Banding item" onclick="compareItem()"></i></a> --}}
                                         
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#defaultModalPrimary">Pertanyaan Item</button>
+                                    <button type="button" class="btn btn-pill btn-primary" data-bs-toggle="modal" data-bs-target="#defaultModalPrimary">Pertanyaan</button>
+
                                     <div class="modal fade" id="defaultModalPrimary" tabindex="-1" role="dialog" aria-hidden="true">
 										<div class="modal-dialog" role="document">
 											<div class="modal-content">
 												<div class="modal-header">
 													<h5 class="modal-title">Pertanyaan Item</h5>
-													<button  class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+													<button  class="btn btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 												</div>
 												{{-- <div class="modal-body m-3">
 													<p class="mb-0"></p>
@@ -122,23 +119,18 @@ Senarai Item</a></li>
                                                     
                                                 
                                                 </form>
-                                           
-                                                
-
-													{{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-													<button type="button" class="btn btn-primary">Save changes</button>  --}}
 												</div>
 											</div>
 										</div>
 									</div>
                                 </td>
                             </tr>
-                        @endforeach
+                            @endforeach
                     </tbody>
                 </table>
             </div>
             <div align="right"> 
-                <a href="/ItemKart">Pergi Ke Bakul Item </a>
+                <button class="btn btn-primary" onclick="window.location.href='/ItemKart'">Bakul Item</button>
                 <br>
                 <a href="/PenyediaanSpesifikasi/create">Terus ke Penyediaan Spesifikasi Item </a>
             </div>

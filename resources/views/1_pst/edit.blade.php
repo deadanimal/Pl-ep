@@ -321,7 +321,7 @@ Kemaskini Sebutharga / Tender</a></li>
                         </div>
                     </div>
 
-                    <br><button type="submit" class="btn-primary" style="float: right" onclick()>Hantar</button>
+                    <br><button type="submit" class="btn btn-primary" style="float: right" onclick()>Hantar</button>
                     
                 </form>
             </div>

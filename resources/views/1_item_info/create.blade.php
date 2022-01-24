@@ -36,10 +36,11 @@ Daftar Item</a></li>
 
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                               <label class="col-form-label col-sm-6">Harga Item</label>
+                               <label class="col-form-label col-sm-6">Harga Item (RM)</label>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <input type="number" min="1" step="any" class=form-control name=item_price>
+                                {{-- <input type="number" min="1" step="any" class=form-control name=item_price> --}}
+                                <input type="number" class="form-control" name="item_price" data-mask="000000000,000.00" data-reverse="true">
                             </div>
                         </div>
                              
@@ -84,7 +85,7 @@ Daftar Item</a></li>
                             </div>
                         </div>
              
-                    <button type="submit" class="btn-primary">Hantar</button>
+                    <button type="submit" class="btn btn-primary">Hantar</button>
                     </form>
             </div>
         </div>

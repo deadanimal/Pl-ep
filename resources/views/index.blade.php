@@ -49,7 +49,7 @@
 	<div class="py-1 bg-white landing-nav">
 		<div class="container align-left">
 			<a href="/" class="btn btn-lg btn-pill btn-primary">Utama</a>
-			<a target="_blank" href="/login" class="btn btn-lg btn-pill btn-link text-dark">Log Masuk Pengguna</a>
+			<a href="/login" class="btn btn-lg btn-pill btn-link text-dark">Log Masuk Pengguna</a>
 			{{-- <a target="_blank" href="docs-changelog.html" class="btn btn-lg btn-pill btn-link text-dark">Changelog</a> --}}
 			<a  href="#" class="btn btn-lg btn-pill btn-link text-dark">Mengenai eP</a>
 			<a  href="#" class="btn btn-lg btn-pill btn-link text-dark">Perkhidmatan Tambahan</a>

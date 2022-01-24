@@ -318,8 +318,8 @@ Cipta Sebutharga / Tender</a></li>
                 </div>
 
                 <br>    
-                <button type="submit" class="btn-success" name="status_pst" value="draf">Draf</button>
-                <button type="submit" class="btn-primary"name="status_pst" value="hantar">Hantar</button>
+                <button type="submit" class="btn btn-success" name="status_pst" value="draf">Draf</button>
+                <button type="submit" class="btn btn-primary"name="status_pst" value="hantar">Hantar</button>
                     
             </form>
             </div>

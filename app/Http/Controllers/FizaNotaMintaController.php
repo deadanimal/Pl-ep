@@ -25,21 +25,18 @@ class FizaNotaMintaController extends Controller
 
         else{
             $fizaNotaMinta = FizaNotaMinta::where('ro_created_by',Auth::user()->user_name)->get();
+
             return view('1_nota_minta.index', [
                 'fizaNotaMinta'=>$fizaNotaMinta
             ]);
         }
     }
 
-
-   
-    
-
-
     public function create()
     {
         $user=User::where('jenis','pekerja')
         ->where('user_status','aktif')->get();
+
         // dd($user);
         return view('1_nota_minta.create', [
             'user'=>$user
@@ -52,7 +49,7 @@ class FizaNotaMintaController extends Controller
     {
         $fizaNotaMinta = new FizaNotaMinta;
 
-        // $fizaNotaMinta->pembekal_id=$request->pembekal_id;
+        // $fizaNotaMinta->pembekal_id=$itemInfo->pembekal_id;
         $fizaNotaMinta->ro_kaedah=$request->ro_kaedah;
         $fizaNotaMinta->ro_jenis_perolehan=$request->ro_jenis_perolehan;
         $fizaNotaMinta->ro_tempoh_penghantaran=$request->ro_tempoh_penghantaran;
@@ -77,7 +74,7 @@ class FizaNotaMintaController extends Controller
 
         $item ="Nota Minta";
         $user_id= Auth::user()->id;
-        $description = "$fizaNotaMinta->ro_created_by telah menghantar nota minta untuk $fizaNotaMinta->ro_jenis_perolehan";
+        $description = $fizaNotaMinta->ro_created_by ."telah menghantar nota minta untuk". $fizaNotaMinta->ro_jenis_perolehan;
         $log_item = [$item, $description, $user_id];
         app('App\Http\Controllers\AuditLogController')->log($log_item);
 

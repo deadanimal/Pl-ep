@@ -42,7 +42,7 @@
                         </div>
 
                     <br>
-                    <button type="submit" class="btn-primary" >Hantar</button>
+                    <button type="submit" class="btn btn-primary" >Hantar</button>
 
                     </form>
                 </div>

@@ -98,7 +98,7 @@ terima_created_date
 terima_updated_by
 terima_updated_date --}}
 <br>
-<button type="submit" class="btn-primary" style="float: right">Hantar</button>
+<button type="submit" class="btn btn-primary" style="float: right">Hantar</button>
 </form>
             </div>
         </div>

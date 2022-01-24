@@ -93,8 +93,9 @@ user_id --}}
             </div>
     </div>
 
-    <button type="submit" class="btn-primary">Hantar</button>
-
+    <div align="right"> 
+        <button type="submit" class="btn btn-primary">Hantar</button>
+    </div> 
 
 {{-- penghantaran_id
 sst_id--}}

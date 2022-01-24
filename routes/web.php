@@ -216,3 +216,5 @@ Route::post('/edit_password/{id}',[PenggunaController::class,'update_password'])
 Route::get('/kemaskini-maklumat/{id}', [PenggunaController::class,'edit_user']);
 Route::any('/kemaskini-pengguna/{id}', [PenggunaController::class,'update_user']);
 Route::get('/KatalogBelian/{id}',[FizaItemInfoController::class,'katalog_belian']);
+
+Route::get('/ItemKart/{id}',[ItemKartController::class,'index']);

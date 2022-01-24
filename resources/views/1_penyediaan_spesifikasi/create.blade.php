@@ -130,8 +130,8 @@ Cipta Penyediaan Spesifikasi</a></li>
                 <br>
                
                 <div style=float-right>
-                    <button class="btn-success" type="submit" name="status_spesifikasi" value="draf">Draf</button> 
-                    <button  class="btn-primary" type="submit" name="status_spesifikasi" value="hantar">Hantar</button> 
+                    <button class="btn btn-success" type="submit" name="status_spesifikasi" value="draf">Draf</button> 
+                    <button  class="btn btn-primary" type="submit" name="status_spesifikasi" value="hantar">Hantar</button> 
                 </div>
                 </form>
             </div>

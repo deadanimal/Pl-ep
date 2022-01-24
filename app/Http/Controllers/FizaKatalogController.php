@@ -14,7 +14,7 @@ class FizaKatalogController extends Controller
 
     public function index()
     {
-        $fizaKatalog = FizaKatalog::all();
+        $fizaKatalog = FizaKatalog::where('katalog_created_by',Auth::user()->pembekal_id)->get();
         $fizaItemInfo = FizaItemInfo::all();
         return view ('1_katalog.index',[
             'Katalog'=>$fizaKatalog, 
@@ -35,7 +35,7 @@ class FizaKatalogController extends Controller
         $fizaKatalog->katalog_kategori=$request->katalog_kategori;
         $fizaKatalog->katalog_kumpulan=$request->katalog_kumpulan;
         $fizaKatalog->katalog_jenis=$request->katalog_jenis;
-        $fizaKatalog->katalog_created_by=Auth::user()->user_name;
+        $fizaKatalog->katalog_created_by=Auth::user()->pembekal_id;
         // $fizaKatalog->user_id=$request->user_id;
 
         $fizaKatalog->save();

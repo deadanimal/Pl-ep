@@ -25,16 +25,15 @@ Kemaskini Info Item</a></li>
 @method('PUT')
 
 <div class="row">
-         <div class="mb-3 col-md-6">
+         {{-- <div class="mb-3 col-md-6">
              <label class="col-form-label col-sm-10 ">Nama Pembekal </label>
          </div>
          <div class="mb-3 col-md-6">
              @foreach ($pembekal as $pembekal)
-             <input type="text" name="pembekal_id" class="form-control" value="{{$pembekal->pembekal_company_name}}">               
-                 
+              {{$pembekal->pembekal_company_name }}                            
              @endforeach
          </div>
-    </div>
+    </div> --}}
 
 
    

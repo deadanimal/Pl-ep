@@ -22,7 +22,7 @@ Senarai Sebutharga / Tender</a></li>
             <div class="card-body">
 
                 <div align="right"> 
-                    <button class="btn-success" onclick="window.location.href='/PembelianSebutTender/create'">+Tambah</a></button>
+                    <button class="btn btn-success" onclick="window.location.href='/PembelianSebutTender/create'">+Tambah</a></button>
                 </div>
                 <br>
 

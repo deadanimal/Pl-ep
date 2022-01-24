@@ -21,7 +21,7 @@ Senarai Nota Minta</a></li>
             </div>
             <div class="card-body">
                 <div align="right"> 
-                    <button class="btn-success" onclick="window.location.href='/NotaMinta/create'">+Tambah</a></button>
+                    <button class="btn btn-success" onclick="window.location.href='/NotaMinta/create'">+Tambah</a></button>
                 </div>
                 <br>
                 <table id="datatables-reponsive" class="table table-striped" style="width:100%">
@@ -35,15 +35,16 @@ Senarai Nota Minta</a></li>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($fizaNotaMinta as $fizaNotaMinta)
+                        
                         <tr>
-                            @foreach ($fizaNotaMinta as $fizaNotaMinta)
                             <td>{{$fizaNotaMinta->ro_kaedah}}</td>
                             <td>{{$fizaNotaMinta->ro_jenis_perolehan}}</td>
                             <td>{{$fizaNotaMinta->ro_tempoh_penghantaran}}</td>
                             <td>{{$fizaNotaMinta->ro_status}}</td>
                             <td>{{$fizaNotaMinta->ro_created_by}}</td>
                         </tr>
-                             @endforeach
+                        @endforeach
                        
                     </tbody>
                 </table>

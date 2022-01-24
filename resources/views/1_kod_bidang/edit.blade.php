@@ -37,7 +37,7 @@ Kemaskini Kod Bidang</a></li>
                            <label class="col-form-label col-sm-6">Kategori Kod</label>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <input type=text name=kod_category class="form-control" value="{{$fizaKodBidang->kod_type}}">
+                            <input type=text name=kod_category class="form-control" value="{{$fizaKodBidang->kod_category}}">
                         </div>
                     </div>
 

@@ -80,9 +80,9 @@ Cipta Nota Minta</a></li>
                             </div>
                         </div>
 
-                        {{-- <br>  <button href=/ItemInfo class="btn-success"> Pilihan Item </button> --}}
+                        {{-- <br>  <button href=/ItemInfo class="btn btn-success"> Pilihan Item </button> --}}
                         <div>
-                        <br> <button class="btn-primary" type="submit" style="float: right" >Teruskan</button>
+                        <br> <button class="btn btn-primary" type="submit" style="float: right" >Teruskan</button>
 
                         </div>
 

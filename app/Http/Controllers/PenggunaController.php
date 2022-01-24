@@ -83,6 +83,7 @@ class PenggunaController extends Controller
     // dd($id);
         $user = User::find($id);
         $role= Roles::all();
+        $pembekal=FizaPembekal::where('id',$user->pembekal_id)->first();
 
         // $role = RoleUser::all();
 
@@ -90,7 +91,8 @@ class PenggunaController extends Controller
 
         return view('role_update', [
             'role'=>$role,
-            'user' =>$user
+            'user' =>$user,
+            'pembekal'=>$pembekal
         ]);
     }
 

@@ -94,7 +94,10 @@ Cipta Jadual Pemenuhan</a></li>
 
                 <br>
 
-                <button type="submit" class="btn-primary">Hantar</button>
+                <div align="right"> 
+                    <button type="submit" class="btn btn-primary">Hantar</button>
+                </div> 
+                
                 </form>
         </div>
     </div>

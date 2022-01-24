@@ -21,7 +21,7 @@
             </div>
             <div class="card-body">
                 <div align="right"> 
-                    <button class="btn-success" onclick="window.location.href='/PelanPerancanganPerolehan/create'">+Tambah</a></button>
+                    <button class="btn btn-success" onclick="window.location.href='/PelanPerancanganPerolehan/create'">+Tambah</a></button>
                 </div>
                 <br>
                 <table id="datatables-reponsive" class="table table-striped" style="width:100%">
@@ -37,9 +37,9 @@
          
 
                     <tbody>
-
+                        @foreach ( $pelanPerancanganPerolehan as  $pelanPerancanganPerolehan)
+                        
                             <tr>
-                                @foreach ( $pelanPerancanganPerolehan as  $pelanPerancanganPerolehan)
                                 <td>{{  $pelanPerancanganPerolehan->pelan_year}}</td>
                                 <td>{{  $pelanPerancanganPerolehan->pelan_title}}</td>
                                 <td>{{  $pelanPerancanganPerolehan->pelan_category }}</td>

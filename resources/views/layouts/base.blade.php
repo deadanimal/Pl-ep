@@ -86,96 +86,244 @@
                                     <i class="align-middle me-2 fas fa-fw fa-home"></i> <span class="align-middle">Dashboard</span>
                                 </a>
                             </li>
-                            <li class="sidebar-item">
-                                <a data-bs-target="#pages" data-bs-toggle="collapse" class="sidebar-link collapsed">
-                                    <i class="align-middle me-2 fas fa-fw fa-file"></i> <span class="align-middle">Pelan Perancangan</span>
-                                </a>
-                                <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                                    <li class="sidebar-item"><a class="sidebar-link" href="/PelanPerancanganPerolehan">Senarai Pelan</a></li>
-                                    <li class="sidebar-item"><a class="sidebar-link" href="/PelanPerancanganPerolehan/create">Cipta Pelan Baru</a></li>
-                                    <li class="sidebar-item"><a class="sidebar-link" href="/indexpengesah">Pelan Yang Menunggu Pengesahan</a></li>
-                                    <li class="sidebar-item"><a class="sidebar-link" href="/indexpelulus">Pelan Yang Menunggu Kelulusan</a></li>
-                                </ul>
-                            </li>
+
+                            
+
+                            @if (Auth::user()->jenis=='pekerja')
+                                @if (Auth::user()->roles[0]->id=='1')
+                                        <li class="sidebar-item">
+                                            <a data-bs-target="#pages" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                                                <i class="align-middle me-2 fas fa-fw fa-file"></i> <span class="align-middle">Pelan Perancangan</span>
+                                            </a>
+                                            <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                                                <li class="sidebar-item"><a class="sidebar-link" href="/PelanPerancanganPerolehan">Senarai Pelan</a></li>
+                                                <li class="sidebar-item"><a class="sidebar-link" href="/PelanPerancanganPerolehan/create">Cipta Pelan Baru</a></li>
+                                                <li class="sidebar-item"><a class="sidebar-link" href="/indexpengesah">Pelan Yang Menunggu Pengesahan</a></li>
+                                                <li class="sidebar-item"><a class="sidebar-link" href="/indexpelulus">Pelan Yang Menunggu Kelulusan</a></li>
+                                            </ul>
+                                        </li>
+                    
+                                        <li class="sidebar-item">
+                                            <a data-bs-target="#auth" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                                                <i class="align-middle me-2 fas fa-fw fa-users"></i> <span class="align-middle">Pengguna</span>
+                                            </a>
+                                            <ul id="auth" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+                                                <li class="sidebar-item"><a class="sidebar-link" href="/Pengguna">Senarai Pengguna</a></li>
+                                                <li class="sidebar-item"><a class="sidebar-link" href="/Pengguna/create">Daftar Pengguna Baru</a></li>
+                                            </ul>
+                                        </li>
+                    
+                                        <li class="sidebar-item">
+                                            <a data-bs-target="#pembekal" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                                                <i class="align-middle me-2 fas fa-fw fa-briefcase"></i> <span class="align-middle">Pengurusan Pembekal</span>
+                                            </a>
+                                            <ul id="pembekal" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                                                <li class="sidebar-item"><a class="sidebar-link" href="/Pembekal">Kemaskini Profil</a></li>
+                                        
+                                            </ul>
+                                        </li>
+                    
+                                        <li class="sidebar-item">
+                                            <a data-bs-target="#kodbidang" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                                                <i class="align-middle me-2 fas fa-fw fa-tag"></i> <span class="align-middle">Kod Bidang</span>
+                                            </a>
+                                            <ul id="kodbidang" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                                                <li class="sidebar-item"><a class="sidebar-link" href="/KodBidang">Senarai Kod Bidang</a></li>
+                                                <li class="sidebar-item"><a class="sidebar-link" href="/KodBidang/create">Cipta Kod Bidang Baru</a></li>
+                                            </ul>
+                                        </li>
+                    
+                                        <li class="sidebar-header">
+                                            Permohonan
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a data-bs-target="#ui" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                                                <i class="align-middle me-2 fas fa-fw fa-shopping-bag"></i> <span class="align-middle">Pembelian</span>
+                                            </a>
+                                            <ul id="ui" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+                                                    <li class="sidebar-item"><a class="sidebar-link" href="/NotaMinta">Senarai Nota Minta</a></li>
+                                                    <li class="sidebar-item"><a class="sidebar-link" href="/NotaMinta/create">Cipta Nota Minta</a></li>
+                                                    <li class="sidebar-item"><a class="sidebar-link" href="/PembelianSebutTender">Senarai SebutHarga/ Tender</a>
+                                                    <li class="sidebar-item"><a class="sidebar-link" href="/PembelianSebutTender/create">Cipta SebutHarga/ Tender</a></li>
+                                                    <li class="sidebar-item"><a class="sidebar-link" href="/NotaPenerimaan">Senarai Nota Penerimaan</a>
+                                                    <li class="sidebar-item"><a class="sidebar-link" href="/NotaPenerimaan/create">Cipta Nota Penerimaan</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a data-bs-target="#charts" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                                                <i class="align-middle me-2 fas fa-fw fa-shopping-cart"></i> <span class="align-middle">Pengurusan Katalog</span>
+                                            </a>
+                                            <ul id="charts" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+                                                <li class="sidebar-item"><a class="sidebar-link" href="/Katalog">Kumpulan Katalog</a></li>
+                                                <li class="sidebar-item"><a class="sidebar-link" href="/Katalog/create">Daftar Kumpulan Katalog</a></li>
+                                                <li class="sidebar-item"><a class="sidebar-link" href="/ItemInfo/create">Daftar Item</a></li>
+                                                <li class="sidebar-item"><a class="sidebar-link" href="/ItemInfo">Senarai Item</a></li>
+                                            </ul>
+                                        </li>
+                    
+                                        <li class="sidebar-item">
+                                            <a data-bs-target="#forms" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                                                <i class="align-middle me-2 fas fa-fw fa-check-square"></i> <span class="align-middle">Cadangan</span>
+                                            </a>
+                                            <ul id="forms" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+                                                <li class="sidebar-item"><a class="sidebar-link" href="/Cadangan/create">Membuat Cadangan</a></li>
+                                                <li class="sidebar-item"><a class="sidebar-link" href="/Cadangan">Senarai Cadangan</a></li>
+                                            </ul>
+                                        </li>
+                    
+                                        <li class="sidebar-item">
+                                            <a data-bs-target="#datatables" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                                                <i class="align-middle me-2 fas fa-fw fa-table"></i> <span class="align-middle">Pemenuhan</span>
+                                            </a>
+                                            <ul id="datatables" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+                                                <li class="sidebar-item"><a class="sidebar-link" href="/JadualPemenuhan">Senarai Jadual Pemenuhan</a></li>
+                                                <li class="sidebar-item"><a class="sidebar-link" href="/JadualPemenuhan/create">Cipta Jadual Pemenuhan</a></li>
+                                            </ul>
+                                        </li>
+                    
+                                        <li class="sidebar-item">
+                                            <a data-bs-target="#maps" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                                                <i class="align-middle me-2 fas fa-fw fa-book"></i> <span class="align-middle">Pengurusan Kontrak</span>
+                                            </a>
+                                            <ul id="maps" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+                                                <li class="sidebar-item"><a class="sidebar-link" href="/SuratSetujuTerima/create">Surat Setuju Terima</a></li>
+                                            </ul>
+                                        </li>
+                    
+                                        <li class="sidebar-header">
+                                            Lain-lain
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a data-bs-target="#documentation" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                                                <i class="align-middle me-2 fas fa-fw fa-check"></i> <span class="align-middle">FAQ</span>
+                                            </a>
+                                            <ul id="documentation" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+                                                <li class="sidebar-item"><a class="sidebar-link" href="/faq">Senarai Soalan Lazim</a></li>
+                                                <li class="sidebar-item"><a class="sidebar-link" href="faq/create">Cipta Soalan Lazim Baru</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a class="sidebar-link" href="/KandunganPerjanjian/create">
+                                                <i class="align-middle me-2 fas fa-fw fa-list"></i> <span class="align-middle">Invois</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        @else
+                                <li class="sidebar-item">
+                                    <a data-bs-target="#pages" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                                        <i class="align-middle me-2 fas fa-fw fa-file"></i> <span class="align-middle">Pelan Perancangan</span>
+                                    </a>
+                                    <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                                        <li class="sidebar-item"><a class="sidebar-link" href="/PelanPerancanganPerolehan">Senarai Pelan</a></li>
+                                        <li class="sidebar-item"><a class="sidebar-link" href="/PelanPerancanganPerolehan/create">Cipta Pelan Baru</a></li>
+                                        <li class="sidebar-item"><a class="sidebar-link" href="/indexpengesah">Pelan Yang Menunggu Pengesahan</a></li>
+                                        <li class="sidebar-item"><a class="sidebar-link" href="/indexpelulus">Pelan Yang Menunggu Kelulusan</a></li>
+                                    </ul>
+                                </li>
+            
+                                <li class="sidebar-header">
+                                    Permohonan
+                                </li>
+                                <li class="sidebar-item">
+                                    <a data-bs-target="#ui" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                                        <i class="align-middle me-2 fas fa-fw fa-shopping-bag"></i> <span class="align-middle">Pembelian</span>
+                                    </a>
+                                    <ul id="ui" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+                                            <li class="sidebar-item"><a class="sidebar-link" href="/NotaMinta">Senarai Nota Minta</a></li>
+                                            <li class="sidebar-item"><a class="sidebar-link" href="/NotaMinta/create">Cipta Nota Minta</a></li>
+                                            <li class="sidebar-item"><a class="sidebar-link" href="/PembelianSebutTender">Senarai SebutHarga/ Tender</a>
+                                            <li class="sidebar-item"><a class="sidebar-link" href="/PembelianSebutTender/create">Cipta SebutHarga/ Tender</a></li>
+                                            <li class="sidebar-item"><a class="sidebar-link" href="/NotaPenerimaan">Senarai Nota Penerimaan</a>
+                                            <li class="sidebar-item"><a class="sidebar-link" href="/NotaPenerimaan/create">Cipta Nota Penerimaan</a>
+                                        </li>
+                                    </ul>
+                                </li>
         
-                            <li class="sidebar-item">
-                                <a data-bs-target="#auth" data-bs-toggle="collapse" class="sidebar-link collapsed">
-                                    <i class="align-middle me-2 fas fa-fw fa-users"></i> <span class="align-middle">Pengguna</span>
-                                </a>
-                                <ul id="auth" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-                                    <li class="sidebar-item"><a class="sidebar-link" href="/Pengguna">Senarai Pengguna</a></li>
-                                    <li class="sidebar-item"><a class="sidebar-link" href="/Pengguna/create">Daftar Pengguna Baru</a></li>
-                                </ul>
-                            </li>
-        
-                            <li class="sidebar-item">
-                                <a data-bs-target="#pembekal" data-bs-toggle="collapse" class="sidebar-link collapsed">
-                                    <i class="align-middle me-2 fas fa-fw fa-briefcase"></i> <span class="align-middle">Pengurusan Pembekal</span>
-                                </a>
-                                <ul id="pembekal" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                                    <li class="sidebar-item"><a class="sidebar-link" href="/Pembekal">Kemaskini Profil</a></li>
-                              
-                                </ul>
-                            </li>
-        
-                            <li class="sidebar-item">
-                                <a data-bs-target="#kodbidang" data-bs-toggle="collapse" class="sidebar-link collapsed">
-                                    <i class="align-middle me-2 fas fa-fw fa-tag"></i> <span class="align-middle">Kod Bidang</span>
-                                </a>
-                                <ul id="kodbidang" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                                    <li class="sidebar-item"><a class="sidebar-link" href="/KodBidang">Senarai Kod Bidang</a></li>
-                                    <li class="sidebar-item"><a class="sidebar-link" href="/KodBidang/create">Cipta Kod Bidang Baru</a></li>
-                                </ul>
-                            </li>
-        
-                            <li class="sidebar-header">
-                                Permohonan
-                            </li>
-                            <li class="sidebar-item">
-                                <a data-bs-target="#ui" data-bs-toggle="collapse" class="sidebar-link collapsed">
-                                    <i class="align-middle me-2 fas fa-fw fa-shopping-bag"></i> <span class="align-middle">Pembelian</span>
-                                </a>
-                                <ul id="ui" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-                                        <li class="sidebar-item"><a class="sidebar-link" href="/NotaMinta">Senarai Nota Minta</a></li>
-                                        <li class="sidebar-item"><a class="sidebar-link" href="/NotaMinta/create">Cipta Nota Minta</a></li>
-                                        <li class="sidebar-item"><a class="sidebar-link" href="/PembelianSebutTender">Senarai SebutHarga/ Tender</a>
-                                        <li class="sidebar-item"><a class="sidebar-link" href="/PembelianSebutTender/create">Cipta SebutHarga/ Tender</a></li>
-                                        <li class="sidebar-item"><a class="sidebar-link" href="/NotaPenerimaan">Senarai Nota Penerimaan</a>
-                                        <li class="sidebar-item"><a class="sidebar-link" href="/NotaPenerimaan/create">Cipta Nota Penerimaan</a>
+                                    <li class="sidebar-item">
+                                        <a data-bs-target="#forms" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                                            <i class="align-middle me-2 fas fa-fw fa-check-square"></i> <span class="align-middle">Cadangan</span>
+                                        </a>
+                                        <ul id="forms" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+                                            <li class="sidebar-item"><a class="sidebar-link" href="/Cadangan/create">Membuat Cadangan</a></li>
+                                            <li class="sidebar-item"><a class="sidebar-link" href="/Cadangan">Senarai Cadangan</a></li>
+                                        </ul>
+                                    </li>
+                
+                                    <li class="sidebar-item">
+                                        <a data-bs-target="#datatables" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                                            <i class="align-middle me-2 fas fa-fw fa-table"></i> <span class="align-middle">Pemenuhan</span>
+                                        </a>
+                                        <ul id="datatables" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+                                            <li class="sidebar-item"><a class="sidebar-link" href="/JadualPemenuhan">Senarai Jadual Pemenuhan</a></li>
+                                            <li class="sidebar-item"><a class="sidebar-link" href="/JadualPemenuhan/create">Cipta Jadual Pemenuhan</a></li>
+                                        </ul>
+                                    </li>
+                
+                                    <li class="sidebar-item">
+                                        <a data-bs-target="#maps" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                                            <i class="align-middle me-2 fas fa-fw fa-book"></i> <span class="align-middle">Pengurusan Kontrak</span>
+                                        </a>
+                                        <ul id="maps" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+                                            <li class="sidebar-item"><a class="sidebar-link" href="/SuratSetujuTerima/create">Surat Setuju Terima</a></li>
+                                        </ul>
+                                    </li>
+                
+                                    <li class="sidebar-header">
+                                        Lain-lain
+                                    </li>
+                                    
+                                    <li class="sidebar-item">
+                                        <a class="sidebar-link" href="/KandunganPerjanjian/create">
+                                            <i class="align-middle me-2 fas fa-fw fa-list"></i> <span class="align-middle">Invois</span>
+                                        </a>
                                     </li>
                                 </ul>
-                            </li>
-                            <li class="sidebar-item">
-                                <a data-bs-target="#charts" data-bs-toggle="collapse" class="sidebar-link collapsed">
-                                    <i class="align-middle me-2 fas fa-fw fa-shopping-cart"></i> <span class="align-middle">Pengurusan Katalog</span>
-                                </a>
-                                <ul id="charts" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-                                    <li class="sidebar-item"><a class="sidebar-link" href="/Katalog">Kumpulan Katalog</a></li>
-                                    <li class="sidebar-item"><a class="sidebar-link" href="/Katalog/create">Daftar Kumpulan Katalog</a></li>
-                                    <li class="sidebar-item"><a class="sidebar-link" href="/ItemInfo/create">Daftar Item</a></li>
-                                    <li class="sidebar-item"><a class="sidebar-link" href="/ItemInfo">Senarai Item</a></li>
-                                </ul>
-                            </li>
-        
-                            <li class="sidebar-item">
-                                <a data-bs-target="#forms" data-bs-toggle="collapse" class="sidebar-link collapsed">
-                                    <i class="align-middle me-2 fas fa-fw fa-check-square"></i> <span class="align-middle">Cadangan</span>
-                                </a>
-                                <ul id="forms" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-                                    <li class="sidebar-item"><a class="sidebar-link" href="/Cadangan/create">Membuat Cadangan</a></li>
-                                    <li class="sidebar-item"><a class="sidebar-link" href="/Cadangan">Senarai Cadangan</a></li>
-                                </ul>
-                            </li>
-        
-                            <li class="sidebar-item">
-                                <a data-bs-target="#datatables" data-bs-toggle="collapse" class="sidebar-link collapsed">
-                                    <i class="align-middle me-2 fas fa-fw fa-table"></i> <span class="align-middle">Pemenuhan</span>
-                                </a>
-                                <ul id="datatables" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-                                    <li class="sidebar-item"><a class="sidebar-link" href="/JadualPemenuhan">Senarai Jadual Pemenuhan</a></li>
-                                    <li class="sidebar-item"><a class="sidebar-link" href="/JadualPemenuhan/create">Cipta Jadual Pemenuhan</a></li>
-                                </ul>
-                            </li>
+                            </div>
+                        </nav>
+
+                        @endif
+                        @else
+    
+                        <li class="sidebar-item">
+                            <a data-bs-target="#pembekal" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                                <i class="align-middle me-2 fas fa-fw fa-briefcase"></i> <span class="align-middle">Pengurusan Pembekal</span>
+                            </a>
+                            <ul id="pembekal" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                                <li class="sidebar-item"><a class="sidebar-link" href="/Pembekal/{{Auth::user()->pembekal_id}}">Kemaskini Profil</a></li>
+                            </ul>
+                        </li>
+
+    
+                        <li class="sidebar-header">
+                            Pembelian
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a data-bs-target="#ui" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                                <i class="align-middle me-2 fas fa-fw fa-shopping-bag"></i> <span class="align-middle">Pembelian</span>
+                            </a>
+                            <ul id="ui" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+                                    <li class="sidebar-item"><a class="sidebar-link" href="/NotaMinta">Senarai Nota Minta</a></li>
+                                    <li class="sidebar-item"><a class="sidebar-link" href="/NotaPenerimaan">Senarai Nota Penerimaan</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a data-bs-target="#charts" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                                <i class="align-middle me-2 fas fa-fw fa-shopping-cart"></i> <span class="align-middle">Pengurusan Katalog</span>
+                            </a>
+                            <ul id="charts" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+                                <li class="sidebar-item"><a class="sidebar-link" href="/Katalog">Kumpulan Katalog</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="/Katalog/create">Daftar Kumpulan Katalog</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="/ItemInfo/create">Daftar Item</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="/ItemInfo">Senarai Item</a></li>
+                            </ul>
+                        </li>
+
         
                             <li class="sidebar-item">
                                 <a data-bs-target="#maps" data-bs-toggle="collapse" class="sidebar-link collapsed">
@@ -189,24 +337,16 @@
                             <li class="sidebar-header">
                                 Lain-lain
                             </li>
+                            
                             <li class="sidebar-item">
-                                <a data-bs-target="#documentation" data-bs-toggle="collapse" class="sidebar-link collapsed">
-                                    <i class="align-middle me-2 fas fa-fw fa-check"></i> <span class="align-middle">FAQ</span>
-                                </a>
-                                <ul id="documentation" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-                                    <li class="sidebar-item"><a class="sidebar-link" href="/faq">Senarai Soalan Lazim</a></li>
-                                    <li class="sidebar-item"><a class="sidebar-link" href="faq/create">Cipta Soalan Lazim Baru</a></li>
-                                </ul>
-                            </li>
-                            <li class="sidebar-item">
-                                <a class="sidebar-link" href="/Invoice">
+                                <a class="sidebar-link" href="/KandunganPerjanjian/create">
                                     <i class="align-middle me-2 fas fa-fw fa-list"></i> <span class="align-middle">Invois</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </nav>
-
+            @endif
                 <div class="main">
                     <nav class="navbar navbar-expand navbar-theme">
                         <a class="sidebar-toggle d-flex me-2">

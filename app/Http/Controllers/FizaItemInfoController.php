@@ -65,7 +65,7 @@ class FizaItemInfoController extends Controller
         $fizaItemInfo->end_date=$request->end_date;
         $fizaItemInfo->katalog_id=$request->katalog_id;
         $fizaItemInfo->pembekal_id=Auth::user()->pembekal_id;
-        $fizaItemInfo->item_created_by=Auth::user()->user_name;
+        $fizaItemInfo->item_created_by=Auth::user()->id;
 
 
         $fizaItemInfo->save();

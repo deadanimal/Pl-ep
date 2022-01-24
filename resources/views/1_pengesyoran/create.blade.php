@@ -90,7 +90,10 @@
                 pst_id
                 spesifikasi_id --}}
 
-                <button type="submit" class="btn-primary">Hantar</button>
+                <div align="right"> 
+                    <button type="submit" class="btn btn-primary">Hantar</button>
+                </div> 
+                
             </form>
             </div>
         </div>

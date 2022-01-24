@@ -21,7 +21,7 @@ Senarai Item</a></li>
             </div>
             <div class="card-body">
             <div align="right"> 
-                    <button class="btn-success" onclick="window.location.href='/Katalog/create'">+Tambah</a></button>
+                    <button class="btn btn-success" onclick="window.location.href='/Katalog/create'">+Tambah</a></button>
                 </div>
                 <br>
             <table id="datatables-reponsive" class="table table-striped" style="width:100%">
