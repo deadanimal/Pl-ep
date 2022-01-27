@@ -40,7 +40,7 @@
                         @foreach ( $KodBidang as  $KodBidang)
                             <tr>
                                 <td>{{$KodBidang->kod_type}}</td>
-                                <td> {{$KodBidang->kod_category}}</td>
+                                <td>{{$KodBidang->kod_category}}</td>
                                 <td>{{$KodBidang->kod_pengkhususan}}</td>
                                 <td>{{$KodBidang->kod_description}}</td>            
                                 <td class="table-action">

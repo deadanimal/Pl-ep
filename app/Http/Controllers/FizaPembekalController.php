@@ -100,15 +100,26 @@ class FizaPembekalController extends Controller
         }
 
 
+        $fizaPembekal->save();
 
-  
-        // $fizaPembekal->save();
-        $admin = User::whereHas("roles", function ($admin) {
-        $admin->where('roles.id','1'); })->get();
+            $receiver = User::whereHas("roles", function ($admin) {
+                $admin->where('roles.id','1'); 
+            })->get();
 
-        Mail::to($admin->email)->send(new PendaftaranPembekal($fizaPembekal));
-        dd($admin);
+            foreach ($receiver as $receiver) 
+            Mail::to($receiver->email)->send(new PendaftaranPembekal($fizaPembekal));
+        
+            // dd($receiver->id);
 
+         //System Notification
+            // $notification_obj = (object)[];
+            // $notification_obj->noti_template='';
+            // $notification_obj->noti_subject="Pendaftaran Pembekal";
+            // $notification_obj->noti_status='Belum Dibaca';
+            // $notification_obj->noti_content=$fizaPembekal->pembekal_company_name . 'telah menghantar permohonan sebagai pembekal.Sila ke laman Pembekal untuk menyemak dan membuat pengesahan maklumat pembekal';
+            // $notification_obj->user_id=$receiver->id;
+            // app('App\Http\Controllers\FizaNotificationCenterController')->store($notification_obj);
+                    
         //dd($receiver);
     
         if (!is_null($request->pembekal_jenis_akaun)) {
@@ -127,7 +138,6 @@ class FizaPembekalController extends Controller
 
             }
         }
-    
     
     public function show($id)
     {
@@ -269,16 +279,19 @@ class FizaPembekalController extends Controller
 
         $fizaPembekal->save();
 
-        $administrator= User::whereHas("roles", function ($admin) {
-            $admin->where('roles.id', '1');
-        })->get();
-        Mail::to($administrator->email)->send(new PendaftaranPembekal);
+        // $receiver = User::whereHas("roles", function ($admin) {
+        //     $admin->where('roles.id','1'); 
+        // })->get();
+
+        // foreach ($receiver as $receiver) 
+        // Mail::to($receiver->email)->send(new PendaftaranPembekal($fizaPembekal));
+    
 
         
         // session(['id_pembekal' => '$fizaPembekal->id']);
         // Session::put('id_pembekal', '$fizaPembekal->id');
     
-        return redirect('/Pembekal')->with('success','Pendaftaran anda telah dihantar dan perlu menunggu kelulusan daripada pegawai kami');
+        return redirect('/Pembekal')->with('success','Pendaftaran anda telah dihantar dan perlu menunggu kelulusan daripada pegawai kami. Terima Kasih ');
 
     }
 
@@ -308,10 +321,10 @@ class FizaPembekalController extends Controller
         $pembekal->pembekal_sijil_gred=$pembekal_sijil_gred;
 
         $pembekal->save();
-        foreach ($user()->role as $role) {
-            $receiver = User::where($role_id[0]=='1')->get();
-            Mail::to($receiver->email)->send(new PendaftaranPembekal);
-        }
+        // foreach ($user()->role as $role) {
+        //     $receiver = User::where($role_id[0]=='1')->get();
+        //     Mail::to($receiver->email)->send(new PendaftaranPembekal);
+        // }
 
         return redirect('/Pembekal');
     }
@@ -352,12 +365,12 @@ class FizaPembekalController extends Controller
 
         $pembekal->save();
 
-        foreach ($user->role as $role) {
-            $receiver = User::where($role_id[0]=='1')->get();
-            Mail::to($receiver->email)->send(new PendaftaranPembekal);
-        }
+        // foreach ($user->role as $role) {
+        //     $receiver = User::where($role_id[0]=='1')->get();
+        //     Mail::to($receiver->email)->send(new PendaftaranPembekal);
+        // }
 
-        return redirect('/Pembekal');
+        return redirect('/')->with('success','Permohonan anda telah dihantar dan perlu menunggu kelulusan daripada pegawai kami.Terima Kasih');
     }
 
     

@@ -17,14 +17,27 @@ class FizaPelanPerancanganPerolehanController extends Controller
 {
 
     public function index()
-    {
-        $pelanPerancanganPerolehan = FizaPelanPerancanganPerolehan::where('pelan_created_by',Auth::user()->user_name)->get();
 
-        return view ('1_pelan_perancangan.index',[
-            'pelanPerancanganPerolehan'=>$pelanPerancanganPerolehan
+     {
+        $role=Auth::user()->roles;
+        //dd($role->id[0]);
 
+        if($role[0]->id=='1'){
+            $pelanPerancanganPerolehan = FizaPelanPerancanganPerolehan::all();
+            return view ('1_pelan_perancangan.index',[
+                'pelanPerancanganPerolehan'=>$pelanPerancanganPerolehan
+            ]);
     
-        ]);
+        }
+
+        else{
+
+            $pelanPerancanganPerolehan = FizaPelanPerancanganPerolehan::where('pelan_created_by',Auth::user()->user_name)->get();
+            return view ('1_pelan_perancangan.index',[
+                'pelanPerancanganPerolehan'=>$pelanPerancanganPerolehan
+            ]);
+        }
+       
     }
 
 
@@ -79,7 +92,7 @@ class FizaPelanPerancanganPerolehanController extends Controller
         if ($request->status_pelan=="hantar"){
             $fizaPelanPerancanganPerolehan->pelan_status="Menunggu Pengesahan";
 
-            Mail::to($receiver->email)->send(new PelanPerancangan);
+            Mail::to($receiver->email)->send(new PelanPerancangan($fizaPelanPerancanganPerolehan));
             //System Notification
             $notification_obj = (object)[];
             $notification_obj->noti_type ='';

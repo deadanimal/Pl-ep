@@ -37,7 +37,7 @@
             <script src="/js/settings.js"></script>
     
             <style>
-                table,input[type=text]{
+                table,input[type=text],select {
                     text-transform: capitalize;
             }
           

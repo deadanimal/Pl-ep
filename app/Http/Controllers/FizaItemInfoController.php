@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\Auth;
 
 class FizaItemInfoController extends Controller
 {
-
     public function index()
     {
         $role=Auth::user()->roles;
@@ -29,8 +28,7 @@ class FizaItemInfoController extends Controller
                 'ItemInfo'=>$ItemInfo,
                 'Katalog'=>$Katalog,
             ]);
-        }
-        else{
+        } else {
             $ItemInfo = FizaItemInfo::where('pembekal_id', Auth::user()->pembekal_id)->get();
             $Katalog=FizaKatalog::all();
     
@@ -48,9 +46,9 @@ class FizaItemInfoController extends Controller
     {
         $fizaItemInfo = FizaItemInfo::all();
         $fizaKatalog = FizaKatalog::all();
-        return view('1_item_info.create',[
+        return view('1_item_info.create', [
             'ItemInfo'=>$fizaItemInfo,
-            'Katalog'=>$fizaKatalog 
+            'Katalog'=>$fizaKatalog
         ]);
     }
 
@@ -61,7 +59,7 @@ class FizaItemInfoController extends Controller
         $fizaItemInfo->item_name=$request->item_name;
         $fizaItemInfo->item_price=$request->item_price;
         $fizaItemInfo->item_unit=$request->item_unit;
-        $fizaItemInfo->start_date=$request->item_start_date;
+        $fizaItemInfo->start_date=$request->start_date;
         $fizaItemInfo->end_date=$request->end_date;
         $fizaItemInfo->katalog_id=$request->katalog_id;
         $fizaItemInfo->pembekal_id=Auth::user()->pembekal_id;
@@ -70,15 +68,16 @@ class FizaItemInfoController extends Controller
 
         $fizaItemInfo->save();
 
-        // $user_id = $request->user()->id;
+
+        //Audit Log
         $item ="Item Info";
         $user_id= Auth::user()->id;
-        $description = $fizaItemInfo->item_created_by. "telah menambahkan info untuk item". $fizaItemInfo->item_name;
+        $description = Auth::user()->user_name . " telah menambahkan info untuk item " . $fizaItemInfo->item_name;
 
         $log_item = [$item, $description, $user_id];
 
         app('App\Http\Controllers\AuditLogController')->log($log_item);
-        return redirect('/ItemInfo')->with('success','Data telah berjaya disimpan'); 
+        return redirect('/ItemInfo')->with('success', 'Data telah berjaya disimpan');
     }
 
     public function show(FizaItemInfo $fizaItemInfo)
@@ -89,10 +88,10 @@ class FizaItemInfoController extends Controller
   
     public function edit($id)
     {
-         $fizaItemInfo = FizaItemInfo::find($id);
-         $katalog=FizaKatalog::where('id',$fizaItemInfo->katalog_id)->get();
-         $pembekal = FizaPembekal::where('id',$fizaItemInfo->pembekal_id)->get();
-        return view ('1_item_info.edit',[
+        $fizaItemInfo = FizaItemInfo::find($id);
+        $katalog=FizaKatalog::where('id', $fizaItemInfo->katalog_id)->get();
+        $pembekal = FizaPembekal::where('id', $fizaItemInfo->pembekal_id)->get();
+        return view('1_item_info.edit', [
             'fizaItemInfo'=>$fizaItemInfo,
             'katalog'=>$katalog,
             'pembekal'=>$pembekal
@@ -101,7 +100,6 @@ class FizaItemInfoController extends Controller
 
 
     public function update(Request $request, FizaItemInfo $fizaItemInfo, $id)
-
     {
         $fizaItemInfo = FizaItemInfo::find($id);
 
@@ -121,15 +119,12 @@ class FizaItemInfoController extends Controller
 
     public function destroy($id)
     {
-        
         $itemInfo = FizaItemInfo::where('id', $id)->first();
 
         $itemInfo->delete();
 
 
         return redirect('/ItemInfo');
-
-        
     }
 
     public function addcart(Request $request, FizaItemInfo $ItemInfo)
@@ -139,7 +134,6 @@ class FizaItemInfoController extends Controller
 
         
         if ($fizaKart) {
-    
         } else {
             $fizaKart = new FizaKart;
             $fizaKart->save();
@@ -156,10 +150,10 @@ class FizaItemInfoController extends Controller
         return redirect()->back();
     }
 
-    public function removecart(Request $request,ItemKart $itemKart)
+    public function removecart(Request $request, ItemKart $itemKart, $id)
     {
-        
-        $itemKart->delete();
+        $list_nama_barang = FizaKart::where('id', $id)->get();
+        $list_nama_barang->delete();
         return redirect()->back();
     }
 
@@ -168,11 +162,30 @@ class FizaItemInfoController extends Controller
         $fizaItemInfo = FizaItemInfo::all();
         $fizaKatalog=FizaKatalog::all();
         $pembekal = FizaPembekal::all();
-        return view ('1_item_info.katalog_belian',[
+        return view('1_item_info.katalog_belian', [
             'ItemInfo'=>$fizaItemInfo,
             'Katalog'=>$fizaKatalog,
             'pembekal'=>$pembekal
         ]);
     }
 
-}
+
+    public function listitem()
+    {
+            // $ItemInfo = FizaItemInfo::all();
+            // $Katalog=FizaKatalog::all();
+            // $pembekal=FizaPembekal::where('id',$ItemInfo->pembekal_id)->get();
+
+
+            $item = FizaPembekal::join('fiza_item_infos', 'fiza_pembekals.id','fiza_item_infos.pembekal_id' )
+            ->select('*')
+            ->get();
+            // dd($item);
+
+            return view('1_item_info.senaraikatalog', [
+                'item'=>$item,
+                
+    
+            ]);
+        }
+    }

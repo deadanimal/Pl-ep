@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
     {
         DB::table('users')->insert([
             'user_name' => 'Syafiza Senin',
-            'email' => 'abc@gmail.com',
+            'email' => 'syafiza.senin@pipeline.com.my',
             'user_identity_no'=>'9999',
             'jenis'=>'pekerja',
             'password' => Hash::make('password'),
@@ -30,7 +30,6 @@ class DatabaseSeeder extends Seeder
             'user_alamat'=>'No 91, Jalan Kenanga',
             'user_poskod'=>'839390',
             'user_negeri'=>'Melaka'
-
           
         ]);
 

@@ -76,7 +76,7 @@
 					<h4>Pendaftaran Pembekal Baru</h4>
 				</div>
 				<div class="col-md-6 col-lg-4 text-center">
-					<a class="mb-3 card overflow-hidden" href="/Katalog" target="_blank">
+					<a class="mb-3 card overflow-hidden" href="/SenaraiKatalog" target="_blank">
 						<div class="px-4 pt-4">
 							<img src="/catalogs.png" class="img-fluid card-img-hover" width="40%" height=40%/>
 						</div>

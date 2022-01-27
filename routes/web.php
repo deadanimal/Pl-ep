@@ -72,7 +72,6 @@ use App\Models\Roles;
 
 Route::get('/list-role',[RegisteredUserController::class,'list_role']);
 
-
 Route::get('/register-role', function(){
     $role= Roles::all();
     $user = User::all();
@@ -83,8 +82,6 @@ Route::get('/register-role', function(){
     ]);
 });
 Route::post('/daftar-role',[RegisteredUserController::class,'register_roles']);
-
-
 Route::get('/update-role/{id}', function(){
     $user = User::find($id);
     $user->roles();
@@ -110,7 +107,7 @@ Route::get('/cidb/{id}',[FizaPembekalController::class,'cidb']);
 Route::get('/listkatalog/{id}',[FizaKatalogController::class,'listkatalog']);
 
 Route::get('/ItemInfo/addcart/{ItemInfo}', [FizaItemInfoController::class, 'addcart']);
-Route::get('/ItemKart/removecart/{itemKart}', [FizaItemInfoController::class, 'removecart']);
+Route::post('/ItemKart/removecart/{id}', [FizaItemInfoController::class, 'removecart']);
 Route::resource('/ItemKart',ItemKartController::class);
 
 
@@ -177,6 +174,7 @@ Route::group(['middleware' => ['auth']],function(){
     Route::resource('/SenaraiSemakStandard',FizaSenaraiSemakStandardController::class);
     Route::resource('/SuratSetujuTerima',FizaSuratSetujuTerimaController::class);
     Route::resource('/Roles',RolesController::class);
+    Route::get('/Jawatankuasa/pst/{id}',[FizaJawatankuasaController::class,'create']);
    
 });
 
@@ -216,5 +214,6 @@ Route::post('/edit_password/{id}',[PenggunaController::class,'update_password'])
 Route::get('/kemaskini-maklumat/{id}', [PenggunaController::class,'edit_user']);
 Route::any('/kemaskini-pengguna/{id}', [PenggunaController::class,'update_user']);
 Route::get('/KatalogBelian/{id}',[FizaItemInfoController::class,'katalog_belian']);
+Route::get('/SenaraiKatalog',[FizaItemInfoController::class,'listitem']);
 
 Route::get('/ItemKart/{id}',[ItemKartController::class,'index']);

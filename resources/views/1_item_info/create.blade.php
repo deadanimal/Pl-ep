@@ -58,7 +58,7 @@ Daftar Item</a></li>
                                <label class="col-form-label col-sm-6"> Tarikh Mula</label>
                             </div>
                             <div class="mb-3 col-md-6">
-                                 <input type="date" class=form-control name= start_date>
+                                 <input type="date" class=form-control name="start_date">
                             </div>
                         </div>
 
@@ -67,7 +67,7 @@ Daftar Item</a></li>
                                <label class="col-form-label col-sm-6"> Tarikh Tamat</label>
                             </div>
                             <div class="mb-3 col-md-6"> 
-                                <input type="date" class=form-control name= end_date>
+                                <input type="date" class=form-control name="end_date">
                             </div>
                         </div>
 
@@ -84,8 +84,12 @@ Daftar Item</a></li>
                                 </select>
                             </div>
                         </div>
-             
+                        
+                <div align="right"> 
                     <button type="submit" class="btn btn-primary">Hantar</button>
+                </div>
+
+                    
                     </form>
             </div>
         </div>

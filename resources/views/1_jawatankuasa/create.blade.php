@@ -11,7 +11,7 @@
                 <div class="card-body">
                    <h3> Perlantikan Jawatankuasa </h3>
 
-                    <form method="POST" action="/Jawatankuasa/{{$pembelianSebutTender->id}}">
+                    <form method="POST" action="/Jawatankuasa">
                         @csrf
 {{-- 
                         <input type="hidden" name="pst_id" value="{{$pst->id}}" --}}

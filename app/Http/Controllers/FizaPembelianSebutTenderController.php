@@ -30,7 +30,11 @@ class FizaPembelianSebutTenderController extends Controller
         }
 
         else{
-        $PembelianSebutTender = FizaPembelianSebutTender::where('created_by',Auth::user()->user_name)->get();
+        $PembelianSebutTender = FizaPembelianSebutTender::where('created_by',Auth::user()->id)
+        ->orWhere('pst_pelulus',Auth::user()->id)
+        
+        ->orWhere('pst_penyelaras',Auth::user()->id)->get();
+
         return view('1_pst.index', [ 
             'PembelianSebutTender'=>$PembelianSebutTender   
         ]);
@@ -95,7 +99,7 @@ class FizaPembelianSebutTenderController extends Controller
         $fizaPembelianSebutTender->pst_penyelaras=$request->pst_penyelaras;
         $fizaPembelianSebutTender->pst_kehadiran_max=$request->pst_kehadiran_max;
         // $fizaPembelianSebutTender->pst_status=$request->pst_status;
-        $fizaPembelianSebutTender->created_by=Auth::user()->user_name;
+        $fizaPembelianSebutTender->created_by=Auth::user()->id;
 
         $fizaPembelianSebutTender->pst_jenis_potongan=$request->pst_jenis_potongan;
         $fizaPembelianSebutTender->pst_potongan_description=$request->pst_potongan_description;
@@ -103,23 +107,24 @@ class FizaPembelianSebutTenderController extends Controller
         
 
         $fizaPembelianSebutTender->save();
-
         // Session::put('pst_id',$fizaPembelianSebutTender->id);
 
-        
-
         $receiver = User::where('id',$request->pst_pelulus)->first();
-
+        
         if ($request->status_pst=="hantar"){
             $fizaPembelianSebutTender->pst_status="Menunggu Kelulusan";
             Mail::to($receiver->email)->send(new SebutHargaBaru);
-            return redirect('/Jawatankuasa/create');
+            return redirect('/Jawatankuasa/pst/'.$fizaPembelianSebutTender->id);
         }
         else if($request->status_pst=="draf"){
             $fizaPembelianSebutTender->pst_status="Draf";
             return redirect('/PembelianSebutTender');
             
         }
+
+       
+
+
 
         // dd($temp);
 
