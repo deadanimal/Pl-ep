@@ -275,6 +275,7 @@ class FizaPembekalController extends Controller
         $fizaPembekal->pembekal_pengkhususan=$request->pembekal_pengkhususan;
         $fizaPembekal->pembekal_pegawai_bertauliah=$request->pembekal_pegawai_bertauliah;
         $fizaPembekal->pembekal_tarikh_sah_gred=$request->pembekal_tarikh_sah_gred;
+        $pembekal->kod_id =$request->kod_id;
         // $fizaPembekal->id_kod=$request->id_kod[];
 
         $fizaPembekal->save();
@@ -319,6 +320,7 @@ class FizaPembekalController extends Controller
 
         $pembekal_sijil_gred=$request->file('pembekal_sijil_gred')->store('pembekal_sijil_gred');
         $pembekal->pembekal_sijil_gred=$pembekal_sijil_gred;
+        $pembekal->kod_id =$request->kod_id;
 
         $pembekal->save();
         // foreach ($user()->role as $role) {
@@ -361,6 +363,7 @@ class FizaPembekalController extends Controller
 
         $pembekal_sijil_taraf_bumi=$request->file('pembekal_sijil_taraf_bumi')->store('pembekal_sijil_taraf_bumi');
         $pembekal->pembekal_sijil_taraf_bumi=$pembekal_sijil_taraf_bumi;
+        $pembekal->kod_id =$request->kod_id;
 
 
         $pembekal->save();

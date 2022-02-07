@@ -143,6 +143,24 @@
                                     </div>
 
 
+                                    <div class="row">
+                                        <div class="mb-3 col-md-6">
+                                           <label class="col-form-label col-sm-6">Kod Bidang</label>
+                                        </div>
+                                        <div class="mb-3 col-md-6">
+                                            <select class="form-select" name="kod_id">
+                                                <option hidden value="">Sila Pilih</option>
+                                                @foreach ($kod as $kod)
+                                                    <optgroup label="{{$kod->kod_pengkhususan}}">
+                                                        <option value="{{$kod->id}}">{{$kod->kod_description}}</option>
+                                                    </optgroup>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+    
+
+
 
                             </fieldset>
 

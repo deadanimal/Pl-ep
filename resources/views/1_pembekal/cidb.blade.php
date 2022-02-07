@@ -40,7 +40,19 @@
                     text-transform: capitalize;
             }
             </style>
-    </head>
+
+        <script src="/js/settings.js"></script>
+        <!-- END SETTINGS -->
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120946860-7"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-120946860-7');
+        </script>
+            </head>
     <div class="wrapper">
     <main class="content">
         <div class="container-fluid">
@@ -133,6 +145,24 @@
                                         </div>
                                     </div>
 
+
+                                    <div class="row">
+                                        <div class="mb-3 col-md-6">
+                                           <label class="col-form-label col-sm-6">Kod Bidang</label>
+                                        </div>
+                                        <div class="mb-3 col-md-6">
+                                            <select class="form-select" name="kod_id">
+                                                <option hidden value="">Sila Pilih</option>
+                                                @foreach ($kod as $kod)
+                                                    <optgroup label="{{$kod->kod_pengkhususan}}">
+                                                        <option value="{{$kod->id}}">{{$kod->kod_description}}</option>
+                                                    </optgroup>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+    
+
                             </fieldset>
 
                             <div align="right"> 
@@ -145,7 +175,124 @@
                 </div>
             </div>
         </div>
+
+
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+            // Initialize Select2 select box
+            $("select[name=\"validation-select2\"]").select2({
+            allowClear: true,
+            placeholder: "Select gear...",
+            }).change(function() {
+            $(this).valid();
+            });
+            // Initialize Select2 multiselect box
+            $("select[name=\"kod_id\"]").select2({
+            placeholder: "Pilih Kod Bidang",
+            }).change(function() {
+            $(this).valid();
+            });
+            // Trigger validation on tagsinput change
+            $("input[name=\"validation-bs-tagsinput\"]").on("itemAdded itemRemoved", function() {
+            $(this).valid();
+            });
+            // Initialize validation
+            $("#validation-form").validate({
+            ignore: ".ignore, .select2-input",
+            focusInvalid: false,
+            rules: {
+            "validation-email": {
+            required: true,
+            email: true
+            },
+            "validation-password": {
+            required: true,
+            minlength: 6,
+            maxlength: 20
+            },
+            "validation-password-confirmation": {
+            required: true,
+            minlength: 6,
+            equalTo: "input[name=\"validation-password\"]"
+            },
+            "validation-required": {
+            required: true
+            },
+            "validation-url": {
+            required: true,
+            url: true
+            },
+            "validation-select": {
+            required: true
+            },
+            "validation-multiselect": {
+            required: true,
+            minlength: 2
+            },
+            "validation-select2": {
+            required: true
+            },
+            "kod_id": {
+            required: true,
+            minlength: 2
+            },
+            "validation-text": {
+            required: true
+            },
+            "validation-file": {
+            required: true
+            },
+            "validation-radios": {
+            required: true
+            },
+            "validation-checkbox": {
+            required: true
+            },
+            "validation-checkbox-group-1": {
+            require_from_group: [1, "input[name=\"validation-checkbox-group-1\"], input[name=\"validation-checkbox-group-2\"]"]
+            },
+            "validation-checkbox-group-2": {
+            require_from_group: [1, "input[name=\"validation-checkbox-group-1\"], input[name=\"validation-checkbox-group-2\"]"]
+            },
+            "validation-checkbox-group-1": {
+            require_from_group: [1, "input[name=\"validation-checkbox-group-1\"], input[name=\"validation-checkbox-group-2\"]"]
+            },
+            "validation-checkbox-group-2": {
+            require_from_group: [1, "input[name=\"validation-checkbox-group-1\"], input[name=\"validation-checkbox-group-2\"]"]
+            }
+            },
+            // Errors
+            errorPlacement: function errorPlacement(error, element) {
+            var $parent = $(element).parents(".error-placeholder");
+            // Do not duplicate errors
+            if ($parent.find(".jquery-validation-error").length) {
+            return;
+            }
+            $parent.append(
+            error.addClass("jquery-validation-error small form-text invalid-feedback")
+            );
+            },
+            highlight: function(element) {
+            var $el = $(element);
+            var $parent = $el.parents(".error-placeholder");
+            $el.addClass("is-invalid");
+            // Select2 and Tagsinput
+            if ($el.hasClass("select2-hidden-accessible") || $el.attr("data-role") === "tagsinput") {
+            $el.parent().addClass("is-invalid");
+            }
+            },
+            unhighlight: function(element) {
+            $(element).parents(".error-placeholder").find(".is-invalid").removeClass("is-invalid");
+            }
+            });
+            });
+            </script>
+        
+        
     </main>
+
+
     
 
 

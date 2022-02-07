@@ -200,7 +200,7 @@
                                             </a>
                                             <ul id="documentation" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
                                                 <li class="sidebar-item"><a class="sidebar-link" href="/faq">Senarai Soalan Lazim</a></li>
-                                                <li class="sidebar-item"><a class="sidebar-link" href="faq/create">Cipta Soalan Lazim Baru</a></li>
+                                                <li class="sidebar-item"><a class="sidebar-link" href="/faq/create">Cipta Soalan Lazim Baru</a></li>
                                             </ul>
                                         </li>
                                         <li class="sidebar-item">

@@ -201,11 +201,12 @@ DataTables</a></li>
                                        <label class="col-form-label col-sm-6">Kod Bidang</label>
                                     </div>
                                     <div class="mb-3 col-md-6">
-                                        <select class="form-control" name="kod_id" multiple style="width: 100%">
+                                        <select class="form-select" name="kod_id">
+                                            <option hidden value="">Sila Pilih</option>
                                             @foreach ($kod as $kod)
-                                                {{-- <optgroup label={{$kod->kod_type}}> --}}
+                                                <optgroup label="{{$kod->kod_pengkhususan}}">
                                                     <option value="{{$kod->id}}">{{$kod->kod_description}}</option>
-                                                {{-- </optgroup> --}}
+                                                </optgroup>
                                             @endforeach
                                         </select>
                                     </div>
@@ -217,7 +218,9 @@ DataTables</a></li>
                             <br><br>
                             {{-- <button type="submit" class="btn btn-primary" style="margin:5px; float:">Hantar</button>  
                     <button type="reset"  class="btn btn-primary"  style="margin:5px; float:right">Hapus</button> --}}
+                    <div align="right"> 
                             <button class="btn btn-primary" type="submit" title="Send">Hantar</button>
+                    </div>
                         </form>
 
 
@@ -232,7 +235,7 @@ DataTables</a></li>
         });
         // Initialize Select2 multiselect box
         $("select[name=\"kod_id\"]").select2({
-            placeholder: "Select gear...",
+            placeholder: "Sila Pilih",
         }).change(function() {
             $(this).valid();
         });
