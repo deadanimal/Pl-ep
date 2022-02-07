@@ -143,7 +143,7 @@
                                     </div>
 
 
-                                    <div class="row">
+                                    {{-- <div class="row">
                                         <div class="mb-3 col-md-6">
                                            <label class="col-form-label col-sm-6">Kod Bidang</label>
                                         </div>
@@ -157,7 +157,7 @@
                                                 @endforeach
                                             </select>
                                         </div>
-                                    </div>
+                                    </div> --}}
     
 
 
