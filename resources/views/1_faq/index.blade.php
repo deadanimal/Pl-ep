@@ -42,9 +42,14 @@ Senarai Soalan Lazim</a></li>
                                 <td>{{$faq->faq_question}}</td>
                                 <td>{{$faq->faq_status}}</td>
                                 <td class="table-action">
+                                    <form method="POST" action="/faq/{{$faq->id}}">
+                                        @method('DELETE')
+                                        @csrf
+                                    <button class="btn" type="submit"><i class="align-middle fas fa-fw fa-trash"></i></button>
                                     <a href="/faq/{{$faq->id}}/edit"><i class="align-middle fas fa-fw fa-pen"></i></a>
-                                    <a href="#"><i class="align-middle fas fa-fw fa-trash"></i></a>
+                              
                                 </td>
+                               
                          
                             </tr>
                             @endforeach

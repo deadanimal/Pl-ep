@@ -72,8 +72,11 @@ class FizaFaqController extends Controller
         return redirect('/faq');
     }
 
-    public function destroy(FizaFaq $fizaFaq)
+    public function destroy($id)
     {
-        //
+        $faq = FizaFaq::where('id', $id)->first();
+        $faq->delete();
+
+        return redirect('/faq')->with('success','Data telah berjaya dipadam!');
     }
 }
