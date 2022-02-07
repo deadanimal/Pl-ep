@@ -1,69 +1,40 @@
-<h3> Jawatankuasa </h3>
-
-<form method="POST" action="/Jawatankuasa/{{$Jawatankuasa->id}}">
-    @csrf
-    @method('PUT')
-{{-- jawatankuasa_id --}}
-    <br> Jenis Jawatankuasa <select class="form-select" name="jenis_jawatankuasa">
-
-    <option @if ($Jawatankuasa->jenis_jawatankuasa == 'Jawatankuasa Spesifikasi') selected @endif value='Jawatankuasa Spesifikasi'>Jawatankuasa Spesifikasi</option>
-    <option @if ($Jawatankuasa->jenis_jawatankuasa == 'Jawatankuasa Teknikal') selected @endif value='Jawatankuasa Teknikal'>Jawatankuasa Teknikal</option>
-    <option @if ($Jawatankuasa->jenis_jawatankuasa == 'Jawatankuasa Kewangan') selected @endif value='Jawatankuasa Kewangan'>Jawatankuasa Kewangan</option>
-    <option @if ($Jawatankuasa->jenis_jawatankuasa == 'Jawatankuasa Kerja') selected @endif value='Jawatankuasa Kerja'>Jawatankuasa Kerja</option>
-    <option @if ($Jawatankuasa->jenis_jawatankuasa == 'Jawatankuasa Pembuka') selected @endif value='Jawatankuasa Pembuka'>Jawatankuasa Pembuka</option>
-    </select>
-{{-- user_id --}}
-    <br>Peranan Jawatankuasa <input type="text" class="form-control" name="jawatankuasa_peranan"  value="{{$Jawatankuasa->jawatankuasa_peranan}}">
-{{-- pst_id --}}
-{{-- jawatankuasa_created_by
-jawatankuasa_created_date
-jawatankuasa_updated_by
-jawatankuasa_updated_date --}}
-
-    <br><button type="submit">Hantar</button>
-</form>
-
-
 @extends('layouts.base')
 
 @section('content')
-    
 
-
+<div class="header">
+    <h1 class="header-title">
+    Jawatankuasa Sebutharga/Tender
+    </h1>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">
+ Kemaskini Pemilihan Jawatankuasa</a></li>
+        </ol>
+    </nav>
+</div>
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <div class="card-body">
-                   <h3> Perlantikan Jawatankuasa </h3>
+                <h5 class="card-title mb-0"></h5>
+            </div>
+            <div class="card-body">
 
-                    <form method="POST" action="/Jawatankuasa">
+                    <form method="POST" action="/Jawatankuasa/{{$Jawatankuasa->id}}">
                         @csrf
-                        
-                    {{-- jawatankuasa_id --}}
-                        {{-- <br> Jenis Jawatankuasa <select class="form-select" name="jenis_jawatankuasa">
-                        <option hidden value="">Sila Pilih</option>
-                        <option value="Jawatankuasa Spesifikasi">Jawatankuasa Spesifikasi</option>
-                        <option value="Jawatankuasa Teknikal">Jawatankuasa Teknikal </option>
-                        <option value="Jawatankuasa Kewangan">Jawatankuasa Kewangan </option>
-                        <option value="Jawatankuasa Kerja">Jawatankuasa Kerja </option>
-                        <option value="Jawatankuasa Terbuka">Jawatankuasa Terbuka </option>
-                            </select>
-                            <br> --}}
+                        @method('PUT')
 
+                        <input type="hidden" class="form-control" name="pst_id" value="{{$Jawatankuasa->pst_id}}">
 
-                        
                         <div class="row">
                             <div class="mb-3 col-md-6">
                                <label class="col-form-label col-sm-6">Jawatankuasa Spesifikasi </label>
                              </div>
                              <div class="mb-3 col-md-6">
-                                    <select name="jawatankuasa_spesifikasi" class="form-select">
-                                    <option hidden value="">Sila Pilih</option>
-                                    @foreach ($user as $user6)
-                                <option value="{{$user6->id}}">{{$user6->user_name}}</option>
-                                @endforeach
-                                </select>
+                                 @foreach ($spesifikasi as $spesifikasi)
+                                <input type="text" class="form-control" name="jawatankuasa_spesikasi" value="{{$spesifikasi->user_name}}">
+                                 @endforeach
                              </div>
                         </div>
 
@@ -73,12 +44,9 @@ jawatankuasa_updated_date --}}
                                <label class="col-form-label col-sm-6"><br> Jawatankuasa Teknikal </label>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <select name="jawatankuasa_teknikal" class="form-select">
-                                     <option hidden value="">Sila Pilih</option>
-                                @foreach ($user as $user1)
-                                    <option value={{$user1->id}}>{{$user1->user_name}}</option>
+                                @foreach ($teknikal as $teknikal)
+                                <input type="text" class="form-control" name="jawatankuasa_teknikal" value="{{$teknikal->user_name}}">
                                 @endforeach
-                                </select>
                             </div>
                         </div>
 
@@ -88,12 +56,11 @@ jawatankuasa_updated_date --}}
                                <label class="col-form-label col-sm-6">Jawatankuasa Kewangan </label>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <select name="jawatankuasa_kewangan" class="form-select">
-                                    <option hidden value="">Sila Pilih</option>
-                                    @foreach ($user as $user2)
-                                        <option value={{$user2->id}}>{{$user2->user_name}}</option>
-                                    @endforeach
-                                </select>
+                                @foreach ($kewangan as $kewangan)
+                                <input type="text" class="form-control" name="jawatankuasa_kewangan" value="{{$kewangan->user_name}}">
+                                @endforeach
+                                {{-- <button onclick="tambah_nama()">+</button> 
+                                <input type="text" class="form-control" name="jawatankuasa_kewangan_2 " id="jawatankuasa_kewangan_2" class="form-control" style="display: none"> --}} 
                             </div>
                         </div>
 
@@ -103,12 +70,9 @@ jawatankuasa_updated_date --}}
                                <label class="col-form-label col-sm-6">Jawatankuasa Kerja</label>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <select name="jawatankuasa_kerja" class="form-select">
-                                    <option hidden value="">Sila Pilih</option>
-                                        @foreach ($user as $user3)
-                                    <option value={{$user3->id}}>{{$user3->user_name}}</option>
-                                        @endforeach
-                                </select>
+                                @foreach ($kerja as $kerja)
+                                <input type="text" class="form-control" name="jawatankuasa_kerja" value="{{$kerja->user_name}}">
+                                @endforeach
                             </div>
                         </div>
 
@@ -118,12 +82,9 @@ jawatankuasa_updated_date --}}
                                <label class="col-form-label col-sm-6">Jawatankuasa Terbuka </label>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <select name="jawatankuasa_terbuka" class="form-select">
-                                    <option hidden value="">Sila Pilih</option>
-                                    @foreach ($user as $user4)
-                                    <option value={{$user4->id}}>{{$user4->user_name}}</option>
-                                    @endforeach   
-                                </select>
+                                @foreach ($terbuka as $terbuka)
+                                <input type="text" class="form-control" name="jawatankuasa_terbuka" value="{{$terbuka->user_name}}">
+                                @endforeach
                             </div>
                         </div>
                         
@@ -133,26 +94,38 @@ jawatankuasa_updated_date --}}
                                <label class="col-form-label col-sm-6">Jawatankuasa Penilaian</label>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <select name="jawatankuasa_penilaian" class="form-select">
-                                    <option hidden value="">Sila Pilih</option>
-                                    @foreach ($user as $user2)
-                                    <option value={{$user2->id}}>{{$user2->user_name}}</option>
-                                    @endforeach
-                                </select>
+                                @foreach ($penilaian as $penilaian)
+                                <input type="text" class="form-control" name="jawatankuasa_penilaian" value="{{$penilaian->user_name}}">
+                                @endforeach
                             </div>
+                        </div> 
+   
+                        <div align="right"> 
+                            <button class="btn btn-primary" type="submit">Hantar</a></button>
                         </div>
-                    {{-- user_id --}}
-                        {{-- <br>Peranan Jawatankuasa <input type="text" class="form-control" name="jawatankuasa_peranan"> --}}
-                    {{-- pst_id --}}
-                    {{-- jawatankuasa_created_by
-                    jawatankuasa_created_date
-                    jawatankuasa_updated_by
-                    jawatankuasa_updated_date --}}
-
-                        <br><button type="submit" class="btn btn-primary">Hantar</button>
+                        <br>
+        
                     </form>
                 </div>
             </div>
         </div></div>
 </div>
+
+
+
+            <script>
+                function tambah_nama(){
+                    // var tambah_nama = document.getElementById('jawatankuasa_kewangan_2');
+                        if(document.getElementById('tambah_nama').clicked == true)
+                        {
+                            document.getElementById(jawatankuasa_kewangan_2).style.display.block();
+                        }
+                        else {
+                        document.getElementById(jawatankuasa_kewangan_2).style.display.none();
+                        }
+                }
+                }
+                
+             </script>
+
 @stop

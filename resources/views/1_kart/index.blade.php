@@ -35,16 +35,16 @@ Bakul Item</a></li>
                                 @foreach ($list_nama_barang as $list_nama_barang)
                                 <tr>
                                 <td>{{$list_nama_barang->item_name}}</td>
-                               <td>
+                               {{-- <td>
                                    <form method="POST" action="/ItemKart/{{$list_nama_barang->id}}">
                                     @method('DELETE')
                                     @csrf
                                     <button class="btn" type="submit"><i class="align-middle fas fa-fw fa-trash"></i></button>
-                           
+                              
                                 </form>
-                               </td>
+                               </td> --}}
             
-                                {{-- <td> <a href="/ItemKart/removecart/{{$list_nama_barang->id}}">Remove Cart</a></td> --}}
+                                <td> <a href="/ItemKart/removecart/{{$list_nama_barang->id}}"><i class="align-middle fas fa-fw fa-trash"></i></a></td>
                                 </tr>
                                 @endforeach
                                 @endif

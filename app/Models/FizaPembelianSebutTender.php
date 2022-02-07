@@ -22,6 +22,5 @@ class FizaPembelianSebutTender extends Model
 
     public function penyediaanSpesifikasi()
     {
-        return $this->hasOne(FizaPenyediaanSpesifikasi::class);
-    }
+        return $this->hasOne(FizaPenyediaanSpesifikasi::class); }
 }

@@ -1,22 +1,62 @@
 @extends('layouts.base')
 
 @section('content')
-    
-
-
+<div class="header">
+    <h1 class="header-title">
+    Jawatankuasa Sebutharga/Tender
+    </h1>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">
+ Pemilihan Jawatankuasa</a></li>
+        </ol>
+    </nav>
+</div>
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <div class="card-body">
-                   <h3> Perlantikan Jawatankuasa </h3>
-
+                <h5 class="card-title mb-0"></h5>
+            </div>
+            <div class="card-body">
                     <form method="POST" action="/Jawatankuasa">
                         @csrf
-{{-- 
-                        <input type="hidden" name="pst_id" value="{{$pst->id}}" --}}
+                 
+                    <input type="hidden" name="pst_id" value="{{$pst->id}}">
 
-                        <div class="row">
+
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                           <label class="col-form-label col-sm-6">Jawatankuasa Spesifikasi</label>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <select name="jawatankuasa_spesifikasi" class="form-select">
+                                <option hidden value="">Sila Pilih</option>
+                                
+                                    @foreach ($user as $jawatankuasa_spesifikasi)
+                                <option value={{$jawatankuasa_spesifikasi->id}}>{{$jawatankuasa_spesifikasi->user_name}}</option>
+                                    @endforeach
+                            </select>
+                        </div>
+                    </div>
+                
+
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                           <label class="col-form-label col-sm-6">Jawatankuasa Teknikal</label>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <select name="jawatankuasa_teknikal" class="form-select">
+                                <option hidden value="">Sila Pilih</option>
+                                
+                                    @foreach ($user as $jawatankuasa_teknikal)
+                                <option value={{$jawatankuasa_teknikal->id}}>{{$jawatankuasa_teknikal->user_name}}</option>
+                                    @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                        {{-- <div class="row">
                             <div class="mb-3 col-md-6">
                                <label class="col-form-label col-sm-6">Jawatankuasa Spesifikasi </label>
                              </div>
@@ -28,22 +68,38 @@
                                 @endforeach
                                 </select>
                              </div>
+                        </div> --}}
+
+                        <div class="row">
+                            <div class="mb-3 col-md-6">
+                               <label class="col-form-label col-sm-6">Jawatankuasa Kerja</label>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <select name="jawatankuasa_kerja" class="form-select">
+                                    <option hidden value="">Sila Pilih</option>
+                                    
+                                        @foreach ($user as $jawatankuasa_kerja)
+                                    <option value={{$jawatankuasa_kerja->id}}>{{$jawatankuasa_kerja->user_name}}</option>
+                                        @endforeach
+                                </select>
+                            </div>
                         </div>
 
-                            
+{{--                             
                         <div class="row">
                             <div class="mb-3 col-md-6">
                                <label class="col-form-label col-sm-6"><br> Jawatankuasa Teknikal </label>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <select name="jawatankuasa_teknikal" class="form-select">
-                                     <option hidden value="">Sila Pilih</option>
+                                    <option hidden value="">Sila Pilih</option>
+                                
                                 @foreach ($user as $jawatankuasa_teknikal)
                                     <option value={{$jawatankuasa_teknikal->id}}>{{$jawatankuasa_teknikal->user_name}}</option>
                                 @endforeach
                                 </select>
                             </div>
-                        </div>
+                        </div> --}}
 
                     
                         <div class="row">
@@ -53,9 +109,9 @@
                             <div class="mb-3 col-md-6">
                                 <select name="jawatankuasa_kewangan" class="form-select">
                                     <option hidden value="">Sila Pilih</option>
+                                    
                                     @foreach ($user as $jawatankuasa_kewangan)
                                         <option value={{$jawatankuasa_kewangan->id}}>{{$jawatankuasa_kewangan->user_name}}</option>
-
                                     @endforeach
                                 </select>
                                 {{-- <button onclick="tambah_nama()">+</button> --}}
@@ -71,6 +127,7 @@
                             <div class="mb-3 col-md-6">
                                 <select name="jawatankuasa_kerja" class="form-select">
                                     <option hidden value="">Sila Pilih</option>
+                                    
                                         @foreach ($user as $jawatankuasa_kerja)
                                     <option value={{$jawatankuasa_kerja->id}}>{{$jawatankuasa_kerja->user_name}}</option>
                                         @endforeach
@@ -86,6 +143,7 @@
                             <div class="mb-3 col-md-6">
                                 <select name="jawatankuasa_terbuka" class="form-select">
                                     <option hidden value="">Sila Pilih</option>
+                                    
                                     @foreach ($user as $jawatankuasa_terbuka)
                                     <option value={{$jawatankuasa_terbuka->id}}>{{$jawatankuasa_terbuka->user_name}}</option>
                                     @endforeach   
@@ -101,6 +159,7 @@
                             <div class="mb-3 col-md-6">
                                 <select name="jawatankuasa_penilaian" class="form-select">
                                     <option hidden value="">Sila Pilih</option>
+                                    
                                     @foreach ($user as $jawatankuasa_penilaian)
                                     <option value={{$jawatankuasa_penilaian->id}}>{{$jawatankuasa_penilaian->user_name}}</option>
                                     @endforeach
@@ -123,12 +182,10 @@
                         <br>
         
                     </form>
-                </div>
             </div>
-        </div></div>
+        </div>
+    </div>
 </div>
-
-
 
             <script>
                 function tambah_nama(){

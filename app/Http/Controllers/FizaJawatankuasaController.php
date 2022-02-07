@@ -22,23 +22,24 @@ class FizaJawatankuasaController extends Controller
     }
 
 
-    public function create()
+    public function create($id)
     {
-        // $pst = FizaPembelianSebutTender::where('id','pst_id')->first();
-
+        $pst = FizaPembelianSebutTender::find($id);
         $user= User::where('jenis','pekerja')->where('user_status','aktif')->get();
         $penyelaras= User::where('jenis','pekerja')
         ->where('user_status','aktif')->get();
 
         // $fizaPembelianSebutTender= FizaPembelianSebutTender::find($id);
         return view ('1_jawatankuasa.create',[
-        'user'=>$user,
-        'penyelaras'=>$penyelaras
+            'pst'=>$pst,
+            'user'=>$user,
+            'penyelaras'=>$penyelaras
         ]);
     }
 
     public function store(Request $request)
     {
+        // $pst = FizaPembelianSebutTender::find($id);
         $fizaJawatankuasa = new FizaJawatankuasa;
 
         $fizaJawatankuasa->jawatankuasa_spesifikasi=$request->jawatankuasa_spesifikasi;
@@ -47,41 +48,41 @@ class FizaJawatankuasaController extends Controller
         $fizaJawatankuasa->jawatankuasa_kerja=$request->jawatankuasa_kerja;
         $fizaJawatankuasa->jawatankuasa_terbuka=$request->jawatankuasa_terbuka;
         $fizaJawatankuasa->jawatankuasa_penilaian=$request->jawatankuasa_penilaian;
+        $fizaJawatankuasa->pst_id=$request->pst_id;
+        $fizaJawatankuasa->jawatankuasa_created_by=Auth::user()->id;
+
         // $fizaJawatankuasa->jenis_jawatankuasa=$request->jenis_jawatankuasa;
         // $fizaJawatankuasa->user_id=$request->user_id;
         // $fizaJawatankuasa->jawatankuasa_peranan=$request->jawatankuasa_peranan;
-        // $fizaJawatankuasa->pst_id=$request->pst_id;
-        // $fizaJawatankuasa->jawatankuasa_created_by=Auth::user()->user_name;
-
-        // $temp = Session::put('pst_id');
-        // $fizaJawatankuasa->pst_id=$temp;
 
 
-        $receiver_spesifikasi= User::where('id',$request->jawatankuasa_spesifikasi)->first();
-          
-        $temp=Session::get('pst_id');
-        $fizaJawatankuasa->pst_id=$temp; 
 
-        $fizaJawatankuasa->save();
-
-
-        // Mail::to($receiver->email)->send(new SebutHargaBaru);
-        Mail::to($receiver_spesifikasi->email)->send(new PerlantikanJawatankuasaSpesifikasi);
-
-
-        //System Notification
-        // $notification_obj = (object)[];
-        // $notification_obj->noti_type="Anda telah dilantik";
-        // $notification_obj->noti_template="Sebagai Jawatankuasa Spesifikasi";
-        // $notification_obj->noti_subject="Untuk Sebutharga";
-        // $notification_obj->noti_content="$fizaJawatankuasa->created_at";
-        // $notification_obj->noti_status='Menunggu Pengesahan';
-                        
-        // app('App\Http\Controllers\FizaNotificationCenterController')->store($notification_obj);
     
+        $fizaJawatankuasa->save();
+        // Mail::to($receiver->email)->send(new SebutHargaBaru);
+        // Mail::to($receiver_spesifikasi->email)->send(new PerlantikanJawatankuasaSpesifikasi);
 
 
-        return redirect('/PembelianSebutTender');
+            //System Notification
+            // $notification_obj = (object)[];
+            // $notification_obj->noti_type="";
+            // $notification_obj->noti_template="";
+            // $notification_obj->noti_subject="Anda telah dilantik sebagai Jawatankuasa Spesifikasi";
+            // $notification_obj->noti_status="";
+            // $notification_obj->noti_content="untuk sebutharga";
+            // $notification_obj->user_id=User::where('id',$request->jawatankuasa_spesifikasi)->first();
+    
+            //  app('App\Http\Controllers\FizaNotificationCenterController')->store($notification_obj);
+        
+          
+            // //audit log
+            // $item="Sebutharga Tender";
+            // $user_id= Auth::user()->id;
+            // $description = "$pst->created_by telah menghantar sebutharga untuk $pst->pst_item_panel";
+            // $log_item = [$item, $description, $user_id];
+            // app('App\Http\Controllers\AuditLogController')->log($log_item);
+
+        return redirect('/PembelianSebutTender')->with('success','Data telah berjaya dihantar');
         
     }
 
@@ -93,20 +94,42 @@ class FizaJawatankuasaController extends Controller
 
     public function edit( $id)
     {
-        $fizaJawatankuasa= fizaJawatankuasa::find($id);
-        $user=User::where('jenis','pekerja')->
-        where('user_status','aktif')->get();
+        
+        $pst = FizaPembelianSebutTender::find($id);
+        $Jawatankuasa= FizaJawatankuasa::where('pst_id', $pst->id)->get()->first();
+
+        $spesifikasi=User::where('id',$Jawatankuasa->jawatankuasa_spesifikasi)->get();
+
+        $teknikal=User::where('id',$Jawatankuasa->jawatankuasa_teknikal)->get();
+
+        $kewangan=User::where('id',$Jawatankuasa->jawatankuasa_kewangan)->get();
+
+        $kerja=User::where('id',$Jawatankuasa->jawatankuasa_kerja)->get();
+
+        $terbuka=User::where('id',$Jawatankuasa->jawatankuasa_terbuka)->get();
+
+        $penilaian=User::where('id',$Jawatankuasa->jawatankuasa_penilaian)->get();
+
 
         return view ('1_jawatankuasa.edit',[
-            'Jawatankuasa'=>$fizaJawatankuasa,
-            'user'=>$user
+            'Jawatankuasa'=>$Jawatankuasa,
+            'pst'=>$pst,
+            'spesifikasi'=>$spesifikasi,
+            'kerja'=>$kerja,
+            'teknikal'=>$teknikal,
+            'kewangan'=>$kewangan,
+            'terbuka'=>$terbuka,
+            'penilaian'=>$penilaian
         ]);
+
+    
     }
 
 
-    public function update($id, Request $request)
+    public function update(Request $request)
     {
-        $fizaJawatankuasa= fizaJawatankuasa::find($id);
+        // dd($request->jawatankuasa_spesifikasi);
+        // $fizaJawatankuasa= fizaJawatankuasa::find($id);
         // $fizaJawatankuasa->jenis_jawatankuasa=$request->jenis_jawatankuasa;
         $fizaJawatankuasa->jawatankuasa_spesifikasi=$request->jawatankuasa_spesifikasi;
         $fizaJawatankuasa->jawatankuasa_teknikal=$request->jawatankuasa_teknikal;
@@ -118,11 +141,13 @@ class FizaJawatankuasaController extends Controller
         // $fizaJawatankuasa->user_id=$request->user_id;
         // $fizaJawatankuasa->jawatankuasa_peranan=$request->jawatankuasa_peranan;
         $fizaJawatankuasa->pst_id=$request->pst_id;
-        $fizaJawatankuasa->jawatankuasa_updated_by=Auth::user()->user_name;
+        $fizaJawatankuasa->jawatankuasa_updated_by=Auth::user()->id;
 
         $fizaJawatankuasa->save();
 
-        Mail::to($receiver->email)->send(new SebutHargaBaru);
+        $receiver_spesifikasi= User::where('id',$request->jawatankuasa_spesifikasi)->first();
+        Mail::to($receiver_spesifikasi->email)->send(new PerlantikanJawatankuasaSpesifikasi);
+
 
 
         // //audit log
@@ -132,7 +157,7 @@ class FizaJawatankuasaController extends Controller
         // $log_item = [$item, $description, $user_id];
         // app('App\Http\Controllers\AuditLogController')->log($log_item);
 
-        return redirect('/Jawatankuasa');
+        return redirect('/PembelianSebutTender');
     }
 
 

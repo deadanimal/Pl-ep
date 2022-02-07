@@ -121,7 +121,11 @@ Kemaskini Maklumat Pengguna</a></li>
             <div class="mb-3 col-md-6">
                 @foreach ($user->roles as $user_role)
                         <ul>
-                            <li>{{$user_role->role_name}} </li>
+                            <li>{{$user_role->role_name}}<form method="POST" action="/Pengguna/{{$user->role_id}}">
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit" class="btn"><i class="align-middle fas fa-fw fa-trash-2"></i></button>
+                            </li>
                         </ul>
                 @endforeach
             </div>

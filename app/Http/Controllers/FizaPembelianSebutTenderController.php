@@ -106,26 +106,31 @@ class FizaPembelianSebutTenderController extends Controller
         $fizaPembelianSebutTender->pst_amaun_potongan=$request->pst_amaun_potongan;
         
 
-        $fizaPembelianSebutTender->save();
+        // dd($fizaPembelianSebutTender);
+
         // Session::put('pst_id',$fizaPembelianSebutTender->id);
 
         $receiver = User::where('id',$request->pst_pelulus)->first();
         
         if ($request->status_pst=="hantar"){
-            $fizaPembelianSebutTender->pst_status="Menunggu Kelulusan";
+            $fizaPembelianSebutTender->pst_status="menunggu kelulusan";
             Mail::to($receiver->email)->send(new SebutHargaBaru);
+            $fizaPembelianSebutTender->save();
             return redirect('/Jawatankuasa/pst/'.$fizaPembelianSebutTender->id);
+           
         }
         else if($request->status_pst=="draf"){
-            $fizaPembelianSebutTender->pst_status="Draf";
-            return redirect('/PembelianSebutTender');
+            $fizaPembelianSebutTender->pst_status="draf";
+            $fizaPembelianSebutTender->save();
+            return redirect('/PembelianSebutTender')->with('success', 'Data telah berjaya disimpan sebagai draf!');
+           
+
             
         }
 
-       
 
-
-
+    
+    
         // dd($temp);
 
         //System Notification
@@ -167,12 +172,14 @@ class FizaPembelianSebutTenderController extends Controller
         // dd($user);
         $penyelaras= User::where('jenis','pekerja')
         ->where('user_status','aktif')->get();
+        $jawatankuasa = FizaJawatankuasa::where('pst_id',$fizaPembelianSebutTender->id)->get();
 
         return view('1_pst.edit', [
             'PembelianSebutTender'=>$fizaPembelianSebutTender,
             'katalog'=>$katalog,
             'user'=>$user,
-            'penyelaras'=>$penyelaras
+            'penyelaras'=>$penyelaras,
+            'jawatankuasa'=>$jawatankuasa
         ]);
     }
 
@@ -180,7 +187,8 @@ class FizaPembelianSebutTenderController extends Controller
     public function update($id, Request $request)
     {
         $fizaPembelianSebutTender = FizaPembelianSebutTender::find($id);
-        
+    
+
         $fizaPembelianSebutTender->pst_item_panel=$request->pst_item_panel;
         $fizaPembelianSebutTender->pst_sistem_panel=$request->pst_sistem_panel;
         $fizaPembelianSebutTender->pst_no1pp=$request->pst_no1pp;
@@ -213,8 +221,8 @@ class FizaPembelianSebutTenderController extends Controller
         $fizaPembelianSebutTender->pst_link=$request->pst_link;
         $fizaPembelianSebutTender->pst_penyelaras=$request->pst_penyelaras;
         $fizaPembelianSebutTender->pst_kehadiran_max=$request->pst_kehadiran_max;
-        $fizaPembelianSebutTender->pst_status=$request->pst_status;
-        $fizaPembelianSebutTender->updated_by=$request->updated_by;
+        // $fizaPembelianSebutTender->pst_status="Menunggu Pengesahan";
+        $fizaPembelianSebutTender->updated_by=Auth::user()->id;
 
         $fizaPembelianSebutTender->pst_jenis_potongan=$request->pst_jenis_potongan;
         $fizaPembelianSebutTender->pst_potongan_description=$request->pst_potongan_description;
@@ -225,8 +233,7 @@ class FizaPembelianSebutTenderController extends Controller
 
         // $temp=session()->get($fizaPembelianSebutTender->id);
 
-        return redirect('/PembelianSebutTender');
-
+        return redirect('/Jawatankuasa/'.$fizaPembelianSebutTender->id.'/edit');
     }
 
    
@@ -239,19 +246,19 @@ class FizaPembelianSebutTenderController extends Controller
         return redirect('/PembelianSebutTender');
     }
 
-    public function verify_signature(Request $request)
-    {
-        $PembelianSebutTender= FizaPembelianSebutTender::where('id', $request->id)->first();
-        $pst_pelulus = $request->pst_pelulus;
-        $ic_diletakkan = $request->ic_diletakkan;
+    // public function verify_signature(Request $request)
+    // {
+    //     $PembelianSebutTender= FizaPembelianSebutTender::where('id', $request->id)->first();
+    //     $pst_pelulus = $request->pst_pelulus;
+    //     $ic_diletakkan = $request->ic_diletakkan;
 
-        if($pst_pelulus->ic == $ic_diletakkan) {
-            $permohonan->status = 'Diluluskan';
+    //     if($pst_pelulus->ic == $ic_diletakkan) {
+    //         $permohonan->status = 'Diluluskan';
 
-            $permohonan->save();
-            return view('lulus');
-        } else {
-            return view('gagal');
-        }
-    }
+    //         $permohonan->save();
+    //         return view('lulus');
+    //     } else {
+    //         return view('gagal');
+    //     }
+    // }
 }

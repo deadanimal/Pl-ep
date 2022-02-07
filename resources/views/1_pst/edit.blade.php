@@ -55,9 +55,11 @@ Kemaskini Sebutharga / Tender</a></li>
                            <label class="col-form-label col-sm-6">Kumpulan Katalog</label>
                         </div>
                         <div class="mb-3 col-md-6">
-                            @foreach ($katalog as $katalog)
-                            <input type="text" class="form-control" name="pst_katalog_kumpulan" value="{{$katalog->katalog_kumpulan}}">
-                            @endforeach
+                            <select class="form-select" name="pst_katalog_kumpulan">
+                                @foreach ($katalog as $katalog)
+                                    <option @if ($PembelianSebutTender->pst_katalog_kumpulan == $katalog->id) selected @endif value={{$katalog->id}}>{{$katalog->katalog_kumpulan}}</option>    
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     
@@ -195,7 +197,7 @@ Kemaskini Sebutharga / Tender</a></li>
                            <label class="col-form-label col-sm-6">Nama Pelulus</label>
                         </div>
                         <div class="mb-3 col-md-6">
-                            {{-- <input type="text" class="form-control" name="pst_pelulus" value="{{$PembelianSebutTender->pst_pelulus}}"> --}}
+                            {{-- <input type="text" class="form-control" name="pst_katalog_kumpulan" value="{{$PembelianSebutTender->pst_pelulus}}"> --}}
                             <select  class="form-control" name="pst_pelulus">
                                 @foreach ($user as $user)
                                 <option @if ($PembelianSebutTender->pst_pelulus == $user->id) selected @endif value={{$user->id}}>{{$user->user_name}}</option>    
@@ -277,7 +279,7 @@ Kemaskini Sebutharga / Tender</a></li>
                         </div>
                     </div>
 
-                    <div class="row">
+                    {{-- <div class="row">
                         <div class="mb-3 col-md-6">
                            <label class="col-form-label col-sm-6">Status </label>
                         </div>
@@ -288,7 +290,7 @@ Kemaskini Sebutharga / Tender</a></li>
                                 <option @if ($PembelianSebutTender->pst_status == 'Tidak Diluluskan') selected @endif value="Tidak Diluluskan">Tidak Diluluskan</option>
                             </select>
                         </div>
-                    </div>
+                    </div> --}}
                 {{-- pst_created_by
                 pst_created_date
                 pst_updated_by
@@ -321,9 +323,15 @@ Kemaskini Sebutharga / Tender</a></li>
                         </div>
                     </div>
 
-                    <br><button type="submit" class="btn btn-primary" style="float: right" onclick()>Hantar</button>
-                    
+                    <br>
+                    {{-- <div align=right>
+                        <button type="submit" name="status_pst" value="diluluskan" class="btn btn-primary"><i class="fas fa-check"></i> Diluluskan</button> 
+                        <button type="submit" name="status_pst" value="ditolak" class="btn btn-danger"><i class="fas fa-times"></i> Ditolak</button>
+                    </div> --}}
+                    <button type="submit" class="btn btn-primary">Hantar</button>
                 </form>
+                {{-- <a href="/Jawatankuasa/{{$jawatankuasa->id}}/edit" class="btn btn-primary">Seterusnya</a> --}}
+                
             </div>
         </div>
     </div>

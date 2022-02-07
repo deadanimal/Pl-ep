@@ -36,11 +36,17 @@ Profil Saya</a></li>
                    <label class="col-form-label col-sm-6">Jenis Pengguna </label>
                 </div>
                 <div class="mb-3 col-md-8">
-                    <select name="jenis" class="form-select">
+                    {{$user->jenis}}
+                    @if ($user->jenis=='pekerja')
+                        
+                    @else
+                        
+                    @endif
+                    {{-- <select name="jenis" class="form-select">
                         <option @if ($user->jenis == 'pekerja') selected @endif value="pekerja">Staff Perbadanan Labuan</option>
                         <option @if ($user->jenis == 'pembekal') selected @endif value="Pembekal">Pembekal</option>
                         <option @if ($user->jenis == 'juruaudit') selected @endif value="juruaudit">Juruaudit</option>
-                    </select>
+                    </select> --}}
 
                 </div>
             </div>

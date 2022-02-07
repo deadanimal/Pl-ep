@@ -196,7 +196,7 @@ class PenggunaController extends Controller
     public function padam_peranan(Request $request)
     {
         $user = User::find($id);
-        $user->roles()->detach($roles_id); //detach satu
+        $user->roles()->detach($id); //detach satu
         
         return redirect()->back();
     }

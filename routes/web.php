@@ -107,7 +107,7 @@ Route::get('/cidb/{id}',[FizaPembekalController::class,'cidb']);
 Route::get('/listkatalog/{id}',[FizaKatalogController::class,'listkatalog']);
 
 Route::get('/ItemInfo/addcart/{ItemInfo}', [FizaItemInfoController::class, 'addcart']);
-Route::post('/ItemKart/removecart/{id}', [FizaItemInfoController::class, 'removecart']);
+Route::get ('/ItemKart/removecart/{id}', [FizaItemInfoController::class, 'removecart']);
 Route::resource('/ItemKart',ItemKartController::class);
 
 
@@ -175,6 +175,7 @@ Route::group(['middleware' => ['auth']],function(){
     Route::resource('/SuratSetujuTerima',FizaSuratSetujuTerimaController::class);
     Route::resource('/Roles',RolesController::class);
     Route::get('/Jawatankuasa/pst/{id}',[FizaJawatankuasaController::class,'create']);
+    Route::get('/Jawatankuasa/{id}/edit',[FizaJawatankuasaController::class,'edit']);
    
 });
 

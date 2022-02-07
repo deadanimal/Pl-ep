@@ -60,7 +60,6 @@ Cipta Sebutharga / Tender</a></li>
                                     <option hidden value="">Sila Pilih </option>
                                     @foreach ($katalog as $katalog)
                                     <option value="{{$katalog->id}}">{{$katalog->katalog_kumpulan}}</option>
-                                        
                                     @endforeach
                                 </select>
                             </div>
@@ -285,10 +284,13 @@ Cipta Sebutharga / Tender</a></li>
                          <input type="text" class="form-control" name="pst_status">
                     </div>
                 </div>
+
                 {{-- pst_created_by
                 pst_created_date
                 pst_updated_by
                 pst_updated_date --}}
+
+                
                 <div class="row">
                     <div class="mb-3 col-md-6">
                        <label class="col-form-label col-sm-6">Jenis Pemotongan</label>
@@ -317,9 +319,10 @@ Cipta Sebutharga / Tender</a></li>
                     </div>
                 </div>
 
-                <br>    
-                <button type="submit" class="btn btn-success" name="status_pst" value="draf">Draf</button>
-                <button type="submit" class="btn btn-primary"name="status_pst" value="hantar">Hantar</button>
+                <div align=right>
+                    <button class="btn btn-success" type="submit" name="status_pst" value="draf"> Simpan Sebagai Draf</button> 
+                    <button  class="btn btn-primary" type="submit" name="status_pst" value="hantar">Hantar</button> 
+                </div>
                     
             </form>
             </div>

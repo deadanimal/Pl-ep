@@ -230,8 +230,8 @@
                    user_id--}}
                    <br><br>
                   <div style=float-right>
-                   <button class="btn btn-primary" type="submit" name="status_pelan" value="draf"> Draf</button> 
-                   <button  class="btn btn-success" type="submit" name="status_pelan" value="hantar">Hantar Pelan</button> 
+                   <button class="btn btn-success" type="submit" name="status_pelan" value="draf"> Draf</button> 
+                   <button  class="btn btn-primary" type="submit" name="status_pelan" value="hantar">Hantar Pelan</button> 
                   </div>
                 </form>
             </div>

@@ -42,8 +42,10 @@ Senarai Sebutharga / Tender</a></li>
                             <td> {{$PembelianSebutTender->pst_tajuk}}</td> 
                             <td> {{$PembelianSebutTender->pst_zon_lokasi}}</td>
                             <td> {{date('d-m-Y H:i', strtotime($PembelianSebutTender->created_at))}}</td>
-                            <td> @if ($PembelianSebutTender->pst_status === 'Menunggu Pengesahan')                             
+                            <td> @if ($PembelianSebutTender->pst_status==='menunggu kelulusan')                             
                                      <span class="badge rounded-pill bg-primary">Belum Selesai</span>
+                                @elseif ($PembelianSebutTender->pst_status === 'draf')                             
+                                     <span class="badge rounded-pill bg-secondary">Draf</span>
                                 @elseif ($PembelianSebutTender->pst_status === 'Ditolak')                             
                                     <span class="badge rounded-pill bg-danger">Ditolak</span>
                                  @else
@@ -52,18 +54,18 @@ Senarai Sebutharga / Tender</a></li>
                                 @endif
                             </td>
                             <td class="table-action">
-                                @if ($PembelianSebutTender->pst_status === 'Menunggu Pengesahan')
+                                {{-- @if ($PembelianSebutTender->pst_status === 'menunggu kelulusan')
                                     @if (Auth::user()->id!=$PembelianSebutTender->pst_pelulus)
                                         <button class="btn" type="submit" disabled><i class="align-middle fas fa-fw fa-trash"></i></button>
                                         <a href="#"><i class="align-middle fas fa-fw fa-pen"></i></a>
-                                    @else
+                                    @else --}}
                                         <form method="POST" action="/PembelianSebutTender/{{$PembelianSebutTender->id}}">
                                             @method('DELETE')
                                             @csrf
                                         <button class="btn" type="submit"><i class="align-middle fas fa-fw fa-trash"></i></button>
                                         <a href="/PembelianSebutTender/{{$PembelianSebutTender->id}}/edit"><i class="align-middle fas fa-fw fa-pen"></i></a>
                                         </form>
-                                    @endif
+                                    {{-- @endif
                                 @else
                                     <form method="POST" action="/PembelianSebutTender/{{$PembelianSebutTender->id}}">
                                         @method('DELETE')
@@ -71,7 +73,7 @@ Senarai Sebutharga / Tender</a></li>
                                     <button class="btn" type="submit" disabled><i class="align-middle fas fa-fw fa-trash"></i></button>
                                     <a href="/PembelianSebutTender/{{$PembelianSebutTender->id}}/edit"><i class="align-middle fas fa-fw fa-pen"></i></a>
                                     </form>
-                                @endif
+                                @endif --}}
                                
                             </td>
                         </tr>
