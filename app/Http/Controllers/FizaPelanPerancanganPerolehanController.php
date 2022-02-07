@@ -103,6 +103,15 @@ class FizaPelanPerancanganPerolehanController extends Controller
             $notification_obj->user_id = $receiver->id;
 
             app('App\Http\Controllers\FizaNotificationCenterController')->store($notification_obj);
+
+            //audit log;
+            $item ="Pelan Perancangan Perolehan";
+            $user_id=Auth::user()->id;
+            $description =$fizaPelanPerancanganPerolehan->pelan_created_by.' Telah Menghantar '. $item ;
+            $log_item = [$item, $description, $user_id];
+
+            app('App\Http\Controllers\AuditLogController')->log($log_item);
+
         }
         else if($request->status_pelan=="draf"){
             $fizaPelanPerancanganPerolehan->pelan_status="Draf";
@@ -113,16 +122,9 @@ class FizaPelanPerancanganPerolehanController extends Controller
         $fizaPelanPerancanganPerolehan->pelan_no_siri='PL/PerancanganPerolehan/'.date('Y').'/'.$fizaPelanPerancanganPerolehan->id;
         $fizaPelanPerancanganPerolehan->save();
 
-         //audit log;
-         $item ="Pelan Perancangan Perolehan";
-         $user_id=Auth::user()->id;
-         $description =$fizaPelanPerancanganPerolehan->pelan_created_by. 'Telah Menghantar'. $item ;
-         $log_item = [$item, $description, $user_id];
-
-         app('App\Http\Controllers\AuditLogController')->log($log_item);
 
    
-        return redirect('/PelanPerancanganPerolehan')->with('success', 'Pelan Perancangan Telah Disimpan');
+        return redirect('/PelanPerancanganPerolehan')->with('success', 'Data telah berjaya disimpan!');
 
     }
     

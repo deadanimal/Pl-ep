@@ -39,7 +39,7 @@ Cipta Soalan Lazim</a></li>
                                <label class="col-form-label col-sm-6"> Soalan </label>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <input type=text class=form-control name=faq_question>
+                                <textarea class=form-control name=faq_question rows="4" cols="3"></textarea>
                             </div>
                         </div>
 

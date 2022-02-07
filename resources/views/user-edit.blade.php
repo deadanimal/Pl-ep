@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <div class="header">
     <h1 class="header-title">
 Pengguna
@@ -146,9 +147,13 @@ Kemaskini Maklumat Pengguna</a></li>
             </div>
         </div>  
 
-        <br> 
-        <a href="/Pengguna" >Kembali</button>
+        <br>
+        <div align="right">
+        <a href="/Pengguna" class="btn btn-success" >Kembali</a>
+        
         <button type=submit class="btn btn-primary">Kemaskini</button>
+        </div>
+      
         
         </form>
         

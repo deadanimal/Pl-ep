@@ -2,7 +2,6 @@
 @section('content')
 
 <style>
-    
     table{
             text-align: center;
         
@@ -47,7 +46,7 @@ Senarai Pembekal Berdaftar</a></li>
                                 <td>{{  $pembekal->pembekal_pemilik }}</td>
                                 <td> @if ($pembekal->pembekal_status === 'Menunggu Pengesahan')                             
                                                     <span class="badge rounded-pill bg-primary">Belum Selesai</span>
-                                    @elseif ($pembekal->pembekal_status === 'Ditolak')                             
+                                    @elseif ($pembekal->pembekal_status === 'ditolak')                             
                                                     <span class="badge rounded-pill bg-danger">Ditolak</span>
                                             @else
                                                     <span class="badge rounded-pill bg-success">Diluluskan</span>

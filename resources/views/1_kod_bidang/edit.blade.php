@@ -59,8 +59,9 @@ Kemaskini Kod Bidang</a></li>
                            <input type=text name=kod_description class="form-control" value="{{$fizaKodBidang->kod_description}}" >
                         </div>
                     </div>
-
-                   <button  class="btn btn-success" type="submit" >Hantar</button> 
+                    <div align="right"> 
+                        <button  class="btn btn-primary" type="submit" >Hantar</button> 
+                    </div>
 
                 </form>
             </div> 

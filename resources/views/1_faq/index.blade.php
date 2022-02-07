@@ -19,12 +19,11 @@ Senarai Soalan Lazim</a></li>
             <div class="card-header">
                 <h5 class="card-title mb-0"></h5>
             </div>
-            <div align="right "> 
-                <button class="btn btn-success" onclick="window.location.href='/faq/create'">+Tambah</button>
-            </div>
             <div class="card-body">
-
-        
+                <div align="right"> 
+                    <button class="btn btn-success" onclick="window.location.href='/faq/create'">+Tambah</button>
+                </div>
+                <br>
                 <table id="datatables-reponsive" class="table table-striped">
                         <thead>
                             <tr>

@@ -41,7 +41,7 @@ Kemaskini Soalan Lazim</a></li>
                                <label class="col-form-label col-sm-6"> Soalan </label>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <input type=text class=form-control name=faq_question  value="{{$Faq->faq_question}}">
+                                <textarea class=form-control name=faq_question rows="4" cols="3">{{$Faq->faq_question}}</textarea>
                             </div>
                         </div>
 
@@ -59,7 +59,7 @@ Kemaskini Soalan Lazim</a></li>
                                <label class="col-form-label col-sm-6"> Status </label>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <select  class=form-control name="faq_status">
+                                <select  class=form-select name="faq_status">
                                     <option @if ($Faq->status == 'aktif') selected @endif value="aktif">Aktif</option>
                                     <option @if ($Faq->status == 'tidak aktif') selected @endif value=" tidak aktif">Tidak Aktif</option>
                                 </select>
@@ -69,7 +69,6 @@ Kemaskini Soalan Lazim</a></li>
                         <div align="right"> 
                             <button type="submit" class="btn btn-primary">Hantar</button>
                         </div> 
-                        
 
 
                     </form>
@@ -77,4 +76,5 @@ Kemaskini Soalan Lazim</a></li>
         </div>
     </div>
 </div>
+
 @stop

@@ -26,7 +26,7 @@ class Kernel extends ConsoleKernel
     {
         $schedule->call(function () {
         // $schedule->command('inspire')->hourly();
-        app('App\Http\Controllers\Auth\NewPasswordController')->password_reset_scheduler();
+        app('App\Http\Controllers\PenggunaController')->kemaskini_password();
 
             })->daily();
   

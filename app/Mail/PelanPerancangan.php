@@ -24,4 +24,6 @@ class PelanPerancangan extends Mailable
     {
         return $this->view('email.pelanperancangan');
     }
+
+
 }

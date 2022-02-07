@@ -40,7 +40,7 @@ class FizaFaqController extends Controller
 
         $fizaFaq->save();
 
-        return redirect ('/faq');
+        return redirect ('/faq')->with('success','Data telah berjaya disimpan!');
     }
 
     public function show(FizaFaq $fizaFaq)
@@ -69,7 +69,7 @@ class FizaFaqController extends Controller
         // $fizaFaq->user_id =$request->user_id ;
 
         $fizaFaq->save();
-        return redirect('/faq');
+        return redirect('/faq')->with('success','Data telah berjaya dikemaskini!');
     }
 
     public function destroy($id)

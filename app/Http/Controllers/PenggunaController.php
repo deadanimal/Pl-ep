@@ -187,17 +187,32 @@ class PenggunaController extends Controller
        
         if ($user->password!=$new_password) {
             $user->save();
-            return redirect('/Pengguna')->with('success', 'Katalaluan berjaya dikemaskini');
+            return redirect('/logout')->with('success', 'Katalaluan berjaya dikemaskini');
         } else {
             return redirect()->back()->with('warning', 'Katalaluan yang dimasukkan adalah sama dengan kata laluan semasa');
         }
     }
 
-    public function padam_peranan(Request $request)
+    public function padam_peranan(Request $request, $id)
     {
         $user = User::find($id);
-        $user->roles()->detach($id); //detach satu
+        $user->roles()->detach($roles_id); //detach satu
         
         return redirect()->back();
+    }
+
+    public function kemaskini_password() 
+    {
+        // Check password where not updated  >90 days
+
+        $user= User::where([
+            ['user_status', '=', 'aktif'],
+            ['updated_at', '>', date("Y-m-d H:i:s") - 2]
+        ]);
+
+      
+        foreach ($user as $user) {
+            Mail::to($user()->email)->send(new KemaskiniKatalaluan());
+        }
     }
 }

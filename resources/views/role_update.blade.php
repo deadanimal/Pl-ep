@@ -199,6 +199,7 @@
                             <form method="POST" action="/edit_password/{{ $user->id }}">
                                 {{-- @method('POST') --}}
                                 @csrf
+                                @method('PUT')
                                 {{-- <div class="mb-3">
                                     <label for="inputPasswordCurrent">Kata Laluan Semasa</label>
                                     <input type="password" class="form-control" name="password">
