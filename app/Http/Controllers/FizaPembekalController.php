@@ -291,7 +291,7 @@ class FizaPembekalController extends Controller
         // session(['id_pembekal' => '$fizaPembekal->id']);
         // Session::put('id_pembekal', '$fizaPembekal->id');
     
-        return redirect('/Pembekal')->with('success','Pendaftaran anda telah dihantar dan perlu menunggu kelulusan daripada pegawai kami. Terima Kasih ');
+        return redirect('/')->with('success','Pendaftaran anda telah dihantar dan perlu menunggu kelulusan daripada pegawai kami. Terima Kasih ');
 
     }
 
@@ -326,7 +326,7 @@ class FizaPembekalController extends Controller
         //     Mail::to($receiver->email)->send(new PendaftaranPembekal);
         // }
 
-        return redirect('/Pembekal');
+        return redirect('/')->with('success','Pendaftaran anda telah dihantar dan perlu menunggu kelulusan daripada pegawai kami. Terima Kasih ');
     }
         
 
