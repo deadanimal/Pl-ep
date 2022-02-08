@@ -52,7 +52,7 @@ Maklumat Syarikat</a></li>
                 
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label class="col-form-label col-sm-4 text-sm-end ">No Pendaftaran Syarikat</label>
+                                    <label class="col-form-label col-sm-4 text-sm-end ">No Pendaftaran SSM</label>
                                 </div>
                                 <div class="mb-3 col-md-6">
                                    <label> {{$pembekal->pembekal_no_pendaftaran}}</label>
@@ -61,10 +61,10 @@ Maklumat Syarikat</a></li>
                             
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label class="col-form-label col-sm-4 text-sm-end ">Sijil SSM </label>
+                                    <label class="col-form-label col-sm-4 text-sm-end ">Salinan Sijil SSM </label>
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                   <label> <a href="/storage/{{$pembekal->pembekal_sijil_ssm}}" target="_blank" download>Sijil SSM</a></label>
+                                   <label> <a href="/storage/{{$pembekal->pembekal_sijil_ssm}}" target="_blank" download>Salinan Sijil SSM</a></label>
                                 </div>
                             </div>
                 
@@ -117,10 +117,10 @@ Maklumat Syarikat</a></li>
                             <h4 class="tab-title">Maklumat MOF</h4>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label class="col-form-label col-sm-4 text-sm-end ">Sijil MOF</label>
+                                    <label class="col-form-label col-sm-4 text-sm-end ">Salinan Sijil MOF</label>
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                   <label> <a href="/storage/{{$pembekal->pembekal_sijil_mof}}" target="_blank" download>Sijil MOF</a></label>
+                                   <label> <a href="/storage/{{$pembekal->pembekal_sijil_mof}}" target="_blank" download>Salinan Sijil MOF</a></label>
                                 </div>
                             </div>
 
@@ -142,15 +142,8 @@ Maklumat Syarikat</a></li>
                                 </div>
                             </div>
 
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label class="col-form-label col-sm-4 text-sm-end ">Sijil Taraf Bumiputera</label>
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label> <a href="/storage/{{$pembekal->pembekal_sijil_taraf_bumi}}" target="_blank" download>Sijil Taraf Bumiputera</a></label>
-                                </div>
-                            </div>
-                        </div>
+                           
+                        
                         <div class="tab-pane" id="tab-3" role="tabpanel">
                             <h4 class="tab-title">Maklumat CIDB</h4>
 
@@ -165,10 +158,10 @@ Maklumat Syarikat</a></li>
 
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label class="col-form-label col-sm-4 text-sm-end ">Tarikh Sah PPK</label>
+                                    <label class="col-form-label col-sm-4 text-sm-end ">Tarikh Sah Laku Sijil PPK</label>
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label>{{$pembekal->pembekal_sijil_taraf_bumi}}</label>
+                                    <label>{{$pembekal->pembekal_tarikh_sah_ppk}}</label>
                                 </div>
                             </div>
 

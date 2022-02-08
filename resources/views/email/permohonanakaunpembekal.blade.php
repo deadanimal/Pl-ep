@@ -16,6 +16,6 @@ Permohonan Pendaftaran Pembekal yang dihantar pada {{date('d-m-Y H:i', strtotime
 <h3> Maklumat Syarikat</h3>
 
 <br>Nama Syarikat: {{$pembekal->pembekal_company_name}}
-<br>No Pendaftaran Syarikat: {{$pembekal->pembekal_no_pendaftaran}}
+<br>No Pendaftaran SSM: {{$pembekal->pembekal_no_pendaftaran}}
 <br>Nama Pemilik: {{$pembekal->pembekal_pemilik}}
 

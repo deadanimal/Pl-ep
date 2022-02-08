@@ -75,7 +75,7 @@
 
           
                 <div class="mb-3 row">
-                       <label class= "col-form-label col-sm-3 ">No Pendaftaran Syarikat</label>
+                       <label class= "col-form-label col-sm-3 ">No Pendaftaran SSM</label>
                     <div class="mb-2 col-sm-7">
                         <input type=text name=pembekal_no_pendaftaran class="form-control" value="{{$pembekal->pembekal_no_pendaftaran}}">
                     </div>
@@ -83,7 +83,7 @@
 
                 
                 <div class="mb-3 row">
-                    <label class= "col-form-label col-sm-3">Sijil SSM</label>
+                    <label class= "col-form-label col-sm-3">Salinan Sijil SSM</label>
                     <div class= "mb-2 col-sm-7">
                         <a href="/storage/{{$pembekal->pembekal_sijil_ssm}}" target="_blank" download>Muat Turun Fail</a>
                     </div>

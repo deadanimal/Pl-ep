@@ -73,10 +73,10 @@
                                 <div class="mb-2 col-sm-7">
                                     <div class="form-check">
                                         <input type="checkbox" name="pembekal_jenis_akaun[]" value="Bekalan & Perkhidmatan(MOF)" class="form-check-input">
-                                        Bekalan dan Perkhidmatan (MOF)
+                                        Perbendaharaan Malaysia Sabah (MOF)
                                     </div>
                                     <div class="form-check">
-                                        <input type="checkbox" name="pembekal_jenis_akaun[]" value="Kerja" class="form-check-input" >CIDB
+                                        <input type="checkbox" name="pembekal_jenis_akaun[]" value="Kerja" class="form-check-input" >Kerja – PPK, SPKK (CIDB), STB (MEDEC)
                                     </div>
                                 </div>
                             </div>
@@ -107,26 +107,20 @@
                         </div>
 
                         <div class="mb-3 row">
-                                <label class= "col-form-label col-sm-3 text-sm-end">No Pendaftaran Syarikat<span class="text-danger">*</span></label>
+                                <label class= "col-form-label col-sm-3 text-sm-end">No Pendaftaran SSM<span class="text-danger">*</span></label>
                             <div class="mb-2 col-sm-7">
                                 <input type="text"   name=pembekal_no_pendaftaran class="form-control">
                             </div>
                         </div>
 
                         <div class="mb-3 row">
-                                <label class= "col-form-label col-sm-3 text-sm-end">Sijil SSM<span class="text-danger">*</span></label>
+                                <label class= "col-form-label col-sm-3 text-sm-end">Salinan Sijil SSM<span class="text-danger">*</span></label>
                                 <div class="mb-2 col-sm-7">
                                     <input type="file"  name=pembekal_sijil_ssm class="form-control">
                                 </div>
                         </div>
 
-                        
-                        <div class="mb-3 row">
-                                <label class= "col-form-label col-sm-3 text-sm-end">Lesen Perniagaan<span class="text-danger">*</span></label>
-                            <div class="mb-2 col-sm-7"> 
-                                <input type="file"  name=pembekal_lesen_perniagaan class="form-control">
-                            </div>
-                        </div>
+
 
                         <div class="mb-3 row">
                                 <label class= "col-form-label col-sm-3 text-sm-end">Tarikh Penubuhan<span class="text-danger">*</span></label>
@@ -137,7 +131,7 @@
 
                         
                         <div class="mb-3 row">
-                                <label class= "col-form-label col-sm-3 text-sm-end">No Cukai Pendapatan<span class="text-danger">*</span></label>
+                                <label class= "col-form-label col-sm-3 text-sm-end">No Cukai Pendapatan</label>
                                 <div class="mb-2 col-sm-7"> 
                                     <input type="text"  name=pembekal_income_tax_no class="form-control">
                                 </div>
@@ -267,7 +261,7 @@
 
                 
                 <div class="mb-3 row">
-                        <label class= "col-form-label col-sm-3 text-sm-end">No Cukai Barang dan Perkhidmatan<span class="text-danger">*</span></label>
+                        <label class= "col-form-label col-sm-3 text-sm-end">No Cukai Barang dan Perkhidmatan</label>
                     <div class="mb-2 col-sm-7"> 
                         <input type="text"  name=pembekal_cbp_no class="form-control" >
                     </div>
@@ -275,7 +269,7 @@
 
                 
                 <div class="mb-3 row">
-                        <label class= "col-form-label col-sm-3 text-sm-end">Tarikh Sah Laku<span class="text-danger">*</span></label>
+                        <label class= "col-form-label col-sm-3 text-sm-end">Tarikh Sah Laku</label>
                     <div class="mb-2 col-sm-7"> 
                         <input type=date name=pembekal_cbp_effective_date class="form-control">
                     </div>
@@ -283,7 +277,7 @@
 
                 
                 <div class="mb-3 row">
-                        <label class= "col-form-label col-sm-3 text-sm-end">Tarikh Kelulusan<span class="text-danger">*</span></label>
+                        <label class= "col-form-label col-sm-3 text-sm-end">Tarikh Kelulusan</label>
                     <div class="mb-2 col-sm-7"> 
                         <input type=date name=pembekal_cbp_approval_date class="form-control">
                     </div>
@@ -291,7 +285,7 @@
 
 
                 <div class="mb-3 row">
-                        <label class= "col-form-label col-sm-3 text-sm-end">Tarikh Tamat Tempoh<span class="text-danger">*</span></label>
+                        <label class= "col-form-label col-sm-3 text-sm-end">Tarikh Tamat Tempoh</label>
                     <div class="mb-2 col-sm-7"> 
                         <input type=date name=pembekal_cbp_end_date class="form-control">
                     </div>
@@ -299,7 +293,7 @@
 
                 
                 <div class="mb-3 row">
-                        <label class= "col-form-label col-sm-3 text-sm-end">Lampiran Dokumen<span class="text-danger">*</span></label>
+                        <label class= "col-form-label col-sm-3 text-sm-end">Lampiran Dokumen</label>
                     <div class="mb-2 col-sm-7"> 
                         <input type="file"  name=pembekal_cbp_approval_doc class="form-control">
                     </div>

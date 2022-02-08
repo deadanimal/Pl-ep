@@ -109,6 +109,7 @@ class PenggunaController extends Controller
         // $user->user_status =$request->user_status;
 
         $user->user_jenis_pengenalan = $request->user_jenis_pengenalan;
+        $user->email = $request ->email;
         $user->user_kewarganegaraan = $request->user_kewarganegaraan;
         $user->user_phone = $request->user_phone;
         $user->user_fax = $request->user_fax;

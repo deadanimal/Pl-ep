@@ -97,7 +97,7 @@ DataTables</a></li>
 
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
-                                       <label class="col-form-label col-sm-6"> Tarikh Sah Sijil MOF</label>
+                                       <label class="col-form-label col-sm-6"> Tarikh Sah Laku Sijil MOF</label>
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <input type="date" class="form-control" name="pembekal_tarikh_sah_mof">
@@ -106,7 +106,7 @@ DataTables</a></li>
 
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
-                                       <label class="col-form-label col-sm-6">Sijil MOF </label>
+                                       <label class="col-form-label col-sm-6">Salinan Sijil MOF </label>
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <input type="file" class="form-control" name="pembekal_sijil_mof">
@@ -115,7 +115,7 @@ DataTables</a></li>
 
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
-                                       <label class="col-form-label col-sm-6"> Sijil Perakuan Bumiputera </label>
+                                       <label class="col-form-label col-sm-6">Salinan Sijil Perakuan Bumiputera </label>
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <input type="file" class="form-control" name="pembekal_sijil_perakuan_bumiputera">
@@ -132,14 +132,7 @@ DataTables</a></li>
                                     </div>
                                 </div>
 
-                                <div class="row">
-                                    <div class="mb-3 col-md-6">
-                                       <label class="col-form-label col-sm-6">Sijil Taraf Bumi </label>
-                                    </div>
-                                    <div class="mb-3 col-md-6">
-                                        <input type="file" class="form-control" name="pembekal_sijil_taraf_bumi">
-                                    </div>
-                                </div>
+                            
 
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
@@ -152,7 +145,7 @@ DataTables</a></li>
 
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
-                                       <label class="col-form-label col-sm-6">Tarikh Sah PPK </label>
+                                       <label class="col-form-label col-sm-6">Tarikh Sah Laku Sijil PPK </label>
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <input type="date" class="form-control" name=pembekal_tarikh_sah_ppk>
@@ -180,7 +173,7 @@ DataTables</a></li>
 
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
-                                       <label class="col-form-label col-sm-6">Sijil Gred CIDB </label>
+                                       <label class="col-form-label col-sm-6">Salinan Sijil CIDB </label>
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <input type="file" class="form-control" name='pembekal_sijil_gred'>
@@ -189,7 +182,7 @@ DataTables</a></li>
 
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
-                                       <label class="col-form-label col-sm-6"> Tarikh Sah Gred </label>
+                                       <label class="col-form-label col-sm-6"> Tarikh Sah Laku Gred </label>
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <input type="date" class="form-control" name='pembekal_tarikh_sah_gred'>

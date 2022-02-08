@@ -54,7 +54,7 @@
                                         <label>Jenis Pengguna</label>
                                     
                                             <select name="jenis" class="form-select" disabled>
-                                                <option @if ($user->jenis == 'pekerja') selected @endif value="pekerja">Staff Perbadanan Labuan</option>
+                                                <option @if ($user->jenis == 'pekerja') selected @endif value="pekerja">Perbadanan Labuan</option>
                                                 <option @if ($user->jenis == 'pembekal') selected @endif value="Pembekal">Pembekal</option>
                                                 <option @if ($user->jenis == 'juruaudit') selected @endif value="juruaudit">Juruaudit</option>
                                             </select>
@@ -110,8 +110,13 @@
                             <form action="/Pengguna/{{ $user->id }}" method="POST">
                                 @csrf
                                 @method('PUT')
-
                                 <input hidden name="id" value="{{ $user->id }}">
+
+                                <div class="mb-3 col-md-6">
+                                    <label for="inputLastName">Emel</label>
+                                    <input type="email" class="form-control" name="email" value="{{$user->email}}">
+                                </div>
+
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
                                         <label for="inputFirstName">Jenis Pengenalan</label>
@@ -128,7 +133,7 @@
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="inputAddress2">Alamat</label>
+                                    <label for="inputAddress2">Alamat Kediaman</label>
                                     <input type="text" class="form-control" name="user_alamat"
                                         value="{{ $user->user_alamat }}">
                                 </div>
@@ -178,7 +183,7 @@
                                     </div>
 
                                     <div class="mb-3 col-md-6">
-                                        <label>No Faks</label>
+                                        <label>No Tel Pejabat</label>
                                         <input type="number" class="form-control" name=user_fax
                                             value="{{ $user->user_fax }}">
                                     </div>

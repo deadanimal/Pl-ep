@@ -1,5 +1,11 @@
 @extends('layouts.base')
 @section('content')
+
+<style>
+    .a {
+  text-align: left;
+}
+</style>
 <div class="header">
     <h1 class="header-title">
     Pengguna
@@ -11,6 +17,7 @@
         </ol>
     </nav>
 </div>
+
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -25,10 +32,11 @@
     <table id="datatables-reponsive" class="table table-striped" style="width:100%">
     <thead>
         <tr>
-        <th> Nama </th>
-        <th> Jenis Pengguna </th>
-        <th>Status Pengguna</th>
-        <th>Tindakan</th>
+                <th> Nama </th>
+                <th> Jenis Pengguna </th>
+                <th>Status Pengguna</th>
+                <th >Peranan Semasa</th>
+                <th>Tindakan</th>
 
         </tr>
     </thead>
@@ -39,6 +47,14 @@
                 <td> {{$users->user_name}}</td> 
                 <td> {{$users->jenis}}</td>
                 <td> {{$users->user_status}}</td>
+                <td class="a">
+                        @foreach ($users->roles as $role)
+                        <li>{{$role->role_name}}</li>
+                        @endforeach
+                </td>
+
+                
+                    
                 <td class="table-action">
                     <form method="POST" action="/Pengguna/{{$users->id}}">
                         @method('DELETE')

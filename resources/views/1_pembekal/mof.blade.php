@@ -80,7 +80,7 @@
 
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
-                                       <label class="col-form-label col-sm-6">Tarikh Sah Sijil MOF</label>
+                                       <label class="col-form-label col-sm-6">Tarikh Sah Laku Sijil MOF</label>
                                     </div>
                                     <div class="mb-3 col-md-6">     
                                             <input type="date" name="pembekal_tarikh_sah_mof" class="form-control">                        
@@ -91,7 +91,7 @@
 
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
-                                       <label class="col-form-label col-sm-6">Sijil MOF</label>
+                                       <label class="col-form-label col-sm-6">Salinan Sijil MOF</label>
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <input type="file" name="pembekal_sijil_mof" class="form-control">
@@ -131,16 +131,7 @@
 
 
 
-                                    <div class="row">
-                                        <div class="mb-3 col-md-6">
-                                           <label class="col-form-label col-sm-6">Sijil Taraf Bumi</label>
-                                        </div>
-                                        <div class="mb-3 col-md-6">
-                                         
-                                                <input type="file" name="pembekal_sijil_taraf_bumi" class="form-control">
-                                            
-                                        </div>
-                                    </div>
+
 
 
                                     {{-- <div class="row">

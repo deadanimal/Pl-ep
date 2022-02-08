@@ -43,7 +43,7 @@ Profil Saya</a></li>
                         
                     @endif
                     {{-- <select name="jenis" class="form-select">
-                        <option @if ($user->jenis == 'pekerja') selected @endif value="pekerja">Staff Perbadanan Labuan</option>
+                        <option @if ($user->jenis == 'pekerja') selected @endif value="pekerja">Perbadanan Labuan</option>
                         <option @if ($user->jenis == 'pembekal') selected @endif value="Pembekal">Pembekal</option>
                         <option @if ($user->jenis == 'juruaudit') selected @endif value="juruaudit">Juruaudit</option>
                     </select> --}}

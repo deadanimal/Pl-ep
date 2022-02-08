@@ -44,7 +44,7 @@ Kemaskini Maklumat Pengguna</a></li>
             <div class="mb-3 col-md-6">
           
                 <select name="jenis" class="form-select">
-                    <option @if ($user->jenis == 'pekerja') selected @endif value='pekerja'>Staff Perbadanan Labuan</option>
+                    <option @if ($user->jenis == 'pekerja') selected @endif value='pekerja'>Perbadanan Labuan</option>
                     <option @if ($user->jenis == 'pembekal') selected @endif value='pembekal'>Pembekal</option>
                     <option @if ($user->jenis == 'juruaudit') selected @endif value='juruaudit'>JuruAudit</option>
                 </select> 
@@ -139,11 +139,16 @@ Kemaskini Maklumat Pengguna</a></li>
             </div>
             <div class="mb-3 col-md-6">
                   <select name="role_id"  class="form-select">
-                    <option hidden value="">Sila Pilih</option>
+                     @if ($user->role[0]->id=='2'){)
+                        <option hidden value="">Sila Pilih</option>
                         @foreach($role as  $role)
                     <option value="{{$role->id}}">{{$role->role_name}}</option>
                         @endforeach 
                  </select>
+                     @else
+                         
+                     @endif
+                    
             </div>
         </div>  
 

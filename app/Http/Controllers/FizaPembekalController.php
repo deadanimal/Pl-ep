@@ -79,10 +79,7 @@ class FizaPembekalController extends Controller
             $fizaPembekal->pembekal_sijil_ssm=$pembekal_sijil_ssm;
         }
 
-        if ($request->hasFile('pembekal_lesen_perniagaan')) {
-            $pembekal_lesen_perniagaan=$request->file('pembekal_lesen_perniagaan')->store('pembekal_lesen_perniagaan');
-            $fizaPembekal->pembekal_lesen_perniagaan=$pembekal_lesen_perniagaan;
-        }
+
 
         if ($request->hasFile('pembekal_cbp_approval_doc')) {
             $pembekal_cbp_approval_doc=$request->file('pembekal_cbp_approval_doc')->store('pembekal_cbp_approval_doc');
@@ -193,10 +190,6 @@ class FizaPembekalController extends Controller
           $fizaPembekal->pembekal_sijil_ssm=$pembekal_sijil_ssm;
       }
 
-      if ($request->hasFile('pembekal_lesen_perniagaan')) {
-          $pembekal_lesen_perniagaan=$request->file('pembekal_lesen_perniagaan')->store('pembekal_lesen_perniagaan');
-          $fizaPembekal->pembekal_lesen_perniagaan=$pembekal_lesen_perniagaan;
-      }
 
       if ($request->hasFile('pembekal_cbp_approval_doc')) {
           $pembekal_cbp_approval_doc=$request->file('pembekal_cbp_approval_doc')->store('pembekal_cbp_approval_doc');
@@ -261,8 +254,7 @@ class FizaPembekalController extends Controller
         $fizaPembekal->pembekal_sijil_pendaftaran_syarikat=$sijil_pendaftaran_syarikat;
 
 
-        $sijil_taraf=$request->file('pembekal_sijil_taraf_bumi')->store('sijil_taraf');
-        $fizaPembekal->pembekal_sijil_taraf_bumi=$sijil_taraf;
+
 
         $sijil_gred_cidb=$request->file('pembekal_sijil_gred')->store('sijil_gred');
         $fizaPembekal->pembekal_sijil_gred=$sijil_gred_cidb;
@@ -361,8 +353,6 @@ class FizaPembekalController extends Controller
         $pembekal->pembekal_sijil_pendaftaran_syarikat=$pembekal_sijil_pendaftaran_syarikat;
 
 
-        $pembekal_sijil_taraf_bumi=$request->file('pembekal_sijil_taraf_bumi')->store('pembekal_sijil_taraf_bumi');
-        $pembekal->pembekal_sijil_taraf_bumi=$pembekal_sijil_taraf_bumi;
         // $pembekal->kod_id =$request->kod_id;
 
 

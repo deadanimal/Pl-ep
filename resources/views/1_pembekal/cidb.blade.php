@@ -92,7 +92,7 @@
 
                                     <div class="row">
                                         <div class="mb-3 col-md-6">
-                                           <label class="col-form-label col-sm-6">Tarikh Sah PPK</label>
+                                           <label class="col-form-label col-sm-6">Tarikh Sah Laku Sijil PPK</label>
                                         </div>
                                         <div class="mb-3 col-md-6">
                                   
@@ -125,7 +125,7 @@
 
                                     <div class="row">
                                         <div class="mb-3 col-md-6">
-                                           <label class="col-form-label col-sm-6">Sijil Gred CIDB</label>
+                                           <label class="col-form-label col-sm-6">Salinan Sijil CIDB</label>
                                         </div>
                                         <div class="mb-3 col-md-6">
                                             

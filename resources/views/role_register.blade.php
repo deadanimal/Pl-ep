@@ -39,7 +39,7 @@
                 <div class="mb-3 col-md-8">
                     <select name="jenis"  class="form-select" id="jenis_pengguna">
                         <option hidden value="">Sila Pilih</option>
-                        <option value="pekerja">Staff Perbadanan Labuan</option>
+                        <option value="pekerja">Perbadanan Labuan</option>
                         <option value="pembekal" id="pembekal">Pembekal</option>
                         <option value="juruaudit">Juruaudit</option>
                     </select>
