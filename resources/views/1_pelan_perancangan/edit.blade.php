@@ -29,7 +29,7 @@ Kemaskini Perancangan Perolehan</a></li>
             </div>
             <div class="mb-3 col-md-6">
                 <input type=text name="pelan_jenis" class="form-control"  value="{{$PelanPerancanganPerolehan->pelan_jenis}}"></div>
-            </div>
+            </div>x
 
 
         <div class="row">

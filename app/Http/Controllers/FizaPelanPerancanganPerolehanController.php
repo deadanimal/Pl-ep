@@ -90,7 +90,7 @@ class FizaPelanPerancanganPerolehanController extends Controller
         $receiver = User::where('id',$request->pelan_pengesah)->first();
 
         if ($request->status_pelan=="hantar"){
-            $fizaPelanPerancanganPerolehan->pelan_status="Menunggu Pengesahan";
+            $fizaPelanPerancanganPerolehan->pelan_status="Menunggu pengesahan";
 
             Mail::to($receiver->email)->send(new PelanPerancangan($fizaPelanPerancanganPerolehan));
             //System Notification
@@ -287,7 +287,7 @@ class FizaPelanPerancanganPerolehanController extends Controller
     
         // dd($perancangan->status);
 
-        return redirect('/indexpengesah');
+        return redirect('/indexpengesah')->with('success','Pelan telah berjaya dikemaskini!');
 
     }
 
@@ -367,7 +367,7 @@ class FizaPelanPerancanganPerolehanController extends Controller
         
         // dd($perancangan->status);
 
-        return redirect('/indexpelulus');
+        return redirect('/indexpelulus')->with('success','Pelan telah dikemaskini!');
     }
 
     public function cetakpelan($id)
