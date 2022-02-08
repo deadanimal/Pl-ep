@@ -113,11 +113,11 @@ Route::resource('/ItemKart',ItemKartController::class);
 
 Route::get('/indexpengesah', [FizaPelanPerancanganPerolehanController::class,'indexpengesah']);
 Route::get('/editpengesah/{id}', [FizaPelanPerancanganPerolehanController::class,'editpengesah']);
-Route::post('/updatepengesah', [FizaPelanPerancanganPerolehanController::class,'updatepengesah']);
+Route::put('/updatepengesah', [FizaPelanPerancanganPerolehanController::class,'updatepengesah']);
 
 Route::get('/indexpelulus',[FizaPelanPerancanganPerolehanController::class,'indexpelulus']);
 Route::get('/editpelulus/{id}',[FizaPelanPerancanganPerolehanController::class,'editpelulus']);
-Route::post('/updatepelulus',[FizaPelanPerancanganPerolehanController::class,'updatepelulus']);
+Route::put('/updatepelulus',[FizaPelanPerancanganPerolehanController::class,'updatepelulus']);
 
 Route::resource('/SuratNiat',FizaSenaraiSuratNiatController::class);
 Route::resource('/Pembekal',FizaPembekalController::class);

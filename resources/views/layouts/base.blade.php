@@ -93,7 +93,7 @@
                                 @if (Auth::user()->roles[0]->id=='1')
                                         <li class="sidebar-item">
                                             <a data-bs-target="#pages" data-bs-toggle="collapse" class="sidebar-link collapsed">
-                                                <i class="align-middle me-2 fas fa-fw fa-file"></i> <span class="align-middle">Pelan Perancangan</span>
+                                                <i class="align-middle me-2 fas fa-fw fa-file"></i> <span class="align-middle">Perancangan Perolehan</span>
                                             </a>
                                             <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                                                 <li class="sidebar-item"><a class="sidebar-link" href="/PelanPerancanganPerolehan">Senarai Pelan</a></li>
@@ -214,7 +214,7 @@
                         @else
                                 <li class="sidebar-item">
                                     <a data-bs-target="#pages" data-bs-toggle="collapse" class="sidebar-link collapsed">
-                                        <i class="align-middle me-2 fas fa-fw fa-file"></i> <span class="align-middle">Pelan Perancangan</span>
+                                        <i class="align-middle me-2 fas fa-fw fa-file"></i> <span class="align-middle">Perancangan Perolehan</span>
                                     </a>
                                     <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                                         <li class="sidebar-item"><a class="sidebar-link" href="/PelanPerancanganPerolehan">Senarai Pelan</a></li>

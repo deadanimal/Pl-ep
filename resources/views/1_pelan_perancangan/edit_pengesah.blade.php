@@ -9,7 +9,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">
-Pengesahan Pelan</a></li>
+Pengesahan Perancangan Perolehan</a></li>
         </ol>
     </nav>
 </div>
@@ -23,19 +23,27 @@ Pengesahan Pelan</a></li>
                     <form method="POST"  action="/updatepengesah">
                     @csrf
                     @method('PUT')
+
                     <input type="hidden" name="perancangan_id"  value="{{$PelanPerancanganPerolehan->id}}">
-                    <div class="row">
-                        <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-10 ">Jenis Pelan</label>
-                        </div>
-                        <div class="mb-3 col-md-6">
-                            <input type=text name="pelan_jenis" class="form-control"  value="{{$PelanPerancanganPerolehan->pelan_jenis}}"></div>
-                        </div>
 
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                           <label class="col-form-label col-sm-6">Tajuk Pelan Perolehan</label>
+                            <label class="col-form-label col-sm-10 ">Jenis Perolehan</label>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <input type="text" name="pelan_jenis" class="form-control"  value="{{$PelanPerancanganPerolehan->pelan_jenis}}">
+                                {{-- <option @if ($PelanPerancanganPerolehan->pelan_jenis== 'perolehan bekalan') selected @endif value="perolehan bekalan">Perolehan Bekalan</option>
+                                <option @if ($PelanPerancanganPerolehan->pelan_jenis== 'perolehan perkhidmatan') selected @endif value="perolehan perkhidmatan">Perolehan Perkhidmatan</option>
+                                <option @if ($PelanPerancanganPerolehan->pelan_jenis== 'perolehan kerja') selected @endif value="perolehan kerja">Perolehan Kerja</option> --}}
+                        </div>
+                    </div>
+                    
+
+
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                           <label class="col-form-label col-sm-6">Tajuk Perancangan Perolehan</label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <input type=text name=pelan_title class="form-control" value="{{$PelanPerancanganPerolehan->pelan_title}}">
@@ -61,19 +69,6 @@ Pengesahan Pelan</a></li>
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6">Kategori Pelan</label>
-                        </div>
-                        <div class="mb-3 col-md-6">
-                            <select name=pelan_category class="form-select">
-                                <option hidden value="">Sila Pilih</option>
-                                <option @if ($PelanPerancanganPerolehan->pelan_category == 'bekalan') selected @endif value="bekalan">Bekalan</option>
-                                <option @if ($PelanPerancanganPerolehan->pelan_category == 'perkhidmatan') selected @endif value="perkhidmatan">Perkhidmatan</option>
-                                <option @if ($PelanPerancanganPerolehan->pelan_category == 'kerja') selected @endif value="kerja">Kerja</option>
-                                </select>
-                        </div>
-                    </div>
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
@@ -178,9 +173,9 @@ Pengesahan Pelan</a></li>
                            <label class="col-form-label col-sm-6">Nama Pegawai Pengesah</label>
                         </div>
                         <div class="mb-3 col-md-6">
-                            @foreach($userPengesah as $pengesah)
+                            {{-- @foreach($pengesah as $pengesah) --}}
                             <input type=text name="pelan_pengesah" class="form-control"  value="{{$pengesah->user_name}}">
-                                @endforeach 
+                            {{-- @endforeach  --}}
 
                         </div>
                     </div>
@@ -191,7 +186,7 @@ Pengesahan Pelan</a></li>
                            <label class="col-form-label col-sm-6">Catatan Pegawai Pengesah</label>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <input type="text" name="pelan_catatan_pengesah" class="form-control">
+                            <textarea name="pelan_catatan_pengesah" class="form-control" rows="3" cols="4">{{$PelanPerancanganPerolehan->pelan_catatan_pengesah}}</textarea>
                         </div>
                     </div>
 
@@ -200,9 +195,9 @@ Pengesahan Pelan</a></li>
                            <label class="col-form-label col-sm-6">Nama Pegawai Pelulus</label>
                         </div>
                         <div class="mb-3 col-md-6">
-                            @foreach ($userPelulus as $pelulus)
-                            <input type="text" name=pelan_pelulus class="form-control" value="{{$pelulus->user_name}}">
-                            @endforeach
+                            {{-- @foreach ($pelulus as $pelulus) --}}
+                            <input type="text" name=pelan_pelulus class="form-control" value="{{$userPelulus->user_name}}">
+                            {{-- @endforeach --}}
                         </div>
                     </div>
 
@@ -219,9 +214,9 @@ Pengesahan Pelan</a></li>
                             </select>
                         </div>
                     </div>
-                    {{-- <br>Jenis Pelan: <input type=text name=pelan_jenis value="{{$PelanPerancanganPerolehan->pelan_jenis}}">
+                    {{-- <br>Jenis Perolehan: <input type=text name=pelan_jenis value="{{$PelanPerancanganPerolehan->pelan_jenis}}">
                     <br>Tahun Pelan Perolehan: <input type=number name=pelan_year value="{{$PelanPerancanganPerolehan->pelan_year}}">
-                    <br>Tajuk Pelan Perolehan: <input type=text name=pelan_title  value="{{$PelanPerancanganPerolehan->pelan_title}}">
+                    <br>Tajuk Perancangan Perolehan: <input type=text name=pelan_title  value="{{$PelanPerancanganPerolehan->pelan_title}}">
                     <br>Diskripsi Pelan: <input type=text name=pelan_description  value="{{$PelanPerancanganPerolehan->pelan_description}}">
                     <br>Kategori Pelan: <input type=text name=pelan_category  value="{{$PelanPerancanganPerolehan->pelan_category}}">
                     <br>Kaedah Pelan Perolehan<input type=text name=pelan_method value="{{$PelanPerancanganPerolehan->pelan_method}}">

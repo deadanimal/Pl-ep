@@ -2,10 +2,6 @@
 
 @section('content')
 
-
-
-
-
 <div class="header">
     <h1 class="header-title">
     Pengguna
@@ -108,7 +104,7 @@
         
 
         <br>
-        <div>
+        <div align="right">
             <button type="submit" class="btn btn-primary" style="float:absolute">Daftar</button>
         </div>
     </form>

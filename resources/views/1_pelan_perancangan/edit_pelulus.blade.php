@@ -9,7 +9,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">
-Kelulusan Pelan</a></li>
+Kelulusan Perancangan Perolehan</a></li>
         </ol>
     </nav>
 </div>
@@ -22,11 +22,13 @@ Kelulusan Pelan</a></li>
             <div class="card-body">
         <form method="POST" action="/updatepelulus">
         @csrf
+        @method('PUT')
+
 
         <input type="hidden" name="perancangan_id"  value="{{$PelanPerancanganPerolehan->id}}">
         <div class="row">
             <div class="mb-3 col-md-6">
-                <label class="col-form-label col-sm-10 ">Jenis Pelan</label>
+                <label class="col-form-label col-sm-10 ">Jenis Perolehan</label>
             </div>
             <div class="mb-3 col-md-6">
                 <input type=text name="pelan_jenis" class="form-control"  value="{{$PelanPerancanganPerolehan->pelan_jenis}}"></div>
@@ -61,19 +63,6 @@ Kelulusan Pelan</a></li>
             </div>
         </div>
 
-        <div class="row">
-            <div class="mb-3 col-md-6">
-                <label class="col-form-label col-sm-6">Kategori Pelan</label>
-            </div>
-            <div class="mb-3 col-md-6">
-                <select name=pelan_category class="form-select">
-                    <option hidden value="">Sila Pilih</option>
-                    <option value="bekalan">Bekalan</option>
-                    <option value="perkhidmatan">Perkhidmatan</option>
-                    <option value="kerja">Kerja</option>
-                    </select>
-            </div>
-        </div>
 
         <div class="row">
             <div class="mb-3 col-md-6">
@@ -179,9 +168,9 @@ Kelulusan Pelan</a></li>
             </div>
             <div class="mb-3 col-md-6">
                 {{-- <input  type=text name=pelan_pengesah class="form-control" value="{{$PelanPerancanganPerolehan->pelan_pengesah}}" readonly> --}}
-                @foreach ($pengesah as $pengesah)
+                {{-- @foreach ($pengesah as $pengesah) --}}
                 <input  type=text name=pelan_pengesah class="form-control" value="{{$pengesah->user_name}}" readonly>
-                @endforeach
+                {{-- @endforeach --}}
             </div>
         </div>
 
@@ -190,9 +179,9 @@ Kelulusan Pelan</a></li>
                <label class="col-form-label col-sm-6">Nama Pegawai Pelulus</label>
             </div>
             <div class="mb-3 col-md-6">
-                @foreach ($pelulus as $pelulus)
+                {{-- @foreach ($pelulus as $pelulus) --}}
                 <input  type=text name=pelan_pelulus class="form-control" value="{{$pelulus->user_name}}" readonly>
-                @endforeach
+                {{-- @endforeach --}}
                 {{-- <input type=text name="pelan_pelulus" class="form-control" value="{{$PelanPerancanganPerolehan->pelan_pelulus}}" readonly> --}}
             </div>
         </div>
@@ -225,7 +214,7 @@ Kelulusan Pelan</a></li>
 
 
         
-        {{-- <br>Jenis Pelan: <input type=text name=pelan_jenis value="{{$PelanPerancanganPerolehan->pelan_jenis}}">
+        {{-- <br>Jenis Perolehan: <input type=text name=pelan_jenis value="{{$PelanPerancanganPerolehan->pelan_jenis}}">
         <br>Tahun Pelan Perolehan: <input type=number name=pelan_year value="{{$PelanPerancanganPerolehan->pelan_year}}">
         <br>Tajuk Pelan Perolehan: <input type=text name=pelan_title  value="{{$PelanPerancanganPerolehan->pelan_title}}">
         <br>Diskripsi Pelan: <input type=text name=pelan_description  value="{{$PelanPerancanganPerolehan->pelan_description}}">

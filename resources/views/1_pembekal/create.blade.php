@@ -404,7 +404,9 @@
                 </fieldset>
 
                 <br><br>
+                <div align="right"
                 <button class="btn btn-primary" type="submit">Daftar</button>
+                </div>
         </form>
                         </div>
                     </div>

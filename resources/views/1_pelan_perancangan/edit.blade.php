@@ -11,7 +11,7 @@
         @method('PUT')
         <div class="row">
             <div class="mb-3 col-md-6">
-                <label class="col-form-label col-sm-10 ">Jenis Pelan</label>
+                <label class="col-form-label col-sm-10 ">Jenis Perolehan</label>
             </div>
             <div class="mb-3 col-md-6">
                 <input type=text name="pelan_jenis" class="form-control"  value="{{$PelanPerancanganPerolehan->pelan_jenis}}"></div>
@@ -20,7 +20,7 @@
 
         <div class="row">
             <div class="mb-3 col-md-6">
-               <label class="col-form-label col-sm-6">Tajuk Pelan Perolehan</label>
+               <label class="col-form-label col-sm-6">Tajuk Perancangan Perolehan</label>
             </div>
             <div class="mb-3 col-md-6">
                 <input type=text name=pelan_title class="form-control" value="{{$PelanPerancanganPerolehan->pelan_title}}">
@@ -185,9 +185,9 @@
                 <textarea name=pelan_catatan class="form-control" rows="3" cols="4"> {{$PelanPerancanganPerolehan->pelan_catatan}}</textarea>
             </div>
         </div>
-        {{-- <br>Jenis Pelan: <input type=text name=pelan_jenis value="{{$PelanPerancanganPerolehan->pelan_jenis}}">
+        {{-- <br>Jenis Perolehan: <input type=text name=pelan_jenis value="{{$PelanPerancanganPerolehan->pelan_jenis}}">
         <br>Tahun Pelan Perolehan: <input type=number name=pelan_year value="{{$PelanPerancanganPerolehan->pelan_year}}">
-        <br>Tajuk Pelan Perolehan: <input type=text name=pelan_title  value="{{$PelanPerancanganPerolehan->pelan_title}}">
+        <br>Tajuk Perancangan Perolehan: <input type=text name=pelan_title  value="{{$PelanPerancanganPerolehan->pelan_title}}">
         <br>Diskripsi Pelan: <input type=text name=pelan_description  value="{{$PelanPerancanganPerolehan->pelan_description}}">
         <br>Kategori Pelan: <input type=text name=pelan_category  value="{{$PelanPerancanganPerolehan->pelan_category}}">
         <br>Kaedah Pelan Perolehan<input type=text name=pelan_method value="{{$PelanPerancanganPerolehan->pelan_method}}">

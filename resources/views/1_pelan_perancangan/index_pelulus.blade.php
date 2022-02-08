@@ -25,7 +25,6 @@
                         <tr>
                             <th>Tahun Perolehan</th>
                             <th>Nama Perolehan</th>
-                            <th>Kategori Perolehan</th>
                             <th>Status</th>
                             <th>Tindakan</th>
                         </tr>
@@ -37,14 +36,16 @@
                             <tr>
                                 <td>{{  $fizaPelanPerancanganPerolehan->pelan_year}}</td>
                                 <td>{{  $fizaPelanPerancanganPerolehan->pelan_title}}</td>
-                                <td>{{  $fizaPelanPerancanganPerolehan->pelan_category }}</td>
                                 <td>{{  $fizaPelanPerancanganPerolehan->pelan_status }}</td>
                                     <td class="table-action">
                                         <a href="/editpelulus/{{$fizaPelanPerancanganPerolehan->id}}"><i class="align-middle fas fa-fw fa-pen" id="1"></i></i></a>
                                         <a href="#"><i class="align-middle fas fa-fw fa-trash"></i></a>
                                         <a href="/cetak-pelan/{{$fizaPelanPerancanganPerolehan->id}}"><i class="align-middle fas fa-fw fa-download"></i></i></a>
                                     </td>
-                                </tr>
+                                  
+        
+                                
+                            </tr>
                         @endforeach
                        
 

@@ -25,7 +25,6 @@
                         <tr>
                             <th>Tahun Perolehan</th>
                             <th>Nama Perolehan</th>
-                            <th>Kategori Perolehan</th>
                             <th>Status</th>
                             <th>Tindakan</th>
                         </tr>
@@ -37,7 +36,6 @@
                             <tr>
                                 <td>{{  $fizaPelanPerancanganPerolehan->pelan_year}}</td>
                                 <td>{{  $fizaPelanPerancanganPerolehan->pelan_title}}</td>
-                                <td>{{  $fizaPelanPerancanganPerolehan->pelan_category }}</td>
                                 <td>{{  $fizaPelanPerancanganPerolehan->pelan_status }}</td>
                                 <td class="table-action">
                                     <a href="/editpengesah/{{$fizaPelanPerancanganPerolehan->id}}"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
