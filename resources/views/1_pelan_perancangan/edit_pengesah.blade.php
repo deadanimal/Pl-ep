@@ -174,7 +174,7 @@ Pengesahan Perancangan Perolehan</a></li>
                         </div>
                         <div class="mb-3 col-md-6">
                             {{-- @foreach($pengesah as $pengesah) --}}
-                            <select  name="pelan_pengesah" class="form-select">
+                            <select  name="pelan_pengesah" class="form-control" readonly>
                             {{-- <input type=text name="pelan_pengesah" class="form-control"  value="{{$pengesah->user_name}}"> --}}
                             <option @if ($PelanPerancanganPerolehan->pelan_pengesah == '{{$pengesah->id}}') selected @endif value="{{$pengesah->id}}">{{$pengesah->user_name}}</option>
                             {{-- @endforeach  --}}
@@ -199,9 +199,9 @@ Pengesahan Perancangan Perolehan</a></li>
                         </div>
                         <div class="mb-3 col-md-6">
                             {{-- @foreach ($pelulus as $pelulus) --}}
-                            <select  name="pelan_pelulus" class="form-select">
+                            <select  name="pelan_pelulus" class="form-control" readonly>
                                 {{-- <input type=text name="pelan_pengesah" class="form-control"  value="{{$pengesah->user_name}}"> --}}
-                                <option @if ($PelanPerancanganPerolehan->pelan_pelulus == '{{$pelulus->id}}') selected @endif value="{{$pelulus->id}}">{{$pelulus->user_name}}</option>
+                                <option @if ($PelanPerancanganPerolehan->pelan_pelulus == '{{$pelulus->id}}') selected @endif value="{{$pelulus->id}}">{{$pelulus->user_name}} </option>
                                 {{-- @endforeach  --}}
                                 </select>
                             {{-- @endforeach --}}
@@ -238,7 +238,7 @@ Pengesahan Perancangan Perolehan</a></li>
                     pelan_created_by
                     user_id--}}
                     <br><br>
-                    <div style=float-right>
+                    <div align="right">
                     <button  class="btn btn-primary" type="submit">Hantar</button> 
                     </div>
                     </form>

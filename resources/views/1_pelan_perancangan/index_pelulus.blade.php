@@ -38,15 +38,19 @@
                                 <td>{{  $fizaPelanPerancanganPerolehan->pelan_title}}</td>
                                 <td>{{  $fizaPelanPerancanganPerolehan->pelan_status }}</td>
                                     <td class="table-action">
-                                        <a href="/editpelulus/{{$fizaPelanPerancanganPerolehan->id}}"><i class="align-middle fas fa-fw fa-pen" id="1"></i></i></a>
-                                        <a href="#"><i class="align-middle fas fa-fw fa-trash"></i></a>
+                                    @if ($fizaPelanPerancanganPerolehan->pelan_status=="Menunggu Kelulusan")
+                                    <a href="/editpelulus/{{$fizaPelanPerancanganPerolehan->id}}"><i class="align-middle fas fa-fw fa-pen" id="1"></i></i></a>
+                                    <a href="/cetak-pelan/{{$fizaPelanPerancanganPerolehan->id}}"><i class="align-middle fas fa-fw fa-download"></i></i></a>
+
+                                    @else
                                         <a href="/cetak-pelan/{{$fizaPelanPerancanganPerolehan->id}}"><i class="align-middle fas fa-fw fa-download"></i></i></a>
+                                        @endif
                                     </td>
                                   
         
+                        @endforeach
                                 
                             </tr>
-                        @endforeach
                        
 
                     </tbody>

@@ -162,7 +162,7 @@
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                           <label class="col-form-label col-sm-6">Catatan Pelan<span class="text-danger">*</span></label>
+                           <label class="col-form-label col-sm-6">Catatan Pelan</label>
                         </div>
                         <div class="mb-3 col-md-6">
                             <textarea name=pelan_catatan class="form-control" rows="3" cols="4"></textarea>

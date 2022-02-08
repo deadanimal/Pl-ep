@@ -138,8 +138,8 @@ class FizaPelanPerancanganPerolehanController extends Controller
     {
         // $PelanPerancanganPerolehan= FizaPelanPerancanganPerolehan::find($id);
         $PelanPerancanganPerolehan= FizaPelanPerancanganPerolehan::find($id);
-        $pengesah = User::where('id', $PelanPerancanganPerolehan->pelan_pelulus)->get();
-        $pelulus = User::where('id', $PelanPerancanganPerolehan->pelan_pengesah)->get();
+        $pengesah = User::where('id', $PelanPerancanganPerolehan->pelan_pelulus)->get()->first();
+        $pelulus = User::where('id', $PelanPerancanganPerolehan->pelan_pengesah)->get()->first();
             
         return view ('1_pelan_perancangan.edit',[
             'PelanPerancanganPerolehan'=>$PelanPerancanganPerolehan,
@@ -182,8 +182,8 @@ class FizaPelanPerancanganPerolehanController extends Controller
 
 
         $fizaPelanPerancanganPerolehan->save();
-        $receiver = User::where('id',$request->pelan_pengesah)->first();
-        Mail::to($receiver->email)->send(new PelanPerancangan);
+        // $receiver = User::where('id',$request->pelan_pengesah)->first();
+        // Mail::to($receiver->email)->send(new PelanPerancangan);
         
 
         return redirect('/PelanPerancanganPerolehan')->with('success', 'Pelan Perancangan telah disimpan dan dihantar untuk pengesahan!');
@@ -216,7 +216,7 @@ class FizaPelanPerancanganPerolehanController extends Controller
         // $PelanPerancanganPerolehan= FizaPelanPerancanganPerolehan::where('id',$id)->first();
         $PelanPerancanganPerolehan= FizaPelanPerancanganPerolehan::find($id);
         $pengesah = User::where('id', $PelanPerancanganPerolehan->pelan_pelulus)->get()->first();
-        $userPelulus = User::where('id', $PelanPerancanganPerolehan->pelan_pengesah)->get()->first();
+        $pelulus = User::where('id', $PelanPerancanganPerolehan->pelan_pengesah)->get()->first();
 
         // dd($user,$user2);
         // dd($PelanPerancanganPerolehan);
@@ -224,7 +224,7 @@ class FizaPelanPerancanganPerolehanController extends Controller
             'PelanPerancanganPerolehan'=>$PelanPerancanganPerolehan,
             // 'user'=>$user,
             'pengesah'=>$pengesah,
-            'userPelulus'=>$userPelulus
+            'pelulus'=>$pelulus
         ]);
     }
 
@@ -274,7 +274,7 @@ class FizaPelanPerancanganPerolehanController extends Controller
     
            else if($request->status_pelan=="Semak Semula"){
             $PelanPerancanganPerolehan->pelan_status="Semak Semula";
-            $receiver2= User::where('id',$fizaPelanPerancanganPerolehan->pelan_created_by)->first();
+            $receiver2= User::where('user_name',$fizaPelanPerancanganPerolehan->pelan_created_by)->first();
             Mail::to($receiver2->email)->send(new SemakanPelanPerancangan);
             
            }

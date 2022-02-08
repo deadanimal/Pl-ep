@@ -2,10 +2,24 @@
 
 @section('content')
 
-
-<h3>Kemaskini Pelan Perolehan</h3>
+<div class="header">
+    <h1 class="header-title">
+        Pelan Perancangan Perolehan
+    </h1>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">
+Kemaskini Perancangan Perolehan</a></li>
+        </ol>
+    </nav>
 </div>
-    <div class="card-body">
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0"></h5>
+            </div>
+            <div class="card-body">
         <form method="POST" action="/PelanPerancanganPerolehan/{{$PelanPerancanganPerolehan->id}}">
         @csrf
         @method('PUT')
@@ -46,19 +60,7 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="mb-3 col-md-6">
-                <label class="col-form-label col-sm-6">Kategori Pelan</label>
-            </div>
-            <div class="mb-3 col-md-6">
-                <select name="pelan_category" class="form-select">
-                    <option hidden value="">Sila Pilih</option>
-                    <option @if ($PelanPerancanganPerolehan->pelan_category=='bekalan') selected @endif value='bekalan'>Bekalan</option>
-                    <option @if ($PelanPerancanganPerolehan->pelan_category=='perkhidmatan') selected @endif value='perkhidmatan'>Perkhidmatan</option>
-                    <option @if ($PelanPerancanganPerolehan->pelan_category=='kerja') selected @endif value='kerja'>Kerja </option>
-                  </select>
-            </div>
-        </div>
+    
 
         <div class="row">
             <div class="mb-3 col-md-6">
@@ -160,9 +162,14 @@
                <label class="col-form-label col-sm-6">Nama Pegawai Pengesah</label>
             </div>
             <div class="mb-3 col-md-6">
-                @foreach ($pengesah as $pengesah)
-                <input type=text name="pelan_pengesah" class="form-control" value="{{$pengesah->user_name}}">
-                @endforeach
+                {{-- @foreach ($pengesah as $pengesah)
+                <input type=text name="pelan_pengesah" class="form-control" value="{{$pengesah->user_name}}"> --}}
+                <select  name="pelan_pengesah" class="form-control" readonly>
+          
+                <option @if ($PelanPerancanganPerolehan->pelan_pengesah == '{{$pengesah->id}}') selected @endif value="{{$pengesah->id}}">{{$pengesah->user_name}}</option>
+                    {{-- @endforeach  --}}
+                    </select>
+                {{-- @endforeach --}}
             </div>
         </div>
 
@@ -171,9 +178,14 @@
                <label class="col-form-label col-sm-6">Nama Pegawai Pelulus</label>
             </div>
             <div class="mb-3 col-md-6">
-                @foreach ($pelulus as $pelulus)
+                {{-- @foreach ($pelulus as $pelulus)
                 <input type=text name="pelan_pelulus" class="form-control" value="{{$pelulus->user_name}}">
-                @endforeach
+                @endforeach --}}
+                <select  name="pelan_pelulus" class="form-control" readonly>
+          
+                    <option @if ($PelanPerancanganPerolehan->pelan_pelulus == '{{$pelulus->id}}') selected @endif value="{{$pelulus->id}}">{{$pelulus->user_name}}</option>
+                    {{-- @endforeach  --}}
+                    </select>
             </div>
         </div>
 
@@ -202,8 +214,8 @@
         pelan_created_by
         user_id--}}
         <br><br>
-        <div style=float-left>
-         <button  class="btn btn-success" type="submit">Kemaskini</button> 
+        <div align="right">
+         <button  class="btn btn-primary" type="submit">Kemaskini</button> 
         </div>
 
 

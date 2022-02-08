@@ -158,7 +158,7 @@ Kelulusan Perancangan Perolehan</a></li>
                <label class="col-form-label col-sm-6">Catatan Pelan</label>
             </div>
             <div class="mb-3 col-md-6">
-                <input type=text name=pelan_catatan class="form-control" value="{{$PelanPerancanganPerolehan->pelan_catatan}}">
+                <textarea name=pelan_catatan class="form-control" rows="3" cols="4">{{$PelanPerancanganPerolehan->pelan_catatan}}</textarea>
             </div>
         </div>
 
@@ -172,7 +172,7 @@ Kelulusan Perancangan Perolehan</a></li>
                 {{-- <input  type=text name=pelan_pengesah class="form-control" value="{{$pengesah->user_name}}" readonly> --}}
                 {{-- @endforeach --}}
 
-                <select  name="pelan_pengesah" class="form-select">
+                <select  name="pelan_pengesah" class="form-control" readonly>
           
                     <option @if ($PelanPerancanganPerolehan->pelan_pengesah == '{{$pengesah->id}}') selected @endif value="{{$pengesah->id}}">{{$pengesah->user_name}}</option>
                     {{-- @endforeach  --}}
@@ -190,7 +190,7 @@ Kelulusan Perancangan Perolehan</a></li>
                 {{-- @endforeach --}}
                 {{-- <input type=text name="pelan_pelulus" class="form-control" value="{{$PelanPerancanganPerolehan->pelan_pelulus}}" readonly> --}}
 
-                <select  name="pelan_pelulus" class="form-select">
+                <select  name="pelan_pelulus" class="form-control" readonly>
                     {{-- <input type=text name="pelan_pengesah" class="form-control"  value="{{$pengesah->user_name}}"> --}}
                     <option @if ($PelanPerancanganPerolehan->pelan_pelulus == '{{$pengesah->id}}') selected @endif value="{{$pengesah->id}}">{{$pengesah->user_name}}</option>
                     {{-- @endforeach  --}}

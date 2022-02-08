@@ -49,6 +49,9 @@
                                             <a href="#"><i class="align-middle fas fa-fw fa-pen"></i></a>  
                                             <a href="/cetak-pelan/{{$pelanPerancanganPerolehan->id}}"><i class="align-middle fas fa-fw fa-download"></i></i></a>
                                     
+                                    @elseif ($pelanPerancanganPerolehan->pelan_status=="Semak Semula")
+                                    <a href="/PelanPerancanganPerolehan/{{$pelanPerancanganPerolehan->id}}/edit"><i class="align-middle fas fa-fw fa-pen"></i></a>  
+                                    <a href="/cetak-pelan/{{$pelanPerancanganPerolehan->id}}"><i class="align-middle fas fa-fw fa-download"></i></i></a>
 
                                             
                                     @elseif ($pelanPerancanganPerolehan->pelan_status=="Menunggu Kelulusan")
@@ -62,7 +65,7 @@
                                         @method('DELETE')
                                         @csrf
                                     <button class="btn" type="submit"><i class="align-middle fas fa-fw fa-trash"></i></button>
-                                    <a href="/editpelulus/{{$pelanPerancanganPerolehan->id}}"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
+                                    <a href="/PelanPerancanganPerolehan/{{$pelanPerancanganPerolehan->id}}/edit"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
                                     <a href="/cetak-pelan/{{$pelanPerancanganPerolehan->id}}"><i class="align-middle fas fa-fw fa-download"></i></i></a>
 
                                     @endif
