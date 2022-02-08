@@ -202,7 +202,7 @@ class FizaPelanPerancanganPerolehanController extends Controller
     public function indexpengesah()
     {
 
-        $fizaPelanPerancanganPerolehan = FizaPelanPerancanganPerolehan::where('pelan_pengesah',Auth::user()->user_name)->orWhere('pelan_status','Menunggu Pengesahan')->
+        $fizaPelanPerancanganPerolehan = FizaPelanPerancanganPerolehan::where('pelan_pengesah',Auth::user()->id)->orWhere('pelan_status','Menunggu Pengesahan')->
         get();
 
         return view ('1_pelan_perancangan.index_pengesah',[
@@ -265,22 +265,24 @@ class FizaPelanPerancanganPerolehanController extends Controller
     
 
         // dd($request);
+
+        if($request->status_pelan=="Menunggu Kelulusan"){
+            $PelanPerancanganPerolehan->pelan_status="Menunggu Kelulusan";
+            $receiver = User::where('id',$request->pelan_pelulus)->first();
+            Mail::to($receiver->email)->send(new KelulusanPelanPerancangan);
+           }
+    
+           else if($request->status_pelan=="Semak Semula"){
+            $PelanPerancanganPerolehan->pelan_status="Semak Semula";
+            $receiver2= User::where('id',$fizaPelanPerancanganPerolehan->pelan_created_by)->first();
+            Mail::to($receiver2->email)->send(new SemakanPelanPerancangan);
+            
+           }
         $PelanPerancanganPerolehan->save();
 
 
 
-       if($request->status_pelan=="Menunggu Kelulusan"){
-        $PelanPerancanganPerolehan->pelan_status="Menunggu Kelulusan";
-        $receiver = User::where('id',$request->pelan_pelulus)->first();
-        Mail::to($receiver->email)->send(new KelulusanPelanPerancangan);
-       }
-
-       else if($request->status_pelan=="Semak Semula"){
-        $PelanPerancanganPerolehan->pelan_status="Semak Semula";
-        $receiver2= User::where('id',$fizaPelanPerancanganPerolehan->pelan_created_by)->first();
-        Mail::to($receiver2->email)->send(new SemakanPelanPerancangan);
-        
-       }
+       
        
     
         // dd($perancangan->status);
@@ -294,7 +296,7 @@ class FizaPelanPerancanganPerolehanController extends Controller
     {
 
         $fizaPelanPerancanganPerolehan = FizaPelanPerancanganPerolehan::where('pelan_status','Menunggu Kelulusan')   
-        ->orWhere('pelan_pelulus',Auth::user()->user_name)->get();
+        ->orWhere('pelan_pelulus',Auth::user()->id)->get();
 
         return view ('1_pelan_perancangan.index_pelulus',[
             'fizaPelanPerancanganPerolehan'=>$fizaPelanPerancanganPerolehan
@@ -306,8 +308,8 @@ class FizaPelanPerancanganPerolehanController extends Controller
     {
         // $PelanPerancanganPerolehan= FizaPelanPerancanganPerolehan::where('id',$id)->first();
         $PelanPerancanganPerolehan= FizaPelanPerancanganPerolehan::find($id);
-        $pengesah = User::where('user_name', $PelanPerancanganPerolehan->pelan_pengesah)->get()->first();
-        $pelulus = User::where('user_name', $PelanPerancanganPerolehan->pelan_pelulus)->get()->first();
+        $pengesah = User::where('id', $PelanPerancanganPerolehan->pelan_pengesah)->get()->first();
+        $pelulus = User::where('id', $PelanPerancanganPerolehan->pelan_pelulus)->get()->first();
 
 
         return view ('1_pelan_perancangan.edit_pelulus',[
@@ -352,7 +354,6 @@ class FizaPelanPerancanganPerolehanController extends Controller
         // $perancangan->id=$request->perancangan_id;
 
         // dd($request);
-        $fizaPelanPerancanganPerolehan->save();
 
         if($request->status_pelan=="Diluluskan"){
             Mail::to($receiver->email)->send(new KelulusanPelanPerancangan);
@@ -361,6 +362,9 @@ class FizaPelanPerancanganPerolehanController extends Controller
            else if($request->status_pelan=="Semak Semula"){
             Mail::to($receiver2->email)->send(new SemakanPelanPerancangan);
            }
+        $fizaPelanPerancanganPerolehan->save();
+
+        
         // dd($perancangan->status);
 
         return redirect('/indexpelulus');

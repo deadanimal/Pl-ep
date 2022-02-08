@@ -59,7 +59,7 @@ Kelulusan Perancangan Perolehan</a></li>
                 <label class="col-form-label col-sm-6">Diskripsi Pelan</label>
             </div>
             <div class="mb-3 col-md-6">
-               <textarea name=pelan_description class="form-control" rows="3" cols="4"  >{{$PelanPerancanganPerolehan->pelan_description}}></textarea>
+               <textarea name=pelan_description class="form-control" rows="3" cols="4" >{{$PelanPerancanganPerolehan->pelan_description}}</textarea>
             </div>
         </div>
 
@@ -104,7 +104,7 @@ Kelulusan Perancangan Perolehan</a></li>
                <label class="col-form-label col-sm-6">Tarikh Perlaksanaan Iklan</label>
             </div>
             <div class="mb-3 col-md-6">
-                <input  type=date name=pelan_perlaksanaan_iklan class="form-control"   value="{{$PelanPerancanganPerolehan->pelan_tarikh_perlaksanaan_iklan}}">
+                <input  type=date name=pelan_tarikh_perlaksanaan_iklan class="form-control"   value="{{$PelanPerancanganPerolehan->pelan_tarikh_perlaksanaan_iklan}}">
             </div>
         </div>
 
@@ -169,8 +169,14 @@ Kelulusan Perancangan Perolehan</a></li>
             <div class="mb-3 col-md-6">
                 {{-- <input  type=text name=pelan_pengesah class="form-control" value="{{$PelanPerancanganPerolehan->pelan_pengesah}}" readonly> --}}
                 {{-- @foreach ($pengesah as $pengesah) --}}
-                <input  type=text name=pelan_pengesah class="form-control" value="{{$pengesah->user_name}}" readonly>
+                {{-- <input  type=text name=pelan_pengesah class="form-control" value="{{$pengesah->user_name}}" readonly> --}}
                 {{-- @endforeach --}}
+
+                <select  name="pelan_pengesah" class="form-select">
+          
+                    <option @if ($PelanPerancanganPerolehan->pelan_pengesah == '{{$pengesah->id}}') selected @endif value="{{$pengesah->id}}">{{$pengesah->user_name}}</option>
+                    {{-- @endforeach  --}}
+                    </select>
             </div>
         </div>
 
@@ -180,9 +186,15 @@ Kelulusan Perancangan Perolehan</a></li>
             </div>
             <div class="mb-3 col-md-6">
                 {{-- @foreach ($pelulus as $pelulus) --}}
-                <input  type=text name=pelan_pelulus class="form-control" value="{{$pelulus->user_name}}" readonly>
+                {{-- <input  type=text name=pelan_pelulus class="form-control" value="{{$pelulus->user_name}}" readonly> --}}
                 {{-- @endforeach --}}
                 {{-- <input type=text name="pelan_pelulus" class="form-control" value="{{$PelanPerancanganPerolehan->pelan_pelulus}}" readonly> --}}
+
+                <select  name="pelan_pelulus" class="form-select">
+                    {{-- <input type=text name="pelan_pengesah" class="form-control"  value="{{$pengesah->user_name}}"> --}}
+                    <option @if ($PelanPerancanganPerolehan->pelan_pelulus == '{{$pengesah->id}}') selected @endif value="{{$pengesah->id}}">{{$pengesah->user_name}}</option>
+                    {{-- @endforeach  --}}
+                    </select>
             </div>
         </div>
 
@@ -191,7 +203,7 @@ Kelulusan Perancangan Perolehan</a></li>
                <label class="col-form-label col-sm-6">Status Pelan</label>
             </div>
             <div class="mb-3 col-md-6">
-                <select name="pelan_status" class="form-select">
+                <select name="pelan_status" class="form-select" required>
                     <option hidden value="">Sila Pilih</option>
                     <option value="Diluluskan">Diluluskan</option>
                     <option value="Perlu Semak Semula">Semak Semula</option>
@@ -232,8 +244,8 @@ Kelulusan Perancangan Perolehan</a></li>
         user_id--}}
      
         <br><br>
-        <div style=float-right>
-         <button  class="btn btn-success" type="submit">Kemaskini</button> 
+        <div align=right>
+         <button  class="btn btn-primary" type="submit">Kemaskini</button> 
         </div>
         </form>
             </div>

@@ -110,7 +110,7 @@ Pengesahan Perancangan Perolehan</a></li>
                            <label class="col-form-label col-sm-6">Tarikh Perlaksanaan Iklan</label>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <input  type=date name=pelan_perlaksanaan_iklan class="form-control"  value="{{$PelanPerancanganPerolehan->pelan_tarikh_perlaksanaan_iklan}}">
+                            <input  type=date name=pelan_tarikh_perlaksanaan_iklan class="form-control"  value="{{$PelanPerancanganPerolehan->pelan_tarikh_perlaksanaan_iklan}}">
                         </div>
                     </div>
 
@@ -174,8 +174,11 @@ Pengesahan Perancangan Perolehan</a></li>
                         </div>
                         <div class="mb-3 col-md-6">
                             {{-- @foreach($pengesah as $pengesah) --}}
-                            <input type=text name="pelan_pengesah" class="form-control"  value="{{$pengesah->user_name}}">
+                            <select  name="pelan_pengesah" class="form-select">
+                            {{-- <input type=text name="pelan_pengesah" class="form-control"  value="{{$pengesah->user_name}}"> --}}
+                            <option @if ($PelanPerancanganPerolehan->pelan_pengesah == '{{$pengesah->id}}') selected @endif value="{{$pengesah->id}}">{{$pengesah->user_name}}</option>
                             {{-- @endforeach  --}}
+                            </select>
 
                         </div>
                     </div>
@@ -196,7 +199,11 @@ Pengesahan Perancangan Perolehan</a></li>
                         </div>
                         <div class="mb-3 col-md-6">
                             {{-- @foreach ($pelulus as $pelulus) --}}
-                            <input type="text" name=pelan_pelulus class="form-control" value="{{$userPelulus->user_name}}">
+                            <select  name="pelan_pelulus" class="form-select">
+                                {{-- <input type=text name="pelan_pengesah" class="form-control"  value="{{$pengesah->user_name}}"> --}}
+                                <option @if ($PelanPerancanganPerolehan->pelan_pelulus == '{{$pelulus->id}}') selected @endif value="{{$pelulus->id}}">{{$pelulus->user_name}}</option>
+                                {{-- @endforeach  --}}
+                                </select>
                             {{-- @endforeach --}}
                         </div>
                     </div>
@@ -207,7 +214,7 @@ Pengesahan Perancangan Perolehan</a></li>
                            <label class="col-form-label col-sm-6">Status Pelan</label>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <select name="pelan_status" class="form-select">
+                            <select name="pelan_status" class="form-select" required>
                                 <option hidden value="">Sila Pilih</option>
                                 <option value="Menunggu Kelulusan">Disahkan</option>
                                 <option value="Semak Semula">Semak Semula</option>

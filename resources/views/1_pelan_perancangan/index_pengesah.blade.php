@@ -38,9 +38,13 @@
                                 <td>{{  $fizaPelanPerancanganPerolehan->pelan_title}}</td>
                                 <td>{{  $fizaPelanPerancanganPerolehan->pelan_status }}</td>
                                 <td class="table-action">
+                                    @if ($fizaPelanPerancanganPerolehan->pelan_status=="Menunggu Pengesahan")
                                     <a href="/editpengesah/{{$fizaPelanPerancanganPerolehan->id}}"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
-                                    <a href="#"><i class="align-middle fas fa-fw fa-trash"></i></a>
                                     <a href="/cetak-pelan/{{$fizaPelanPerancanganPerolehan->id}}"><i class="align-middle fas fa-fw fa-download"></i></i></a>
+
+                                    @else
+                                    <a href="/cetak-pelan/{{$fizaPelanPerancanganPerolehan->id}}"><i class="align-middle fas fa-fw fa-download"></i></i></a>
+                                    @endif
                                 </td>
                                
                            
