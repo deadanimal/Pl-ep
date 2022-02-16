@@ -112,11 +112,11 @@ class PenggunaController extends Controller
         $user->email = $request ->email;
         $user->user_kewarganegaraan = $request->user_kewarganegaraan;
         $user->user_phone = $request->user_phone;
-        $user->user_fax = $request->user_fax;
+        $user->user_pej = $request->user_pej;
         $user->user_alamat = $request->user_alamat;
         $user->user_poskod = $request->user_poskod;
         $user->user_negeri = $request->user_negeri;
-        $user->user_fax = $request->user_fax;
+
 
 
 

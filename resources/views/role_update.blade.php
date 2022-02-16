@@ -184,8 +184,8 @@
 
                                     <div class="mb-3 col-md-6">
                                         <label>No Tel Pejabat</label>
-                                        <input type="number" class="form-control" name=user_fax
-                                            value="{{ $user->user_fax }}">
+                                        <input type="number" class="form-control" name=user_pej
+                                            value="{{ $user->user_pej }}">
                                     </div>
                                 </div>
 

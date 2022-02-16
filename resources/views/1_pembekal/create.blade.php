@@ -72,8 +72,8 @@
                          
                                 <div class="mb-2 col-sm-7">
                                     <div class="form-check">
-                                        <input type="checkbox" name="pembekal_jenis_akaun[]" value="Bekalan & Perkhidmatan(MOF)" class="form-check-input">
-                                        Perbendaharaan Malaysia Sabah (MOF)
+                                        <input type="checkbox" name="pembekal_jenis_akaun[]" value="Perbendaharaan Malaysia Sabah" class="form-check-input">
+                                        Perbendaharaan Malaysia Sabah / MOF
                                     </div>
                                     <div class="form-check">
                                         <input type="checkbox" name="pembekal_jenis_akaun[]" value="Kerja" class="form-check-input" >Kerja – PPK, SPKK (CIDB), STB (MEDEC)
@@ -87,6 +87,16 @@
                             <label class= "col-form-label col-sm-3 text-sm-end">Nama Syarikat<span class="text-danger">*</span></label>
                             <div class="mb-2 col-sm-7 text-sm-end">
                                 <input type="text"   name=pembekal_company_name class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label class= "col-form-label col-sm-3 text-sm-end">ID Pengguna<span class="text-danger">*</span></label>
+                            <div class="mb-2 col-sm-7 text-sm-end">
+                                <input type="text" name=pembekal_id_pengguna class="form-control" required>
+                            </div>
+                            <div class="mb-2 col-sm-2">
+                                <small>*ID Pengguna digunakan untuk log masuk sistem</small>
                             </div>
                         </div>
 
@@ -253,6 +263,13 @@
                     </div>
                 </div>
 
+                <div class="mb-3 row">
+                    <label class= "col-form-label col-sm-3 text-sm-end">No Telefon Pejabat</label>
+                <div class="mb-2 col-sm-7"> 
+                    <input type="number" name=pembekal_pej_no class="form-control">
+                </div>
+            </div>
+
             </fieldset>
             <br><br>
 
@@ -398,7 +415,7 @@
                 </fieldset>
 
                 <br><br>
-                <div align="right"
+                <div align="right">
                 <button class="btn btn-primary" type="submit">Daftar</button>
                 </div>
         </form>

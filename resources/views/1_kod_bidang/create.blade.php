@@ -59,8 +59,9 @@
                            <input type=text name=kod_description class="form-control">
                         </div>
                     </div>
-
-                   <button  class="btn btn-primary" type="submit">Daftar</button> 
+                    <div align="right">
+                        <button  class="btn btn-primary" type="submit">Daftar</button> 
+                    </div>
 
                 </form>
             </div> 

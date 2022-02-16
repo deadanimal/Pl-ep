@@ -138,17 +138,15 @@ Kemaskini Maklumat Pengguna</a></li>
                <label class="col-form-label col-sm-6">Tambah Peranan</label>
             </div>
             <div class="mb-3 col-md-6">
-                  <select name="role_id"  class="form-select">
-                     @if ($user->role[0]->id=='2'){)
+                <select name="role_id"  class="form-select">
                         <option hidden value="">Sila Pilih</option>
                         @foreach($role as  $role)
-                    <option value="{{$role->id}}">{{$role->role_name}}</option>
+                        <option value="{{$role->id}}">{{$role->role_name}}</option>
                         @endforeach 
+
                  </select>
-                     @else
-                         
-                     @endif
-                    
+              
+        
             </div>
         </div>  
 

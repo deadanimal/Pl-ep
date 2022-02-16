@@ -128,9 +128,6 @@ class FizaPembelianSebutTenderController extends Controller
             
         }
 
-
-    
-    
         // dd($temp);
 
         //System Notification

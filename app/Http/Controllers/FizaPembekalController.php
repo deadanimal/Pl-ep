@@ -67,12 +67,13 @@ class FizaPembekalController extends Controller
         $fizaPembekal->pembekal_state=$request->pembekal_state;
         $fizaPembekal->pembekal_country=$request->pembekal_country;
         $fizaPembekal->pembekal_tel_no=$request->pembekal_tel_no;
-        $fizaPembekal->pembekal_fax_no=$request->pembekal_fax_no;
+        $fizaPembekal->pembekal_pej_no=$request->pembekal_pej_no;
         $fizaPembekal->pembekal_email=$request->pembekal_email;
 
         $fizaPembekal->pembekal_cbp_no=$request->pembekal_cbp_no;
         $fizaPembekal->pembekal_cbp_effective_date=$request->pembekal_cbp_effective_date;
         $fizaPembekal->pembekal_cbp_end_date=$request->pembekal_cbp_end_date;
+        $fizaPembekal->pembekal_id_pengguna=$request->pembekal_id_pengguna;
 
         if ($request->hasFile('pembekal_sijil_ssm')) {
             $pembekal_sijil_ssm=$request->file('pembekal_sijil_ssm')->store('pembekal_sijil_ssm');
@@ -104,8 +105,8 @@ class FizaPembekalController extends Controller
             })->get();
 
             foreach ($receiver as $receiver) 
-            Mail::to($receiver->email)->send(new PendaftaranPembekal($fizaPembekal));
-        
+                Mail::to($receiver->email)->send(new PendaftaranPembekal($fizaPembekal));
+
             // dd($receiver->id);
 
          //System Notification
@@ -121,13 +122,13 @@ class FizaPembekalController extends Controller
     
         if (!is_null($request->pembekal_jenis_akaun)) {
 
-            if (in_array('Kerja', $request->pembekal_jenis_akaun) && in_array('Bekalan & Perkhidmatan(MOF)', $request->pembekal_jenis_akaun)) {
+            if (in_array('Kerja', $request->pembekal_jenis_akaun) && in_array('Perbendaharaan Malaysia Sabah', $request->pembekal_jenis_akaun)) {
                 return redirect('/insertfile/'.$fizaPembekal->id);
 
             } elseif (in_array('Kerja', $request->pembekal_jenis_akaun)) {
                 return redirect('/cidb/'.$fizaPembekal->id);
 
-            } elseif (in_array('Bekalan & Perkhidmatan(MOF)', $request->pembekal_jenis_akaun)) {
+            } elseif (in_array('Perbendaharaan Malaysia Sabah', $request->pembekal_jenis_akaun)) {
                 return redirect('/mof/'.$fizaPembekal->id);
             }
         } else {
@@ -177,7 +178,7 @@ class FizaPembekalController extends Controller
       $fizaPembekal->pembekal_state=$request->pembekal_state;
       $fizaPembekal->pembekal_country=$request->pembekal_country;
       $fizaPembekal->pembekal_tel_no=$request->pembekal_tel_no;
-      $fizaPembekal->pembekal_fax_no=$request->pembekal_fax_no;
+      $fizaPembekal->pembekal_pej_no=$request->pembekal_pej_no;
       $fizaPembekal->pembekal_email=$request->pembekal_email;
 
 
@@ -205,6 +206,7 @@ class FizaPembekalController extends Controller
 
       if ($request->status_pembekal=="Diluluskan"){
         $fizaPembekal->pembekal_status="diluluskan";
+        app('App\Http\Controllers\UserPembekalController')->create($id);
     }
     else if($request->status_pembekal=="Ditolak"){
         $fizaPembekal->pembekal_status="ditolak";

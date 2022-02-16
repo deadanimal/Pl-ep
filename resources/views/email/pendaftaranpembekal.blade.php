@@ -11,8 +11,9 @@
         }
         </style>
         
-    
-Pembekal telah daftar dan sedang menunggu pengesahan daripada anda.Berikut maklumat pembekal untuk rujukan pihak anda. Sekian, terima kasih. 
+    Salam Sejahtera, 
+
+    <p> Dimaklumkan terdapat satu pembekal telah menghantar permohonan dan sedang menunggu pengesahan daripada pihak anda. Berikut merupakan butiran ringkas syarikat tersebut untuk rujukan pihak anda:</p>
 
 <div>
     <h4>Maklumat Pembekal</h4>
@@ -23,4 +24,5 @@ Pembekal telah daftar dan sedang menunggu pengesahan daripada anda.Berikut maklu
 
 <footer> 
     Sila log masuk ke Sistem ePerolehan untuk membuat pengesahan. 
+    <a href="https://labuan-eperolehan.prototype.com.my">Sistem Pengurusan ePerolehan<a>
 </footer>

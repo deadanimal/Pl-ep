@@ -33,7 +33,7 @@
                                 <option hidden value="">Sila Pilih</option>
                                 <option value="perolehan bekalan">Perolehan Bekalan</option>
                                 <option value="perolehan perkhidmatan">Perolehan Perkhidmatan</option>
-                                <option value="perolehan kerja">Perolehan Perkhidmatan</option>
+                                <option value="perolehan kerja">Perolehan Kerja</option>
                             </select>
                             </div>
                         </div>
@@ -103,6 +103,7 @@
                         </div>
                         <div class="mb-3 col-md-6">
                             <input  type=number name=pelan_peruntukan_tahunan class="form-control" min="0"  step=".01" placeholder="0.00">
+                           
                         </div>
                     </div>
 

@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
             'user_jenis_pengenalan'=>'Kad Pengenalan',
             'user_kewarganegaraan'=>'Malaysia',
             'user_phone'=>'0123456789',
-            'user_fax'=>'1800882525',
+            'user_pej'=>'1800882525',
             'user_alamat'=>'No 91, Jalan Kenanga',
             'user_poskod'=>'839390',
             'user_negeri'=>'Melaka'
@@ -64,14 +64,10 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('roles')->insert([
-            'role_name'=>'Pentadbir Pembekal',
+            'role_name'=>'Pembekal',
             'role_staff_status'=>'aktif'
         ]);
 
-        DB::table('roles')->insert([
-            'role_name'=>'Staff Pembekal',
-            'role_staff_status'=>'aktif'
-        ]);
 
         DB::table('fiza_item_infos')->insert([
             'katalog_id'=>'1',

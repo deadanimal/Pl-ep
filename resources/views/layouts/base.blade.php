@@ -32,7 +32,7 @@
             @yield('styles')
             
             <!-- Scripts -->
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+            {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> --}}
             <link href="/css/modern.css" rel="stylesheet">
             <script src="/js/settings.js"></script>
     
@@ -71,7 +71,7 @@
                 <div class="sidebar-content">
                     <div class="sidebar-content">
                         <div class="sidebar-user">
-                            <img src="/PL.png" class="img-fluid rounded-circle mb-2" />
+                            <a href="/"><img src="/PL.png" class="img-fluid rounded-circle mb-2"/></a>
                             <div class="fw-bold">Sistem ePerolehan</div>
                             <small>{{Auth::user()->user_name}}</small>
                         </div>
@@ -387,7 +387,7 @@
                         @yield('content')
                         @yield('scripts')
 
-                        <script src="js/app.js"></script>
+                        <script src="/js/app.js"></script>
                     </div>
                 </main>
             </div>

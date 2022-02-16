@@ -53,6 +53,7 @@ use App\Http\Controllers\FizaSuratSetujuTerimaController;
 use App\Http\Controllers\FizaTetapanTempohController;
 use App\Http\Controllers\RoleUserController;
 use App\Http\Controllers\ItemKartController;
+use App\Http\Controllers\UserPembekalController;
 
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Models\Roles;
@@ -174,6 +175,7 @@ Route::group(['middleware' => ['auth']],function(){
     Route::resource('/SenaraiSemakStandard',FizaSenaraiSemakStandardController::class);
     Route::resource('/SuratSetujuTerima',FizaSuratSetujuTerimaController::class);
     Route::resource('/Roles',RolesController::class);
+    Route::resource('/User',UserPembekal::class);
     Route::get('/Jawatankuasa/pst/{id}',[FizaJawatankuasaController::class,'create']);
     Route::get('/Jawatankuasa/{id}/edit',[FizaJawatankuasaController::class,'edit']);
    

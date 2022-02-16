@@ -96,18 +96,13 @@ class FizaJawatankuasaController extends Controller
     {
         
         $pst = FizaPembelianSebutTender::find($id);
+        
         $Jawatankuasa= FizaJawatankuasa::where('pst_id', $pst->id)->get()->first();
-
         $spesifikasi=User::where('id',$Jawatankuasa->jawatankuasa_spesifikasi)->get();
-
         $teknikal=User::where('id',$Jawatankuasa->jawatankuasa_teknikal)->get();
-
         $kewangan=User::where('id',$Jawatankuasa->jawatankuasa_kewangan)->get();
-
         $kerja=User::where('id',$Jawatankuasa->jawatankuasa_kerja)->get();
-
         $terbuka=User::where('id',$Jawatankuasa->jawatankuasa_terbuka)->get();
-
         $penilaian=User::where('id',$Jawatankuasa->jawatankuasa_penilaian)->get();
 
 

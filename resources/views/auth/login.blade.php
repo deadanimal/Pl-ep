@@ -99,7 +99,10 @@
 											  <div class="input-group-prepend">
 												<span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
 											  </div>
-											  <input name="user_identity_no" type="number" class="input form-control" id="No Kad Pengenalan" placeholder="No Kad Pengenalan" aria-label="No Kad Pengenalan" aria-describedby="basic-addon1" />
+											  {{-- <input name="user_identity_no" type="number" class="input form-control" id="No Kad Pengenalan" placeholder="No Kad Pengenalan" aria-label="No Kad Pengenalan" aria-describedby="basic-addon1" /> --}}
+											  <input class="form-control" type="text" name="user_identity_no"
+											  :value="old('no_KP')" maxlength="12" size="12"
+											  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..?)\../g, '$1');"/>
 											</div>
 										  </div>
 										  <div class="col-12">

@@ -39,9 +39,6 @@ Audit Log</a></li>
         </div>
     </div>
 </div>
-
-<script src="js/app.js"></script>
-
 	<script>
 		document.addEventListener("DOMContentLoaded", function() {
 			// Datatables with Buttons

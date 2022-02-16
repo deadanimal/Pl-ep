@@ -47,7 +47,7 @@
                         </div>
 
                         <div class="form-check">
-                            <input type="checkbox" name="pembekal_jenis_akaun[]" value="Bekalan & Perkhidmatan(MOF)"
+                            <input type="checkbox" name="pembekal_jenis_akaun[]" value="Perbendaharaan Malaysia Sabah"
                                 class="form-check-input">Bekalan dan Perkhidmatan (MOF)
                         </div>
                         <div class="form-check">
@@ -357,10 +357,48 @@
     </fieldset>
 
     <br><br>
-    <div style=float-right>
-        <button class="btn btn-primary" type="submit" name="status_pembekal" value="Ditolak"> Ditolak</button> 
-        <button  class="btn btn-success" type="submit" name="status_pembekal" value="Diluluskan">Diluluskan</button> 
+    <div align=right>
+
+
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#centeredModalPrimary">
+            Diluluskan
+        </button>
+        <div class="modal fade" id="centeredModalPrimary" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Pengesahan Kelulusan Pendaftaran Pembekal</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body m-3">
+                        <p class="mb-0">Sila Masukkan No Kad Pengenalan Anda Untuk Tujuan Pengesahan</p>
+                        <form method="POST" action="/UserPembekal/{{$pembekal->id}}" enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
+
+                            No Kad Pengenalan: <input type="text" name="ic" class="form-control">    
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                        <button type="submit" class="btn btn-primary" name="status_pembekal" value="Diluluskan">Sahkan
+                            <form method="POST" action="UserPembekal/create"></form>
+                            <form method="POST" action="/Pembekal/{{$pembekal->id}}" enctype="multipart/form-data" ></form>
+                        
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <button class="btn btn-danger" type="submit" name="status_pembekal" value="Ditolak"> Ditolak</button> 
+        {{-- <button class="btn btn-success" type="submit" name="status_pembekal" value="Diluluskan" onclick="location.href='@Url.Action("create", "UserPembekalController")'" />Diluluskan --}}
+        
+
        </div>
     </form>
 
-@stop
+@stop 

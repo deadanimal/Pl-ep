@@ -22,6 +22,7 @@ class CreateFizaPembekalsTable extends Migration
             $table->string('pembekal_sijil_ssm')->nullable();
             $table->string('pembekal_lesen_perniagaan')->nullable();
             $table->string('pembekal_pemilik')->nullable();
+            $table->string('pembekal_id_pengguna')->nullable();
             $table->string('pembekal_email')->unique()->nullable();
             $table->string('pembekal_citizenship')->nullable();
             $table->string('pembekal_identity_type')->nullable();
@@ -35,7 +36,7 @@ class CreateFizaPembekalsTable extends Migration
             $table->string('pembekal_state')->nullable();
             $table->string('pembekal_country')->nullable();
             $table->string('pembekal_tel_no')->nullable();
-            $table->string('pembekal_fax_no')->nullable();
+            $table->string('pembekal_pej_no')->nullable();
             $table->string('pembekal_cbp_no')->nullable();
             $table->date('pembekal_cbp_effective_date')->nullable();
             $table->string('pembekal_cbp_approval_doc')->nullable();
@@ -49,9 +50,6 @@ class CreateFizaPembekalsTable extends Migration
             $table->foreignId('kod_id')->nullable();
             $table->string('pembekal_created_by')->nullable();
             $table->string('pembekal_updated_by')->nullable();
-            $table->string('pembekal_staff_ic')->nullable();
-            $table->string('pembekal_staff_nama')->nullable();
-            $table->string('pembekal_staff_jawatan')->nullable();
 
             $table->string('pembekal_no_sijil_mof')->nullable();
             $table->string('pembekal_no_rujukan_pendaftaran')->nullable();
