@@ -9,15 +9,12 @@ use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
+
     public function run()
     {
         DB::table('users')->insert([
             'user_name' => 'Syafiza Senin',
+            'id_pengguna' => '',
             'email' => 'syafiza.senin@pipeline.com.my',
             'user_identity_no'=>'9999',
             'jenis'=>'pekerja',

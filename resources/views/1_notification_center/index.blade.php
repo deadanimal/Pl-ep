@@ -33,7 +33,7 @@ Sistem Notifikasi</a></li>
                 
              <tr> 
               
-                    <td>{{date('d/m/Y H:i', strtotime($NotificationCenter->created_at))}}</td>
+                    <td><small>{{date('d/m/Y H:i', strtotime($NotificationCenter->created_at))}}</small></td>
                     <td>{{$NotificationCenter->noti_subject}}</td>
 
                     <td> {{$NotificationCenter->noti_content}}</td>

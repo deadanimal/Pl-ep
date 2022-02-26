@@ -8,6 +8,7 @@ use App\Models\FizaKatalog;
 use App\Models\FizaKart;
 use App\Models\FizaItemInfo;
 use App\Models\FizaPembekal;
+use App\Models\FizaPertanyaanItem;
 use App\Models\ItemKart;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -24,7 +25,7 @@ class FizaItemInfoController extends Controller
             $Katalog=FizaKatalog::all();
     
     
-            return view('1_item_info.index', [
+            return view('1_item_info.index',[
                 'ItemInfo'=>$ItemInfo,
                 'Katalog'=>$Katalog,
             ]);
@@ -99,7 +100,7 @@ class FizaItemInfoController extends Controller
     }
 
 
-    public function update(Request $request, FizaItemInfo $fizaItemInfo, $id)
+    public function update(Request $request, FizaItemInfo $fizaItemInfo,$id)
     {
         $fizaItemInfo = FizaItemInfo::find($id);
 
@@ -127,17 +128,19 @@ class FizaItemInfoController extends Controller
         return redirect('/ItemInfo');
     }
 
-    public function addcart(Request $request, FizaItemInfo $ItemInfo)
+    public function addcart(Request $request,FizaKart $fizaKart,FizaItemInfo $ItemInfo)
     {
         $fizaKart = FizaKart::where('aktif', true)->first();
-        $user_id=Auth::user()->id;
 
-        
-        if ($fizaKart) {
-        } else {
+        if($fizaKart){
+
+        }
+        else{
             $fizaKart = new FizaKart;
+            $fizaKart = 
             $fizaKart->save();
         }
+      
 
         $itemKart = new ItemKart;
         $itemKart->item_id = $ItemInfo->id;
@@ -150,9 +153,15 @@ class FizaItemInfoController extends Controller
         return redirect()->back();
     }
 
-    public function removecart(Request $request, ItemKart $itemKart, $id)
+    // public function removecart(Request $request, ItemKart $list_nama_barang,FizaItemInfo $item)
+    // {
+    //     $list_nama_barang = ItemKart::find($id);
+    //     $list_nama_barang->delete();
+    //     return redirect()->back();
+    // }
+
+    public function removecart(Request $request,ItemKart $list_nama_barang)
     {
-        $list_nama_barang = FizaKart::where('id', $id)->get();
         $list_nama_barang->delete();
         return redirect()->back();
     }

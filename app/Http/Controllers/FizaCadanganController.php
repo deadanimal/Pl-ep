@@ -38,7 +38,7 @@ class FizaCadanganController extends Controller
         // $fizaCadangan->sss_id =$request->sss_id ;
         $fizaCadangan->cadangan_mesyuarat_date=$request->cadangan_mesyuarat_date;
         $fizaCadangan->cadangan_mesyuarat_place =$request->cadangan_mesyuarat_place ;
-        $fizaCadangan->cadangan_created_by=Auth::user()->user_name;
+        $fizaCadangan->cadangan_created_by=Auth::user()->id;
         // $fizaCadangan->jawatankuasa_id=$request->jawatankuasa_id;
         // $fizaCadangan->cadangan_mesyuarat_status=$request->cadangan_mesyuarat_status;
         // $fizaCadangan->cadangan_kehadiran=$request->cadangan_kehadiran;

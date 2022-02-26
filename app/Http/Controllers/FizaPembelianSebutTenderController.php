@@ -30,10 +30,12 @@ class FizaPembelianSebutTenderController extends Controller
         }
 
         else{
-        $PembelianSebutTender = FizaPembelianSebutTender::where('created_by',Auth::user()->id)
-        ->orWhere('pst_pelulus',Auth::user()->id)
+            $PembelianSebutTender = FizaPembelianSebutTender::where('created_by',Auth::user()->id)
+            ->orWhere('pst_pelulus',Auth::user()->id)
+            ->orWhere('pst_penyelaras',Auth::user()->id)
+            ->get();
         
-        ->orWhere('pst_penyelaras',Auth::user()->id)->get();
+
 
         return view('1_pst.index', [ 
             'PembelianSebutTender'=>$PembelianSebutTender   
@@ -70,7 +72,7 @@ class FizaPembelianSebutTenderController extends Controller
         $fizaPembelianSebutTender->pst_sistem_panel=$request->pst_sistem_panel;
         $fizaPembelianSebutTender->pst_no1pp=$request->pst_no1pp;
         $fizaPembelianSebutTender->katalog_id=$request->katalog_id;
-        $fizaPembelianSebutTender->pst_katalog_kumpulan=$request->pst_katalog_kumpulan;
+        // $fizaPembelianSebutTender->pst_katalog_kumpulan=$request->pst_katalog_kumpulan;
 
         $fizaPembelianSebutTender->pst_tajuk=$request->pst_tajuk;
         $fizaPembelianSebutTender->pst_no_rujukan_fail=$request->pst_no_rujukan_fail;
@@ -184,13 +186,14 @@ class FizaPembelianSebutTenderController extends Controller
     public function update($id, Request $request)
     {
         $fizaPembelianSebutTender = FizaPembelianSebutTender::find($id);
+
     
 
         $fizaPembelianSebutTender->pst_item_panel=$request->pst_item_panel;
         $fizaPembelianSebutTender->pst_sistem_panel=$request->pst_sistem_panel;
         $fizaPembelianSebutTender->pst_no1pp=$request->pst_no1pp;
         $fizaPembelianSebutTender->katalog_id=$request->katalog_id;
-        $fizaPembelianSebutTender->pst_katalog_kumpulan=$request->pst_katalog_kumpulan;
+        // $fizaPembelianSebutTender->pst_katalog_kumpulan=$request->pst_katalog_kumpulan;
 
         $fizaPembelianSebutTender->pst_tajuk=$request->pst_tajuk;
         $fizaPembelianSebutTender->pst_no_rujukan_fail=$request->pst_no_rujukan_fail;

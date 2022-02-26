@@ -31,7 +31,6 @@ Senarai Nota Minta</a></li>
                             <th> Jenis Perolehan </th>
                             <th> Tempoh Penghantaran</th>
                             <th> Status </th>
-                            <th> Disediakan Oleh</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -42,7 +41,7 @@ Senarai Nota Minta</a></li>
                             <td>{{$fizaNotaMinta->ro_jenis_perolehan}}</td>
                             <td>{{$fizaNotaMinta->ro_tempoh_penghantaran}}</td>
                             <td>{{$fizaNotaMinta->ro_status}}</td>
-                            <td>{{$fizaNotaMinta->ro_created_by}}</td>
+  
                         </tr>
                         @endforeach
                        

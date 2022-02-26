@@ -12,7 +12,6 @@ use App\Http\Controllers\FizaPembekalController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\FizaEpUserController;
 use App\Http\Controllers\FizaUserRoleController;
-use App\Http\Controllers\FizaPenyediaanSpesifikasiController;
 use App\Http\Controllers\FizaArahanMemberhentikanController;
 use App\Http\Controllers\FizaAuditPelanController;
 use App\Http\Controllers\FizaCadanganController;
@@ -54,7 +53,6 @@ use App\Http\Controllers\FizaTetapanTempohController;
 use App\Http\Controllers\RoleUserController;
 use App\Http\Controllers\ItemKartController;
 use App\Http\Controllers\UserPembekalController;
-
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Models\Roles;
 
@@ -108,7 +106,7 @@ Route::get('/cidb/{id}',[FizaPembekalController::class,'cidb']);
 Route::get('/listkatalog/{id}',[FizaKatalogController::class,'listkatalog']);
 
 Route::get('/ItemInfo/addcart/{ItemInfo}', [FizaItemInfoController::class, 'addcart']);
-Route::get ('/ItemKart/removecart/{id}', [FizaItemInfoController::class, 'removecart']);
+Route::get('/ItemKart/removecart/{id}', [FizaItemInfoController::class, 'removecart']);
 Route::resource('/ItemKart',ItemKartController::class);
 
 
@@ -177,7 +175,8 @@ Route::group(['middleware' => ['auth']],function(){
     Route::resource('/Roles',RolesController::class);
     Route::resource('/User',UserPembekal::class);
     Route::get('/Jawatankuasa/pst/{id}',[FizaJawatankuasaController::class,'create']);
-    Route::get('/Jawatankuasa/{id}/edit',[FizaJawatankuasaController::class,'edit']);
+    Route::get('/Jawatankuasa/pst/{id}/edit',[FizaJawatankuasaController::class,'edit']);
+
    
 });
 

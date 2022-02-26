@@ -76,7 +76,7 @@ class FizaPelanPerancanganPerolehanController extends Controller
         $fizaPelanPerancanganPerolehan->pelan_catatan_pengesah=$request->pelan_catatan_pengesah;
         $fizaPelanPerancanganPerolehan->pelan_pelulus=$request->pelan_pelulus;
         $fizaPelanPerancanganPerolehan->pelan_catatan_pelulus=$request->pelan_catatan_pelulus;
-        $fizaPelanPerancanganPerolehan->pelan_created_by=Auth::user()->user_name;
+        $fizaPelanPerancanganPerolehan->pelan_created_by=Auth::user()->id;
         // $fizaPelanPerancanganPerolehan->user_id=$request->user_id;
 
         $fizaPelanPerancanganPerolehan->pelan_peruntukan_tahunan=$request->pelan_peruntukan_tahunan;

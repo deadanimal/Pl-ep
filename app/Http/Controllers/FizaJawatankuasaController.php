@@ -42,45 +42,31 @@ class FizaJawatankuasaController extends Controller
         // $pst = FizaPembelianSebutTender::find($id);
         $fizaJawatankuasa = new FizaJawatankuasa;
 
-        $fizaJawatankuasa->jawatankuasa_spesifikasi=$request->jawatankuasa_spesifikasi;
-        $fizaJawatankuasa->jawatankuasa_teknikal=$request->jawatankuasa_teknikal;
-        $fizaJawatankuasa->jawatankuasa_kewangan=$request->jawatankuasa_kewangan;
-        $fizaJawatankuasa->jawatankuasa_kerja=$request->jawatankuasa_kerja;
-        $fizaJawatankuasa->jawatankuasa_terbuka=$request->jawatankuasa_terbuka;
-        $fizaJawatankuasa->jawatankuasa_penilaian=$request->jawatankuasa_penilaian;
+        $fizaJawatankuasa->jawatankuasa_spesifikasi_pengerusi=$request->jawatankuasa_spesifikasi_pengerusi;
+        $fizaJawatankuasa->jawatankuasa_spesifikasi_ajk=$request->jawatankuasa_spesifikasi_ajk;
+        $fizaJawatankuasa->jawatankuasa_spesifikasi_urusetia=$request->jawatankuasa_spesifikasi_urusetia;
+
+        $fizaJawatankuasa->jawatankuasa_teknikal_pengerusi=$request->jawatankuasa_teknikal_pengerusi;
+        $fizaJawatankuasa->jawatankuasa_teknikal_ajk=$request->jawatankuasa_teknikal_ajk;
+
+        $fizaJawatankuasa->jawatankuasa_kewangan_pengerusi=$request->jawatankuasa_kewangan_pengerusi;
+        $fizaJawatankuasa->jawatankuasa_kewangan_ajk=$request->jawatankuasa_kewangan_ajk;
+
+        $fizaJawatankuasa->jawatankuasa_kerja_pengerusi=$request->jawatankuasa_kerja_pengerusi;
+        $fizaJawatankuasa->jawatankuasa_kerja_ajk=$request->jawatankuasa_kerja_ajk;
+
+        $fizaJawatankuasa->jawatankuasa_terbuka_pengerusi=$request->jawatankuasa_terbuka_pengerusi;
+        $fizaJawatankuasa->jawatankuasa_terbuka_ajk=$request->jawatankuasa_terbuka_ajk;
+
+        $fizaJawatankuasa->jawatankuasa_penilaian_pengerusi=$request->jawatankuasa_penilaian_pengerusi;
+        $fizaJawatankuasa->jawatankuasa_penilaian_ajk=$request->jawatankuasa_penilaian_ajk;
+
         $fizaJawatankuasa->pst_id=$request->pst_id;
         $fizaJawatankuasa->jawatankuasa_created_by=Auth::user()->id;
-
-        // $fizaJawatankuasa->jenis_jawatankuasa=$request->jenis_jawatankuasa;
-        // $fizaJawatankuasa->user_id=$request->user_id;
-        // $fizaJawatankuasa->jawatankuasa_peranan=$request->jawatankuasa_peranan;
-
-
-
     
         $fizaJawatankuasa->save();
         // Mail::to($receiver->email)->send(new SebutHargaBaru);
         // Mail::to($receiver_spesifikasi->email)->send(new PerlantikanJawatankuasaSpesifikasi);
-
-
-            //System Notification
-            // $notification_obj = (object)[];
-            // $notification_obj->noti_type="";
-            // $notification_obj->noti_template="";
-            // $notification_obj->noti_subject="Anda telah dilantik sebagai Jawatankuasa Spesifikasi";
-            // $notification_obj->noti_status="";
-            // $notification_obj->noti_content="untuk sebutharga";
-            // $notification_obj->user_id=User::where('id',$request->jawatankuasa_spesifikasi)->first();
-    
-            //  app('App\Http\Controllers\FizaNotificationCenterController')->store($notification_obj);
-        
-          
-            // //audit log
-            // $item="Sebutharga Tender";
-            // $user_id= Auth::user()->id;
-            // $description = "$pst->created_by telah menghantar sebutharga untuk $pst->pst_item_panel";
-            // $log_item = [$item, $description, $user_id];
-            // app('App\Http\Controllers\AuditLogController')->log($log_item);
 
         return redirect('/PembelianSebutTender')->with('success','Data telah berjaya dihantar');
         
@@ -96,63 +82,105 @@ class FizaJawatankuasaController extends Controller
     {
         
         $pst = FizaPembelianSebutTender::find($id);
-        
         $Jawatankuasa= FizaJawatankuasa::where('pst_id', $pst->id)->get()->first();
-        $spesifikasi=User::where('id',$Jawatankuasa->jawatankuasa_spesifikasi)->get();
-        $teknikal=User::where('id',$Jawatankuasa->jawatankuasa_teknikal)->get();
-        $kewangan=User::where('id',$Jawatankuasa->jawatankuasa_kewangan)->get();
-        $kerja=User::where('id',$Jawatankuasa->jawatankuasa_kerja)->get();
-        $terbuka=User::where('id',$Jawatankuasa->jawatankuasa_terbuka)->get();
-        $penilaian=User::where('id',$Jawatankuasa->jawatankuasa_penilaian)->get();
+
+        // $Jawatankuasa=FizaJawatankuasa::find($id);
+        // $pst = FizaPembelianSebutTender::where('id',$Jawatankuasa->pst_id)->get()->first();
+
+        $spesifikasi_pengerusi=User::where('id',$Jawatankuasa->jawatankuasa_spesifikasi_pengerusi)->get();
+        $spesifikasi_ajk=User::where('id',$Jawatankuasa->jawatankuasa_spesifikasi_ajk)->get();
+        $spesifikasi_urusetia=User::where('id',$Jawatankuasa->jawatankuasa_spesifikasi_urusetia)->get();
+
+        $teknikal_pengerusi=User::where('id',$Jawatankuasa->jawatankuasa_teknikal_pengerusi)->get();
+        $teknikal_ajk=User::where('id',$Jawatankuasa->jawatankuasa_teknikal_ajk)->get();
+        
+        $kewangan_pengerusi=User::where('id',$Jawatankuasa->jawatankuasa_kewangan_pengerusi)->get();
+        $kewangan_ajk=User::where('id',$Jawatankuasa->jawatankuasa_kewangan_ajk)->get();
+
+        $kerja_pengerusi=User::where('id',$Jawatankuasa->jawatankuasa_kerja_pengerusi)->get();
+        $kerja_ajk=User::where('id',$Jawatankuasa->jawatankuasa_kerja_ajk)->get();
+
+        $terbuka_pengerusi=User::where('id',$Jawatankuasa->jawatankuasa_terbuka_pengerusi)->get();
+        $terbuka_ajk=User::where('id',$Jawatankuasa->jawatankuasa_terbuka_ajk)->get();
+
+        $penilaian_pengerusi=User::where('id',$Jawatankuasa->jawatankuasa_penilaian_pengerusi)->get();
+        $penilaian_ajk=User::where('id',$Jawatankuasa->jawatankuasa_penilaian_ajk)->get();
 
 
         return view ('1_jawatankuasa.edit',[
             'Jawatankuasa'=>$Jawatankuasa,
             'pst'=>$pst,
-            'spesifikasi'=>$spesifikasi,
-            'kerja'=>$kerja,
-            'teknikal'=>$teknikal,
-            'kewangan'=>$kewangan,
-            'terbuka'=>$terbuka,
-            'penilaian'=>$penilaian
+            'spesifikasi_pengerusi'=>$spesifikasi_pengerusi,
+            'spesifikasi_urusetia'=>$spesifikasi_urusetia,
+            'spesifikasi_ajk'=>$spesifikasi_ajk,
+            'kerja_pengerusi'=>$kerja_pengerusi,
+            'kerja_ajk'=>$kerja_ajk,
+            'teknikal_pengerusi'=>$teknikal_pengerusi,
+            'teknikal_ajk'=>$teknikal_ajk,
+            'kewangan_pengerusi'=>$kewangan_pengerusi,
+            'kewangan_ajk'=>$kewangan_ajk,
+            'terbuka_pengerusi'=>$terbuka_pengerusi,
+            'terbuka_ajk'=>$terbuka_ajk,
+            'penilaian_pengerusi'=>$penilaian_pengerusi,
+            'penilaian_ajk'=>$penilaian_ajk
         ]);
 
     
     }
 
 
-    public function update(Request $request)
+    public function update(Request $request,$id)
     {
         // dd($request->jawatankuasa_spesifikasi);
-        // $fizaJawatankuasa= fizaJawatankuasa::find($id);
-        // $fizaJawatankuasa->jenis_jawatankuasa=$request->jenis_jawatankuasa;
-        $fizaJawatankuasa->jawatankuasa_spesifikasi=$request->jawatankuasa_spesifikasi;
-        $fizaJawatankuasa->jawatankuasa_teknikal=$request->jawatankuasa_teknikal;
-        $fizaJawatankuasa->jawatankuasa_kewangan=$request->jawatankuasa_kewangan;
-        $fizaJawatankuasa->jawatankuasa_kerja=$request->jawatankuasa_kerja;
-        $fizaJawatankuasa->jawatankuasa_terbuka=$request->jawatankuasa_terbuka;
-        $fizaJawatankuasa->jawatankuasa_penilaian=$request->jawatankuasa_penilaian;
+        $fizaJawatankuasa= fizaJawatankuasa::find($id);
+        // $fizaJawatankuasa->pst_id=$request->pst_id;
+
+        $fizaJawatankuasa->jawatankuasa_spesifikasi_pengerusi=$request->jawatankuasa_spesifikasi_pengerusi;
+        $fizaJawatankuasa->jawatankuasa_spesifikasi_ajk=$request->jawatankuasa_spesifikasi_ajk;
+        $fizaJawatankuasa->jawatankuasa_spesifikasi_urusetia=$request->jawatankuasa_spesifikasi_urusetia;
+
+        $fizaJawatankuasa->jawatankuasa_teknikal_pengerusi=$request->jawatankuasa_teknikal_pengerusi;
+        $fizaJawatankuasa->jawatankuasa_teknikal_ajk=$request->jawatankuasa_teknikal_ajk;
+
+        $fizaJawatankuasa->jawatankuasa_kewangan_pengerusi=$request->jawatankuasa_kewangan_pengerusi;
+        $fizaJawatankuasa->jawatankuasa_kewangan_ajk=$request->jawatankuasa_kewangan_ajk;
+
+        $fizaJawatankuasa->jawatankuasa_kerja_pengerusi=$request->jawatankuasa_kerja_pengerusi;
+        $fizaJawatankuasa->jawatankuasa_kerja_ajk=$request->jawatankuasa_kerja_ajk;
+
+        $fizaJawatankuasa->jawatankuasa_terbuka_pengerusi=$request->jawatankuasa_terbuka_pengerusi;
+        $fizaJawatankuasa->jawatankuasa_terbuka_ajk=$request->jawatankuasa_terbuka_ajk;
+
+        $fizaJawatankuasa->jawatankuasa_penilaian_pengerusi=$request->jawatankuasa_penilaian_pengerusi;
+        $fizaJawatankuasa->jawatankuasa_penilaian_ajk=$request->jawatankuasa_penilaian_ajk;
 
         // $fizaJawatankuasa->user_id=$request->user_id;
         // $fizaJawatankuasa->jawatankuasa_peranan=$request->jawatankuasa_peranan;
-        $fizaJawatankuasa->pst_id=$request->pst_id;
+      
+
         $fizaJawatankuasa->jawatankuasa_updated_by=Auth::user()->id;
 
+
+
+//         if ($request->status_pst=="diluluskan"){
+//             $pst->pst_status="diluluskan";
+//             $receiver_spesifikasi = User::where('id',$request->jawatankuasa_spesifikasi_urusetia)->first();
+//             Mail::to($receiver_spesifikasi->email)->send(new PerlantikanJawatankuasaSpesifikasi);
+           
+//         }
+// 9
+//         else if($request->status_pst=="ditolak"){
+//             $pst->pst_status="ditolak";
+//             $urusetia= User::where('id',$fizaJawatankuasa->jawatankuasa_created_by)->first();
+//             Mail::to($urusetia->email)->send(new PerlantikanJawatankuasaSpesifikasi);
+//         }
+
+
         $fizaJawatankuasa->save();
-
-        $receiver_spesifikasi= User::where('id',$request->jawatankuasa_spesifikasi)->first();
-        Mail::to($receiver_spesifikasi->email)->send(new PerlantikanJawatankuasaSpesifikasi);
+        // dd($request->pst_id);
 
 
-
-        // //audit log
-        // $item ="Sebutharga";
-        // $user_id= Auth::user()->id;
-        // $description = "$fizaPembelianSebutTender->updated_by telah mengemaskini jawatankuasa untuk $fizaPembelianSebutTender->pst_item_panel";
-        // $log_item = [$item, $description, $user_id];
-        // app('App\Http\Controllers\AuditLogController')->log($log_item);
-
-        return redirect('/PembelianSebutTender');
+        
     }
 
 

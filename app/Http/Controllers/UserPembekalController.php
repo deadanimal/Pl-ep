@@ -26,9 +26,6 @@ class UserPembekalController extends Controller
             ['id',$id],
             ['pembekal_status','diluluskan']
         ])->get();
-
-
-
     }
 
 
@@ -37,8 +34,8 @@ class UserPembekalController extends Controller
         $user = new User;
         // $pembekal=FizaPembekal::find($id);
 
-        $user->user_name = $pembekal->pembekal_id_pengguna;
-        $user->name = $pembekal->pemilik;
+        $user->id_pengguna = $pembekal->pembekal_id_pengguna;
+        $user->user_name = $pembekal->pemilik;
         $user->user_identity_no = $pembekal->pembekal_identity_no;
         $user->email = $pembekal->email;
         $user->jenis = "pembekal";

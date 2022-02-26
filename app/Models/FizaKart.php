@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Models\FizaItemInfo;
+use App\Models\FizaNotaMinta;
 
 class FizaKart extends Model
 {
@@ -14,5 +15,13 @@ class FizaKart extends Model
     public function iteminfo()
     {
         return $this->belongsToMany(FizaItemInfo::class);
-    }    
+    }   
+
+    public function notaMinta()
+    {
+        return $this->belongsTo(FizaNotaMinta::class);
+    }
+    
+   
+    
 }

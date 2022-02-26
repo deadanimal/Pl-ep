@@ -37,7 +37,7 @@
                    <label for="jenis_pengguna" class="col-form-label col-sm-6">Jenis Pengguna </label>
                 </div>
                 <div class="mb-3 col-md-8">
-                    <select name="jenis"  class="form-select" id="jenis_pengguna">
+                    <select name="jenis"  class="form-select" id="jenis_pengguna" required>
                         <option hidden value="">Sila Pilih</option>
                         <option value="pekerja">Perbadanan Labuan</option>
                         <option value="pembekal" id="pembekal">Pembekal</option>
@@ -51,7 +51,7 @@
                    <label class="col-form-label col-sm-6"> No Kad Pengenalan </label>
                 </div>
                 <div class="mb-3 col-md-8">
-                    <input type="text"  class="form-control" name="user_identity_no">
+                    <input type="text"  class="form-control" name="user_identity_no" required>
                 </div>
             </div>
 
@@ -60,7 +60,7 @@
                    <label class="col-form-label col-sm-6">Emel</label>
                 </div>
                 <div class="mb-3 col-md-8">
-                    <input type-="email"  class="form-control" name="email">
+                    <input type="email"  class="form-control" name="email" required>
                 </div>
             </div>
 
@@ -100,6 +100,13 @@
                              @endforeach
                          </select>
                   </div>
+
+                    <div class="col-md-4">
+                        <label class="col-form-label col-sm-6">ID Pengguna</label>
+                    </div>
+                    <div class="mb-3 col-md-8">
+                        <input type="text" class="form-control" name="id_pengguna" id="id_pengguna">
+                     </div>
                 </div>
         
 
@@ -118,11 +125,15 @@
         if ($(this).val() == "pembekal") {
           $('#pembekal_id_div').show();
           $('#pembekal_id').attr('required', '');
+          $('#id_pengguna').attr('required', '');
           $('#pembekal_id').attr('data-error', 'This field is required.');
+          $('#id_pengguna').attr('data-error', 'This field is required.');
         } else {
           $('#pembekal_id_div').hide();
           $('#pembekal_id').removeAttr('required');
-          $('#pembekal_id').removeAttr('data-error');
+          $('#pembekal_id').removeAttr('data-error');         
+          $('#id_pengguna').removeAttr('required');
+          $('#id_pengguna').removeAttr('data-error');
         }
       });
     

@@ -46,7 +46,7 @@ class FizaPertanyaanItemController extends Controller
         $fizaPertanyaanItem->tanya_ketersediaan_stok=$request->tanya_ketersediaan_stok;
         $fizaPertanyaanItem->tanya_harga_baru=$request->tanya_harga_baru;
         $fizaPertanyaanItem->tanya_status=$request->tanya_status;
-        $fizaPertanyaanItem->tanya_created_by=Auth::user()->user_name;
+        $fizaPertanyaanItem->tanya_created_by=Auth::user()->id;
 
         $fizaPertanyaanItem->save();
         

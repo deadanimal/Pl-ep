@@ -49,11 +49,13 @@ class PenggunaController extends Controller
         $user->password = Hash::make('password');
         if ($user->jenis == 'pembekal') {
             $user->pembekal_id = $request ->pembekal_id;
+            $user->id_pengguna=$request->id_pengguna;
         }
         $user->user_status="aktif";
         // dd($user);
         //$user->role_id = $request->role_id;
         $user->save();
+        //dd($request);
 
         Mail::to($user->email)->send(new RegisterUser($user));
 
@@ -197,7 +199,7 @@ class PenggunaController extends Controller
     public function padam_peranan(Request $request, $id)
     {
         $user = User::find($id);
-        $user->roles()->detach($roles_id); //detach satu
+        $user->roles()->detach($request->roles_id); //detach satu
         
         return redirect()->back();
     }

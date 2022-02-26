@@ -6,6 +6,7 @@ use App\Models\ItemKart;
 use App\Models\FizaItemInfo;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\FizaKart;
 use Illuminate\Support\Facades\Auth;
 
 class ItemKartController extends Controller
@@ -17,12 +18,8 @@ class ItemKartController extends Controller
      */
     public function index()
     {
-        //     $itemInfo = FizaItemInfo::all();
-        //     dd($itemInfo);
 
-        //     $itemKart = itemKart::first();
-        //     $id = $itemKart->kart_id;
-        //     $itemInfo = FizaItemInfo::where('id',$id)->get();
+ 
 
         $list_nama_barang = itemKart::join('fiza_item_infos', 'item_karts.item_id', 'fiza_item_infos.id')
         ->select('*')
@@ -31,6 +28,8 @@ class ItemKartController extends Controller
         // dd($list_nama_barang);
         return view('1_kart.index', [
             'list_nama_barang'=> $list_nama_barang,
+            //     'kart'=>$kart,
+            //     'item'=>$item
         ]);
     }
 

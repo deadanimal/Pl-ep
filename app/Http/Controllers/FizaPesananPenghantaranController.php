@@ -54,7 +54,7 @@ class FizaPesananPenghantaranController extends Controller
         $fizaPesananPenghantaran->sst_id=$request->sst_id;
         $fizaPesananPenghantaran->penghantaran_kuantiti=$request->penghantaran_kuantiti;
         $fizaPesananPenghantaran->penghantaran_date=$request->penghantaran_date;
-        $fizaPesananPenghantaran->penghantaran_created_by=Auth::user()->user_name;
+        $fizaPesananPenghantaran->penghantaran_created_by=Auth::user()->id;
 
 
         $fizaPesananPenghantaran->save();

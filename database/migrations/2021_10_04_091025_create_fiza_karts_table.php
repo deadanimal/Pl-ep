@@ -16,17 +16,14 @@ class CreateFizaKartsTable extends Migration
         Schema::create('fiza_karts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('item_kod')->nullable();
+            $table->foreignId('nota_id')->nullable();
             $table->boolean('aktif')->default(true);
             $table->foreignId('kart_kuantiti')->nullable();
             $table->foreignId('pembekal_id')->nullable();
-            $table->foreignId('kart_justifikasi')->nullable();
-            $table->foreignId('user_id')->nullable();
+            $table->string('kart_justifikasi')->nullable();
             $table->foreignId('tanya_id')->nullable();
-
             $table->string('kart_created_by')->nullable();
             $table->string('kart_updated_by')->nullable();
-
-
             $table->timestamps();
         });
     }

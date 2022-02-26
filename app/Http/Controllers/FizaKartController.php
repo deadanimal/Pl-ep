@@ -22,9 +22,9 @@ class FizaKartController extends Controller
     }
 
 
-    public function create()
+    public function create($id)
     {
-        $itemInfo = FizaItemInfo::all();
+        $itemInfo = FizaItemInfo::find($id);
         $tanya = FizaPertanyaanItem::all();
 
         return view ('1_kart.create',[
@@ -34,15 +34,17 @@ class FizaKartController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         $fizaKart = new FizaKart;
+
+        $item = FizaItemInfo::find($id);
+        $tanya = FizaPertanyaanItem::where('item_id',$item->id)->first()->get();
         
         $fizaKart->item_kod=$itemInfo->id;
-        $fizaKart->kart_kuantiti=$request->kart_kuantiti;
-        $fizaKart->pembekal_id=$itemInfo->pembekal_id;
-        $fizaKart->kart_justifikasi =$request->kart_justifikasi ;
-        // $fizaKart->user_id =$request->user_id ;
+        // $fizaKart->kart_kuantiti=$request->kart_kuantiti;
+        // $fizaKart->pembekal_id=$itemInfo->pembekal_id;
+        // $fizaKart->kart_justifikasi =$request->kart_justifikasi ;
         $fizaKart->tanya_id=$tanya->id;
         $fizaKart->kart_created_by =Auth::user()->user_name ;
 

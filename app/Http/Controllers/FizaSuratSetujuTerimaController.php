@@ -69,7 +69,7 @@ class FizaSuratSetujuTerimaController extends Controller
         $fizaSuratSetujuTerima->item_id=$request->item_id;
         $fizaSuratSetujuTerima->sst_jenis_potongan=$request->sst_jenis_potongan;
         $fizaSuratSetujuTerima->sst_amaun_potongan=$request->sst_amaun_potongan;
-        // $fizaSuratSetujuTerima->sst_created_by=Auth::user()->user_name;
+        // $fizaSuratSetujuTerima->sst_created_by=Auth::user()->id;
         $fizaSuratSetujuTerima->sst_email=$request->sst_email;
         $fizaSuratSetujuTerima->akhir_id=$request->akhir_id;
         $fizaSuratSetujuTerima->jadual_id=$request->jadual_id;

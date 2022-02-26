@@ -24,5 +24,5 @@
 
 <footer> 
     Sila log masuk ke Sistem ePerolehan untuk membuat pengesahan. 
-    <a href="https://labuan-eperolehan.prototype.com.my">Sistem Pengurusan ePerolehan<a>
+    <a href="https://labuan-eperolehan.prototype.com.my/Pembekal/{{$pembekal->id}}">Sistem Pengurusan ePerolehan<a>
 </footer>

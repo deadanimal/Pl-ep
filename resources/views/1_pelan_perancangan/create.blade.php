@@ -176,10 +176,10 @@
                         </div>
                         <div class="mb-3 col-md-6">
                             <select name=pelan_pengesah class="form-select">
-                                                            <option hidden value="">Sila Pilih</option>
-                                @foreach ($user as $user1)
-                                <option value={{$user1->id}}>{{$user1->user_name}}</option>
-                                @endforeach
+                                <option hidden value="">Sila Pilih</option>
+                                    @foreach ($user as $user1)
+                                    <option value={{$user1->id}}>{{$user1->user_name}}</option>
+                                    @endforeach
                             </select>
                         </div>
                     </div>

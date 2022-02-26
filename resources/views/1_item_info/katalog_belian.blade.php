@@ -129,10 +129,9 @@ Senarai Item</a></li>
                     </tbody>
                 </table>
             </div>
-            <div align="right"> 
+            <div align="right" class="float"> 
                 <button class="btn btn-primary" onclick="window.location.href='/ItemKart'">Bakul Item</button>
-                <br>
-                <a href="/PenyediaanSpesifikasi/create">Terus ke Penyediaan Spesifikasi Item </a>
+          
             </div>
            
         </div>

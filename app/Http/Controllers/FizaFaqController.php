@@ -36,7 +36,7 @@ class FizaFaqController extends Controller
         $fizaFaq->faq_question =$request->faq_question ;
         $fizaFaq->faq_answer = $request->faq_answer ;
         $fizaFaq->faq_status = "aktif" ;
-        // $fizaFaq->faq_created_by=Auth::user()->user_name;
+        // $fizaFaq->faq_created_by=Auth::user()->id;
 
         $fizaFaq->save();
 

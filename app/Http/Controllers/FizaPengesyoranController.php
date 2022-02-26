@@ -46,7 +46,7 @@ class FizaPengesyoranController extends Controller
         $fizaPengesyoran->syor_catatan=$request->syor_catatan;
         // $fizaPengesyoran->sss_id=$request->sss_id;
         $fizaPengesyoran->syor_jumlah_skor=$request->syor_jumlah_skor;
-        // $fizaPengesyoran->syor_created_by=Auth::user()->user_name;
+        // $fizaPengesyoran->syor_created_by=Auth::user()->id;
         // $fizaPengesyoran->pst_id=$request->pst_id;
         // $fizaPengesyoran->spesifikasi_id=$request->spesifikasi_id;
 

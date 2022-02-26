@@ -18,16 +18,19 @@ class FizaNotaMintaController extends Controller
         //dd($role->id[0]);
         if($role[0]->id=='1'){
             $fizaNotaMinta = FizaNotaMinta::all();
+
             return view('1_nota_minta.index', [
                 'fizaNotaMinta'=>$fizaNotaMinta
             ]);
         }
 
         else{
-            $fizaNotaMinta = FizaNotaMinta::where('ro_created_by',Auth::user()->user_name)->get();
+            $fizaNotaMinta = FizaNotaMinta::where('ro_created_by',Auth::user()->id)->get();
+            // $user = User::where('id',$fizaNotaMinta->ro_created_by)->first();
 
             return view('1_nota_minta.index', [
-                'fizaNotaMinta'=>$fizaNotaMinta
+                'fizaNotaMinta'=>$fizaNotaMinta,
+         
             ]);
         }
     }
@@ -57,8 +60,8 @@ class FizaNotaMintaController extends Controller
         $fizaNotaMinta->ro_pelulus=$request->ro_pelulus;
         // $fizaNotaMinta->ro_pelulus_catatan=$request->ro_pelulus_catatan;
         // $fizaNotaMinta->ro_pelulus_date=$request->ro_pelulus_date;
-        $fizaNotaMinta->ro_status="Sedang di Proses";
-        $fizaNotaMinta->ro_created_by=Auth::user()->user_name;
+        $fizaNotaMinta->ro_status="Sedang diProses";
+        $fizaNotaMinta->ro_created_by=Auth::user()->id;
         // $fizaNotaMinta->kart_id=$request->kart_id;
         // $fizaNotaMinta->user_id=$request->user_id;
 
@@ -72,9 +75,22 @@ class FizaNotaMintaController extends Controller
         // Session::put('pst_id',$fizaNotaMinta->id);//
         // $temp=Session::get('pst_id');
 
+
+
+         //System Notification
+         $notification_obj = (object)[];
+         $notification_obj->noti_type="";
+         $notification_obj->noti_template="";
+         $notification_obj->noti_subject="Nota Minta";
+         $notification_obj->noti_status=$fizaNotaMinta->ro_status;
+         $notification_obj->noti_content=Auth::user()->user_name . ' telah menghantar nota minta dan sedang menunggu kelulusan dari pihak anda.';
+         $notification_obj->user_id=$fizaNotaMinta->ro_pelulus;
+        app('App\Http\Controllers\FizaNotificationCenterController')->store($notification_obj);
+ 
+
         $item ="Nota Minta";
         $user_id= Auth::user()->id;
-        $description = $fizaNotaMinta->ro_created_by ."telah menghantar nota minta untuk". $fizaNotaMinta->ro_jenis_perolehan;
+        $description = Auth::user()->user_name ." telah menghantar nota minta untuk ". $fizaNotaMinta->ro_jenis_perolehan;
         $log_item = [$item, $description, $user_id];
         app('App\Http\Controllers\AuditLogController')->log($log_item);
 

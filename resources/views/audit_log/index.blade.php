@@ -12,6 +12,11 @@ Audit Log</a></li>
         </ol>
     </nav>
 </div>
+    <style>
+        .c {
+            text-align: justify;
+        }
+    </style>
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -29,7 +34,7 @@ Audit Log</a></li>
                     <tbody>
                          @foreach ($AuditLog as $AuditLog)
                         <tr>  
-                            <td>{{$AuditLog->description}}</td>
+                            <td class=c>{{$AuditLog->description}}</td>
                             <td><small>{{date('d/m/Y H:i', strtotime($AuditLog->created_at))}}</small></td>
                         </tr>
                         @endforeach

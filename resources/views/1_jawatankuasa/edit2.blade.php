@@ -19,8 +19,9 @@
                 <h5 class="card-title mb-0"></h5>
             </div>
             <div class="card-body">
-                    <form method="POST" action="/Jawatankuasa">
+                    <form method="POST" action="/Jawatankuasa/pst/{{$pst->id}}">
                         @csrf
+                        @method('PUT')
                  
                     <input type="hidden" name="pst_id" value="{{$pst->id}}">
                     
@@ -32,7 +33,9 @@
                            <label class="col-form-label col-sm-6">Urusetia Spesifikasi</label>
                         </div>
                         <div class="mb-3  col-md-6">
-                            <select name="jawatankuasa_spesifikasi_urusetia" class="form-select">
+                            <input type=text name="jawatankuasa_spesifikasi" class="form-control">
+                            
+                            <select name="jawatankuasa_spesifikasi" class="form-select">
                                 <option hidden value="">Sila Pilih</option>
                                     @foreach ($user as $jawatankuasa_spesifikasi_urusetia)
                                 <option value={{$jawatankuasa_spesifikasi_urusetia->id}}>{{$jawatankuasa_spesifikasi_urusetia->user_name}}</option>

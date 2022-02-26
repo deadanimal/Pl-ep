@@ -21,6 +21,8 @@ class FizaItemInfo extends Model
         return $this->belongsTo(FizaPembekal::class);
     }
 
+
+
     
 
 }
