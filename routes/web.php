@@ -14,6 +14,7 @@ use App\Http\Controllers\FizaEpUserController;
 use App\Http\Controllers\FizaUserRoleController;
 use App\Http\Controllers\FizaArahanMemberhentikanController;
 use App\Http\Controllers\FizaAuditPelanController;
+use App\Http\Controllers\FizaPenyediaanSpesifikasiController;
 use App\Http\Controllers\FizaCadanganController;
 use App\Http\Controllers\FizaDocsController;
 use App\Http\Controllers\FizaFaqController;
@@ -163,7 +164,6 @@ Route::group(['middleware' => ['auth']],function(){
     Route::resource('/PembelianSebutTender',FizaPembelianSebutTenderController::class);
     Route::resource('/Pengesyoran',FizaPengesyoranController::class);
     Route::resource('/PerincianPengiklanan',FizaPerincianPengiklananController::class);
-    Route::resource('/PenyediaanSpesifikasi',FizaPenyediaanSpesifikasiController::class);
     Route::resource('/PesananPenghantaran',FizaPesananPenghantaranController::class);
     Route::resource('/PerincianPengiklanan',FizaPerincianPengiklananController::class);
     Route::resource('/PesananPenghantaran',FizaPesananPenghantaranController::class);
@@ -176,11 +176,23 @@ Route::group(['middleware' => ['auth']],function(){
     Route::resource('/User',UserPembekal::class);
     Route::get('/Jawatankuasa/pst/{id}',[FizaJawatankuasaController::class,'create']);
     Route::get('/Jawatankuasa/pst/{id}/edit',[FizaJawatankuasaController::class,'edit']);
+    Route::get('/PenyediaanSpesifikasi/{id}/create',[FizaPenyediaanSpesifikasiController::class,'create']);
+    Route::get('/KehadiranTaklimat/{id}/create',[FizaKehadiranTaklimatController::class,'create']);
+
+    Route::get('/kelulusan-spesifikasi', function(){
+        $PenyediaanSpesifikasi = FizaPenyediaanSpesifikasiController::all();
+    
+        return view('1_penyediaan_spesifikasi.index_kelulusan',[
+            'PenyediaanSpesifikasi'=>$PenyediaanSpesifikasi 
+        ]);
+    });
+
+
 
    
 });
 
-Route::get('/cetak-pelan/{id}',[FizaPelanPerancanganPerolehanController::class,'cetakpelan']);
+Route::get('/cetak-pelan/{id}',[FizaPelanPerancanganPerolehan::class,'cetakpelan']);
 // Route::resource('/ArahanBerhenti', ArahanBerhentiController::class);
 Route::resource('/AuditLog', AuditLogController::class);
 Route::post('/log',[AuditLogController::class,'log']);

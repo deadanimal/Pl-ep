@@ -24,6 +24,8 @@ Cipta Penyediaan Spesifikasi</a></li>
                 <form method="POST" action="/PenyediaanSpesifikasi" enctype="multipart/form-data">
                 @csrf
 
+                <input type="hidden" name="pst_id" value="{{$pst->id}}">
+
                 <div class="row">
                     <div class="mb-3 col-md-6">
                        <label class="col-form-label col-sm-6">Tajuk Spesifikasi </label>
@@ -56,7 +58,7 @@ Cipta Penyediaan Spesifikasi</a></li>
                        <label class="col-form-label col-sm-6">Unit Ukuran</label>
                      </div>
                      <div class="mb-3 col-md-6">
-                        <input type="text" class="form-control" name="spesifikasi_unit_ukuran">
+                        <input type="number" class="form-control" name="spesifikasi_unit_ukuran">
                      </div>
                  </div>
 

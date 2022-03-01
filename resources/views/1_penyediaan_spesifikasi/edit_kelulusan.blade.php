@@ -210,7 +210,7 @@ Kemaskini Spesifikasi Item</a></li>
             <div align="right"> 
                 {{-- <button type="submit" class="btn btn-primary">Hantar</button> --}}
                 {{-- <button class=" btn btn-success" onclick="window.location.href='/PenyediaanSpesifikasi'">Kembali</a></button> --}}
-                <button  class="btn btn-primary" type="submit" name="status_spesifikasi" value="hantar">Sahkan</button> 
+                <button  class="btn btn-primary" type="submit" name="status_spesifikasi" value="lulus">Luluskan</button> 
 
             </div> 
 

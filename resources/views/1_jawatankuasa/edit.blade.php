@@ -275,15 +275,15 @@
                         
                     </fieldset>
 
-                    {{-- <div align=right>
-                        <button type="submit" name="status_pst" value="diluluskan" class="btn btn-primary"><i class="fas fa-check"></i> Diluluskan</button> 
-                        <button type="submit" name="status_pst" value="ditolak" class="btn btn-danger"><i class="fas fa-times"></i> Ditolak</button>
-                    </div> --}}
-   
+                    <div align=right>
+                        <button type="submit" name="status_jawatankuasa" value="diluluskan" class="btn btn-primary"><i class="fas fa-check"></i> Diluluskan</button> 
+                        <button type="submit" name="status_jawatankuasa" value="ditolak" class="btn btn-danger"><i class="fas fa-times"></i> Ditolak</button>
+                    </div>
+{{--    
                         <div align="right"> 
                             <button class="btn btn-primary" type="submit">Hantar</a></button>
                         </div>
-                        <br>
+                        <br> --}}
         
                     </form>
                 </div>

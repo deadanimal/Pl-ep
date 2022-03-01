@@ -47,7 +47,7 @@ Senarai Sebutharga / Tender</a></li>
                                      <span class="badge rounded-pill bg-primary">Belum Selesai</span>
                                 @elseif ($PembelianSebutTender->pst_status === 'draf')                             
                                      <span class="badge rounded-pill bg-secondary">Draf</span>
-                                @elseif ($PembelianSebutTender->pst_status === 'Ditolak')                             
+                                @elseif ($PembelianSebutTender->pst_status === 'ditolak')                             
                                     <span class="badge rounded-pill bg-danger">Ditolak</span>
                                  @else
                                     <span class="badge rounded-pill bg-success">Diluluskan</span>
@@ -57,17 +57,30 @@ Senarai Sebutharga / Tender</a></li>
 
                             </td>
                             <td class="table-action">
-                                {{-- @if ($PembelianSebutTender->pst_status === 'menunggu kelulusan')
+                                @if ($PembelianSebutTender->pst_status === 'menunggu kelulusan')
                                     @if (Auth::user()->id!=$PembelianSebutTender->pst_pelulus)
                                         <button class="btn" type="submit" disabled><i class="align-middle fas fa-fw fa-trash"></i></button>
                                         <a href="#"><i class="align-middle fas fa-fw fa-pen"></i></a>
-                                    @else --}}
+ 
+                                    @else
                                             <form method="POST" action="/PembelianSebutTender/{{$PembelianSebutTender->id}}">
                                                 @method('DELETE')
                                                 @csrf
                                             <button class="btn" type="submit"><i class="align-middle fas fa-fw fa-trash"></i></button>
                                             <a href="/PembelianSebutTender/{{$PembelianSebutTender->id}}/edit"><i class="align-middle fas fa-fw fa-pen"></i></a>
                                             </form>
+                                     @endif 
+
+                                 @elseif ($PembelianSebutTender->pst_status ==='diluluskan')
+                                    @method('DELETE')
+                                    @csrf
+                                <button class="btn" type="submit" disabled><i class="align-middle fas fa-fw fa-trash"></i></button>
+                                <a href="/PenyediaanSpesifikasi/{{$PembelianSebutTender->id}}/create"><i class="align-middle fas fa-fw fa-pen"></i></a>
+                                </form>
+
+                            @endif 
+                                
+
                                               
                                 
                                    

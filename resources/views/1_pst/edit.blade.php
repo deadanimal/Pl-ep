@@ -324,10 +324,10 @@ Kemaskini Sebutharga / Tender</a></li>
                     </div>
 
                     <br>
-                    {{-- <div align=right>
+                    <div align=right>
                         <button type="submit" name="status_pst" value="diluluskan" class="btn btn-primary"><i class="fas fa-check"></i> Diluluskan</button> 
                         <button type="submit" name="status_pst" value="ditolak" class="btn btn-danger"><i class="fas fa-times"></i> Ditolak</button>
-                    </div> --}}
+                    </div>
                     <button type="submit" class="btn btn-primary">Seterusnya</button>
                 </form>
                 {{-- <a href="/Jawatankuasa/pst/{{$PembelianSebutTender->id}}/edit" class="btn btn-primary">Seterusnya</a> --}}

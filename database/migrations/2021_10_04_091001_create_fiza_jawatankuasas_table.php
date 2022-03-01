@@ -31,6 +31,7 @@ class CreateFizaJawatankuasasTable extends Migration
             $table->string('jawatankuasa_penilaian_pengerusi')->nullable();
             $table->string('jawatankuasa_penilaian_ajk')->nullable();
             // $table->String('jawatankuasa_peranan')->nullable();
+            $table->string('jawatankuasa_kelulusan')->nullable();
             $table->foreignId('pst_id')->nullable();
             $table->timestamps();
             $table->string('jawatankuasa_created_by')->nullable();

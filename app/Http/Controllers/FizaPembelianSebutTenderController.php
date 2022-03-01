@@ -7,6 +7,7 @@ use App\Mail\SebutHargaBaru;
 use App\Models\FizaItemInfo;
 use App\Models\FizaKatalog;
 use App\Models\FizaJawatankuasa;
+use App\Models\FizaPenyediaanSpesifikasi;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -164,22 +165,42 @@ class FizaPembelianSebutTenderController extends Controller
 
     public function edit($id)
     {
-        $fizaPembelianSebutTender = FizaPembelianSebutTender::find($id);
-        $katalog = FizaKatalog::where('id',$fizaPembelianSebutTender->pst_katalog_kumpulan)->get();
+        $PembelianSebutTender = FizaPembelianSebutTender::find($id);
+
+        $katalog = FizaKatalog::where('id',$PembelianSebutTender->pst_katalog_kumpulan)->get();
         $user = User::where('jenis', 'pekerja')->
         where('user_status','aktif')->get();
         // dd($user);
         $penyelaras= User::where('jenis','pekerja')
         ->where('user_status','aktif')->get();
-        $jawatankuasa = FizaJawatankuasa::where('pst_id',$fizaPembelianSebutTender->id)->get();
+        $jawatankuasa = FizaJawatankuasa::where('pst_id',$PembelianSebutTender->id)->get();
 
-        return view('1_pst.edit', [
-            'PembelianSebutTender'=>$fizaPembelianSebutTender,
-            'katalog'=>$katalog,
-            'user'=>$user,
-            'penyelaras'=>$penyelaras,
-            'jawatankuasa'=>$jawatankuasa
-        ]);
+        $spesifikasi=FizaPenyediaanSpesifikasi::where('spesifikasi_status','diluluskan')
+        ->where('pst_id', $PembelianSebutTender->id)->first();
+
+        if($spesifikasi->status_spesifikasi=="diluluskan"){
+
+            return view('1_pst.edit',[
+                'PembelianSebutTender'=>$PembelianSebutTender,
+                'katalog'=>$katalog,
+                'user'=>$user,
+                'penyelaras'=>$penyelaras,
+                'jawatankuasa'=>$jawatankuasa,
+                'spesifikasi'=>$spesifikasi
+            ]);
+        }
+
+        else{
+
+            return view( '1_pst.lawatan_tapak',[
+                'PembelianSebutTender'=>$PembelianSebutTender,
+                'katalog'=>$katalog,
+                'user'=>$user,
+                'penyelaras'=>$penyelaras,
+                'jawatankuasa'=>$jawatankuasa
+            ]);
+        }
+           
     }
 
 
@@ -232,6 +253,23 @@ class FizaPembelianSebutTenderController extends Controller
         $fizaPembelianSebutTender->save();
 
         // $temp=session()->get($fizaPembelianSebutTender->id);
+
+        if ($request->status_pst=="hantar"){
+            $fizaPembelianSebutTender->pst_status="diluluskan";
+            $receiver= User::where('id',$request->pst_pelulus)->first();
+            $urusetia_pst = User::where('id',$fizaPembelianSebutTender->created_by)->first();
+            Mail::to($receiver->email)->send(new SebutHargaBaru);
+            Mail::to($urusetia_pst->email)->send(new SebutHargaBaru);
+            $fizaPembelianSebutTender->save();
+
+           
+        }
+        else if($request->status_pst=="draf"){
+            $fizaPembelianSebutTender->pst_status="ditolak";
+            $fizaPembelianSebutTender->save();
+           
+        
+        }
 
         return redirect('/Jawatankuasa/'.$fizaPembelianSebutTender->id.'/edit');
     }

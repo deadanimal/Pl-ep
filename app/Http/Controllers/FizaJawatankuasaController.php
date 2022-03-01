@@ -160,24 +160,31 @@ class FizaJawatankuasaController extends Controller
 
         $fizaJawatankuasa->jawatankuasa_updated_by=Auth::user()->id;
 
+        dd($request->jawatankuasa_spesifikasi_urusetia);
+
+        // if ($request->status_jawatankuasa=="diluluskan"){
+        //     $fizaJawatankuasa->jawatankuasa_kelulusan="diluluskan";
+        //     $urusetia_spesifikasi = User::where('id',$fizaJawatankuasa->jawatankuasa_spesifikasi_urusetia)->first();
+        //     dd($fizaJawatankuasa->jawatankuasa_spesifikasi_urusetia);
 
 
-//         if ($request->status_pst=="diluluskan"){
-//             $pst->pst_status="diluluskan";
-//             $receiver_spesifikasi = User::where('id',$request->jawatankuasa_spesifikasi_urusetia)->first();
-//             Mail::to($receiver_spesifikasi->email)->send(new PerlantikanJawatankuasaSpesifikasi);
+        //     //  Mail::to($urusetia_spesifikasi->email)->send(new PerlantikanJawatankuasaSpesifikasi);
+
            
-//         }
-// 9
-//         else if($request->status_pst=="ditolak"){
-//             $pst->pst_status="ditolak";
-//             $urusetia= User::where('id',$fizaJawatankuasa->jawatankuasa_created_by)->first();
-//             Mail::to($urusetia->email)->send(new PerlantikanJawatankuasaSpesifikasi);
-//         }
+           
+        // }
+
+        // else if($request->status_jawatankuasa=="ditolak"){
+        //     $fizaJawatankuasa->jawatankuasa_kelulusan="ditolak";
+        //     $urusetia= User::where('id',$fizaJawatankuasa->jawatankuasa_created_by)->first();
+        //     Mail::to($urusetia->email)->send(new PerlantikanJawatankuasaSpesifikasi);
+        // }
 
 
         $fizaJawatankuasa->save();
         // dd($request->pst_id);
+
+        return redirect('/PembelianSebutTender')->with('success','Data anda telah berjaya dikemaskini');
 
 
         

@@ -111,7 +111,7 @@
         
 
         <br>
-        <div align="right">
+        <div class="col-md-4 text-right">
             <button type="submit" class="btn btn-primary" style="float:absolute">Daftar</button>
         </div>
     </form>
