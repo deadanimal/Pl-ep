@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\FizaJadualPemenuhan;
+use App\Models\FizaPenyediaanSpesifikasi;
+use App\Models\FizaPembelianSebutTender;
+use App\Models\FizaKatalog;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -11,23 +14,52 @@ class FizaJadualPemenuhanController extends Controller
 {
     public function index()
     {
-        $jadual = FizaJadualPemenuhan::all();
+
+        $role=Auth::user()->roles;
+        //dd($role->id[0]);
+        if ($role[0]->id=='1') {
+
+            $spesifikasi=FizaPenyediaanSpesifikasi::where('spesifikasi_status', 'diluluskan')->first()->get();
+            $jadual = FizaJadualPemenuhan::all();
+            return view('1_jadual.index', [
+            'jadual'=>$jadual,
+            'spesifikasi'=>$spesifikasi
+             ]);
+        }
+
+        else{
+
+            $spesifikasi=FizaPenyediaanSpesifikasi::where('spesifikasi_status','diluluskan')->first()->get();
+             $jadual = FizaJadualPemenuhan::where('jadual_created_by',Auth::user()->id)->get();
         return view ('1_jadual.index',[
-            'jadual'=>$jadual
+            'jadual'=>$jadual,
+            'spesifikasi'=>$spesifikasi
         ]);
+        }
+        
     }
 
 
-    public function create()
+    public function create($id)
     {
-        return view('1_jadual.create');
+        $spesifikasi = FizaPenyediaanSpesifikasi::find($id);
+        $pst=FizaPembelianSebutTender::where('id',$spesifikasi->pst_id)->first();
+        $katalog = FizaKatalog::where('id',$pst->pst_katalog_kumpulan)->first();
+        $user = User::where('id',$pst->pst_pelulus)->first();
+
+        return view('1_jadual.create',[
+            'spesifikasi'=>$spesifikasi,
+            'pst'=>$pst,
+            'katalog'=>$katalog,
+            'user'=>$user
+        ]);
     }
 
     public function store(Request $request)
     {
          $fizaJadualPemenuhan = new FizaJadualPemenuhan;
         
-        // $fizaJadualPemenuhan->spesifikasi_id=$request->spesifikasi_id;
+        $fizaJadualPemenuhan->spesifikasi_id=$request->spesifikasi_id;
         $fizaJadualPemenuhan->jadual_jenis_pemenuhan =$request->jadual_jenis_pemenuhan ;
         $fizaJadualPemenuhan->jadual_kekerapan=$request->jadual_kekerapan;
         $fizaJadualPemenuhan->jadual_bil=$request->jadual_bil;
@@ -37,7 +69,9 @@ class FizaJadualPemenuhanController extends Controller
         // $fizaJadualPemenuhan->jadual_tahun_akhir=$request->jadual_tahun_akhir;
         $fizaJadualPemenuhan->jadual_jumlah_bulan =$request->jadual_jumlah_bulan ;
         $fizaJadualPemenuhan->jadual_jenis =$request->jadual_jenis ;
-        $fizaJadualPemenuhan->jadual_created_by=$request->jadual_created_by ;
+        $fizaJadualPemenuhan->jadual_created_by=Auth::user()->id;
+        $fizaJadualPemenuhan->jadual_status="menunggu semakan";
+        
   
         $fizaJadualPemenuhan->save();
         return redirect('/JadualPemenuhan')->with('success','Data telah berjaya disimpan!');
@@ -50,9 +84,12 @@ class FizaJadualPemenuhanController extends Controller
 
     public function edit($id)
     {
-        $fizaJadualPemenuhan = FizaJadualPemenuhan::find($id);
+        $jadual = FizaJadualPemenuhan::find($id);
+        
+
         return view ('1_jadual.edit',[
-            'fizaJadualPemenuhan'=>$fizaJadualPemenuhan]);
+            'jadual'=>$jadual
+        ]);
     }
 
     public function update(Request $request, $id)
@@ -69,7 +106,9 @@ class FizaJadualPemenuhanController extends Controller
         $fizaJadualPemenuhan->jadual_tahun_akhir=$request->jadual_tahun_akhir;
         $fizaJadualPemenuhan->jadual_jumlah_bulan =$request->jadual_jumlah_bulan ;
         $fizaJadualPemenuhan->jadual_jenis =$request->jadual_jenis ;
-        $fizaJadualPemenuhan->jadual_updated_by=$request->jadual_updated_by ;
+        $fizaJadualPemenuhan->jadual_updated_by=Auth::user()->id ;
+        $fizaJadualPemenuhan->jadual_status=$request->jadual_status;
+
 
        $fizaJadualPemenuhan->save();
         return redirect('/JadualPemenuhan')->with('success','Data telah berjaya dikemaskini!');

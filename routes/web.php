@@ -178,6 +178,7 @@ Route::group(['middleware' => ['auth']],function(){
     Route::get('/Jawatankuasa/pst/{id}/edit',[FizaJawatankuasaController::class,'edit']);
     Route::get('/PenyediaanSpesifikasi/{id}/create',[FizaPenyediaanSpesifikasiController::class,'create']);
     Route::get('/KehadiranTaklimat/{id}/create',[FizaKehadiranTaklimatController::class,'create']);
+    Route::get('/JadualPemenuhan/{id}/create',[FizaJadualPemenuhanController::class,'create']);
 
     Route::get('/kelulusan-spesifikasi', function(){
         $PenyediaanSpesifikasi = FizaPenyediaanSpesifikasiController::all();

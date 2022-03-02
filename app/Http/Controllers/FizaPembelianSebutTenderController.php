@@ -175,31 +175,30 @@ class FizaPembelianSebutTenderController extends Controller
         ->where('user_status','aktif')->get();
         $jawatankuasa = FizaJawatankuasa::where('pst_id',$PembelianSebutTender->id)->get();
 
-        $spesifikasi=FizaPenyediaanSpesifikasi::where('spesifikasi_status','diluluskan')
-        ->where('pst_id', $PembelianSebutTender->id)->first();
+        $spesifikasi=FizaPenyediaanSpesifikasi::where('pst_id',$PembelianSebutTender->id)->get();
 
-        if($spesifikasi->status_spesifikasi=="diluluskan"){
+        // if($spesifikasi->status_spesifikasi=="diluluskan"){
 
-            return view('1_pst.edit',[
-                'PembelianSebutTender'=>$PembelianSebutTender,
-                'katalog'=>$katalog,
-                'user'=>$user,
-                'penyelaras'=>$penyelaras,
-                'jawatankuasa'=>$jawatankuasa,
-                'spesifikasi'=>$spesifikasi
-            ]);
-        }
+        //     return view('1_pst.lawatan_tapak',[
+        //         'PembelianSebutTender'=>$PembelianSebutTender,
+        //         'katalog'=>$katalog,
+        //         'user'=>$user,
+        //         'penyelaras'=>$penyelaras,
+        //         'jawatankuasa'=>$jawatankuasa,
+        //         'spesifikasi'=>$spesifikasi
+        //     ]);
+        // }
 
-        else{
+        // else{
 
-            return view( '1_pst.lawatan_tapak',[
+            return view( '1_pst.edit',[
                 'PembelianSebutTender'=>$PembelianSebutTender,
                 'katalog'=>$katalog,
                 'user'=>$user,
                 'penyelaras'=>$penyelaras,
                 'jawatankuasa'=>$jawatankuasa
             ]);
-        }
+        
            
     }
 

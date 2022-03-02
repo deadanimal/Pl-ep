@@ -64,14 +64,7 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class=" col-md-6">
-                       <label class="col-form-label col-sm-6">Status Kehadiran</label>
-                    </div>
-                    <div class="mb-3 col-md-6">
-                        <input type="text" class="form-control" name="status" value="{{$kehadiran->status}}">
-                    </div>
-                </div>
+
 
                 <div class="row">
                     <div class=" col-md-6">

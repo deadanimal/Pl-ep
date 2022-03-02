@@ -25,6 +25,7 @@ class CreateFizaJadualPemenuhansTable extends Migration
             $table->String('jadual_tahun_akhir')->nullable();
             $table->String('jadual_jumlah_bulan')->nullable();
             $table->String('jadual_jenis')->nullable();
+            $table->String('jadual_status')->nullable();
 
             $table->timestamps();
             $table->string('jadual_created_by')->nullable();
