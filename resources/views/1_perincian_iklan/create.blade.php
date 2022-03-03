@@ -22,7 +22,7 @@ Cipta Jadual Pemenuhan</a></li>
             </div>
             <div class="card-body">
 
-                <form method="POST" action="/JadualPemenuhan">
+                <form method="POST" action="/PerincianPengiklanan">
                 @csrf
                 
                 <input type="hidden" name="pst_id" value="{{$pst->id}}">
@@ -30,7 +30,7 @@ Cipta Jadual Pemenuhan</a></li>
                 <div id="smartwizard-default-primary" class="wizard wizard-primary mb-4">
                     <ul class="nav">
                         <li class="nav-item"><a class="nav-link" href="#sebutharga">1<br /><small>Maklumat SebutHarga</small></a></li>
-                        <li class="nav-item"><a class="nav-link" href="#spesifikasi">2<br /><small>Maklumat Pengiklanan</small></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#pengiklanan">2<br /><small>Maklumat Pengiklanan</small></a></li>
                         {{-- <li class="nav-item"><a class="nav-link" href="#jadualpemenuhan">3<br /><small>Maklumat Jadual Pemenuhan</small></a></li> --}}
                     </ul>
                 
@@ -233,258 +233,52 @@ Cipta Jadual Pemenuhan</a></li>
                                 </div>
                 
                 </div>
-                <div id="spesifikasi" class="tab-pane" role="tabpanel">
                 
-                    <div class="row">
-                        <div class="mb-3 col-md-6">
-                           <label class="col-form-label col-sm-6">Tajuk Spesifikasi </label>
-                        </div>
-                        <div class="mb-3 col-md-6">
-                            <input type="text" class="form-control" name="spesifikasi_tajuk" value="{{$spesifikasi->spesifikasi_tajuk}}">
-                        </div>
-                    </div>
-                
-                    
-                    <div class="row">
-                        <div class="mb-3 col-md-6">
-                           <label class="col-form-label col-sm-6">Jenis Barang</label>
-                        </div>
-                        <div class="mb-3 col-md-6">
-                            <input type="text" class="form-control" name="spesifikasi_jenis_barang" value="{{$spesifikasi->spesifikasi_jenis_barang}}">
-                        </div>
-                    </div>
-                    
-                
-                    
-                    <div class="row">
-                        <div class="mb-3 col-md-6">
-                           <label class="col-form-label col-sm-6">Butiran Item</label>
-                        </div>
-                        <div class="mb-3 col-md-6">
-                            <input type="text" class="form-control" name="spesifikasi_description" value="{{$spesifikasi->spesifikasi_description}}">
-                        </div>
-                    </div>
-                
-                    <div class="row">
-                        <div class="mb-3 col-md-6">
-                           <label class="col-form-label col-sm-6">Unit Ukuran </label>
-                        </div>
-                        <div class="mb-3 col-md-6">
-                            <input type="text" class="form-control" name="spesifikasi_unit_ukuran" value="{{$spesifikasi->spesifikasi_unit_ukuran}}">
-                        </div>
-                    </div>
-                
-                    
-                    <div class="row">
-                        <div class="mb-3 col-md-6">
-                           <label class="col-form-label col-sm-6">Jenis Harga</label>
-                        </div>
-                        <div class="mb-3 col-md-6">
-                            <input type="text" class="form-control" name="spesifikasi_jenis_harga" value="{{$spesifikasi->spesifikasi_jenis_harga}}">
-                        </div>
-                    </div>
-                
-                    
-                    <div class="row">
-                        <div class="mb-3 col-md-6">
-                           <label class="col-form-label col-sm-6">Jumlah Harga Indikatif</label>
-                        </div>
-                        <div class="mb-3 col-md-6">
-                                <input type="number" class="form-control" name="spesifikasi_jumlah_harga_indikatif" value="{{$spesifikasi->spesifikasi_jumlah_harga_indikatif}}">
-                        </div>
-                    </div>
-                
-                    
-                    <div class="row">
-                        <div class="mb-3 col-md-6">
-                           <label class="col-form-label col-sm-6">Jumlah Harga</label>
-                        </div>
-                        <div class="mb-3 col-md-6">
-                            <input type="number" class="form-control" name="spesifikasi_jumlah_harga" value="{{$spesifikasi->spesifikasi_jumlah_harga}}">
-                        </div>
-                    </div>
-                
-                    
-                    <div class="row">
-                        <div class="mb-3 col-md-6">
-                           <label class="col-form-label col-sm-6">Alamat Penghantaran </label>
-                        </div>
-                        <div class="mb-3 col-md-6">
-                            <input type="text" class="form-control" name="spesifikasi_alamat_penghantaran" value="{{$spesifikasi->spesifikasi_jumlah_harga}}">
-                        </div>
-                    </div>
-                
-                    
-                    <div class="row">
-                        <div class="mb-3 col-md-6">
-                           <label class="col-form-label col-sm-6">Catatan Spesifikasi Item</label>
-                        </div>
-                        <div class="mb-3 col-md-6">
-                            <textarea rows="4" cols="50" class="form-control" name="spesifikasi_catatan">{{$spesifikasi->spesifikasi_catatan}}</textarea>
-                        </div>
-                    </div>
-                    
-                
-                   
-                    <div class="row">
-                        <div class="mb-3 col-md-6">
-                           <label class="col-form-label col-sm-6">Skor Maksima </label>
-                        </div>
-                
-                        <div class="mb-3 col-md-6">
-                            <input type="number" class="form-control" name="spesifikasi_skor_maksima" value="{{$spesifikasi->spesifikasi_skor_maksima}}">
-                        </div>
-                    </div>
-                
-                    
-                    <div class="row">
-                        <div class="mb-3 col-md-6">
-                           <label class="col-form-label col-sm-6">Jumlah Skor Teknikal</label>
-                        </div>
-                        <div class="mb-3 col-md-6">
-                            <input type="number" class="form-control" name="spesifikasi_jumlah_skor_teknikal" value="{{$spesifikasi->spesifikasi_jumlah_skor_teknikal}}">
-                        </div>
-                    </div>
-                
-                    
-                    <div class="row">
-                        <div class="mb-3 col-md-6">
-                           <label class="col-form-label col-sm-6">Skor Lulus Teknikal</label>
-                        </div>
-                        <div class="mb-3 col-md-6">
-                            <input type="number" class="form-control" name="spesifikasi_skor_lulus_teknikal" value="{{$spesifikasi->spesifikasi_skor_lulus_teknikal}}">
-                        </div>
-                    </div>
-                
-                    
-                    <div class="row">
-                        <div class="mb-3 col-md-6">
-                            <label class="col-form-label col-sm-6">Skema Teknikal</label>
-                        </div>
-                        <div class="mb-3 col-md-4">
-                            <input type="file" class="form-control" name="spesifikasi_skema_teknikal" value="{{$spesifikasi->spesifikasi_skema_teknikal}}">
-                        </div>
-                        <div class="mb-3 col-md-2">
-                            <a href="/storage/{{$spesifikasi->spesifikasi_skema_teknikal}}" target="_blank" download>Muat Turun Fail</a> 
-                        </div>
-                      
-                    </div>
-                    
-                   
-                    <div class="row">
-                        <div class="mb-3 col-md-6">
-                           <label class="col-form-label col-sm-6">Jumlah Skor Kewangan</label>
-                        </div>
-                        <div class="mb-3 col-md-6">
-                            <input type="number" class="form-control" name="spesifikasi_jumlah_skor_kewangan" value="{{$spesifikasi->spesifikasi_jumlah_skor_kewangan}}">
-                        </div>
-                    </div>
-                
-                    
-                    <div class="row">
-                        <div class="mb-3 col-md-6">
-                           <label class="col-form-label col-sm-6">Skor Lulus Kewangan </label>
-                        </div>
-                        <div class="mb-3 col-md-6">
-                            <input type="number" class="form-control" name="spesifikasi_skor_lulus_kewangan" value="{{$spesifikasi->spesifikasi_skor_lulus_kewangan}}">
-                        </div>
-                    </div>
-                
-                    
-                    <div class="row">
-                        <div class="mb-3 col-md-6">
-                           <label class="col-form-label col-sm-6">Skema Kewangan</label>
-                        </div>
-                
-                        <div class="mb-3 col-md-4">
-                            <input type="file" class="form-control"  name="spesifikasi_skema_kewangan" value="{{$spesifikasi->spesifikasi_skema_kewangan}}">
-                        </div>
-                        <div class="mb-3 col-md-2">
-                            <a href="/storage/{{$spesifikasi->spesifikasi_skema_kewangan}}" target="_blank" download>Muat Turun Fail</a> 
-                        </div>
-                    </div>
-                
-                    
-                    <div class="row">
-                        <div class="mb-3 col-md-6">
-                           <label class="col-form-label col-sm-6">Skor Lulus Keseluruhan</label>
-                        </div>
-                        <div class="mb-3 col-md-6">
-                            <input type="text" class="form-control" name="spesifikasi_skor_lulus_keseluruhan" value="{{$spesifikasi->spesifikasi_skor_lulus_keseluruhan}}">
-                        </div>
-                    </div>
-                
-                </div>
-                <div id="jadualpemenuhan" class="tab-pane" role="tabpanel">
+                <div id="pengiklanan" class="tab-pane" role="tabpanel">
                 
                         
-                        <input type="hidden" name="spesifikasi_id" value="{{$spesifikasi->id}}">
                 
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                               <label class="col-form-label col-sm-6">Jenis Pemenuhan </label>
+                               <label class="col-form-label col-sm-6">Tarikh Pengiklanan </label>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <input type="text"  class="form-control" name="jadual_jenis_pemenuhan">
+                                <input type="date"  class="form-control" name="iklan_date">
                             </div>
                         </div>
                 
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                               <label class="col-form-label col-sm-6">Kekerapan</label>
+                               <label class="col-form-label col-sm-6">Tempoh Pengiklanan</label>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <input type="text" class="form-control" name="jadual_kekerapan">
+                                {{-- <input type="text" class="form-control" name="jadual_kekerapan"> --}}
+                                <input class="form-control" type="text" name="iklan_tempoh" value="01/01/2022 - 01/15/2022" />
                             </div>
                         </div>
                 
                 
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                               <label class="col-form-label col-sm-6">Bilangan</label>
+                               <label class="col-form-label col-sm-6">Tarikh Taklimat Sebutharga</label>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <input type="number" class="form-control" name="jadual_bil">
+                                <input type="date" class="form-control" name="iklan_taklimat_date">
                             </div>
                         </div>
                 
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                               <label class="col-form-label col-sm-6">Bulan Mula </label>
+                               <label class="col-form-label col-sm-6">Waktu Taklimat Sebutharga</label>
                             </div>
-                            <div class="mb-3 col-md-6">
-                                    <input type="month" class="form-control" name="jadual_bulan_mula">
-                            </div>
+                            <div class="input-group date" id="datetimepicker-time" data-target-input="nearest">
+                                <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker-time" name=iklan_taklimat_time/>
+                                <div class="input-group-text" data-target="#datetimepicker-time" data-toggle="datetimepicker"><i
+                                        class="fa fa-calendar"></i></div>
                         </div>
                 
                         {{-- <br>Tahun Mula <input type="" --}}
-                        <div class="row">
-                            <div class="mb-3 col-md-6">
-                               <label class="col-form-label col-sm-6">Bulan Akhir </label>
-                            </div>
-                            <div class="mb-3 col-md-6">
-                                <input type="month" class="form-control" name="jadual_bulan_akhir">
-                            </div>
-                        </div>
-                
-                
-                        <div class="row">
-                            <div class="mb-3 col-md-6">
-                               <label class="col-form-label col-sm-6">Jumlah Bulan</label>
-                            </div>
-                            <div class="mb-3 col-md-6">
-                                <input type="number" class="form-control" name="jadual_jumlah_bulan">
-                            </div>
-                        </div>
-                
-                        <div class="row">
-                            <div class="mb-3 col-md-6">
-                               <label class="col-form-label col-sm-6">Jenis Jadual</label>
-                            </div>
-                            <div class="mb-3 col-md-6">
-                                <input type="text" class="form-control" name="jadual_jenis">
-                            </div>
-                        </div>
+  
 
 
                 <div align="right"> 
@@ -579,6 +373,68 @@ Cipta Jadual Pemenuhan</a></li>
 			});
 		});
 	</script>
-           
+    
+
+    <script>
+		document.addEventListener("DOMContentLoaded", function() {
+			// Select2
+			$(".select2").each(function() {
+				$(this)
+					.wrap("<div class=\"position-relative\"></div>")
+					.select2({
+						placeholder: "Select value",
+						dropdownParent: $(this).parent()
+					});
+			})
+			// Daterangepicker
+			$("input[name=\"iklan_tempoh\"]").daterangepicker({
+				opens: "left"
+			});
+			$("input[name=\"datetimes\"]").daterangepicker({
+				timePicker: true,
+				opens: "left",
+				startDate: moment().startOf("hour"),
+				endDate: moment().startOf("hour").add(32, "hour"),
+				locale: {
+					format: "M/DD hh:mm A"
+				}
+			});
+			$("input[name=\"datesingle\"]").daterangepicker({
+				singleDatePicker: true,
+				showDropdowns: true
+			});
+			var start = moment().subtract(29, "days");
+			var end = moment();
+
+			function cb(start, end) {
+				$("#reportrange span").html(start.format("MMMM D, YYYY") + " - " + end.format("MMMM D, YYYY"));
+			}
+			$("#reportrange").daterangepicker({
+				startDate: start,
+				endDate: end,
+				ranges: {
+					"Today": [moment(), moment()],
+					"Yesterday": [moment().subtract(1, "days"), moment().subtract(1, "days")],
+					"Last 7 Days": [moment().subtract(6, "days"), moment()],
+					"Last 30 Days": [moment().subtract(29, "days"), moment()],
+					"This Month": [moment().startOf("month"), moment().endOf("month")],
+					"Last Month": [moment().subtract(1, "month").startOf("month"), moment().subtract(1, "month").endOf("month")]
+				}
+			}, cb);
+			cb(start, end);
+			// Datetimepicker
+			$('#datetimepicker-minimum').datetimepicker();
+			$('#datetimepicker-view-mode').datetimepicker({
+				viewMode: 'years'
+			});
+			$('#datetimepicker-time').datetimepicker({
+				format: 'LT'
+			});
+			$('#datetimepicker-date').datetimepicker({
+				format: 'L'
+			});
+		});
+	</script>
+    
 @stop
 

@@ -19,9 +19,7 @@ Kemaskini Sebutharga / Tender</a></li>
                 <h5 class="card-title mb-0"></h5>
             </div>
             <div class="card-body">
-                <form method="POST" action="/PembelianSebutTender/{{$PembelianSebutTender->id}}" >
-                    @csrf
-                    @method('PUT')
+
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
@@ -50,18 +48,6 @@ Kemaskini Sebutharga / Tender</a></li>
                         </div>
                     </div>
                     
-                    <div class="row">
-                        <div class="mb-3 col-md-6">
-                           <label class="col-form-label col-sm-6">Kumpulan Katalog</label>
-                        </div>
-                        <div class="mb-3 col-md-6">
-                            <select class="form-select" name="pst_katalog_kumpulan" disabled>
-                                @foreach ($katalog as $katalog)
-                                    <option @if ($PembelianSebutTender->pst_katalog_kumpulan == $katalog->id) selected @endif value={{$katalog->id}}>{{$katalog->katalog_kumpulan}}</option>    
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
                     
                     <div class="row">
                         <div class="mb-3 col-md-6">
@@ -87,7 +73,7 @@ Kemaskini Sebutharga / Tender</a></li>
                            <label class="col-form-label col-sm-6">Jumlah Harga Jangkaan Indikatif </label>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <input type="number" class="form-control" name="pst_jumlah_harga_indikatif_jangkaan" value="{{$PembelianSebutTender->pst_jumlah_harga_indikatif_jangkaan}}" readonly>
+                            <input type="number" class="form-control" name="pst_total_harga_indikatif_jangkaan" value="{{$PembelianSebutTender->pst_total_harga_indikatif_jangkaan}}" readonly>
                         </div>
                     </div>
 
@@ -140,15 +126,6 @@ Kemaskini Sebutharga / Tender</a></li>
                         </div>
                     </div>
 
-
-                    <div class="row">
-                        <div class="mb-3 col-md-6">
-                           <label class="col-form-label col-sm-6">Kategori Perolehan</label>
-                        </div>
-                        <div class="mb-3 col-md-6">
-                            <input type="text" class="form-control" name="pst_kategori_perolehan" value="{{$PembelianSebutTender->pst_kategori_perolehan}}" readonly readonly>
-                        </div>
-                    </div>
 
 
                     <div class="row">

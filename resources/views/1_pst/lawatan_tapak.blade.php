@@ -27,13 +27,13 @@ Kemaskini Sebutharga / Tender</a></li>
 
                 <div id="smartwizard-default-primary" class="wizard wizard-primary mb-4">
                     <ul class="nav">
-                        <li class="nav-item"><a class="nav-link" href="#default-primary-step-1">Maklumat SebutHarga<br /><small></small></a></li>
-                        <li class="nav-item"><a class="nav-link" href="#default-primary-step-2">Lawatan Tapak<br /><small></small></a></li>
-                        <li class="nav-item"><a class="nav-link" href="#default-primary-step-3">Maklumat Pemotongan<br /><small></small></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#sebutharga">Maklumat SebutHarga<br /><small></small></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#lawatantapak">Lawatan Tapak<br /><small></small></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#pemotongan">Maklumat Pemotongan<br /><small></small></a></li>
                     </ul>
 
                 <div class="tab-content">
-                    <div id="default-primary-step-1" class="tab-pane" role="tabpanel">
+                    <div id="sebutharga" class="tab-pane" role="tabpanel">
 
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
@@ -59,19 +59,6 @@ Kemaskini Sebutharga / Tender</a></li>
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <input type="text" class="form-control" name="pst_no1pp" value="{{$PembelianSebutTender->pst_no1pp}}" readonly>
-                                    </div>
-                                </div>
-                                
-                                <div class="row">
-                                    <div class="mb-3 col-md-6">
-                                    <label class="col-form-label col-sm-6">Kumpulan Katalog</label>
-                                    </div>
-                                    <div class="mb-3 col-md-6">
-                                        <select class="form-select" name="pst_katalog_kumpulan" disabled>
-                                            @foreach ($katalog as $katalog)
-                                                <option @if ($PembelianSebutTender->pst_katalog_kumpulan == $katalog->id) selected @endif value={{$katalog->id}}>{{$katalog->katalog_kumpulan}}</option>    
-                                            @endforeach
-                                        </select>
                                     </div>
                                 </div>
                                 
@@ -230,7 +217,7 @@ Kemaskini Sebutharga / Tender</a></li>
                                 </div>
 
 		</div>
-        <div id="default-primary-step-2" class="tab-pane" role="tabpanel">
+        <div id="lawatantapak" class="tab-pane" role="tabpanel">
 
             <div class="row">
                         <div class="mb-3 col-md-6">
@@ -294,7 +281,7 @@ Kemaskini Sebutharga / Tender</a></li>
                     </div>
         
         </div>
-        <div id="default-primary-step-3" class="tab-pane" role="tabpanel">
+        <div id="pemotongan" class="tab-pane" role="tabpanel">
         
                     <div class="row">
                         <div class="mb-3 col-md-6">
@@ -380,30 +367,7 @@ Kemaskini Sebutharga / Tender</a></li>
 				theme: "default",
 				showStepURLhash: false
 			});
-			$("#smartwizard-default-danger").smartWizard({
-				theme: "default",
-				showStepURLhash: false
-			});
-			$("#smartwizard-default-warning").smartWizard({
-				theme: "default",
-				showStepURLhash: false
-			});
-			$("#smartwizard-arrows-primary").smartWizard({
-				theme: "arrows",
-				showStepURLhash: false
-			});
-			$("#smartwizard-arrows-success").smartWizard({
-				theme: "arrows",
-				showStepURLhash: false
-			});
-			$("#smartwizard-arrows-danger").smartWizard({
-				theme: "arrows",
-				showStepURLhash: false
-			});
-			$("#smartwizard-arrows-warning").smartWizard({
-				theme: "arrows",
-				showStepURLhash: false
-			});
+	
 			// Validation
 			var $validationForm = $("#smartwizard-validation");
 			$validationForm.validate({

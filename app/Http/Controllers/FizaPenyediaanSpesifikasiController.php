@@ -103,7 +103,6 @@ class FizaPenyediaanSpesifikasiController extends Controller
 
         $fizaPenyediaanSpesifikasi->pst_id=$request->pst_id;
         // $fizaPenyediaanSpesifikasi->sss_id=$request->sss_id;
-        // $fizaPenyediaanSpesifikasi->item_id=$request->item_id;
         $fizaPenyediaanSpesifikasi->spesifikasi_tajuk=$request->spesifikasi_tajuk;
         $fizaPenyediaanSpesifikasi->spesifikasi_jenis_barang=$request->spesifikasi_jenis_barang;
         // $fizaPenyediaanSpesifikasi->spesifikasi_status="Draf";
@@ -189,7 +188,6 @@ class FizaPenyediaanSpesifikasiController extends Controller
 
         $fizaPenyediaanSpesifikasi->pst_id=$request->pst_id;
         $fizaPenyediaanSpesifikasi->sss_id=$request->sss_id;
-        $fizaPenyediaanSpesifikasi->item_id=$request->item_id;
         $fizaPenyediaanSpesifikasi->spesifikasi_tajuk=$request->spesifikasi_tajuk;
         $fizaPenyediaanSpesifikasi->spesifikasi_jenis_barang=$request->spesifikasi_jenis_barang;
         $fizaPenyediaanSpesifikasi->spesifikasi_status=$request->spesifikasi_status;

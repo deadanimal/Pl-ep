@@ -49,21 +49,6 @@ Cipta Sebutharga / Tender</a></li>
                                 <input type="text" class="form-control" name="pst_no1pp">
                             </div>
                         </div>
-
-
-                        <div class="row">
-                            <div class="mb-3 col-md-6">
-                               <label class="col-form-label col-sm-6">Kumpulan Katalog</label>
-                            </div>
-                            <div class="mb-3 col-md-6">
-                                <select class="form-select" name="katalog_id">
-                                    <option hidden value="">Sila Pilih </option>
-                                    @foreach ($katalog as $katalog)
-                                    <option value="{{$katalog->id}}">{{$katalog->katalog_kumpulan}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
                         
                         <div class="row">
                             <div class="mb-3 col-md-6">
@@ -88,7 +73,7 @@ Cipta Sebutharga / Tender</a></li>
                                <label class="col-form-label col-sm-6"> Jumlah Harga Jangkaan Indikatif</label>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <input type="number" class="form-control" name="pst_jumlah_harga_indikatif_jangkaan">
+                                <input type="number" class="form-control" name="pst_total_harga_indikatif_jangkaan">
                             </div>
                         </div>
 
@@ -138,14 +123,6 @@ Cipta Sebutharga / Tender</a></li>
                          </div>
                         
 
-                         <div class="row">
-                            <div class="mb-3 col-md-6">
-                               <label class="col-form-label col-sm-6">Kategori Perolehan</label>
-                            </div> 
-                            <div class="mb-3 col-md-6">
-                                <input type="text" class="form-control" name="pst_kategori_perolehan">
-                            </div>
-                         </div>
 
                          <div class="row">
                             <div class="mb-3 col-md-6">
@@ -174,10 +151,7 @@ Cipta Sebutharga / Tender</a></li>
                                 <input type="text" class="form-control" name="pst_tempoh_kontrak">
                             </div>
                         </div>
-                {{--     
-                item_id
-                kod_id
-                pembekal_id --}}
+
                 
                 <div class="row">
                     <div class="mb-3 col-md-6">
@@ -188,9 +162,7 @@ Cipta Sebutharga / Tender</a></li>
                     </div>
                 </div>
 
-                {{-- ro_id
-                jawatankuasa_id
-                user_id --}}
+
                 <div class="row">
                     <div class="mb-3 col-md-6">
                        <label class="col-form-label col-sm-6"> Nama Pelulus</label>
@@ -199,125 +171,15 @@ Cipta Sebutharga / Tender</a></li>
                         {{-- <input type="text" class="form-control" name="pst_pelulus"> --}}
                         <select name="pst_pelulus" class="form-select" required>
                                 <option hidden value="">Sila Pilih</option>
-                                @foreach ($user as $user3)
-                                <option value={{$user3->id}}>{{$user3->user_name}}</option>
+                                @foreach ($user as $pelulus)
+                                <option value={{$pelulus->id}}>{{$pelulus->user_name}}</option>
                                 @endforeach
                             </select>
 
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="mb-3 col-md-6">
-                       <label class="col-form-label col-sm-6"> Catatan Pelulus </label>
-                    </div>
-                    <div class="mb-3 col-md-6">
-                        <input type="text" class="form-control" name="pst_catatan_pelulus">
-                    </div>
-                </div>
-
                 
-                <div class="row">
-                    <div class="mb-3 col-md-6">
-                       <label class="col-form-label col-sm-6">  Perihal Taklimat </label>
-                    </div>
-                    <div class="mb-3 col-md-6">
-                        <input type="text" class="form-control" name="pst_perihal_taklimat">
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="mb-3 col-md-6">
-                       <label class="col-form-label col-sm-6">Tarikh Taklimat</label>
-                    </div>
-                    <div class="mb-3 col-md-6">
-                        <input type="date" class="form-control" name="pst_taklimat_date">
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="mb-3 col-md-6">
-                       <label class="col-form-label col-sm-6">Alamat Taklimat</label>
-                    </div>
-                    <div class="mb-3 col-md-6">
-                        <input type="text" class="form-control" name="pst_taklimat_alamat">
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="mb-3 col-md-6">
-                       <label class="col-form-label col-sm-6"> Link </label>
-                    </div>
-                    <div class="mb-3 col-md-6">
-                        <input type="url" class="form-control" name="pst_link">
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="mb-3 col-md-6">
-                       <label class="col-form-label col-sm-6">Penyelaras</label>
-                    </div>
-                    <div class="mb-3 col-md-6">
-                        <select class="form-select" name="pst_penyelaras" required>
-                            <option hidden value="">Sila Pilih</option>
-                            @foreach($penyelaras as $penyelaras)
-                            <option value={{$penyelaras->id}}>{{$penyelaras->user_name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="mb-3 col-md-6">
-                       <label class="col-form-label col-sm-6">Kehadiran Maksimum </label>
-                    </div>
-                    <div class="mb-3 col-md-6">
-                        <input type="text" class="form-control" name="pst_kehadiran_max">
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="mb-3 col-md-6">
-                       <label class="col-form-label col-sm-6">Status </label>
-                    </div>
-                    <div class="mb-3 col-md-6">
-                         <input type="text" class="form-control" name="pst_status">
-                    </div>
-                </div>
-
-                {{-- pst_created_by
-                pst_created_date
-                pst_updated_by
-                pst_updated_date --}}
-
-                
-                <div class="row">
-                    <div class="mb-3 col-md-6">
-                       <label class="col-form-label col-sm-6">Jenis Pemotongan</label>
-                    </div>
-                    <div class="mb-3 col-md-6">
-                        <input type="text" class="form-control" name="pst_jenis_potongan">
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="mb-3 col-md-6">
-                       <label class="col-form-label col-sm-6">Deskripsi Pemotongan</label>
-                    </div>
-                    <div class="mb-3 col-md-6">
-                        <input type="text" class="form-control" name="pst_potongan_description">
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="mb-3 col-md-6">
-                       <label class="col-form-label col-sm-6">Amaun Pemotongan</label>
-                    </div>
-                    <div class="mb-3 col-md-6">
-                        <input type="text" class="form-control" name="pst_amaun_potongan">
-                    </div>
-                </div>
 
                 <div align=right>
                     <button class="btn btn-success" type="submit" name="status_pst" value="draf"> Simpan Sebagai Draf</button> 
@@ -330,5 +192,4 @@ Cipta Sebutharga / Tender</a></li>
         </div>
 </div>
 
-        @endsection
-
+        @stop

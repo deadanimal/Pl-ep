@@ -60,6 +60,88 @@
         });
     </script>
 
+<script src="js/app.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        $("#smartwizard-default-primary").smartWizard({
+            theme: "default",
+            showStepURLhash: false
+        });
+        $("#smartwizard-default-success").smartWizard({
+            theme: "default",
+            showStepURLhash: false
+        });
+        $("#smartwizard-default-danger").smartWizard({
+            theme: "default",
+            showStepURLhash: false
+        });
+        $("#smartwizard-default-warning").smartWizard({
+            theme: "default",
+            showStepURLhash: false
+        });
+        $("#smartwizard-arrows-primary").smartWizard({
+            theme: "arrows",
+            showStepURLhash: false
+        });
+        $("#smartwizard-arrows-success").smartWizard({
+            theme: "arrows",
+            showStepURLhash: false
+        });
+        $("#smartwizard-arrows-danger").smartWizard({
+            theme: "arrows",
+            showStepURLhash: false
+        });
+        $("#smartwizard-arrows-warning").smartWizard({
+            theme: "arrows",
+            showStepURLhash: false
+        });
+        // Validation
+        var $validationForm = $("#smartwizard-validation");
+        $validationForm.validate({
+            errorPlacement: function errorPlacement(error, element) {
+                $(element).parents(".error-placeholder").append(
+                    error.addClass("invalid-feedback small d-block")
+                )
+            },
+            highlight: function(element) {
+                $(element).addClass("is-invalid");
+            },
+            unhighlight: function(element) {
+                $(element).removeClass("is-invalid");
+            },
+            rules: {
+                "wizard-confirm": {
+                    equalTo: "input[name=\"wizard-password\"]"
+                }
+            }
+        });
+        $validationForm
+            .smartWizard({
+                autoAdjustHeight: false,
+                backButtonSupport: false,
+                useURLhash: false,
+                showStepURLhash: false,
+                toolbarSettings: {
+                    toolbarExtraButtons: [$("<button class=\"btn btn-submit btn-primary\" type=\"button\">Finish</button>")]
+                }
+            })
+            .on("leaveStep", function(e, anchorObject, stepNumber, stepDirection) {
+                if (stepDirection === 1) {
+                    return $validationForm.valid();
+                }
+                return true;
+            });
+        $validationForm.find(".btn-submit").on("click", function() {
+            if (!$validationForm.valid()) {
+                return;
+            }
+            alert("Great! The form is valid and ready to submit.");
+            return false;
+        });
+    });
+</script>
+
         <div class="wrapper">
             <nav id="sidebar" class="sidebar">
                 <a class="sidebar-brand" href="/">
@@ -125,7 +207,7 @@
                     
                                         <li class="sidebar-item">
                                             <a data-bs-target="#kodbidang" data-bs-toggle="collapse" class="sidebar-link collapsed">
-                                                <i class="align-middle me-2 fas fa-fw fa-tag"></i> <span class="align-middle">Kod Bidang</span>
+                                                <i class="align-middle me-2 fas fa-fw fa-book"></i> <span class="align-middle">Kod Bidang</span>
                                             </a>
                                             <ul id="kodbidang" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                                                 <li class="sidebar-item"><a class="sidebar-link" href="/KodBidang">Senarai Kod Bidang</a></li>
@@ -143,16 +225,30 @@
                                             <ul id="ui" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
                                                     <li class="sidebar-item"><a class="sidebar-link" href="/NotaMinta">Senarai Nota Minta</a></li>
                                                     <li class="sidebar-item"><a class="sidebar-link" href="/NotaMinta/create">Cipta Nota Minta</a></li>
-                                                    <li class="sidebar-item"><a class="sidebar-link" href="/PembelianSebutTender">Senarai SebutHarga/ Tender</a>
-                                                    <li class="sidebar-item"><a class="sidebar-link" href="/PembelianSebutTender/create">Cipta SebutHarga/ Tender</a></li>
                                                     <li class="sidebar-item"><a class="sidebar-link" href="/NotaPenerimaan">Senarai Nota Penerimaan</a>
                                                     <li class="sidebar-item"><a class="sidebar-link" href="/NotaPenerimaan/create">Cipta Nota Penerimaan</a>
                                                 </li>
                                             </ul>
                                         </li>
+
+                                        <li class="sidebar-item">
+                                            <a data-bs-target="#pst" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                                                <i class="align-middle me-2 fas fa-fw fa-shopping-cart"></i> <span class="align-middle">Sebutharga/Tender</span>
+                                            </a>
+                                            <ul id="pst" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+                                                    <li class="sidebar-item"><a class="sidebar-link" href="/PembelianSebutTender">Senarai SebutHarga/ Tender</a>
+                                                    <li class="sidebar-item"><a class="sidebar-link" href="/PembelianSebutTender/create">Cipta SebutHarga/ Tender</a></li>
+                                                    <li class="sidebar-item"><a class="sidebar-link" href="/PenyediaanSpesifikasi">Penyediaan Spesifikasi</a></li>
+                                                    <li class="sidebar-item"><a class="sidebar-link" href="/JadualPemenuhan">Jadual Pemenuhan</a></li>
+                                                    <li class="sidebar-item"><a class="sidebar-link" href="/PerincianPengiklanan">Perincian Pengiklanan</a></li>
+                                                </li>
+                                            </ul>
+                                        </li>
+
+
                                         <li class="sidebar-item">
                                             <a data-bs-target="#charts" data-bs-toggle="collapse" class="sidebar-link collapsed">
-                                                <i class="align-middle me-2 fas fa-fw fa-shopping-cart"></i> <span class="align-middle">Pengurusan Katalog</span>
+                                                <i class="align-middle me-2 fas fa-fw fa-tag"></i> <span class="align-middle">Pengurusan Katalog</span>
                                             </a>
                                             <ul id="charts" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
                                                 <li class="sidebar-item"><a class="sidebar-link" href="/Katalog">Kumpulan Katalog</a></li>
@@ -314,7 +410,7 @@
 
                         <li class="sidebar-item">
                             <a data-bs-target="#charts" data-bs-toggle="collapse" class="sidebar-link collapsed">
-                                <i class="align-middle me-2 fas fa-fw fa-shopping-cart"></i> <span class="align-middle">Pengurusan Katalog</span>
+                                <i class="align-middle me-2 fas fa-fw fa-tag"></i> <span class="align-middle">Pengurusan Katalog</span>
                             </a>
                             <ul id="charts" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
                                 <li class="sidebar-item"><a class="sidebar-link" href="/Katalog">Kumpulan Katalog</a></li>

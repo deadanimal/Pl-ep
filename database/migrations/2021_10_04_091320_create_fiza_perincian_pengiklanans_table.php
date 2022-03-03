@@ -18,7 +18,7 @@ class CreateFizaPerincianPengiklanansTable extends Migration
             $table->date('iklan_date')->nullable(); 
             $table->date('iklan_taklimat_date')->nullable();
             $table->time('iklan_taklimat_time')->nullable();
-            $table->integer('iklan_tempoh')->nullable();
+            $table->string('iklan_tempoh')->nullable();
             $table->date('iklan_last_date')->nullable();
             $table->integer('iklan_tempoh_sah_laku')->nullable();
             $table->date(' iklan_sah_laku_tamat')->nullable();

@@ -17,7 +17,6 @@ class CreateFizaPenyediaanSpesifikasisTable extends Migration
             $table->id();
             $table->foreignId('pst_id')->nullable();
             $table->foreignId('sss_id')->nullable();
-            $table->foreignId('item_id')->nullable();
             $table->string('spesifikasi_tajuk')->nullable();
             $table->string('spesifikasi_jenis_barang')->nullable();
             $table->string('spesifikasi_status')->nullable();

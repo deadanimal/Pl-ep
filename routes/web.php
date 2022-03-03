@@ -179,6 +179,8 @@ Route::group(['middleware' => ['auth']],function(){
     Route::get('/PenyediaanSpesifikasi/{id}/create',[FizaPenyediaanSpesifikasiController::class,'create']);
     Route::get('/KehadiranTaklimat/{id}/create',[FizaKehadiranTaklimatController::class,'create']);
     Route::get('/JadualPemenuhan/{id}/create',[FizaJadualPemenuhanController::class,'create']);
+    Route::get('/PerincianPengiklanan/{id}/create',[FizaPerincianPengiklananController::class,'create']);
+
 
     Route::get('/kelulusan-spesifikasi', function(){
         $PenyediaanSpesifikasi = FizaPenyediaanSpesifikasiController::all();

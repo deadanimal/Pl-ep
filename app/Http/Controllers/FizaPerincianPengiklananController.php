@@ -24,10 +24,10 @@ class FizaPerincianPengiklananController extends Controller
     }
 
 
-    public function create()
+    public function create($id)
     {
         $pst = FizaPembelianSebutTender::find($id); 
-        
+
         return view('1_perincian_iklan.create',[
             'pst'=>$pst,
         
@@ -42,10 +42,10 @@ class FizaPerincianPengiklananController extends Controller
         $fizaPerincianPengiklanan->iklan_date=$request->iklan_date;
         $fizaPerincianPengiklanan->iklan_taklimat_date=$request->iklan_taklimat_date;
         $fizaPerincianPengiklanan->iklan_taklimat_time=$request->iklan_taklimat_time;
-        $fizaPerincianPengiklanan->iklan_tempoh=$request->iklan_tempoh;
+        // $fizaPerincianPengiklanan->iklan_tempoh=$request->iklan_tempoh;
         $fizaPerincianPengiklanan->iklan_last_date=$request->iklan_last_date;
         $fizaPerincianPengiklanan->iklan_tempoh_sah_laku=$request->iklan_tempoh_sah_laku;
-        $fizaPerincianPengiklanan->iklan_sah_laku_tamat=$request->iklan_sah_laku_tamat;
+        // $fizaPerincianPengiklanan->iklan_sah_laku_tamat=$request->iklan_sah_laku_tamat;
 
         // $fizaPerincianPengiklanan->user_id=$request->user_id;
         $fizaPerincianPengiklanan->iklan_created_by=Auth::user()->id;
@@ -53,7 +53,9 @@ class FizaPerincianPengiklananController extends Controller
         // $fizaPerincianPengiklanan->iklan_id=$request->iklan_id;
 
         // $url = '/fizaPerincianPengiklanan'.$fizaPerincianPengiklanan->id;
-        return redirect('/fizaPerincianPengiklanan');
+
+        $fizaPerincianPengiklanan->save();
+        return redirect('PerincianPengiklanan')->with('sucess','Data telah berjaya dihantar!');
 
 
 
@@ -87,7 +89,7 @@ class FizaPerincianPengiklananController extends Controller
         $fizaPerincianPengiklanan->iklan_date=$request->iklan_date;
 
         $fizaPerincianPengiklanan->save();
-        return redirect ('/$fizaPerincianPengiklanan');
+        return redirect ('/PerincianPengiklanan');
     }
 
   
