@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\FizaPembelianSebutTender;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -32,7 +33,7 @@ class CreateFizaJawatankuasasTable extends Migration
             $table->string('jawatankuasa_penilaian_ajk')->nullable();
             // $table->String('jawatankuasa_peranan')->nullable();
             $table->string('jawatankuasa_kelulusan')->nullable();
-            $table->foreignId('pst_id')->nullable();
+            $table->foreignId('pst_id');
             $table->timestamps();
             $table->string('jawatankuasa_created_by')->nullable();
             $table->string('jawatankuasa_updated_by')->nullable();

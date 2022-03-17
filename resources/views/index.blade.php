@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
-		<link rel="icon" type="image/png" href="/PL.png">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta name="author" content="Bootlab">
-	
+
+        <head>
+            <meta charset="utf-8">
+            <link rel="icon" type="image/png" href="/PL.png">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <meta name="description" content="Sistem ePerolehan &amp; dashboard template">
+            <meta name="author" content="Bootlab">
+
 		<link href="css/modern.css" rel="stylesheet">
 
 		<title>Sistem ePerolehan</title>
@@ -15,7 +17,7 @@
 		<style>
 			.a {
   				padding: 50px;
-				
+
 			}
 		</style>
 
@@ -84,7 +86,7 @@
 					<h4>Carian Item & Katalog</h4>
 				</div>
 				<div class="col-md-6 col-lg-4 text-center">
-					<a class="mb-3 card overflow-hidden" href="/PembelianSebutTender" target="_blank">
+					<a class="mb-3 card overflow-hidden" href="/senaraisebutharga" target="_blank">
 						<div class="px-4 pt-4">
 							<img src="/documents.png" class="img-fluid card-img-hover landing-img" width="40%" height=40%/>
 						</div>
@@ -139,7 +141,7 @@
 								</div>
 							</div>
 							<p class="lead mb-2">{{$faq->faq_answer}}</p>
-						</div>			
+						</div>
 					</blockquote>
 			</div>
 		</div>
@@ -167,9 +169,9 @@
 					</div>
 				</div>
 				@endforeach
-					
+
 		</div> --}}
-	
+
 		<div class="row">
 			<div class="col-12 col-lg-12">
 				<div class="accordion" id="accordionExample">
@@ -188,7 +190,7 @@
 							<div class="card-body">
 								{{$faq->faq_answer}}
 							</div>
-							
+
 						</div>
 					</div>
 					@endforeach
@@ -196,11 +198,11 @@
 				</div>
 
 			</div>
-			
+
 	</div>
-	 </section> 
-	 
-		
+	 </section>
+
+
 
 	<footer class="footer">
 		<div class="container-fluid">

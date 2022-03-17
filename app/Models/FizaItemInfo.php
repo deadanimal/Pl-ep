@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Models;
-use App\Models\FizaItemInfo;
 use App\Models\FizaKatalog;
 use App\Models\FizaPembekal;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -23,6 +22,6 @@ class FizaItemInfo extends Model
 
 
 
-    
+
 
 }

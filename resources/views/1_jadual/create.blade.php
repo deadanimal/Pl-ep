@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('content')
-    
+
 
 
 <div class="header">
@@ -24,8 +24,8 @@ Cipta Jadual Pemenuhan</a></li>
 
                 <form method="POST" action="/JadualPemenuhan">
                 @csrf
-                
-                <input type="hidden" name="spesifikasi_id" value="{{$spesifikasi->id}}">
+
+                <input type="hidden" name="spesifikasi_id" value="{{$spesifikasi->id}}" readonly>
 
                 <div id="smartwizard-default-primary" class="wizard wizard-primary mb-4">
                     <ul class="nav">
@@ -33,10 +33,10 @@ Cipta Jadual Pemenuhan</a></li>
                         <li class="nav-item"><a class="nav-link" href="#spesifikasi">2<br /><small>Maklumat Spesifikasi</small></a></li>
                         <li class="nav-item"><a class="nav-link" href="#jadualpemenuhan">3<br /><small>Maklumat Jadual Pemenuhan</small></a></li>
                     </ul>
-                
+
                 <div class="tab-content">
                     <div id="sebutharga" class="tab-pane" role="tabpanel">
-                
+
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
                                     <label class="col-form-label col-sm-6">Panel Item </label>
@@ -45,7 +45,7 @@ Cipta Jadual Pemenuhan</a></li>
                                         <input type="text" class="form-control" name="pst_item_panel" value="{{$pst->pst_item_panel}}" readonly>
                                     </div>
                                 </div>
-                                
+
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
                                     <label class="col-form-label col-sm-6">Sistem Panel </label>
@@ -54,7 +54,7 @@ Cipta Jadual Pemenuhan</a></li>
                                         <input type="text" class="form-control" name="pst_sistem_panel" value="{{$pst->pst_sistem_panel}}" readonly>
                                     </div>
                                 </div>
-                                            
+
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
                                     <label class="col-form-label col-sm-6">No1PP </label>
@@ -63,7 +63,7 @@ Cipta Jadual Pemenuhan</a></li>
                                         <input type="text" class="form-control" name="pst_no1pp" value="{{$pst->pst_no1pp}}" readonly>
                                     </div>
                                 </div>
-                                
+
                                 {{-- <div class="row">
                                     <div class="mb-3 col-md-6">
                                     <label class="col-form-label col-sm-6">Kumpulan Katalog</label>
@@ -71,12 +71,12 @@ Cipta Jadual Pemenuhan</a></li>
                                     <div class="mb-3 col-md-6">
                                         <select class="form-select" name="pst_katalog_kumpulan" disabled>
                                             @foreach ($katalog as $katalog)
-                                                <option @if ($pst->pst_katalog_kumpulan == $katalog->id) selected @endif value={{$katalog->id}}>{{$katalog->katalog_kumpulan}}</option>    
+                                                <option @if ($pst->pst_katalog_kumpulan == $katalog->id) selected @endif value={{$katalog->id}}>{{$katalog->katalog_kumpulan}}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                 </div> --}}
-                                
+
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
                                     <label class="col-form-label col-sm-6">Tajuk Pembelian SebutHarga & Tender </label>
@@ -85,17 +85,17 @@ Cipta Jadual Pemenuhan</a></li>
                                         <input type="text" class="form-control" name="pst_tajuk" value="{{$pst->pst_tajuk}}" readonly>
                                     </div>
                                 </div>
-                                
+
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
                                     <label class="col-form-label col-sm-6">No Rujukan Fail</label>
                                     </div>
-                                    <div class="mb-3 col-md-6">                      
+                                    <div class="mb-3 col-md-6">
                                         <input type="text" class="form-control" name="pst_no_rujukan_fail" value="{{$pst->pst_no_rujukan_fail}}" readonly>
                                     </div>
                                 </div>
-                
-                                
+
+
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
                                     <label class="col-form-label col-sm-6">Jumlah Harga Jangkaan Indikatif </label>
@@ -104,8 +104,8 @@ Cipta Jadual Pemenuhan</a></li>
                                         <input type="number" class="form-control" name="pst_jumlah_harga_indikatif_jangkaan" value="{{$pst->pst_jumlah_harga_indikatif_jangkaan}}" readonly>
                                     </div>
                                 </div>
-                
-                                    
+
+
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
                                         <label class="col-form-label col-sm-6">Kaedah Perolehan</label>
@@ -114,7 +114,7 @@ Cipta Jadual Pemenuhan</a></li>
                                         <input type="text" class="form-control" name="pst_kaedah_perolehan" value="{{$pst->pst_kaedah_perolehan}}" readonly>
                                     </div>
                                 </div>
-                            
+
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
                                     <label class="col-form-label col-sm-6">Jenis PST </label>
@@ -123,7 +123,7 @@ Cipta Jadual Pemenuhan</a></li>
                                         <input type="text" class="form-control" name="pst_jenis" value="{{$pst->pst_jenis}}" readonly>
                                     </div>
                                 </div>
-                
+
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
                                     <label class="col-form-label col-sm-6"> Terbuka Kepada</label>
@@ -132,9 +132,9 @@ Cipta Jadual Pemenuhan</a></li>
                                         <input type="text" class="form-control" name="pst_terbuka_kepada" value="{{$pst->pst_terbuka_kepada}}" readonly>
                                     </div>
                                 </div>
-                
-                                
-                                
+
+
+
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
                                     <label class="col-form-label col-sm-6">Zon </label>
@@ -143,8 +143,8 @@ Cipta Jadual Pemenuhan</a></li>
                                     <input type="text" class="form-control" name="pst_zon_lokasi" value="{{$pst->pst_zon_lokasi}}" readonly>
                                     </div>
                                 </div>
-                                
-                                                        
+
+
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
                                     <label class="col-form-label col-sm-6"> Kategori Jenis Perolehan </label>
@@ -153,8 +153,8 @@ Cipta Jadual Pemenuhan</a></li>
                                         <input type=text name=pst_kategori_jenis_perolehan class="form-control" value="{{$pst->pst_kategori_jenis_perolehan}}" readonly>
                                     </div>
                                 </div>
-                
-                
+
+
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
                                     <label class="col-form-label col-sm-6">Kategori Perolehan</label>
@@ -163,8 +163,8 @@ Cipta Jadual Pemenuhan</a></li>
                                         <input type="text" class="form-control" name="pst_kategori_perolehan" value="{{$pst->pst_kategori_perolehan}}" readonly readonly>
                                     </div>
                                 </div>
-                
-                
+
+
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
                                     <label class="col-form-label col-sm-6">Jenis Kontrak</label>
@@ -173,16 +173,16 @@ Cipta Jadual Pemenuhan</a></li>
                                         <input type="text" class="form-control" name="pst_jenis_kontrak" value="{{$pst->pst_jenis_kontrak}}" readonly>
                                     </div>
                                 </div>
-                
+
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
                                     <label class="col-form-label col-sm-6">Jenis Pemenuhan</label>
                                     </div>
                                     <div class="mb-3 col-md-6">
-                                        <input type="text" class="form-control" name="pst_jenis_pemenuhan" value="{{$pst->pst_jenis_pemenuhan}}" readonly> 
+                                        <input type="text" class="form-control" name="pst_jenis_pemenuhan" value="{{$pst->pst_jenis_pemenuhan}}" readonly>
                                     </div>
                                 </div>
-                
+
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
                                     <label class="col-form-label col-sm-6">Tempoh Kontrak</label>
@@ -191,7 +191,7 @@ Cipta Jadual Pemenuhan</a></li>
                                         <input type="text" class="form-control" name="pst_tempoh_kontrak" value="{{$pst->pst_tempoh_kontrak}}" readonly>
                                     </div>
                                 </div>
-                            {{--     
+                            {{--
                             item_id
                             kod_id
                             pembekal_id --}}
@@ -210,19 +210,19 @@ Cipta Jadual Pemenuhan</a></li>
                                     <div class="mb-3 col-md-6">
                                     <label class="col-form-label col-sm-6">Nama Pelulus</label>
                                     </div>
-                                    <div class="mb-3 col-md-6"> 
+                                    <div class="mb-3 col-md-6">
                                         {{-- <select  class="form-control" name="pst_pelulus" disabled> --}}
- 
+
                                         <input type="text" class="form-control" name="pst_pelulus" value="{{$pst->user_name}}" readonly>
 
                                             {{-- <option @if ($pst->pst_pelulus == $user->id) selected @endif value={{$user->id}}>{{$user->user_name}}</option>     --}}
-                              
+
                                         </select>
-                
+
                                     </div>
-                                </div> 
-                
-                
+                                </div>
+
+
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
                                     <label class="col-form-label col-sm-6">Catatan Pelulus </label>
@@ -231,195 +231,195 @@ Cipta Jadual Pemenuhan</a></li>
                                         <input type="text" class="form-control" name="pst_catatan_pelulus" value="{{$pst->pst_catatan_pelulus}}" readonly>
                                     </div>
                                 </div>
-                
+
                 </div>
                 <div id="spesifikasi" class="tab-pane" role="tabpanel">
-                
+
                     <div class="row">
                         <div class="mb-3 col-md-6">
                            <label class="col-form-label col-sm-6">Tajuk Spesifikasi </label>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <input type="text" class="form-control" name="spesifikasi_tajuk" value="{{$spesifikasi->spesifikasi_tajuk}}">
+                            <input type="text" class="form-control" name="spesifikasi_tajuk" value="{{$spesifikasi->spesifikasi_tajuk}}" readonly>
                         </div>
                     </div>
-                
-                    
+
+
                     <div class="row">
                         <div class="mb-3 col-md-6">
                            <label class="col-form-label col-sm-6">Jenis Barang</label>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <input type="text" class="form-control" name="spesifikasi_jenis_barang" value="{{$spesifikasi->spesifikasi_jenis_barang}}">
+                            <input type="text" class="form-control" name="spesifikasi_jenis_barang" value="{{$spesifikasi->spesifikasi_jenis_barang}}" readonly>
                         </div>
                     </div>
-                    
-                
-                    
+
+
+
                     <div class="row">
                         <div class="mb-3 col-md-6">
                            <label class="col-form-label col-sm-6">Butiran Item</label>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <input type="text" class="form-control" name="spesifikasi_description" value="{{$spesifikasi->spesifikasi_description}}">
+                            <input type="text" class="form-control" name="spesifikasi_description" value="{{$spesifikasi->spesifikasi_description}}" readonly>
                         </div>
                     </div>
-                
+
                     <div class="row">
                         <div class="mb-3 col-md-6">
                            <label class="col-form-label col-sm-6">Unit Ukuran </label>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <input type="text" class="form-control" name="spesifikasi_unit_ukuran" value="{{$spesifikasi->spesifikasi_unit_ukuran}}">
+                            <input type="text" class="form-control" name="spesifikasi_unit_ukuran" value="{{$spesifikasi->spesifikasi_unit_ukuran}}" readonly>
                         </div>
                     </div>
-                
-                    
+
+
                     <div class="row">
                         <div class="mb-3 col-md-6">
                            <label class="col-form-label col-sm-6">Jenis Harga</label>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <input type="text" class="form-control" name="spesifikasi_jenis_harga" value="{{$spesifikasi->spesifikasi_jenis_harga}}">
+                            <input type="text" class="form-control" name="spesifikasi_jenis_harga" value="{{$spesifikasi->spesifikasi_jenis_harga}}" readonly>
                         </div>
                     </div>
-                
-                    
+
+
                     <div class="row">
                         <div class="mb-3 col-md-6">
                            <label class="col-form-label col-sm-6">Jumlah Harga Indikatif</label>
                         </div>
                         <div class="mb-3 col-md-6">
-                                <input type="number" class="form-control" name="spesifikasi_jumlah_harga_indikatif" value="{{$spesifikasi->spesifikasi_jumlah_harga_indikatif}}">
+                                <input type="number" class="form-control" name="spesifikasi_jumlah_harga_indikatif" value="{{$spesifikasi->spesifikasi_jumlah_harga_indikatif}}" readonly>
                         </div>
                     </div>
-                
-                    
+
+
                     <div class="row">
                         <div class="mb-3 col-md-6">
                            <label class="col-form-label col-sm-6">Jumlah Harga</label>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <input type="number" class="form-control" name="spesifikasi_jumlah_harga" value="{{$spesifikasi->spesifikasi_jumlah_harga}}">
+                            <input type="number" class="form-control" name="spesifikasi_jumlah_harga" value="{{$spesifikasi->spesifikasi_jumlah_harga}}" readonly>
                         </div>
                     </div>
-                
-                    
+
+
                     <div class="row">
                         <div class="mb-3 col-md-6">
                            <label class="col-form-label col-sm-6">Alamat Penghantaran </label>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <input type="text" class="form-control" name="spesifikasi_alamat_penghantaran" value="{{$spesifikasi->spesifikasi_jumlah_harga}}">
+                            <input type="text" class="form-control" name="spesifikasi_alamat_penghantaran" value="{{$spesifikasi->spesifikasi_jumlah_harga}}" readonly>
                         </div>
                     </div>
-                
-                    
+
+
                     <div class="row">
                         <div class="mb-3 col-md-6">
                            <label class="col-form-label col-sm-6">Catatan Spesifikasi Item</label>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <textarea rows="4" cols="50" class="form-control" name="spesifikasi_catatan">{{$spesifikasi->spesifikasi_catatan}}</textarea>
+                            <textarea rows="4" cols="50" class="form-control" name="spesifikasi_catatan" readonly>{{$spesifikasi->spesifikasi_catatan}} </textarea>
                         </div>
                     </div>
-                    
-                
-                   
+
+
+
                     <div class="row">
                         <div class="mb-3 col-md-6">
                            <label class="col-form-label col-sm-6">Skor Maksima </label>
                         </div>
-                
+
                         <div class="mb-3 col-md-6">
-                            <input type="number" class="form-control" name="spesifikasi_skor_maksima" value="{{$spesifikasi->spesifikasi_skor_maksima}}">
+                            <input type="number" class="form-control" name="spesifikasi_skor_maksima" value="{{$spesifikasi->spesifikasi_skor_maksima}}" readonly>
                         </div>
                     </div>
-                
-                    
+
+
                     <div class="row">
                         <div class="mb-3 col-md-6">
                            <label class="col-form-label col-sm-6">Jumlah Skor Teknikal</label>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <input type="number" class="form-control" name="spesifikasi_jumlah_skor_teknikal" value="{{$spesifikasi->spesifikasi_jumlah_skor_teknikal}}">
+                            <input type="number" class="form-control" name="spesifikasi_jumlah_skor_teknikal" value="{{$spesifikasi->spesifikasi_jumlah_skor_teknikal}}" readonly>
                         </div>
                     </div>
-                
-                    
+
+
                     <div class="row">
                         <div class="mb-3 col-md-6">
                            <label class="col-form-label col-sm-6">Skor Lulus Teknikal</label>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <input type="number" class="form-control" name="spesifikasi_skor_lulus_teknikal" value="{{$spesifikasi->spesifikasi_skor_lulus_teknikal}}">
+                            <input type="number" class="form-control" name="spesifikasi_skor_lulus_teknikal" value="{{$spesifikasi->spesifikasi_skor_lulus_teknikal}}" readonly>
                         </div>
                     </div>
-                
-                    
+
+
                     <div class="row">
                         <div class="mb-3 col-md-6">
                             <label class="col-form-label col-sm-6">Skema Teknikal</label>
                         </div>
-                        <div class="mb-3 col-md-4">
-                            <input type="file" class="form-control" name="spesifikasi_skema_teknikal" value="{{$spesifikasi->spesifikasi_skema_teknikal}}">
+                        <div class="mb-3 col-md-6">
+                            <div class="mb-2">
+                               <span class="align-middle"><a href="/storage/{{$spesifikasi->spesifikasi_skema_teknikal}}" target="_blank" download> <i class="align-middle me-2" data-feather="download-cloud"></i>Muat Turun Fail</a></span>
+                            </div>
+                            {{-- <a href="/storage/{{$spesifikasi->spesifikasi_skema_teknikal}}" target="_blank" download>Muat Turun Fail</a> --}}
                         </div>
-                        <div class="mb-3 col-md-2">
-                            <a href="/storage/{{$spesifikasi->spesifikasi_skema_teknikal}}" target="_blank" download>Muat Turun Fail</a> 
-                        </div>
-                      
+
                     </div>
-                    
-                   
+
+
                     <div class="row">
                         <div class="mb-3 col-md-6">
                            <label class="col-form-label col-sm-6">Jumlah Skor Kewangan</label>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <input type="number" class="form-control" name="spesifikasi_jumlah_skor_kewangan" value="{{$spesifikasi->spesifikasi_jumlah_skor_kewangan}}">
+                            <input type="number" class="form-control" name="spesifikasi_jumlah_skor_kewangan" value="{{$spesifikasi->spesifikasi_jumlah_skor_kewangan}}" readonly>
                         </div>
                     </div>
-                
-                    
+
+
                     <div class="row">
                         <div class="mb-3 col-md-6">
                            <label class="col-form-label col-sm-6">Skor Lulus Kewangan </label>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <input type="number" class="form-control" name="spesifikasi_skor_lulus_kewangan" value="{{$spesifikasi->spesifikasi_skor_lulus_kewangan}}">
+                            <input type="number" class="form-control" name="spesifikasi_skor_lulus_kewangan" value="{{$spesifikasi->spesifikasi_skor_lulus_kewangan}}" readonly>
                         </div>
                     </div>
-                
-                    
+
+
                     <div class="row">
                         <div class="mb-3 col-md-6">
                            <label class="col-form-label col-sm-6">Skema Kewangan</label>
                         </div>
-                
-                        <div class="mb-3 col-md-4">
-                            <input type="file" class="form-control"  name="spesifikasi_skema_kewangan" value="{{$spesifikasi->spesifikasi_skema_kewangan}}">
-                        </div>
-                        <div class="mb-3 col-md-2">
-                            <a href="/storage/{{$spesifikasi->spesifikasi_skema_kewangan}}" target="_blank" download>Muat Turun Fail</a> 
+
+                        <div class="mb-3 col-md-6">
+                            <div class="mb-2">
+                                <span class="align-middle"><a href="/storage/{{$spesifikasi->spesifikasi_skema_kewangan}}" target="_blank" download> <i class="align-middle me-2" data-feather="download-cloud"></i>Muat Turun Fail</a></span>
+                             </div>
+                            {{-- <a href="/storage/{{$spesifikasi->spesifikasi_skema_kewangan}}" target="_blank" download>Muat Turun Fail</a> --}}
                         </div>
                     </div>
-                
-                    
+
+
                     <div class="row">
                         <div class="mb-3 col-md-6">
                            <label class="col-form-label col-sm-6">Skor Lulus Keseluruhan</label>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <input type="text" class="form-control" name="spesifikasi_skor_lulus_keseluruhan" value="{{$spesifikasi->spesifikasi_skor_lulus_keseluruhan}}">
+                            <input type="text" class="form-control" name="spesifikasi_skor_lulus_keseluruhan" value="{{$spesifikasi->spesifikasi_skor_lulus_keseluruhan}}" readonly>
                         </div>
                     </div>
-                
+
                 </div>
                 <div id="jadualpemenuhan" class="tab-pane" role="tabpanel">
-                
-                        
-                        <input type="hidden" name="spesifikasi_id" value="{{$spesifikasi->id}}">
-                
+
+
+                        <input type="hidden" name="spesifikasi_id" value="{{$spesifikasi->id}}" readonly>
+
                         <div class="row">
                             <div class="mb-3 col-md-6">
                                <label class="col-form-label col-sm-6">Jenis Pemenuhan </label>
@@ -428,7 +428,7 @@ Cipta Jadual Pemenuhan</a></li>
                                 <input type="text"  class="form-control" name="jadual_jenis_pemenuhan">
                             </div>
                         </div>
-                
+
                         <div class="row">
                             <div class="mb-3 col-md-6">
                                <label class="col-form-label col-sm-6">Kekerapan</label>
@@ -437,8 +437,8 @@ Cipta Jadual Pemenuhan</a></li>
                                 <input type="text" class="form-control" name="jadual_kekerapan">
                             </div>
                         </div>
-                
-                
+
+
                         <div class="row">
                             <div class="mb-3 col-md-6">
                                <label class="col-form-label col-sm-6">Bilangan</label>
@@ -447,7 +447,7 @@ Cipta Jadual Pemenuhan</a></li>
                                 <input type="number" class="form-control" name="jadual_bil">
                             </div>
                         </div>
-                
+
                         <div class="row">
                             <div class="mb-3 col-md-6">
                                <label class="col-form-label col-sm-6">Bulan Mula </label>
@@ -456,7 +456,7 @@ Cipta Jadual Pemenuhan</a></li>
                                     <input type="month" class="form-control" name="jadual_bulan_mula">
                             </div>
                         </div>
-                
+
                         {{-- <br>Tahun Mula <input type="" --}}
                         <div class="row">
                             <div class="mb-3 col-md-6">
@@ -466,8 +466,8 @@ Cipta Jadual Pemenuhan</a></li>
                                 <input type="month" class="form-control" name="jadual_bulan_akhir">
                             </div>
                         </div>
-                
-                
+
+
                         <div class="row">
                             <div class="mb-3 col-md-6">
                                <label class="col-form-label col-sm-6">Jumlah Bulan</label>
@@ -476,7 +476,7 @@ Cipta Jadual Pemenuhan</a></li>
                                 <input type="number" class="form-control" name="jadual_jumlah_bulan">
                             </div>
                         </div>
-                
+
                         <div class="row">
                             <div class="mb-3 col-md-6">
                                <label class="col-form-label col-sm-6">Jenis Jadual</label>
@@ -487,9 +487,9 @@ Cipta Jadual Pemenuhan</a></li>
                         </div>
 
 
-                <div align="right"> 
+                <div align="right">
                     <button type="submit" class="btn btn-primary">Hantar</button>
-                </div> 
+                </div>
                 </div>
                 </div>
                 </form>
@@ -579,6 +579,6 @@ Cipta Jadual Pemenuhan</a></li>
 			});
 		});
 	</script>
-           
+
 @stop
 

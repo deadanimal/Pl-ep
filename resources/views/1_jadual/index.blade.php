@@ -23,33 +23,26 @@ Senarai Jadual Pemenuhan</a></li>
                     <table id="datatables-reponsive" class="table table-striped" style="width:100%">
                         <thead>
                             <tr>
-                                <th>Jenis Jadual</th>
-                                <th>Kekerapan</th>
-                                <th>Jenis Jadual</th>
+                                <th>Tajuk Sebutharga</th>
+                                <th>Tajuk Spesifikasi</th>
+                                <th>Status Jadual</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($jadual as $jadual)
-
                             <tr>
-                                    <td> {{$jadual->jadual_jenis_pemenuhan}}</td>
-                                    <td> {{$jadual->jadual_kekerapan}}</td>
-                                    <td> {{$jadual->jadual_jenis}}</td>
-                                    <td class="table-action">
-                                        <form method="POST" action="/JadualPemenuhan/{{$jadual->id}}">
-                                            @method('DELETE')
-                                            @csrf
-                                        <button class="btn" type="submit"><i class="align-middle fas fa-fw fa-trash"></i></button>
-                                        <a href="/JadualPemenuhan/{{$jadual->id}}/edit"><i class="align-middle fas fa-fw fa-pen"></i></a>
-                    
-                                        </form>
-                    
-                                    </td>
-        
-                              
+                                <td>{{$pst->pst_tajuk}}</td>
+                                <td>{{$spesifikasi->spesifikasi_tajuk}}</td>
+                                <td>{{$jadual->jadual_status}}</td>
+
+                                @if ($jadual->jadual_status=='menunggu semakan')
+                                <td><a href="/JadualPemenuhan/{{$jadual->id}}/edit"><i class="align-middle fas fa-fw fa-pen"></i></a></td>
+
+                                @elseif ($jadual->jadual_status=='diluluskan')
+                                <td><a href="/PerincianIklan/{{$pst->id}}/create"><i class="align-middle fas fa-fw fa-pen"></i></a></td>
+
+                                @endif
                             </tr>
-                            @endforeach
                         </tbody>
                     </table>
             </div>
@@ -57,5 +50,4 @@ Senarai Jadual Pemenuhan</a></li>
     </div>
 </div>
 @stop
-                               
-                            
+

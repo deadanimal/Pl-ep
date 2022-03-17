@@ -16,7 +16,6 @@ class CreateFizaPenyediaanSpesifikasisTable extends Migration
         Schema::create('fiza_penyediaan_spesifikasis', function (Blueprint $table) {
             $table->id();
             $table->foreignId('pst_id')->nullable();
-            $table->foreignId('sss_id')->nullable();
             $table->string('spesifikasi_tajuk')->nullable();
             $table->string('spesifikasi_jenis_barang')->nullable();
             $table->string('spesifikasi_status')->nullable();
@@ -38,7 +37,7 @@ class CreateFizaPenyediaanSpesifikasisTable extends Migration
             $table->string('spesifikasi_created_by')->nullable();
             $table->string('spesifikasi_updated_by')->nullable();
 
-            
+
             $table->timestamps();
         });
     }

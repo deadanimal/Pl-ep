@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('content')
-    
+
 
 
 <div class="header">
@@ -26,7 +26,7 @@ Kemaskini Jadual Pemenuhan</a></li>
                     <form method="POST" action="/JadualPemenuhan/{{$jadual->id}}">
                     @csrf
                     @method("PUT")
-                    
+
                     <input type="hidden" name="spesifikasi_id" value="{{$jadual->spesifikasi_id}}">
                     <br><br>
                     <div class="row">
@@ -43,7 +43,7 @@ Kemaskini Jadual Pemenuhan</a></li>
                            <label class="col-form-label col-sm-6">Kekerapan</label>
                         </div>
                         <div class="mb-3 col-md-6">
-                                <input type="text" class="form-control" name="jadual_kekerapan" value="{{$jadual->jadual_kekerapan}}"> 
+                                <input type="text" class="form-control" name="jadual_kekerapan" value="{{$jadual->jadual_kekerapan}}">
                             </div>
                     </div>
 
@@ -53,8 +53,8 @@ Kemaskini Jadual Pemenuhan</a></li>
                         </div>
                         <div class="mb-3 col-md-6">
                             <input type="number" class="form-control" name="jadual_bil" value="{{$jadual->jadual_bil}}">
-                        </div>  
-                    </div>  
+                        </div>
+                    </div>
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
@@ -75,7 +75,7 @@ Kemaskini Jadual Pemenuhan</a></li>
                         </div>
                     </div>
                     {{-- <br>Jumlah Bulan <input type=class="form-control" name="jadual_jumlah_bulan" id="total_month"> --}}
-                    
+
                     <div class="row">
                         <div class="mb-3 col-md-6">
                            <label class="col-form-label col-sm-6">Jenis Jadual</label>
@@ -87,11 +87,12 @@ Kemaskini Jadual Pemenuhan</a></li>
 
                     <br>
 
-                    <div align="right"> 
-                        <button type="submit" class="btn btn-primary">Hantar</button>
-                    </div> 
-                    
-                    </form>
+                    <div align=right>
+                        <button type="submit" name="jadual_status" value="lulus" class="btn btn-primary"><i class="fas fa-check"></i> Diluluskan</button>
+                        <button type="submit" name="jadual_status" value="ditolak" class="btn btn-danger"><i class="fas fa-times"></i> Ditolak</button>
+                    </div>
+
+                </form>
         </div>
     </div>
 </div>

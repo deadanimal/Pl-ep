@@ -31,7 +31,7 @@
                        <label class="col-form-label col-sm-6">Nama</label>
                     </div>
                     <div class="mb-3 col-md-6">
-                        <input type="text" class="form-control" name="kehadiran_nama">
+                        <input type="text" class="form-control" name="kehadiran_nama" value="{{Auth::user()->user_name}}" readonly>
                     </div>
                 </div>
 
@@ -41,7 +41,7 @@
                        <label class="col-form-label col-sm-6">No Kad Pengenalan</label>
                     </div>
                     <div class="mb-3 col-md-6">
-                        <input type="number" class="form-control" name="kehadiran_pengenalan_no">
+                        <input type="number" class="form-control" name="kehadiran_pengenalan_no" value="{{Auth::user()->user_identity_no}}" readonly>
                     </div>
                 </div>
 
@@ -50,7 +50,7 @@
                        <label class="col-form-label col-sm-6">No Telefon (Bimbit)</label>
                     </div>
                     <div class="mb-3 col-md-6">
-                        <input type="number" class="form-control" name="kehadiran_no_tel">
+                        <input type="number" class="form-control" name="kehadiran_no_tel" value="{{Auth::user()->user_phone}}" required>
                     </div>
                 </div>
 
@@ -59,27 +59,12 @@
                        <label class="col-form-label col-sm-6">Email</label>
                     </div>
                     <div class="mb-3 col-md-6">
-                        <input type="email" class="form-control" name="kehadiran_email">
+                        <input type="email" class="form-control" name="kehadiran_email" value="{{Auth::user()->email}}" readonly>
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class=" col-md-6">
-                       <label class="col-form-label col-sm-6">Status Kehadiran</label>
-                    </div>
-                    <div class="mb-3 col-md-6">
-                        <input type="text" class="form-control" name="status">
-                    </div>
-                </div>
 
-                <div class="row">
-                    <div class=" col-md-6">
-                       <label class="col-form-label col-sm-6">Link</label>
-                    </div>
-                    <div class="mb-3 col-md-6">
-                        <input type="url" class="form-control" name="link">
-                    </div>
-                </div>
+
 
 
                 {{-- kehadiran_created_by

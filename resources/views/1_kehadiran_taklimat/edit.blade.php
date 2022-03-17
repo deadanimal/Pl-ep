@@ -19,12 +19,22 @@
                 <h5 class="card-title mb-0"></h5>
             </div>
             <div class="card-body">
-                <form method="POST" action="/KehadiranTaklimat" >
+                <form method="POST" action="/KehadiranTaklimat/{{$kehadiran->id}}" >
                     @csrf
                     @method('PUT')
 
                 <input type=hidden name=pst_id value="{{$kehadiran->pst_id}}">
-                <input type=hidden name=pembekal_id value="{{Auth::user()->pembekal_id}}">
+
+
+                <div class="row">
+                    <div class=" col-md-6">
+                       <label class="col-form-label col-sm-6">Nama Syarikat Pembekal</label>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <input type="text" class="form-control"  value="{{$pembekal->pembekal_company_name}}" readonly>
+                        <input type="text" hidden name="pembekal_id" value="{{$pembekal->id}}">
+                    </div>
+                </div>
 
 
                 <div class="row">
@@ -76,11 +86,16 @@
                 </div>
 
 
-                {{-- kehadiran_created_by
-                kehadiran_created_date
-                kehadiran_updated_by
-                kehadiran_updated_date --}}
                 <div class="col-md-4 text-right">
-                    <br> <button class="btn btn-primary" type="submit">Hantar</button>
+                    <button type="submit" name="status_kehadiran" value="dilulus" class="btn btn-primary"><i class="fas fa-check"></i> Diluluskan</button>
+                    <button type="submit" name="status_kahadiran" value="ditolak" class="btn btn-danger"><i class="fas fa-times"></i> Ditolak</button>
+
+                </div>
+
+
                 </form>
-                @stop
+            </div>
+        </div>
+    </div>
+</div>
+@stop

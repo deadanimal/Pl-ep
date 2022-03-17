@@ -81,16 +81,7 @@ Route::get('/register-role', function(){
         'user' =>$user
     ]);
 });
-Route::post('/daftar-role',[RegisteredUserController::class,'register_roles']);
-Route::get('/update-role/{id}', function(){
-    $user = User::find($id);
-    $user->roles();
 
-    return view('role_update',[
-        'role'=>$role,
-         'user'=>$user
-    ]);
-});
 Route::post('/kemaskini-role',[RegisteredUserController::class,'update_roles']);
 // Route::('/delete-user/{id}',[PenggunaController::class,'delete_user']);
 
@@ -123,8 +114,7 @@ Route::resource('/SuratNiat',FizaSenaraiSuratNiatController::class);
 Route::resource('/Pembekal',FizaPembekalController::class);
 Route::resource('/Pengguna', PenggunaController::class);
 Route::post('/TetapanPengguna/{id}',[PenggunaController::class,'update_password']);
-
-
+Route::get('/senaraisebutharga',[FizaPerincianPengiklananController::class,'senaraisebutharga']);
 
 
 Route::group(['middleware' => ['auth']],function(){
@@ -150,7 +140,7 @@ Route::group(['middleware' => ['auth']],function(){
     Route::resource('/ArahanMemberhentikan',FizaArahanMemberhentikanController::class);
     Route::resource('/AuditPelan',FizaAuditPelanController::class);
     Route::resource('/Cadangan',FizaCadanganController::class);
-    Route::resource('/JadualPemenuhan',FizaJadualPemenuhanController::class);
+    Route::resource('/JadualPemenuhan',FizaJadualPemenuhanController::class)->only(['update','edit','index']);
     Route::resource('/Jawatankuasa',FizaJawatankuasaController::class);
     Route::resource('/KandunganPerjanjian',FizaKandunganPerjanjianController::class);
     Route::resource('/Kart',FizaKartController::class);
@@ -179,23 +169,29 @@ Route::group(['middleware' => ['auth']],function(){
     Route::get('/PenyediaanSpesifikasi/{id}/create',[FizaPenyediaanSpesifikasiController::class,'create']);
     Route::get('/KehadiranTaklimat/{id}/create',[FizaKehadiranTaklimatController::class,'create']);
     Route::get('/JadualPemenuhan/{id}/create',[FizaJadualPemenuhanController::class,'create']);
-    Route::get('/PerincianPengiklanan/{id}/create',[FizaPerincianPengiklananController::class,'create']);
-
-
-    Route::get('/kelulusan-spesifikasi', function(){
-        $PenyediaanSpesifikasi = FizaPenyediaanSpesifikasiController::all();
-    
-        return view('1_penyediaan_spesifikasi.index_kelulusan',[
-            'PenyediaanSpesifikasi'=>$PenyediaanSpesifikasi 
-        ]);
-    });
+    Route::get('/PerincianIklan/{id}/create',[FizaPerincianPengiklananController::class,'create']);
+    Route::get('/KehadiranTaklimat/{id}/create',[FizaKehadiranTaklimatController::class,'create']);
+    Route::get('/senaraikehadiran',[FizaKehadiranTaklimatController::class,'senarai_kehadiran']);
 
 
 
-   
+
+    // Route::get('/kelulusan-spesifikasi', function(){
+    //     $PenyediaanSpesifikasi = FizaPenyediaanSpesifikasiController::all();
+
+    //     return view('1_penyediaan_spesifikasi.index_kelulusan',[
+    //         'PenyediaanSpesifikasi'=>$PenyediaanSpesifikasi
+    //     ]);
+    // });
+
+
+
+
 });
 
 Route::get('/cetak-pelan/{id}',[FizaPelanPerancanganPerolehan::class,'cetakpelan']);
+Route::get('/butiransebutharga/{id}',[FizaPerincianPengiklananController::class,'butiransebutharga']);
+
 // Route::resource('/ArahanBerhenti', ArahanBerhentiController::class);
 Route::resource('/AuditLog', AuditLogController::class);
 Route::post('/log',[AuditLogController::class,'log']);
@@ -207,7 +203,7 @@ Route::get('/', function () {
     $faq= FizaFaq::where('faq_status','aktif')->get();
     return view(
         'index',[
-        'faq'=>$faq 
+        'faq'=>$faq
         ]);
 });
 
@@ -219,7 +215,7 @@ Route::get('2', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard');   
+})->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
 

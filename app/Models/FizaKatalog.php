@@ -3,7 +3,6 @@
 namespace App\Models;
 use App\Models\FizaItemInfo;
 use App\Models\FizaPembelianSebutTender;
-use App\Models\FizaKatalog;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 

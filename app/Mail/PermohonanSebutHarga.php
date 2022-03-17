@@ -6,19 +6,18 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use App\Models\FizaPembelianSebutTender;
 
 class PermohonanSebutHarga extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public $PembelianSebutTender;
+
+
+    public function __construct(FizaPembelianSebutTender $PembelianSebutTender)
     {
-        //
+        $this->PembelianSebutTender = $PembelianSebutTender;
     }
 
 

@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\FizaPelanPerancanganPerolehan;
-use App\Mail\PelanPerancangan;
-use App\Mail\KelulusanPelanPerancangan;
-use App\Mail\SemakanPelanPerancangan;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\PelanPerancangan;
+use App\Mail\KelulusanPelanPerancangan;
+use App\Mail\SemakanPelanPerancangan;
 use \PDF;
 
 use Illuminate\Http\Request;
@@ -27,7 +27,7 @@ class FizaPelanPerancanganPerolehanController extends Controller
             return view ('1_pelan_perancangan.index',[
                 'pelanPerancanganPerolehan'=>$pelanPerancanganPerolehan
             ]);
-    
+
         }
 
         else{
@@ -37,7 +37,7 @@ class FizaPelanPerancanganPerolehanController extends Controller
                 'pelanPerancanganPerolehan'=>$pelanPerancanganPerolehan
             ]);
         }
-       
+
     }
 
 
@@ -56,9 +56,9 @@ class FizaPelanPerancanganPerolehanController extends Controller
 
     public function store(Request $request)
     {
-       
+
         $fizaPelanPerancanganPerolehan = new FizaPelanPerancanganPerolehan;
-      
+
 
         $fizaPelanPerancanganPerolehan->pelan_jenis=$request->pelan_jenis;
 
@@ -115,7 +115,7 @@ class FizaPelanPerancanganPerolehanController extends Controller
         }
         else if($request->status_pelan=="draf"){
             $fizaPelanPerancanganPerolehan->pelan_status="Draf";
-            
+
         }
 
         $fizaPelanPerancanganPerolehan->save();
@@ -123,11 +123,11 @@ class FizaPelanPerancanganPerolehanController extends Controller
         $fizaPelanPerancanganPerolehan->save();
 
 
-   
+
         return redirect('/PelanPerancanganPerolehan')->with('success', 'Data telah berjaya disimpan!');
 
     }
-    
+
     public function show(FizaPelanPerancanganPerolehan $fizaPelanPerancanganPerolehan)
     {
         //
@@ -140,7 +140,7 @@ class FizaPelanPerancanganPerolehanController extends Controller
         $PelanPerancanganPerolehan= FizaPelanPerancanganPerolehan::find($id);
         $pengesah = User::where('id', $PelanPerancanganPerolehan->pelan_pelulus)->get()->first();
         $pelulus = User::where('id', $PelanPerancanganPerolehan->pelan_pengesah)->get()->first();
-            
+
         return view ('1_pelan_perancangan.edit',[
             'PelanPerancanganPerolehan'=>$PelanPerancanganPerolehan,
             'pengesah'=>$pengesah,
@@ -184,7 +184,7 @@ class FizaPelanPerancanganPerolehanController extends Controller
         $fizaPelanPerancanganPerolehan->save();
         // $receiver = User::where('id',$request->pelan_pengesah)->first();
         // Mail::to($receiver->email)->send(new PelanPerancangan);
-        
+
 
         return redirect('/PelanPerancanganPerolehan')->with('success', 'Pelan Perancangan telah disimpan dan dihantar untuk pengesahan!');
     }
@@ -207,7 +207,7 @@ class FizaPelanPerancanganPerolehanController extends Controller
 
         return view ('1_pelan_perancangan.index_pengesah',[
             'fizaPelanPerancanganPerolehan'=>$fizaPelanPerancanganPerolehan]);
-            
+
 
     }
 
@@ -228,7 +228,7 @@ class FizaPelanPerancanganPerolehanController extends Controller
         ]);
     }
 
-    
+
 
 
     public function updatepengesah(Request $request,FizaPelanPerancanganPerolehan $pelanPerancanganPerolehan)
@@ -262,7 +262,7 @@ class FizaPelanPerancanganPerolehanController extends Controller
         // $PelanPerancanganPerolehan->pelan_penyediaan_doc_tender=$request->pelan_penyediaan_doc_tender;
         $PelanPerancanganPerolehan->pelan_tarikh_perlaksanaan_persidangan=$request->pelan_tarikh_perlaksanaan_persidangan;
         $PelanPerancanganPerolehan->pelan_tarikh_sst_dikeluarkan=$request->pelan_tarikh_sst_dikeluarkan;
-    
+
 
         // dd($request);
 
@@ -271,20 +271,20 @@ class FizaPelanPerancanganPerolehanController extends Controller
             $receiver = User::where('id',$request->pelan_pelulus)->first();
             Mail::to($receiver->email)->send(new KelulusanPelanPerancangan);
            }
-    
+
            else if($request->status_pelan=="Semak Semula"){
             $PelanPerancanganPerolehan->pelan_status="Semak Semula";
-            $receiver2= User::where('user_name',$fizaPelanPerancanganPerolehan->pelan_created_by)->first();
+            $receiver2= User::where('user_name',$PelanPerancanganPerolehan->pelan_created_by)->first();
             Mail::to($receiver2->email)->send(new SemakanPelanPerancangan);
-            
+
            }
         $PelanPerancanganPerolehan->save();
 
 
 
-       
-       
-    
+
+
+
         // dd($perancangan->status);
 
         return redirect('/indexpengesah')->with('success','Pelan telah berjaya dikemaskini!');
@@ -295,7 +295,7 @@ class FizaPelanPerancanganPerolehanController extends Controller
     public function indexpelulus()
     {
 
-        $fizaPelanPerancanganPerolehan = FizaPelanPerancanganPerolehan::where('pelan_status','Menunggu Kelulusan')   
+        $fizaPelanPerancanganPerolehan = FizaPelanPerancanganPerolehan::where('pelan_status','Menunggu Kelulusan')
         ->orWhere('pelan_pelulus',Auth::user()->id)->get();
 
         return view ('1_pelan_perancangan.index_pelulus',[
@@ -313,7 +313,7 @@ class FizaPelanPerancanganPerolehanController extends Controller
 
 
         return view ('1_pelan_perancangan.edit_pelulus',[
-            'PelanPerancanganPerolehan'=>$PelanPerancanganPerolehan, 
+            'PelanPerancanganPerolehan'=>$PelanPerancanganPerolehan,
             'pengesah'=>$pengesah,
             'pelulus'=>$pelulus
         ]);
@@ -354,17 +354,18 @@ class FizaPelanPerancanganPerolehanController extends Controller
         // $perancangan->id=$request->perancangan_id;
 
         // dd($request);
+        $receiver2=User::where('id',$fizaPelanPerancanganPerolehan->pelan_created_by)->first();
 
         if($request->status_pelan=="Diluluskan"){
             Mail::to($receiver->email)->send(new KelulusanPelanPerancangan);
            }
-    
+
            else if($request->status_pelan=="Semak Semula"){
             Mail::to($receiver2->email)->send(new SemakanPelanPerancangan);
            }
         $fizaPelanPerancanganPerolehan->save();
 
-        
+
         // dd($perancangan->status);
 
         return redirect('/indexpelulus')->with('success','Pelan telah dikemaskini!');
@@ -376,13 +377,13 @@ class FizaPelanPerancanganPerolehanController extends Controller
         $fizaPelanPerancanganPerolehan= FizaPelanPerancanganPerolehan::find($id);
         $user = User::where('id', $fizaPelanPerancanganPerolehan->pelan_pengesah)->where
             ('id', $fizaPelanPerancanganPerolehan->pelan_pelulus)->get();
-       
 
-        $fizaPelanPerancanganPerolehan->pelan_status=$fizaPelanPerancanganPerolehan->pelan_status; 
+
+        $fizaPelanPerancanganPerolehan->pelan_status=$fizaPelanPerancanganPerolehan->pelan_status;
         $fizaPelanPerancanganPerolehan->save();
 
         $pdf = PDF::loadView('pdf.pelanperancangan', [
-            'fizaPelanPerancanganPerolehan' => $fizaPelanPerancanganPerolehan, 
+            'fizaPelanPerancanganPerolehan' => $fizaPelanPerancanganPerolehan,
             'user'=>$user]);
             return $pdf->download($fizaPelanPerancanganPerolehan->pelan_title.'.pdf');
     }

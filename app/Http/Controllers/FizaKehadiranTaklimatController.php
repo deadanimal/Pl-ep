@@ -4,9 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\FizaKehadiranTaklimat;
 use App\Models\FizaPembelianSebutTender;
+use App\Models\FizaPerincianPengiklanan;
+use App\Models\FizaPembekal;
+use App\Models\FizaJawatankuasa;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\MaklumBalasKehadiranTaklimatSebutHarga;
+
 
 class FizaKehadiranTaklimatController extends Controller
 {
@@ -19,38 +25,45 @@ class FizaKehadiranTaklimatController extends Controller
     {
 
         $role=Auth::user()->roles;
-        //dd($role->id[0]);
-        if($role[0]->id=='1'){
+        if ($role[0]->id=='1') {
 
-            $pst = FizaPembelianSebutTender::where('pst_status','diluluskan')->get();
-            $fizaKehadiranTaklimat = FizaKehadiranTaklimat::all();
+            $iklan = FizaPerincianPengiklanan::where('iklan_status','diluluskan')->get();
 
+            foreach($iklan as $iklan){
+                $pst=FizaPembelianSebutTender::where('id',$iklan->pst_id)->first();
+            }
+            // dd($pst);
+            return view('1_kehadiran_taklimat.index', [
+                'iklan'=>$iklan,
+                'pst'=>$pst
 
-            return view ('1_kehadiran_taklimat.index',[
-                'KehadiranTaklimat'=>$fizaKehadiranTaklimat,
-                'pst'=>$pst 
                 ]);
         }
 
         else{
 
-                $pst = FizaPembelianSebutTender::where('pst_status','diluluskan')
-                ->where('kehadiran_created_by',Auth::user()->id)->get();
-            //$fizaKehadiranTaklimat = FizaKehadiranTaklimat::where('pst_id',$pst->id)->first()->get();
+            $iklan = FizaPerincianPengiklanan::where('iklan_status','diluluskan')->get();
 
-                
+            foreach($iklan as $iklan){
+                $pst=FizaPembelianSebutTender::where('id',$iklan->pst_id)->first();
+                $jawatankuasa=FizaJawatankuasa::where('pst_id',$pst->id)->first();
+            }
 
-                return view ('1_kehadiran_taklimat.index',[
-                    'KehadiranTaklimat'=>$fizaKehadiranTaklimat,
-                    'pst'=>$pst
-                ]);
-                }
+
+            return view ('1_kehadiran_taklimat.index',[
+                'jawatankuasa'=>$jawatankuasa,
+                'iklan'=>$iklan,
+                'pst'=>$pst
+                    ]);
+
+            }
+
     }
 
-   
+
     public function create($id)
     {
-        $pst = FizaPembelianSebutTender::find($id); 
+        $pst = FizaPembelianSebutTender::find($id);
 
         return view('/1_kehadiran_taklimat.create', [
             'pst'=>$pst
@@ -67,12 +80,11 @@ class FizaKehadiranTaklimatController extends Controller
         $fizaKehadiranTaklimat->kehadiran_pengenalan_no=$request->kehadiran_pengenalan_no;
         $fizaKehadiranTaklimat->kehadiran_no_tel=$request->kehadiran_no_tel;
         $fizaKehadiranTaklimat->kehadiran_email=$request->kehadiran_email;
-        $fizaKehadiranTaklimat->status=$request->status;
-        $fizaKehadiranTaklimat->link=$request->link;
+        $fizaKehadiranTaklimat->status="menunggu kelulusan";
         $fizaKehadiranTaklimat->kehadiran_created_by=Auth::user()->id;
 
         $fizaKehadiranTaklimat->save();
-        return redirect('/KehadiranTaklimat');
+        return redirect('/dashboard')->with('success','Data anda telah berjaya dihantar dan perlu menunggu kelulusan dari pihak kami.');
     }
 
 
@@ -86,32 +98,101 @@ class FizaKehadiranTaklimatController extends Controller
     {
         $kehadiran = FizaKehadiranTaklimat::find($id);
         $pst=FizaPembelianSebutTender::where('id',$kehadiran->id)->get();
+        $pembekal=FizaPembekal::where('id',$kehadiran->pembekal_id)->first();
 
         return view ('1_kehadiran_taklimat.edit',[
             'kehadiran'=>$kehadiran,
-            'pst'=>$pst
+            'pst'=>$pst,
+            'pembekal'=>$pembekal
         ]);
     }
 
-    public function update(Request $request, FizaKehadiranTaklimat $fizaKehadiranTaklimat)
+    public function update(Request $request, $id)
     {
-        $fizaKehadiranTaklimat->pst_id=$request->pst_id;
-        $fizaKehadiranTaklimat->pembekal_id=$request->pembekal_id;
-        $fizaKehadiranTaklimat->kehadiran_nama=$request->kehadiran_nama;
-        $fizaKehadiranTaklimat->kehadiran_pengenalan_no=$request->kehadiran_pengenalan_no;
-        $fizaKehadiranTaklimat->kehadiran_no_tel=$request->kehadiran_no_tel;
-        $fizaKehadiranTaklimat->kehadiran_email=$request->kehadiran_email;
-        $fizaKehadiranTaklimat->kehadiran_status=$request->kehadiran_status;
-        $fizaKehadiranTaklimat->kehadiran_link=$request->kehadiran_link;
-        $fizaKehadiranTaklimat->kehadiran_updated_by=Auth::user()->id;
+        $kehadiranTaklimat= FizaKehadiranTaklimat::find($id);
 
-        $fizaKehadiranTaklimat->save();
-        return redirect('/fizaKehadiranTaklimat');
+        $kehadiranTaklimat->pst_id=$request->pst_id;
+        $kehadiranTaklimat->pembekal_id=$request->pembekal_id;
+        $kehadiranTaklimat->kehadiran_nama=$request->kehadiran_nama;
+        $kehadiranTaklimat->kehadiran_pengenalan_no=$request->kehadiran_pengenalan_no;
+        $kehadiranTaklimat->kehadiran_no_tel=$request->kehadiran_no_tel;
+        $kehadiranTaklimat->kehadiran_email=$request->kehadiran_email;
+        $kehadiranTaklimat->status=$request->status;
+        $kehadiranTaklimat->link=$request->link;
+        $kehadiranTaklimat->kehadiran_updated_by=Auth::user()->id;
+
+
+
+        $ahli_hadir = User::where('id',$kehadiranTaklimat->kehadiran_created_by)->first();
+
+
+        if ($request->status_kehadiran=="dilulus"){
+            $kehadiranTaklimat->status="diluluskan";
+
+            $kehadiranTaklimat->save();
+            //dd($request);
+            Mail::to($ahli_hadir->email)->send(new MaklumBalasKehadiranTaklimatSebutHarga);
+
+        }
+        else if($request->status_kehadiran=="ditolak"){
+            $kehadiranTaklimat->status="ditolak";
+            $kehadiranTaklimat->save();
+
+            Mail::to($ahli_hadir->email)->send(new MaklumBalasKehadiranTaklimatSebutHarga );
+
+
+        }
+
+
+
+        return redirect('/KehadiranTaklimat');
     }
 
 
     public function destroy(FizaKehadiranTaklimat $fizaKehadiranTaklimat)
     {
         //
+    }
+
+
+    public function senarai_kehadiran()
+    {
+
+        $role=Auth::user()->roles;
+        if ($role[0]->id=='1') {
+
+            $kehadiran=FizaKehadiranTaklimat::all();
+            foreach($kehadiran as $kehadiran){
+                $pst=FizaPembelianSebutTender::where('id',$kehadiran->pst_id)->first();
+                $pembekal=FizaPembekal::where('id',$kehadiran->pembekal_id)->first();
+
+            }
+
+            // dd($pst);
+            return view('1_kehadiran_taklimat.senarai_kehadiran', [
+                'kehadiran'=>$kehadiran,
+                'pst'=>$pst,
+                'pembekal'=>$pembekal
+
+                ]);
+        }
+
+        else{
+
+                $pst = FizaPembelianSebutTender::where('pst_pelulus',Auth::user()->id)->get();
+
+                foreach ($pst as $pst) {
+                    $jawatankuasa = FizaJawatankuasa::where('pst_id', $pst->id)->first();
+                    $kehadiran=FizaKehadiranTaklimat::where('pst_id', $pst->id)->first();
+                }
+
+
+                    return view ('1_kehadiran_taklimat.index',[
+                        'jawatankuasa'=>$jawatankuasa,
+                        'kehadiran'=>$kehadiran,
+                        'pst'=>$pst
+                    ]);
+            }
+
     }
 }

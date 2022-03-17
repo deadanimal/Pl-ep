@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\FizaPembelianSebutTender;
+
 
 use App\Models\Roles;
 
@@ -40,16 +42,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-  
+
 
     public function roles()
     {
         return $this->belongsToMany(Roles::class);
-        
+
     }
 
     public function pembekal()
     {
         return $this->hasOne(FizaPembekal::class);
     }
+
+
 }

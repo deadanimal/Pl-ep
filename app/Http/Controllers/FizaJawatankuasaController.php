@@ -63,13 +63,14 @@ class FizaJawatankuasaController extends Controller
 
         $fizaJawatankuasa->pst_id=$request->pst_id;
         $fizaJawatankuasa->jawatankuasa_created_by=Auth::user()->id;
-    
+
         $fizaJawatankuasa->save();
+
         // Mail::to($receiver->email)->send(new SebutHargaBaru);
         // Mail::to($receiver_spesifikasi->email)->send(new PerlantikanJawatankuasaSpesifikasi);
 
-        return redirect('/PembelianSebutTender')->with('success','Data telah berjaya dihantar');
-        
+        return redirect('/PembelianSebutTender')->with('success','Sebutharga telah berjaya dihantar!');
+
     }
 
     public function show(FizaJawatankuasa $fizaJawatankuasa)
@@ -80,7 +81,7 @@ class FizaJawatankuasaController extends Controller
 
     public function edit( $id)
     {
-        
+
         $pst = FizaPembelianSebutTender::find($id);
         $Jawatankuasa= FizaJawatankuasa::where('pst_id', $pst->id)->get()->first();
 
@@ -93,7 +94,7 @@ class FizaJawatankuasaController extends Controller
 
         $teknikal_pengerusi=User::where('id',$Jawatankuasa->jawatankuasa_teknikal_pengerusi)->get();
         $teknikal_ajk=User::where('id',$Jawatankuasa->jawatankuasa_teknikal_ajk)->get();
-        
+
         $kewangan_pengerusi=User::where('id',$Jawatankuasa->jawatankuasa_kewangan_pengerusi)->get();
         $kewangan_ajk=User::where('id',$Jawatankuasa->jawatankuasa_kewangan_ajk)->get();
 
@@ -125,7 +126,7 @@ class FizaJawatankuasaController extends Controller
             'penilaian_ajk'=>$penilaian_ajk
         ]);
 
-    
+
     }
 
 
@@ -156,11 +157,11 @@ class FizaJawatankuasaController extends Controller
 
         // $fizaJawatankuasa->user_id=$request->user_id;
         // $fizaJawatankuasa->jawatankuasa_peranan=$request->jawatankuasa_peranan;
-      
+
 
         $fizaJawatankuasa->jawatankuasa_updated_by=Auth::user()->id;
 
-        dd($request->jawatankuasa_spesifikasi_urusetia);
+        // dd($request->jawatankuasa_spesifikasi_urusetia);
 
         // if ($request->status_jawatankuasa=="diluluskan"){
         //     $fizaJawatankuasa->jawatankuasa_kelulusan="diluluskan";
@@ -170,8 +171,8 @@ class FizaJawatankuasaController extends Controller
 
         //     //  Mail::to($urusetia_spesifikasi->email)->send(new PerlantikanJawatankuasaSpesifikasi);
 
-           
-           
+
+
         // }
 
         // else if($request->status_jawatankuasa=="ditolak"){
@@ -187,7 +188,7 @@ class FizaJawatankuasaController extends Controller
         return redirect('/PembelianSebutTender')->with('success','Data anda telah berjaya dikemaskini');
 
 
-        
+
     }
 
 

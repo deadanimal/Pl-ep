@@ -4,12 +4,12 @@
 
 <div class="header">
     <h1 class="header-title">
-        Spesifikasi Item
+        Pembelian Sebut Harga/Tender
     </h1>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">
-Senarai Spesifikasi Item</a></li>
+Senarai Kehadiran Taklimat</a></li>
         </ol>
     </nav>
 </div>
@@ -20,26 +20,29 @@ Senarai Spesifikasi Item</a></li>
                 <h5 class="card-title mb-0"></h5>
             </div>
             <div class="card-body">
-                <div align="right"> 
-                    <button class="btn btn-success" onclick="window.location.href='/KehadiranTaklimat/create'">+Tambah</a></button>
-                </div>
-                <br>
+
                     <table id="datatables-reponsive" class="table table-striped" style="width:100%">
                         <thead>
                             <tr>
-                                <td>Nama SebutHarga</td>
+                                <td>Tajuk SebutHarga</td>
+                                <td>Tarikh Iklan</td>
+                                <td>Tarikh Akhir Iklan</td>
                                 <td></td>
-                                <td></td>
+
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($pst as $pst)
                             <tr>
                                 <td>{{$pst->pst_tajuk}}</td>
-                                <td> <a href="/KehadiranTaklimat/{{$pst->id}}/create">Kemaskini</a></td>
-                                <td><a href="/KehadiranTaklimat/{{$KehadiranTaklimat->id}}/edit">Kemaskini Kehadiran</a></td>
+                                <td>{{date('d-m-Y',strtotime($iklan->iklan_date))}}</td>
+                                <td>{{date('d-m-Y',strtotime($iklan->iklan_last_date))}}</td>
+                                <td><a href="/senaraikehadiran">Senarai Kedatangan</a></td>
+
+
                             </tr>
-                        @endforeach
+
+
+
 
                         </tbody>
                     </table>
@@ -48,4 +51,3 @@ Senarai Spesifikasi Item</a></li>
     </div>
 </div>
 @stop
-                                
