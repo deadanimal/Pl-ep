@@ -4,12 +4,12 @@
 
 <div class="header">
     <h1 class="header-title">
-      Jadual Pemenuhan
+        Pembelian Sebut Harga/Tender
     </h1>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">
-Senarai Jadual Pemenuhan</a></li>
+Kehadiran Taklimat</a></li>
         </ol>
     </nav>
 </div>
@@ -20,35 +20,47 @@ Senarai Jadual Pemenuhan</a></li>
                 <h5 class="card-title mb-0"></h5>
             </div>
             <div class="card-body">
+
                     <table id="datatables-reponsive" class="table table-striped" style="width:100%">
                         <thead>
                             <tr>
-                                <th>Tajuk Sebutharga</th>
-                                <th>Tajuk Spesifikasi</th>
-                                <th>Status Jadual</th>
+                                <td>Tajuk SebutHarga</td>
+                                <td>Tarikh Taklimat</td>
+                                <th></th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
+
                             <tr>
                                 <td>{{$pst->pst_tajuk}}</td>
-                                <td>{{$spesifikasi->spesifikasi_tajuk}}</td>
-                                <td> @if ($jadual->jadual_status==='menunggu kelulusan')
+                                <td>{{date('d-m-Y',strtotime($iklan->iklan_taklimat_date))}}</td>
+                                <td> @if ($kehadiran->status==='menunggu kelulusan')
                                     <span class="badge rounded-pill bg-primary">Dalam Semakan</span>
-                               @elseif ($jadual->jadual_status === 'ditolak')
+                               @elseif ($kehadiran->status === 'draf')
+                                    <span class="badge rounded-pill bg-secondary">Draf</span>
+                               @elseif ($kehadiran->status === 'ditolak')
                                    <span class="badge rounded-pill bg-danger">Ditolak</span>
                                 @else
                                    <span class="badge rounded-pill bg-success">Diluluskan</span>
                                @endif
                            </td>
-                                @if ($jadual->jadual_status=='menunggu kelulusan')
-                                <td><a href="/JadualPemenuhan/{{$jadual->id}}/edit"><i class="align-middle fas fa-fw fa-pen"></i></a></td>
 
-                                @elseif ($jadual->jadual_status=='diluluskan')
-                                <td><a href="/PerincianIklan/{{$pst->id}}/create"><i class="align-middle fas fa-fw fa-pen"></i></a></td>
 
-                                @endif
+                               @if ($kehadiran->status =="diluluskan")
+                                    <td><a href="/Cadangan/{{$spesifikasi->id}}/create"><i class="align-middle fas fa-fw fa-pen"></i></a>
+
+                           @else
+                               <td><a href="#"><i class="align-middle fas fa-fw fa-pen"></i></a>
+
+                           @endif
+
+
                             </tr>
+
+
+
+
                         </tbody>
                     </table>
             </div>
@@ -56,4 +68,3 @@ Senarai Jadual Pemenuhan</a></li>
     </div>
 </div>
 @stop
-

@@ -13,9 +13,6 @@
             </div>
             <div class="row">
                 <div class="col-12 col-xxl-12">
-                <form method="POST" action="/PembelianSebutTender/{{$PembelianSebutTender->id}}">
-                    @csrf
-                    @method('PUT')
 
                     <div id="smartwizard-default-primary" class="wizard wizard-primary mb-4">
                         <ul class="nav">
@@ -190,7 +187,7 @@
                    <label class="col-form-label col-sm-6">Catatan Pelulus </label>
                 </div>
                 <div class="mb-3 col-md-6">
-                    <textarea class="form-control" rows="4" cols="3" name="pst_catatan_pelulus">{{$PembelianSebutTender->pst_catatan_pelulus}}</textarea>
+                    <textarea class="form-control" rows="4" cols="3" name="pst_catatan_pelulus" readonly>{{$PembelianSebutTender->pst_catatan_pelulus}}</textarea>
                 </div>
             </div>
 
@@ -441,9 +438,8 @@
                     </fieldset>
 
                     <div align=right>
-                        <button type="submit" name="status_pst" value="diluluskan" class="btn btn-primary"><i class="fas fa-check"></i> Diluluskan</button>
-                        <button type="submit" name="status_pst" value="ditolak" class="btn btn-danger"><i class="fas fa-times"></i> Ditolak</button>
-                    </div>
+                        <button class="btn btn-success" onclick="window.location.href='/PembelianSebutTender'">Kembali</a></button>
+
                  </div>
                         </div>
                     </div>

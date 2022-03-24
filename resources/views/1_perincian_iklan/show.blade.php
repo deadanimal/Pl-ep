@@ -11,7 +11,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">
-Kemaskini Perincian Iklan</a></li>
+Perincian Iklan</a></li>
         </ol>
     </nav>
 </div>
@@ -22,10 +22,9 @@ Kemaskini Perincian Iklan</a></li>
             </div>
             <div class="card-body">
 
-                <form method="POST" action="/PerincianPengiklanan">
-                @csrf
+                <form>
 
-                <input type="hidden" name="pst_id" value="{{$pst->id}}">
+                <input type="hidden" name="pst_id" value="{{$pst->id}}" readonly>
 
                 <div id="smartwizard-default-primary" class="wizard wizard-primary mb-4">
                     <ul class="nav">
@@ -226,7 +225,7 @@ Kemaskini Perincian Iklan</a></li>
                                <label class="col-form-label col-sm-6">Tarikh Pengiklanan</label>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <input type="date"  class="form-control" name="iklan_date">
+                                <input type="date"  class="form-control" name="iklan_date" value="{{$perincianPengiklanan->iklan_date}}" readonly>
                             </div>
                         </div>
 
@@ -235,7 +234,7 @@ Kemaskini Perincian Iklan</a></li>
                                <label class="col-form-label col-sm-6">Tarikh Akhir Iklan</label>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <input class="form-control" type="date" name="iklan_last_date" />
+                                <input class="form-control" type="date" name="iklan_last_date" value="{{$perincianPengiklanan->iklan_last_date}}" readonly>
                             </div>
                         </div>
 
@@ -245,7 +244,7 @@ Kemaskini Perincian Iklan</a></li>
                                <label class="col-form-label col-sm-6">Tarikh Taklimat Sebutharga</label>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <input type="date" class="form-control" name="iklan_taklimat_date">
+                                <input type="date" class="form-control" name="iklan_taklimat_date" value="{{$perincianPengiklanan->iklan_taklimat_date}}" readonly>
                             </div>
                         </div>
 
@@ -254,16 +253,15 @@ Kemaskini Perincian Iklan</a></li>
                                <label class="col-form-label col-sm-6">Waktu Taklimat</label>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <input type="time" class="form-control" name="iklan_taklimat_time">
+                                <input type="time" class="form-control" name="iklan_taklimat_time" value="{{$perincianPengiklanan->iklan_taklimat_time}}" readonly>
                             </div>
                         </div>
 
                         {{-- <br>Tahun Mula <input type="" --}}
 
 
-
                 <div align="right">
-                    <button type="submit" class="btn btn-primary">Hantar</button>
+                    <a href="/PerincianPengiklanan" class="btn btn-primary">Kembali</a>
                 </div>
                 </div>
                 </div>

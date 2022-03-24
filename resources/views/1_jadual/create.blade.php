@@ -157,16 +157,6 @@ Cipta Jadual Pemenuhan</a></li>
 
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
-                                    <label class="col-form-label col-sm-6">Kategori Perolehan</label>
-                                    </div>
-                                    <div class="mb-3 col-md-6">
-                                        <input type="text" class="form-control" name="pst_kategori_perolehan" value="{{$pst->pst_kategori_perolehan}}" readonly readonly>
-                                    </div>
-                                </div>
-
-
-                                <div class="row">
-                                    <div class="mb-3 col-md-6">
                                     <label class="col-form-label col-sm-6">Jenis Kontrak</label>
                                     </div>
                                     <div class="mb-3 col-md-6">

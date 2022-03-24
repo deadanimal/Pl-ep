@@ -7,20 +7,19 @@ use App\Models\FizaPembelianSebutTender;
 use App\Models\FizaPerincianPengiklanan;
 use App\Models\FizaPembekal;
 use App\Models\FizaJawatankuasa;
+use App\Models\FizaPenyediaanSpesifikasi;
+use App\Models\FizaCadangan;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\DB;
 use App\Mail\MaklumBalasKehadiranTaklimatSebutHarga;
 
 
 class FizaKehadiranTaklimatController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
 
@@ -28,11 +27,11 @@ class FizaKehadiranTaklimatController extends Controller
         if ($role[0]->id=='1') {
 
             $iklan = FizaPerincianPengiklanan::where('iklan_status','diluluskan')->get();
-
             foreach($iklan as $iklan){
-                $pst=FizaPembelianSebutTender::where('id',$iklan->pst_id)->first();
+                $pst=FizaPembelianSebutTender::where('id',$iklan->pst_id)->first()->get();
             }
-            // dd($pst);
+
+
             return view('1_kehadiran_taklimat.index', [
                 'iklan'=>$iklan,
                 'pst'=>$pst
@@ -154,6 +153,28 @@ class FizaKehadiranTaklimatController extends Controller
         //
     }
 
+    public function kehadiranPembekal(FizaKehadiranTaklimat $fizaKehadiranTaklimat)
+    {
+        $kehadiran = FizaKehadiranTaklimat::where('pembekal_id',Auth::user()->pembekal_id)->get();
+
+            foreach ($kehadiran as $kehadiran) {
+                $iklan=FizaPerincianPengiklanan::where('pst_id',$kehadiran->pst_id)->first();
+                $spesifikasi=FizaPenyediaanSpesifikasi::where('pst_id',$kehadiran->pst_id)->first();
+                $pst=FizaPembelianSebutTender::where('id',$kehadiran->pst_id)->get()->first();
+                $cadangan=FizaCadangan::where('spesifikasi_id',$spesifikasi->id)->get()->first();
+            }
+
+        //    dd($iklan);
+           return view('1_kehadiran_taklimat.kehadiranPembekal', [
+            'kehadiran'=>$kehadiran,
+            'pst'=>$pst,
+            'iklan'=>$iklan,
+            'spesifikasi'=>$spesifikasi,
+            'cadangan'=>$cadangan
+
+            ]);
+    }
+
 
     public function senarai_kehadiran()
     {
@@ -162,17 +183,15 @@ class FizaKehadiranTaklimatController extends Controller
         if ($role[0]->id=='1') {
 
             $kehadiran=FizaKehadiranTaklimat::all();
-            foreach($kehadiran as $kehadiran){
-                $pst=FizaPembelianSebutTender::where('id',$kehadiran->pst_id)->first();
-                $pembekal=FizaPembekal::where('id',$kehadiran->pembekal_id)->first();
 
-            }
 
-            // dd($pst);
+
+
+            // dd($kehadiran);
             return view('1_kehadiran_taklimat.senarai_kehadiran', [
                 'kehadiran'=>$kehadiran,
-                'pst'=>$pst,
-                'pembekal'=>$pembekal
+                // 'pst'=>$pst,
+                // 'pembekal'=>$pembekal
 
                 ]);
         }
@@ -195,4 +214,6 @@ class FizaKehadiranTaklimatController extends Controller
             }
 
     }
+
+
 }

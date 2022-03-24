@@ -18,64 +18,55 @@ use Session;
 
 class FizaPembelianSebutTenderController extends Controller
 {
-    // public function index()
-    // {
-    //     $role=Auth::user()->roles;
-
-    //     // dd($role[0]->id);
-
-    //     // if ($role[0]->id=='1') {
-    //         $PembelianSebutTender = FizaPembelianSebutTender::all();
-
-
-    //     // }
-    //     // else {
-    //     //     $PembelianSebutTender = FizaPembelianSebutTender::where('created_by',Auth::user()->id)
-    //     //     ->orWhere('pst_pelulus',Auth::user()->id)->get();
-
-
-    //     // }
-
-
-    //     // foreach ($PembelianSebutTender as $PembelianSebutTender) {
-    //     //     $jawatankuasa=FizaJawatankuasa::where('pst_id', $PembelianSebutTender->id)->with('sebuthargatender')->get();
-    //     //     // $urusetia=FizaJawatankuasa::where('jawatankuasa_spesifikasi_urusetia',Auth::user()->id)->first();
-    //     // }
-    //     //     // dd($jawatankuasa);
-
-
-    //         return view('1_pst.index', [
-    //         'PembelianSebutTender'=>$PembelianSebutTender,
-    //         // 'jawatankuasa'=>$jawatankuasa
-    //     ]);
-    //     }
 
     public function index(){
-        $PembelianSebutTender = FizaPembelianSebutTender::where('created_by', Auth::user()->id)
-        ->orWhere('pst_pelulus', Auth::user()->id)->get();
 
-        foreach ($PembelianSebutTender as $PembelianSebutTender) {
-            $jawatankuasa=FizaJawatankuasa::where('pst_id', $PembelianSebutTender->id)->with('sebuthargatender')->first();
-            $spesifikasi = FizaPenyediaanSpesifikasi::where('pst_id',$PembelianSebutTender->id)->first();
-            $jadual = FizaJadualPemenuhan::where('spesifikasi_id',$spesifikasi->id)->first();
+        $role=Auth::user()->roles;
+
+        //     // dd($role[0]->id);
+
+            if ($role[0]->id=='1') {
+                $PembelianSebutTender = FizaPembelianSebutTender::all();
 
 
-            // dd($jawatankuasa);
+                // foreach ($PembelianSebutTender as $PembelianSebutTender) {
+                //     $jawatankuasa=FizaJawatankuasa::where('pst_id', $PembelianSebutTender->id)->with('sebuthargatender')->first();
+                //     $spesifikasi = FizaPenyediaanSpesifikasi::where('pst_id', $PembelianSebutTender->id)->first();
+                //     // $jadual = FizaJadualPemenuhan::where('spesifikasi_id', $spesifikasi->id)->first();
+                // }
 
-            return view('1_pst.index2', [
-            'PembelianSebutTender'=>$PembelianSebutTender,
-            'jawatankuasa'=>$jawatankuasa,
-            'spesifikasi'=>$spesifikasi,
-            'jadual'=>$jadual
-        ]);
-        }
+                // dd($jawatankuasa);
+
+                return view('1_pst.index-admin', [
+                    'PembelianSebutTender'=>$PembelianSebutTender
+                    // 'jawatankuasa'=>$jawatankuasa,
+                    // 'spesifikasi'=>$spesifikasi,
+
+                ]);
+            }
+
+            else{
+                $PembelianSebutTender = FizaPembelianSebutTender::where('created_by', Auth::user()->id)
+                ->orWhere('pst_pelulus', Auth::user()->id)->get();
+
+                    foreach ($PembelianSebutTender as $PembelianSebutTender) {
+                        $jawatankuasa=FizaJawatankuasa::where('pst_id', $PembelianSebutTender->id)->with('sebuthargatender')->first();
+                        $spesifikasi = FizaPenyediaanSpesifikasi::where('pst_id', $PembelianSebutTender->id)->first();
+                        $jadual = FizaJadualPemenuhan::where('spesifikasi_id', $spesifikasi->id)->first();
+                    }
+
+                    // dd($jawatankuasa);
+
+                return view('1_pst.index2', [
+                    'PembelianSebutTender'=>$PembelianSebutTender,
+                    'jawatankuasa'=>$jawatankuasa,
+                    'spesifikasi'=>$spesifikasi,
+                    'jadual'=>$jadual
+                ]);
+
+            }
+
     }
-
-
-
-
-
-
 
     public function create()
     {
@@ -157,14 +148,56 @@ class FizaPembelianSebutTenderController extends Controller
 
     }
 
-    public function show(FizaPembelianSebutTender $fizaPembelianSebutTender)
+    public function show($id)
     {
-        //
+        $PembelianSebutTender = FizaPembelianSebutTender::find($id);
+        $pelulus = User::where('id',$PembelianSebutTender->pst_pelulus)->first();
+        $penyelaras= User::where('id',$PembelianSebutTender->pst_penyelaras)->first();
+        $jawatankuasa = FizaJawatankuasa::where('pst_id',$PembelianSebutTender->id)->first();
+        $spesifikasi_pengerusi=User::where('id',$jawatankuasa->jawatankuasa_spesifikasi_pengerusi)->first();
+        $spesifikasi_ajk=User::where('id',$jawatankuasa->jawatankuasa_spesifikasi_ajk)->first();
+        $spesifikasi_urusetia=User::where('id',$jawatankuasa->jawatankuasa_spesifikasi_urusetia)->first();
+
+        $teknikal_pengerusi=User::where('id',$jawatankuasa->jawatankuasa_teknikal_pengerusi)->first();
+        $teknikal_ajk=User::where('id',$jawatankuasa->jawatankuasa_teknikal_ajk)->first();
+
+        $kewangan_pengerusi=User::where('id',$jawatankuasa->jawatankuasa_kewangan_pengerusi)->first();
+        $kewangan_ajk=User::where('id',$jawatankuasa->jawatankuasa_kewangan_ajk)->first();
+
+        $kerja_pengerusi=User::where('id',$jawatankuasa->jawatankuasa_kerja_pengerusi)->first();
+        $kerja_ajk=User::where('id',$jawatankuasa->jawatankuasa_kerja_ajk)->first();
+
+        $terbuka_pengerusi=User::where('id',$jawatankuasa->jawatankuasa_terbuka_pengerusi)->first();
+        $terbuka_ajk=User::where('id',$jawatankuasa->jawatankuasa_terbuka_ajk)->first();
+
+        $penilaian_pengerusi=User::where('id',$jawatankuasa->jawatankuasa_penilaian_pengerusi)->first();
+        $penilaian_ajk=User::where('id',$jawatankuasa->jawatankuasa_penilaian_ajk)->first();
+
+            return view( '1_pst.show',[
+                'PembelianSebutTender'=>$PembelianSebutTender,
+                'pelulus'=>$pelulus,
+                'penyelaras'=>$penyelaras,
+                'jawatankuasa'=>$jawatankuasa,
+                'spesifikasi_pengerusi'=>$spesifikasi_pengerusi,
+                'spesifikasi_urusetia'=>$spesifikasi_urusetia,
+                'spesifikasi_ajk'=>$spesifikasi_ajk,
+                'kerja_pengerusi'=>$kerja_pengerusi,
+                'kerja_ajk'=>$kerja_ajk,
+                'teknikal_pengerusi'=>$teknikal_pengerusi,
+                'teknikal_ajk'=>$teknikal_ajk,
+                'kewangan_pengerusi'=>$kewangan_pengerusi,
+                'kewangan_ajk'=>$kewangan_ajk,
+                'terbuka_pengerusi'=>$terbuka_pengerusi,
+                'terbuka_ajk'=>$terbuka_ajk,
+                'penilaian_pengerusi'=>$penilaian_pengerusi,
+                'penilaian_ajk'=>$penilaian_ajk
+            ]);
     }
 
 
     public function edit($id)
     {
+
         $PembelianSebutTender = FizaPembelianSebutTender::find($id);
         $pelulus = User::where('id',$PembelianSebutTender->pst_pelulus)->first();
         // dd($user);
@@ -192,20 +225,6 @@ class FizaPembelianSebutTenderController extends Controller
 
         $penilaian_pengerusi=User::where('id',$jawatankuasa->jawatankuasa_penilaian_pengerusi)->first();
         $penilaian_ajk=User::where('id',$jawatankuasa->jawatankuasa_penilaian_ajk)->first();
-
-        // if($spesifikasi->status_spesifikasi=="diluluskan"){
-
-        //     return view('1_pst.lawatan_tapak',[
-        //         'PembelianSebutTender'=>$PembelianSebutTender,
-        //         'user'=>$user,
-        //         'penyelaras'=>$penyelaras,
-        //         'jawatankuasa'=>$jawatankuasa,
-        //         'spesifikasi'=>$spesifikasi
-        //     ]);
-        // }
-
-        // else{
-            // dd($pelulus);
 
             return view( '1_pst.edit',[
                 'PembelianSebutTender'=>$PembelianSebutTender,
@@ -254,55 +273,6 @@ class FizaPembelianSebutTenderController extends Controller
         $PembelianSebutTender->pst_jumlah_pembekal_layak=$request->pst_jumlah_pembekal_layak;
         $PembelianSebutTender->pst_pelulus=$request->pst_pelulus;
         $PembelianSebutTender->updated_by=Auth::user()->id;
-
-
-        // dd($jawatankuasa);
-    //     $jawatankuasa->update([
-
-    // 'jawatankuasa_spesifikasi_pengerusi'=> $request->jawatankuasa_spesifikasi_pengerusi,
-    // 'jawatankuasa_spesifikasi_ajk' => $request->jawatankuasa_spesifikasi_ajk,
-    // 'jawatankuasa_spesifikasi_urusetia' => $request->jawatankuasa_spesifikasi_urusetia,
-
-    // 'jawatankuasa_teknikal_pengerusi' => $request->jawatankuasa_teknikal_pengerusi,
-    // 'jawatankuasa_teknikal_ajk' => $request->jawatankuasa_teknikal_ajk,
-
-    // 'jawatankuasa_kewangan_ajk' => $request->jawatankuasa_kewangan_ajk,
-    // 'jawatankuasa_kewangan_pengerusi' => $request->jawatankuasa_kewangan_pengerusi,
-
-    // 'jawatankuasa_kerja_ajk' => $request->jawatankuasa_kerja_ajk,
-    // 'jawatankuasa_kerja_pengerusi' => $request->jawatankuasa_kerja_pengerusi,
-
-    // 'jawatankuasa_terbuka_pengerusi' => $request->jawatankuasa_terbuka_pengerusi,
-    // 'jawatankuasa_terbuka_ajk' => $request->jawatankuasa_terbuka_ajk,
-
-    // 'jawatankuasa_penilaian_pengerusi' => $request->jawatankuasa_penilaian_pengerusi,
-    // 'jawatankuasa_penilaian_ajk' => $request->jawatankuasa_penilaian_ajk,
-
-    //     ]);
-
-        // $jawatankuasa->jawatankuasa_spesifikasi_pengerusi = $request->jawatankuasa_spesifikasi_pengerusi;
-        // $jawatankuasa->jawatankuasa_spesifikasi_ajk = $request->jawatankuasa_spesifikasi_ajk;
-        // $jawatankuasa->jawatankuasa_spesifikasi_urusetia = $request->jawatankuasa_spesifikasi_urusetia;
-
-        // $jawatankuasa->jawatankuasa_teknikal_pengerusi = $request->jawatankuasa_teknikal_pengerusi;
-        // $jawatankuasa->jawatankuasa_teknikal_ajk = $request->jawatankuasa_teknikal_ajk;
-
-        // $jawatankuasa->jawatankuasa_kewangan_ajk = $request->jawatankuasa_kewangan_ajk;
-        // $jawatankuasa->jawatankuasa_kewangan_pengerusi = $request->jawatankuasa_kewangan_pengerusi;
-
-        // $jawatankuasa->jawatankuasa_kerja_ajk = $request->jawatankuasa_kerja_ajk;
-        // $jawatankuasa->jawatankuasa_kerja_pengerusi = $request->jawatankuasa_kerja_pengerusi;
-
-        // $jawatankuasa->jawatankuasa_terbuka_pengerusi = $request->jawatankuasa_terbuka_pengerusi;
-        // $jawatankuasa->jawatankuasa_terbuka_ajk = $request->jawatankuasa_terbuka_ajk;
-
-        // $jawatankuasa->jawatankuasa_penilaian_pengerusi = $request->jawatankuasa_penilaian_pengerusi;
-        // $jawatankuasa->jawatankuasa_penilaian_ajk = $request->jawatankuasa_penilaian_ajk;
-
-        // $fizaPembelianSebutTender->save();
-        // $jawatankuasa->save();
-
-        // $temp=session()->get($fizaPembelianSebutTender->id);
 
         if ($request->status_pst=="diluluskan"){
             $PembelianSebutTender->pst_status="diluluskan";

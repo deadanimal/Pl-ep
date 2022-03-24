@@ -25,6 +25,7 @@ Senarai Kehadiran Taklimat</a></li>
                         <thead>
                             <tr>
                                 <td>Tajuk SebutHarga</td>
+                                <td></td>
                                 <td>Tarikh Iklan</td>
                                 <td>Tarikh Akhir Iklan</td>
                                 <td></td>
@@ -32,16 +33,20 @@ Senarai Kehadiran Taklimat</a></li>
                             </tr>
                         </thead>
                         <tbody>
+
+                            @foreach ($pst as $pst)
+
                             <tr>
                                 <td>{{$pst->pst_tajuk}}</td>
+                                <td>{{$iklan->pst_id}}</td>
                                 <td>{{date('d-m-Y',strtotime($iklan->iklan_date))}}</td>
                                 <td>{{date('d-m-Y',strtotime($iklan->iklan_last_date))}}</td>
-                                <td><a href="/senaraikehadiran">Senarai Kedatangan</a></td>
+                                <td><a href="/senaraikehadiran"><i class="align-middle me-2" data-feather="users"></i></a></td>
 
 
                             </tr>
 
-
+                            @endforeach
 
 
                         </tbody>

@@ -206,14 +206,11 @@
                                <label class="col-form-label col-sm-6">Jawatankuasa Spesifikasi </label>
                              </div>
                              <div class="mb-3 col-md-6">
-
-                                 <input type="text" class="form-control" name="jawatankuasa_spesikasi_ajk" value="{{$spesifikasi_ajk->user_name}}" readonly>
-
-                                 {{-- <select class="form-select" name="jawatankuasa_spesikasi_ajk">
+                                 <select class="form-select" name="jawatankuasa_spesikasi_ajk">
                                     @foreach ($spesifikasi_ajk as $spesifikasi_ajk)
                                      <option @if ($jawatankuasa->jawatankuasa_spesikasi_ajk == $spesifikasi_ajk->id) selected @endif value="{{$spesifikasi_ajk->id}}">{{$spesifikasi_ajk->user_name}}</option>
                                      @endforeach
-                                 </select> --}}
+                                 </select>
                              </div>
                         </div>
 
@@ -222,16 +219,11 @@
                                <label class="col-form-label col-sm-6">Urusetia Jawatankuasa Spesifikasi </label>
                              </div>
                              <div class="mb-3 col-md-6">
-                                {{-- {{$spesikasi_urusetia->user_name}} --}}
-
-                                <input type="text" class="form-control" name="jawatankuasa_spesikasi_urusetia" value="{{$spesifikasi_urusetia->user_name}}" readonly >
-
-
-                                 {{-- <select class="form-select" name="jawatankuasa_spesikasi_urusetia">
+                                 <select class="form-select" name="jawatankuasa_spesikasi_urusetia">
                                     @foreach ($spesifikasi_urusetia as $spesifikasi_urusetia)
                                      <option @if ($jawatankuasa->jawatankuasa_spesikasi_urusetia == $spesifikasi_urusetia->id) selected @endif value="{{$spesifikasi_urusetia->id}}">{{$spesifikasi_urusetia->user_name}}</option>
                                      @endforeach
-                                 </select> --}}
+                                 </select>
                              </div>
                         </div>
 
@@ -240,15 +232,11 @@
                                <label class="col-form-label col-sm-6">Pengerusi Jawatankuasa Spesifikasi </label>
                              </div>
                              <div class="mb-3 col-md-6">
-                                 {{-- {{$jawatankuasa->jawatankuasa_spesikasi_pengerusi}} --}}
-                                 <input type="text" class="form-control" name="jawatankuasa_spesikasi_pengerusi" value="{{$spesifikasi_pengerusi->user_name}}" readonly >
-
-
-                                 {{-- <select class="form-select" name="jawatankuasa_spesikasi_pengerusi">
+                                 <select class="form-select" name="jawatankuasa_spesikasi_pengerusi">
                                     @foreach ($spesifikasi_pengerusi as $spesifikasi_pengerusi)
                                      <option @if ($jawatankuasa->jawatankuasa_spesikasi_pengerusi == $spesifikasi_pengerusi->id) selected @endif value="{{$spesifikasi_pengerusi->id}}">{{$spesifikasi_pengerusi->user_name}}</option>
                                      @endforeach
-                                 </select> --}}
+                                 </select>
                              </div>
                         </div>
 
@@ -262,14 +250,11 @@
                                 <label class="col-form-label col-sm-6">Jawatankuasa Teknikal </label>
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <input type="text" class="form-control" name="jawatankuasa_teknikal_ajk" value="{{$teknikal_ajk->user_name}}" readonly>
-
-
-                                    {{-- <select class="form-select" name="jawatankuasa_teknikal_ajk">
+                                    <select class="form-select" name="jawatankuasa_teknikal_ajk">
                                         @foreach ($teknikal_ajk as $teknikal_ajk)
                                          <option @if ($jawatankuasa->jawatankuasa_teknikal_ajk == $teknikal_ajk->id) selected @endif value="{{$teknikal_ajk->id}}">{{$teknikal_ajk->user_name}}</option>
                                          @endforeach
-                                     </select> --}}
+                                     </select>
                                 </div>
                             </div>
 
@@ -279,12 +264,11 @@
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <input type="text" class="form-control" name="jawatankuasa_teknikal_pengerusi" value="{{$teknikal_pengerusi->user_name}}" readonly>
-
-                                    {{-- <select class="form-select" name="jawatankuasa_teknikal_pengerusi">
+                                    <select class="form-select" name="jawatankuasa_teknikal_pengerusi">
                                         @foreach ($teknikal_pengerusi as $teknikal_pengerusi)
                                          <option @if ($jawatankuasa->jawatankuasa_teknikal_pengerusi == $teknikal_pengerusi->id) selected @endif value="{{$teknikal_pengerusi->id}}">{{$teknikal_pengerusi->user_name}}</option>
                                          @endforeach
-                                     </select> --}}
+                                     </select>
                                 </div>
                             </div>
                     </fieldset>
@@ -296,14 +280,11 @@
                                 <label class="col-form-label col-sm-6">Jawatankuasa Kewangan </label>
                                 </div>
                                 <div class="mb-3 col-md-6">
-
-                                    <input type="text" class="form-control" name="jawatankuasa_kewangan_ajk" value="{{$kewangan_ajk->user_name}}" readonly>
-
-                                {{-- <select class="form-select" name="jawatankuasa_kewangan_ajk">
+                                <select class="form-select" name="jawatankuasa_kewangan_ajk">
                                         @foreach ($kewangan_ajk as $kewangan_ajk)
                                          <option @if ($jawatankuasa->jawatankuasa_kewangan_ajk == $kewangan_ajk->id) selected @endif value="{{$kewangan_ajk->id}}">{{$kewangan_ajk->user_name}}</option>
                                          @endforeach
-                                 </select> --}}
+                                 </select>
 
                                 </div>
                             </div>
@@ -315,14 +296,11 @@
                                 <label class="col-form-label col-sm-6">Pengerusi Jawatankuasa Kewangan </label>
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    {{$jawatankuasa->user_name}}
-                                    <input type="text" class="form-control" name="jawatankuasa_kewangan_pengerusi" value="{{$kewangan_pengerusi->user_name}}" readonly>
-
-                                    {{-- <select class="form-select" name="jawatankuasa_kewangan_pengerusi">
+                                    <select class="form-select" name="jawatankuasa_kewangan_pengerusi">
                                         @foreach ($kewangan_pengerusi as $kewangan_pengerusi)
                                          <option @if ($jawatankuasa->jawatankuasa_kewangan_pengerusi == $kewangan_pengerusi->id) selected @endif value="{{$kewangan_pengerusi->id}}">{{$kewangan_pengerusi->user_name}}</option>
                                          @endforeach
-                                    </select> --}}
+                                    </select>
                                 </div>
                             </div>
                     </fieldset>
@@ -334,15 +312,11 @@
                                <label class="col-form-label col-sm-6">Jawatankuasa Kerja</label>
                             </div>
                             <div class="mb-3 col-md-6">
-
-                                <input type="text" class="form-control" name="jawatankuasa_kerja_ajk" value="{{$kerja_ajk->user_name}}" readonly>
-
-
-                                {{-- <select class="form-select" name="jawatankuasa_kerja_ajk">
+                                <select class="form-select" name="jawatankuasa_kerja_ajk">
                                     @foreach ($kerja_ajk as $kerja_ajk)
                                      <option @if ($jawatankuasa->jawatankuasa_kerja_ajk == $kerja_ajk->id) selected @endif value="{{$kerja_ajk->id}}">{{$kerja_ajk->user_name}}</option>
                                      @endforeach
-                                </select> --}}
+                                </select>
                             </div>
                         </div>
 
@@ -351,13 +325,11 @@
                                <label class="col-form-label col-sm-6">Pengerusi Jawatankuasa Kerja</label>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <input type="text" class="form-control" name="jawatankuasa_kerja_pengerusi" value="{{$kerja_pengerusi->user_name}}" readonly>
-
-                                {{-- <select class="form-select" name="jawatankuasa_kerja_pengerusi">
+                                <select class="form-select" name="jawatankuasa_kerja_pengerusi">
                                     @foreach ($kerja_pengerusi as $kerja_pengerusi)
                                      <option @if ($jawatankuasa->jawatankuasa_kerja_pengerusi == $kerja_pengerusi->id) selected @endif value="{{$kerja_pengerusi->id}}">{{$kerja_pengerusi->user_name}}</option>
                                      @endforeach
-                                </select> --}}
+                                </select>
                             </div>
                         </div>
 
@@ -372,13 +344,11 @@
                                <label class="col-form-label col-sm-6">Jawatankuasa Pembuka </label>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <input type="text" class="form-control" name="jawatankuasa_terbuka_ajk" value="{{$terbuka_ajk->user_name}}" readonly>
-
-                                {{-- <select class="form-select" name="jawatankuasa_terbuka_ajk">
+                                <select class="form-select" name="jawatankuasa_terbuka_ajk">
                                     @foreach ($terbuka_ajk as $terbuka_ajk)
                                      <option @if ($jawatankuasa->jawatankuasa_terbuka_ajk == $terbuka_ajk->id) selected @endif value="{{$terbuka_ajk->id}}">{{$terbuka_ajk->user_name}}</option>
                                      @endforeach
-                                </select> --}}
+                                </select>
                             </div>
                         </div>
 
@@ -387,16 +357,11 @@
                                <label class="col-form-label col-sm-6">Pengerusi Jawatankuasa Terbuka </label>
                             </div>
                             <div class="mb-3 col-md-6">
-
-                                <input type="text" class="form-control" name="jawatankuasa_terbuka_pengerusi" value="{{$terbuka_pengerusi->user_name}}" readonly>
-
-
-
-                                {{-- <select class="form-select" name="jawatankuasa_terbuka_pengerusi">
+                                <select class="form-select" name="jawatankuasa_terbuka_pengerusi">
                                     @foreach ($terbuka_pengerusi as $terbuka_pengerusi)
                                      <option @if ($jawatankuasa->jawatankuasa_terbuka_pengerusi == $terbuka_pengerusi->id) selected @endif value="{{$terbuka_pengerusi->id}}">{{$terbuka_pengerusi->user_name}}</option>
                                      @endforeach
-                                </select> --}}
+                                </select>
                             </div>
                         </div>
                     </fieldset>
@@ -410,16 +375,11 @@
                                <label class="col-form-label col-sm-6">Jawatankuasa Penilaian</label>
                             </div>
                             <div class="mb-3 col-md-6">
-
-                                <input type="text" class="form-control" name="jawatankuasa_penilaian_ajk" value="{{$penilaian_ajk->user_name}}" readonly>
-
-
-
-                                {{-- <select class="form-select" name="jawatankuasa_penilaian_ajk">
+                                <select class="form-select" name="jawatankuasa_penilaian_ajk">
                                     @foreach ($penilaian_ajk as $penilaian_ajk)
                                      <option @if ($jawatankuasa->jawatankuasa_penilaian_ajk == $penilaian_ajk->id) selected @endif value="{{$penilaian_ajk->id}}">{{$penilaian_ajk->user_name}}</option>
                                      @endforeach
-                                </select> --}}
+                                </select>
                             </div>
                         </div>
 
@@ -428,13 +388,11 @@
                                <label class="col-form-label col-sm-6">Pengerusi Jawatankuasa Penilaian</label>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <input type="text" class="form-control" name="jawatankuasa_penilaian_pengerusi" value="{{$penilaian_pengerusi->user_name}}" readonly>
-
-                                {{-- <select class="form-select" name="jawatankuasa_penilaian_pengerusi">
+                                <select class="form-select" name="jawatankuasa_penilaian_pengerusi">
                                     @foreach ($penilaian_pengerusi as $penilaian_pengerusi)
                                      <option @if ($jawatankuasa->jawatankuasa_penilaian_pengerusi == $penilaian_pengerusi->id) selected @endif value="{{$penilaian_pengerusi->id}}">{{$penilaian_pengerusi->user_name}}</option>
                                      @endforeach
-                                </select> --}}
+                                </select>
                             </div>
                         </div>
 

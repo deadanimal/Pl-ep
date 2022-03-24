@@ -29,34 +29,28 @@ Senarai Sebutharga / Tender</a></li>
                 <table id="datatables-reponsive" class="table table-striped" style="width:100%">
                     <thead>
                         <tr>
-                            <th> Tajuk Sebutharga </th>
-                            <th> Zon </th>
-                            <th> Tarikh Hantar</th>
+                            <th>Tajuk Sebutharga </th>
+                            <th>Zon </th>
+                            <th>Tarikh Hantar</th>
                             <th>Status</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
 
-
                         <tr>
                             <td> {{$PembelianSebutTender->pst_tajuk}}</td>
                             <td> {{$PembelianSebutTender->pst_zon_lokasi}}</td>
-
-
                             <td> {{date('d-m-Y H:i', strtotime($PembelianSebutTender->created_at))}}</td>
-                            <td> @if ($PembelianSebutTender->pst_status==='menunggu kelulusan')
-                                     <span class="badge rounded-pill bg-primary">Proses Semakan</span>
+                            <td>@if ($PembelianSebutTender->pst_status==='menunggu kelulusan')
+                                     <span class="badge rounded-pill bg-primary">Dalam Semakan</span>
                                 @elseif ($PembelianSebutTender->pst_status === 'draf')
                                      <span class="badge rounded-pill bg-secondary">Draf</span>
                                 @elseif ($PembelianSebutTender->pst_status === 'ditolak')
                                     <span class="badge rounded-pill bg-danger">Ditolak</span>
                                  @else
                                     <span class="badge rounded-pill bg-success">Diluluskan</span>
-
                                 @endif
-
-
                             </td>
                             <td class="table-action">
 
@@ -67,7 +61,7 @@ Senarai Sebutharga / Tender</a></li>
                                     @method('DELETE')
                                     @csrf
                                 <button class="btn" type="submit"><i class="align-middle fas fa-fw fa-trash"></i></button>
-                                <button class="btn"><i class="align-middle fas fa-fw fa-pen"></i></a>
+                                <a href="/PembelianSebutTender/{{$PembelianSebutTender->id}}/edit"><i class="align-middle fas fa-fw fa-pen"></i></a>
                                 </form>
 
 
@@ -75,13 +69,9 @@ Senarai Sebutharga / Tender</a></li>
                                 @elseif ($PembelianSebutTender->pst_status === 'menunggu kelulusan')
                                     @if (Auth::user()->id==$PembelianSebutTender->pst_pelulus)
                                         <a href="/PembelianSebutTender/{{$PembelianSebutTender->id}}/edit"><i class="align-middle fas fa-fw fa-pen"></i></a>
-
                                         @else
                                             <button class="btn" disabled><i class="align-middle fas fa-fw fa-pen"></i></a>
-
                                         @endif
-
-
 
                                 @elseif ($PembelianSebutTender->pst_status ==='diluluskan')
 
@@ -93,14 +83,13 @@ Senarai Sebutharga / Tender</a></li>
 
                                     @elseif(Auth::user()->id==$jawatankuasa->jawatankuasa_spesifikasi_pengerusi)
                                     <a href="/PenyediaanSpesifikasi/{{$spesifikasi->id}}/edit"><i class="align-middle fas fa-fw fa-pen"></i></button>
-                                        @endif
+                                    @endif
 
-                                    @elseif($spesifikasi->status_spesifikasi=="diluluskan")
+                                @elseif($spesifikasi->status_spesifikasi=="diluluskan")
                                     @if(Auth::user()->id==$jawatankuasa->jawatankuasa_spesifikasi_urusetia)
                                         <td><a href="/JadualPemenuhan/{{$pst->id}}/create"><i class="align-middle fas fa-fw fa-pen"></i></a> </td>
                                      @elseif(Auth::user()->id==$pst->pelulus)
                                          <td><a href="/JadualPemenuhan/{{$pst->id}}/edit"><i class="align-middle fas fa-fw fa-pen"></i></a> </td>
-
                                     @else
                                         <td><a href="#"><i class="align-middle fas fa-fw fa-pen"></i></a> </td>
                                     @endif

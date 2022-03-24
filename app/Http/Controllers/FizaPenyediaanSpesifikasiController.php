@@ -12,133 +12,71 @@ use Illuminate\Support\Facades\Auth;
 class FizaPenyediaanSpesifikasiController extends Controller
 {
 
-    // public function index()
-
-    // {
-    //     $role=Auth::user()->roles;
-
-        //dd($role->id[0]);
-        // if ($role[0]->id=='1') {
-        //     $PenyediaanSpesifikasi = FizaPenyediaanSpesifikasi::all();
-
-        // }
-
-        // else{
-        //     $PenyediaanSpesifikasi = FizaPenyediaanSpesifikasi::where('spesifikasi_created_by',Auth::user()->id)->get();
-
-        // }
-
-        //     return view ('1_penyediaan_spesifikasi.index',[
-        //         'PenyediaanSpesifikasi'=>$PenyediaanSpesifikasi
-        //     ]);
-
-
-        // else{
-
-        // $pst = FizaPembelianSebutTender::where('pst_status', 'diluluskan')->with('penyediaanSpesifikasi')->get();
-
-        // foreach ($pst as $PenyediaanSpesifikasi) {
-        //     $PenyediaanSpesifikasi = FizaPenyediaanSpesifikasi::where('spesifikasi_created_by', Auth::user()->id)->first();
-        //     // $PenyediaanSpesifikasi = FizaPenyediaanSpesifikasi::where('spesifikasi_status','diluluskan')->get();
-        // }
-
-
-        // // dd($pst);
-
-
-        // // $jawatankuasa=FizaJawatankuasa::where('pst_id',$pst->id)->with('pembeliansebutharga')->get();
-        // // $ajk = FizaJawatankuasa::where(Auth::user()->id,$jawatankuasa->jawatankuasa_spesifikasi_ajk)->get();
-        // // $pengerusi= FizaJawatankuasa::where(Auth::user()->id,$jawatankuasa->jawatankuasa_spesifikasi_pengerusi)->get();
-        // // $urusetia= FizaJawatankuasa::where(Auth::user()->id,$jawatankuasa->jawatankuasa_spesifikasi_urusetia)->get();
-
-
-        // // dd($PenyediaanSpesifikasi);
-
-        // if ($PenyediaanSpesifikasi ->spesifikasi_status=="") {
-        //     return view('1_penyediaan_spesifikasi.index', [
-        //                 'pst'=>$pst,
-        //                 'PenyediaanSpesifikasi'=>$PenyediaanSpesifikasi
-        //                 // 'jawatankuasa'=>$jawatankuasa
-        //                 // 'ajk'=>$ajk,
-        //                 // 'pengerusi'=>$pengerusi,
-        //                 // 'urusetia'=>$urusetia,
-        //             ]);
-        // }
-    // }
-
     public function index(){
 
+        $role=Auth::user()->roles;
 
-        $spesifikasi = FizaPenyediaanSpesifikasi::where('spesifikasi_created_by',Auth::user()->id)->get();
+        if ($role[0]->id=='1'){
+            $spesifikasi = FizaPenyediaanSpesifikasi::all();
+            // $pst=FizaPembelianSebutTender::where('id',$spesifikasi->pst_id)->get();
 
-        foreach($spesifikasi as $spesifikasi){
-
-            $pst = FizaPembelianSebutTender::where('pst_status', 'diluluskan')
-            ->where('id',$spesifikasi->pst_id)
-            ->with('penyediaanSpesifikasi')
-            ->first();
-
-            $jawatankuasa=FizaJawatankuasa::where('pst_id', $pst->id)->with('sebuthargatender')->first();
-            $urusetia = User::where('id',$jawatankuasa->jawatankuasa_spesikasi_urusetia)->first();
-            $pengerusi = User::where('id',$jawatankuasa->jawatankuasa_spesikasi_pengerusi)->first();
-            $ajk = User::where('id',$jawatankuasa->jawatankuasa_spesikasi_ajk)->first();
+            // $pst = FizaPembelianSebutTender::table('fiza_pembelian_sebut_tenders')
+            // ->join('fiza_penyediaan_spesifikasis', 'fiza_pembelian_sebut_tenders.id', '=', 'fiza_penyediaan_spesifikasis.pst_id')
+            // ->select('fiza_penyediaan_spesifikasis.*', 'fiza_pembelian_sebut_tenders.pst_id')
+            // ->get();
 
 
+            foreach ($spesifikasi as $spesifikasi) {
+                $pst = FizaPembelianSebutTender::where('id',$spesifikasi->pst_id)
+                ->with('penyediaanSpesifikasi')
+                ->first()->get();
+            }
+
+                // $jawatankuasa=FizaJawatankuasa::where('pst_id', $pst->id)->with('sebuthargatender')->first();
+                // $urusetia = User::where('id', $jawatankuasa->jawatankuasa_spesikasi_urusetia)->first();
+                // $pengerusi = User::where('id', $jawatankuasa->jawatankuasa_spesikasi_pengerusi)->first();
+                // $ajk = User::where('id', $jawatankuasa->jawatankuasa_spesikasi_ajk)->first();
+            // }
+
+
+                return view('1_penyediaan_spesifikasi.index-admin', [
+                // 'pst'=>$pst,
+                // 'jawatankuasa'=>$jawatankuasa,
+                'spesifikasi'=>$spesifikasi
+                // 'urusetia'=>$urusetia,
+                // 'ajk'=>$ajk,
+                // 'pengerusi'=>$pengerusi
+                 ]);
+            }
 
 
 
-            return view('1_penyediaan_spesifikasi.index', [
-            'pst'=>$pst,
-            'jawatankuasa'=>$jawatankuasa,
-            'spesifikasi'=>$spesifikasi,
-            'urusetia'=>$urusetia,
-            'ajk'=>$ajk,
-            'pengerusi'=>$pengerusi
-        ]);
+        else {
+            $spesifikasi = FizaPenyediaanSpesifikasi::where('spesifikasi_created_by', Auth::user()->id)->get();
+
+            foreach ($spesifikasi as $spesifikasi) {
+                $pst = FizaPembelianSebutTender::where('pst_status', 'diluluskan')
+                ->where('id', $spesifikasi->pst_id)
+                ->with('penyediaanSpesifikasi')
+                ->first();
+            }
+
+                $jawatankuasa=FizaJawatankuasa::where('pst_id', $pst->id)->with('sebuthargatender')->first();
+                $urusetia = User::where('id', $jawatankuasa->jawatankuasa_spesikasi_urusetia)->first();
+                $pengerusi = User::where('id', $jawatankuasa->jawatankuasa_spesikasi_pengerusi)->first();
+                $ajk = User::where('id', $jawatankuasa->jawatankuasa_spesikasi_ajk)->first();
+
+                return view('1_penyediaan_spesifikasi.index', [
+                'pst'=>$pst,
+                'jawatankuasa'=>$jawatankuasa,
+                'spesifikasi'=>$spesifikasi,
+                'urusetia'=>$urusetia,
+                'ajk'=>$ajk,
+                'pengerusi'=>$pengerusi
+                ]);
+            }
         }
-    }
 
-
-
-
-                // if($PenyediaanSpesifikasi->spesifikasi_status=='menunggu semakan')
-                // {
-                //     $pst=FizaPembelianSebutTender::where('pst_status','diluluskan')->get();
-                //     $jawatankuasa=FizaJawatankuasa::where('pst_id',$pst->id)
-                //     ->where('jawatankuasa_spesifikasi_pengerusi',Auth::user()->id)
-                //     ->orWhere('jawatankuasa_spesifikasi_ajk',Auth::user()->id)
-                //     ->orWhere('jawatankuasa_spesifikasi_urusetia',Auth::user()->id)->get();
-
-                //     $PenyediaanSpesifikasi = FizaPenyediaanSpesifikasi::where([
-                //         ['pst_id',$pst->id],
-                //         ['pst_id',$jawatankuasa->pst_id]
-                //         ])->get();
-
-
-
-                //     return view ('1_penyediaan_spesifikasi.index',[
-                //     'PenyediaanSpesifikasi'=>$PenyediaanSpesifikasi]);
-                // }
-
-                // elseif($PenyediaanSpesifikasi->spesifikasi_status=='menunggu kelulusan spesifikasi')
-                // {
-                //     $pst=FizaPembelianSebutTender::where('pst_status','diluluskan')->get();
-                //     $jawatankuasa=FizaJawatankuasa::where('pst_id',$pst->id)
-                //     ->where('jawatankuasa_spesifikasi_pengerusi',Auth::user()->id)
-                //     ->orWhere('jawatankuasa_spesifikasi_ajk',Auth::user()->id)
-                //     ->orWhere('jawatankuasa_spesifikasi_urusetia',Auth::user()->id)->get();
-
-                //     $PenyediaanSpesifikasi = FizaPenyediaanSpesifikasi::where('spesifikasi_status','diluluskan')
-                //     ->where([
-                //         ['pst_id',$pst->id],
-                //         ['pst_id',$jawatankuasa->pst_id]
-                //         ])->get();
-
-
-
-                //     return view ('1_penyediaan_spesifikasi.index_kelulusan',[
-                //     'PenyediaanSpesifikasi'=>$PenyediaanSpesifikasi]);
-                // }
 
 
 
@@ -214,9 +152,14 @@ class FizaPenyediaanSpesifikasiController extends Controller
     }
 
 
-    public function show(FizaPenyediaanSpesifikasi $fizaPenyediaanSpesifikasi)
+    public function show($id)
     {
-        //
+        $PenyediaanSpesifikasi = FizaPenyediaanSpesifikasi::findOrFail($id);
+        $pst = FizaPembelianSebutTender::where('id',$PenyediaanSpesifikasi->id)->first();
+
+        return view ('1_penyediaan_spesifikasi.show',[
+            'PenyediaanSpesifikasi'=>$PenyediaanSpesifikasi,
+            'pst'=>$pst]);
     }
 
 

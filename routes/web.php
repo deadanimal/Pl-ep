@@ -58,18 +58,6 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Models\Roles;
 
 
-/*
-|---------------------------------------------------------------------------
-| Web Routes
-|---------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-
 Route::get('/list-role',[RegisteredUserController::class,'list_role']);
 
 Route::get('/register-role', function(){
@@ -172,17 +160,8 @@ Route::group(['middleware' => ['auth']],function(){
     Route::get('/PerincianIklan/{id}/create',[FizaPerincianPengiklananController::class,'create']);
     Route::get('/KehadiranTaklimat/{id}/create',[FizaKehadiranTaklimatController::class,'create']);
     Route::get('/senaraikehadiran',[FizaKehadiranTaklimatController::class,'senarai_kehadiran']);
-
-
-
-
-    // Route::get('/kelulusan-spesifikasi', function(){
-    //     $PenyediaanSpesifikasi = FizaPenyediaanSpesifikasiController::all();
-
-    //     return view('1_penyediaan_spesifikasi.index_kelulusan',[
-    //         'PenyediaanSpesifikasi'=>$PenyediaanSpesifikasi
-    //     ]);
-    // });
+    Route::get('/kehadiranPembekal',[FizaKehadiranTaklimatController::class,'kehadiranPembekal']);
+    Route::get('/Cadangan/{id}/create',[FizaCadanganController::class,'create']);
 
 
 

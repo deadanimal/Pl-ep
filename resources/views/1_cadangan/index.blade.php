@@ -20,28 +20,49 @@ Senarai Cadangan</a></li>
                 <h5 class="card-title mb-0"></h5>
             </div>
             <div class="card-body">
+
                 <table id="datatables-reponsive" class="table table-striped" style="width:100%">
                     <thead>
                         <tr>
-                            <th>Tarikh Mesyuarat</th>
-                            <th></th>
+                            <td>Tajuk SebutHarga</td>
+                            <td>Tajuk Spesifikasi</td>
+                            <th>Status Mesyuarat</th>
+                            <th>Tindakan</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        @foreach ($Cadangan as $Cadangan)
                         <tr>
-                            <td>{{date('d-m-Y', strtotime($Cadangan->cadangan_mesyuarat_date))}}</td>
-                            <td class="table-action">
-                                <form method="POST" action="/Cadangan/{{$Cadangan->id}}">
-                                    @csrf
-                                    @method('DELETE')
-                                <button type="submit" class="btn"><i class="align-middle fas fa-fw fa-trash"></i></button>
-                                <a href="/Cadangan/{{$Cadangan->id}}/edit"><i class="align-middle fas fa-fw fa-pen"></i></a>
-                                </form>
-                            </td>
+                            <td>{{$pst->pst_tajuk}}</td>
+                            <td>{{$spesifikasi->spesifikasi_tajuk}}</td>
+                            <td> @if ($cadangan->cadangan_mesyuarat_status=='dalam semakan')
+                                    <span class="badge rounded-pill bg-primary">Dalam Semakan</span>
+
+                                @elseif ($cadangan->cadangan_mesyuarat_status=='menunggu kelulusan')
+                                    <span class="badge rounded-pill bg-success">Pengesahan</span>
+
+                                @else
+                                    <span class="badge rounded-pill bg-success">Diluluskan</span>
+                                @endif
+                       </td>
+
+                            @if($cadangan->cadangan_mesyuarat_status=="dalam semakan")
+
+                                @if(Auth::user()->id==$jawatankuasa->jawatankuasa_penilaian_ajk)
+                                    <td><a href="/Cadangan/{{$cadangan->id}}/edit"><i class="align-middle fas fa-fw fa-pen"></i></a>
+                                @else
+                                    <td><a href="#"><i class="align-middle fas fa-fw fa-pen"></i></a>
+                                @endif
+
+                            @elseif($cadangan->cadangan_mesyuarat_status==null)
+                                <td><a href="/Cadangan/create"><i class="align-middle fas fa-fw fa-pen"></i></a>
+
+                            @elseif($cadangan->cadangan_mesyuarat_status=="menunggu kelulusan")
+                                <td><a href="/Cadangan/{{$cadangan->id}}/edit"><i class="align-middle fas fa-fw fa-pen"></i></a>
+
+                            @endif
                         </tr>
-                        @endforeach
+
                     </tbody>
                 </table>
             </div>
@@ -49,8 +70,8 @@ Senarai Cadangan</a></li>
     </div>
 </div>
 
-                            
- 
+
+
 
 
 

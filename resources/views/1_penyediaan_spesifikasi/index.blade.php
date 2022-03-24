@@ -26,6 +26,7 @@
                             <tr>
                                 <th>Tajuk sebutharga</th>
                                 <th>Tajuk Spesifikasi</th>
+                                <th>Status Spesifikasi</th>
                                 <th>Tindakan</th>
                             </tr>
                         </thead>
@@ -34,14 +35,14 @@
                                 <tr>
                                     <td>{{$pst->pst_tajuk}}</td>
                                     <td>{{$spesifikasi->spesifikasi_tajuk}}</td>
+                                    <td>{{$spesifikasi->status_spesifikasi}}</td>
 
-
-                                    @if ($spesifikasi->status_spesifikasi=="menunggu semakan")
+                                    {{-- @if ($spesifikasi->status_spesifikasi=="menunggu semakan") --}}
                                         <td><a href="/PenyediaanSpesifikasi/{{$spesifikasi->id}}/edit"><i class="align-middle fas fa-fw fa-pen"></i></a> </td>
 
-                                    @elseif($spesifikasi->status_spesifikasi=="diluluskan")
+                                    {{-- @elseif($spesifikasi->status_spesifikasi=="diluluskan")
                                         <td><a href="/JadualPemenuhan/{{$pst->id}}/create"><i class="align-middle fas fa-fw fa-pen"></i></a> </td>
-                                    @endif
+                                     @endif --}}
                                 </tr>
 
                         </tbody>

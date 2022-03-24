@@ -31,7 +31,6 @@ Cipta Jadual Pemenuhan</a></li>
                     <ul class="nav">
                         <li class="nav-item"><a class="nav-link" href="#sebutharga">1<br /><small>Maklumat SebutHarga</small></a></li>
                         <li class="nav-item"><a class="nav-link" href="#pengiklanan">2<br /><small>Maklumat Pengiklanan</small></a></li>
-                        {{-- <li class="nav-item"><a class="nav-link" href="#jadualpemenuhan">3<br /><small>Maklumat Jadual Pemenuhan</small></a></li> --}}
                     </ul>
 
                 <div class="tab-content">
@@ -64,18 +63,6 @@ Cipta Jadual Pemenuhan</a></li>
                                     </div>
                                 </div>
 
-                                {{-- <div class="row">
-                                    <div class="mb-3 col-md-6">
-                                    <label class="col-form-label col-sm-6">Kumpulan Katalog</label>
-                                    </div>
-                                    <div class="mb-3 col-md-6">
-                                        <select class="form-select" name="pst_katalog_kumpulan" disabled>
-                                            @foreach ($katalog as $katalog)
-                                                <option @if ($pst->pst_katalog_kumpulan == $katalog->id) selected @endif value={{$katalog->id}}>{{$katalog->katalog_kumpulan}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div> --}}
 
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
@@ -155,15 +142,6 @@ Cipta Jadual Pemenuhan</a></li>
                                 </div>
 
 
-                                <div class="row">
-                                    <div class="mb-3 col-md-6">
-                                    <label class="col-form-label col-sm-6">Kategori Perolehan</label>
-                                    </div>
-                                    <div class="mb-3 col-md-6">
-                                        <input type="text" class="form-control" name="pst_kategori_perolehan" value="{{$pst->pst_kategori_perolehan}}" readonly readonly>
-                                    </div>
-                                </div>
-
 
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
@@ -191,10 +169,7 @@ Cipta Jadual Pemenuhan</a></li>
                                         <input type="text" class="form-control" name="pst_tempoh_kontrak" value="{{$pst->pst_tempoh_kontrak}}" readonly>
                                     </div>
                                 </div>
-                            {{--
-                            item_id
-                            kod_id
-                            pembekal_id --}}
+
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
                                     <label class="col-form-label col-sm-6">Jumlah Pembekal Yang Layak</label>
@@ -203,21 +178,13 @@ Cipta Jadual Pemenuhan</a></li>
                                         <input type="number" class="form-control" name="pst_jumlah_pembekal_layak" value="{{$pst->pst_jumlah_pembekal_layak}}" readonly>
                                     </div>
                                 </div>
-                                {{-- ro_id
-                            jawatankuasa_id
-                            user_id --}}
+
                               <div class="row">
                                     <div class="mb-3 col-md-6">
                                     <label class="col-form-label col-sm-6">Nama Pelulus</label>
                                     </div>
                                     <div class="mb-3 col-md-6">
-                                        {{-- <select  class="form-control" name="pst_pelulus" disabled> --}}
-
-                                        <input type="text" class="form-control" name="pst_pelulus" value="{{$pst->user_name}}" readonly>
-
-                                            {{-- <option @if ($pst->pst_pelulus == $user->id) selected @endif value={{$user->id}}>{{$user->user_name}}</option>     --}}
-
-                                        </select>
+                                        <input type="text" class="form-control" name="pst_pelulus" value="{{$pelulus->user_name}}" readonly>
 
                                     </div>
                                 </div>
@@ -228,7 +195,7 @@ Cipta Jadual Pemenuhan</a></li>
                                     <label class="col-form-label col-sm-6">Catatan Pelulus </label>
                                     </div>
                                     <div class="mb-3 col-md-6">
-                                        <input type="text" class="form-control" name="pst_catatan_pelulus" value="{{$pst->pst_catatan_pelulus}}" readonly>
+                                        <textarea class="form-control" name="pst_catatan_pelulus" readonly rows="4" cols="3">{{$pst->pst_catatan_pelulus}}</textarea>
                                     </div>
                                 </div>
 
@@ -271,18 +238,14 @@ Cipta Jadual Pemenuhan</a></li>
                             <div class="mb-3 col-md-6">
                                <label class="col-form-label col-sm-6">Waktu Taklimat Sebutharga</label>
                             </div>
-                            <div class="input-group date" id="datetimepicker-time" data-target-input="nearest">
-                                <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker-time" name=iklan_taklimat_time/>
-                                <div class="input-group-text" data-target="#datetimepicker-time" data-toggle="datetimepicker"><i
-                                        class="fa fa-calendar"></i></div>
+                            <div class="mb-3 col-md-6">
+                                <input type="time" class="form-control" name="iklan_taklimat_time">
+                            </div>
                         </div>
-
-                        {{-- <br>Tahun Mula <input type="" --}}
-
-
 
                 <div align="right">
                     <button type="submit" class="btn btn-primary">Hantar</button>
+                </div>
                 </div>
                 </div>
                 </div>
@@ -290,7 +253,6 @@ Cipta Jadual Pemenuhan</a></li>
             </div>
     </div>
 </div>
-
 
 <script src="js/app.js"></script>
 

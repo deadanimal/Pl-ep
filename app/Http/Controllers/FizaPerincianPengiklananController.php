@@ -15,14 +15,35 @@ class FizaPerincianPengiklananController extends Controller
 
     public function index()
     {
+        $role=Auth::user()->roles;
 
-        $iklan = FizaPerincianPengiklanan::all();
-        $pst = FizaPembelianSebutTender::where('pst_status','diluluskan')->get();
+        if ($role[0]->id=='1') {
+            $iklan = FizaPerincianPengiklanan::all();
 
-        return view ('1_perincian_iklan.index',[
-            'iklan'=>$iklan,
-            'pst'=>$pst
+            foreach ($iklan as $iklan) {
+                $pst = FizaPembelianSebutTender::where('pst_status', 'diluluskan')->first();
+            }
+
+                return view('1_perincian_iklan.index', [
+                'iklan'=>$iklan,
+                'pst'=>$pst
+            ]);
+        }
+
+        else{
+
+        $pst = FizaPembelianSebutTender::where('pst_pelulus',Auth::user()->id)->get();
+
+        foreach ($pst as $pst) {
+            $iklan = FizaPerincianPengiklanan::where('pst_id',$pst->id)->where('iklan_created_by',Auth::user()->id)->first();
+        }
+
+        return view('1_perincian_iklan.index', [
+            'pst'=>$pst,
+            'iklan'=>$iklan
         ]);
+
+        }
     }
 
 
@@ -46,17 +67,12 @@ class FizaPerincianPengiklananController extends Controller
         $fizaPerincianPengiklanan->iklan_date=$request->iklan_date;
         $fizaPerincianPengiklanan->iklan_taklimat_date=$request->iklan_taklimat_date;
         $fizaPerincianPengiklanan->iklan_taklimat_time=$request->iklan_taklimat_time;
-        // $fizaPerincianPengiklanan->iklan_tempoh=$request->iklan_tempoh;
         $fizaPerincianPengiklanan->iklan_last_date=$request->iklan_last_date;
         $fizaPerincianPengiklanan->iklan_tempoh_sah_laku=$request->iklan_tempoh_sah_laku;
-        // $fizaPerincianPengiklanan->iklan_sah_laku_tamat=$request->iklan_sah_laku_tamat;
-
-        // $fizaPerincianPengiklanan->user_id=$request->user_id;
         $fizaPerincianPengiklanan->iklan_created_by=Auth::user()->id;
         $fizaPerincianPengiklanan->pst_id=$request->pst_id;
-        // $fizaPerincianPengiklanan->iklan_id=$request->iklan_id;
+        $fizaPerincianPengiklanan->iklan_status="menunggu kelulusan";
 
-        // $url = '/fizaPerincianPengiklanan'.$fizaPerincianPengiklanan->id;
 
         $fizaPerincianPengiklanan->save();
         return redirect('PerincianPengiklanan')->with('sucess','Data telah berjaya dihantar!');
@@ -64,9 +80,17 @@ class FizaPerincianPengiklananController extends Controller
 
 
     }
-    public function show(FizaPerincianPengiklanan $fizaPerincianPengiklanan)
+    public function show($id)
     {
-        //
+        $perincianPengiklanan = FizaPerincianPengiklanan::find($id);
+        $pst = FizaPembelianSebutTender::where('id',$perincianPengiklanan->pst_id)->first();
+        $pelulus=User::where('id',$pst->pst_pelulus)->first();
+
+        return view ('1_perincian_iklan.show',[
+            'perincianPengiklanan'=>$perincianPengiklanan,
+            'pst'=>$pst,
+            'pelulus'=>$pelulus
+        ]);
     }
 
     public function edit($id)
@@ -131,8 +155,9 @@ class FizaPerincianPengiklananController extends Controller
         $iklan = FizaPerincianPengiklanan::where('iklan_status',"diluluskan")->get();
 
         foreach ($iklan as $iklan) {
-            $pst = FizaPembelianSebutTender::where('id',$iklan->pst_id)->first();
-            $spesfikasi = FizaPenyediaanSpesifikasi::where('pst_id',$pst->id)->first();
+            $pst = FizaPembelianSebutTender::where('id', $iklan->pst_id)->first();
+            $spesfikasi = FizaPenyediaanSpesifikasi::where('pst_id', $pst->id)->first();
+
 
             $iklan->iklan_status=$iklan->iklan_status;
             $iklan->save();

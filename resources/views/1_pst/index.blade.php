@@ -42,33 +42,25 @@ Senarai Sebutharga / Tender</a></li>
                         <tr>
                             <td> {{$PembelianSebutTender->pst_tajuk}}</td>
                             <td> {{$PembelianSebutTender->pst_zon_lokasi}}</td>
-
-
                             <td> {{date('d-m-Y H:i', strtotime($PembelianSebutTender->created_at))}}</td>
+                            
                             <td> @if ($PembelianSebutTender->pst_status==='menunggu kelulusan')
-                                     <span class="badge rounded-pill bg-primary">Proses Semakan</span>
+                                     <span class="badge rounded-pill bg-primary">Proses aSemakan</span>
                                 @elseif ($PembelianSebutTender->pst_status === 'draf')
                                      <span class="badge rounded-pill bg-secondary">Draf</span>
                                 @elseif ($PembelianSebutTender->pst_status === 'ditolak')
                                     <span class="badge rounded-pill bg-danger">Ditolak</span>
                                  @else
                                     <span class="badge rounded-pill bg-success">Diluluskan</span>
-
                                 @endif
-
-
                             </td>
                             <td class="table-action">
                                 @if ($PembelianSebutTender->pst_status === 'menunggu kelulusan')
                                     @if (Auth::user()->id==$PembelianSebutTender->pst_pelulus)
                                         <a href="/PembelianSebutTender/{{$PembelianSebutTender->id}}/edit"><i class="align-middle fas fa-fw fa-pen"></i></a>
-
                                         @else
                                             <button class="btn" disabled><i class="align-middle fas fa-fw fa-pen"></i></a>
-
                                         @endif
-
-
 
                                 @elseif ($PembelianSebutTender->pst_status ==='diluluskan')
 
@@ -79,7 +71,6 @@ Senarai Sebutharga / Tender</a></li>
                                         <a href="#"><i class="align-middle fas fa-fw fa-pen"></i></button>
                                     @endif
 
-
                                 @elseif($PembelianSebutTender->pst_status=='draf')
 
                                     <form method="POST" action="/PembelianSebutTender/{{$PembelianSebutTender->id}}">
@@ -88,9 +79,6 @@ Senarai Sebutharga / Tender</a></li>
                                     <button class="btn" type="submit"><i class="align-middle fas fa-fw fa-trash"></i></button>
                                     <button class="btn"><i class="align-middle fas fa-fw fa-pen"></i></a>
                                     </form>
-
-
-
 
                             @endif
 

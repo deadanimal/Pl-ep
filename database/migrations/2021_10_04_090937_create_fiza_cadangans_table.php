@@ -16,8 +16,7 @@ class CreateFizaCadangansTable extends Migration
         Schema::create('fiza_cadangans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('pembekal_id')->nullable();
-            $table->foreignId('spesifikasi_id')->nullable();
-            $table->foreignId('sss_id')->nullable();
+            $table->foreignId('spesifikasi_id')->unique();
             $table->date('cadangan_mesyuarat_date')->nullable();
             $table->string('cadangan_mesyuarat_place')->nullable();
             $table->foreignId('jawatankuasa_id')->nullable();
@@ -26,12 +25,8 @@ class CreateFizaCadangansTable extends Migration
             $table->string('cadangan_bil_pembekal_lulus_teknikal')->nullable();
             $table->string('cadangan_bil_pembekal_lulus_kewangan')->nullable();
             $table->string('cadangan_ulasan_penilaian')->nullable();
-
             $table->string('cadangan_created_by')->nullable();
             $table->string('cadangan_updated_by')->nullable();
-
-            
-
 
             $table->timestamps();
         });

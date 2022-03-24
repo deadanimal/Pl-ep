@@ -25,11 +25,11 @@
                 <h5 class="card-title mb-0"></h5>
             </div>
             <div class="card-body">
-                <div align="right"> 
+                <div align="right">
                     <button class="btn btn-success" onclick="window.location.href='/Pengguna/create'">+Tambah</a></button>
                 </div>
                 <br>
-    <table id="datatables-reponsive" class="table table-striped" style="width:100%">
+    <table id="datatables-reponsive " class="table table-striped" style="width:100%">
     <thead>
         <tr>
                 <th> Nama </th>
@@ -44,7 +44,7 @@
         @foreach ($users as $users)
             <tr>
 
-                <td> {{$users->user_name}}</td> 
+                <td> {{$users->user_name}}</td>
                 <td> {{$users->jenis}}</td>
                 <td> {{$users->user_status}}</td>
                 <td class="a">
@@ -53,21 +53,21 @@
                         @endforeach
                 </td>
 
-                
-                    
+
+
                 <td class="table-action">
                     <form method="POST" action="/Pengguna/{{$users->id}}">
                         @method('DELETE')
                         @csrf
                     <button class="btn" type="submit" onclick="executeExample('warningConfirm')" id="padam"><i class="align-middle fas fa-fw fa-trash"></i></button>
                     <a href="/kemaskini-maklumat/{{$users->id}}"><i class="align-middle fas fa-fw fa-pen"></i></a>
-               
+
                     </form>
 
                 </td>
             </tr>
         @endforeach
-    </tbody>  
+    </tbody>
 </table>
             </div>
         </div>

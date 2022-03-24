@@ -23,15 +23,12 @@ class FizaJadualPemenuhanController extends Controller
             foreach ($jadual as $jadual) {
                 $spesifikasi = FizaPenyediaanSpesifikasi::where('id', $jadual->spesifikasi_id)->first();
                 $pst = FizaPembelianSebutTender::where('id', $spesifikasi->pst_id)->first();
-
-                // dd($pst);
-
+            }
                 return view('1_jadual.index', [
                     'jadual'=>$jadual,
                     'pst'=>$pst,
                     'spesifikasi'=>$spesifikasi
-                ]);
-            }
+                    ]);
         }
 
 
@@ -40,20 +37,20 @@ class FizaJadualPemenuhanController extends Controller
                 ->where('jadual_created_by', Auth::user()->id)
                 ->get();
 
+            foreach ($jadual as $jadual) {
+                $spesifikasi = FizaPenyediaanSpesifikasi::where('id', $jadual->spesifikasi_id)->first();
+                $pst = FizaPembelianSebutTender::where('id', $spesifikasi->pst_id)->first();
+            }
 
 
-        foreach ($jadual as $jadual) {
-            $spesifikasi = FizaPenyediaanSpesifikasi::where('id', $jadual->spesifikasi_id)->first();
-            $pst = FizaPembelianSebutTender::where('id', $spesifikasi->pst_id)->first();
-            // dd($jadual);
-
+                // dd($jadual);
 
             return view('1_jadual.index', [
                 'jadual'=>$jadual,
                 'pst'=>$pst,
                 'spesifikasi'=>$spesifikasi
             ]);
-        }
+
     }
 
 
@@ -92,7 +89,7 @@ class FizaJadualPemenuhanController extends Controller
         $fizaJadualPemenuhan->jadual_jumlah_bulan =$request->jadual_jumlah_bulan ;
         $fizaJadualPemenuhan->jadual_jenis =$request->jadual_jenis ;
         $fizaJadualPemenuhan->jadual_created_by=Auth::user()->id;
-        $fizaJadualPemenuhan->jadual_status="menunggu semakan";
+        $fizaJadualPemenuhan->jadual_status="menunggu kelulusan";
 
 
         $fizaJadualPemenuhan->save();

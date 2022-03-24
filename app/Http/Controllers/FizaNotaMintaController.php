@@ -30,7 +30,7 @@ class FizaNotaMintaController extends Controller
 
             return view('1_nota_minta.index', [
                 'fizaNotaMinta'=>$fizaNotaMinta,
-         
+
             ]);
         }
     }
@@ -58,9 +58,7 @@ class FizaNotaMintaController extends Controller
         $fizaNotaMinta->ro_tempoh_penghantaran=$request->ro_tempoh_penghantaran;
         $fizaNotaMinta->ro_jumlah=$request->ro_jumlah;
         $fizaNotaMinta->ro_pelulus=$request->ro_pelulus;
-        // $fizaNotaMinta->ro_pelulus_catatan=$request->ro_pelulus_catatan;
-        // $fizaNotaMinta->ro_pelulus_date=$request->ro_pelulus_date;
-        $fizaNotaMinta->ro_status="Sedang diProses";
+        $fizaNotaMinta->ro_status="Sedang diproses";
         $fizaNotaMinta->ro_created_by=Auth::user()->id;
         // $fizaNotaMinta->kart_id=$request->kart_id;
         // $fizaNotaMinta->user_id=$request->user_id;
@@ -86,7 +84,7 @@ class FizaNotaMintaController extends Controller
          $notification_obj->noti_content=Auth::user()->user_name . ' telah menghantar nota minta dan sedang menunggu kelulusan dari pihak anda.';
          $notification_obj->user_id=$fizaNotaMinta->ro_pelulus;
         app('App\Http\Controllers\FizaNotificationCenterController')->store($notification_obj);
- 
+
 
         $item ="Nota Minta";
         $user_id= Auth::user()->id;
@@ -96,7 +94,7 @@ class FizaNotaMintaController extends Controller
 
         return redirect('/KatalogBelian/'.$fizaNotaMinta->id);
     }
-    
+
 
 
     public function show(FizaNotaMinta $fizaNotaMinta)

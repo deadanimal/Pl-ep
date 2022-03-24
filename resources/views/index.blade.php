@@ -93,32 +93,6 @@
 					</a>
 					<h4>Notis Sebutharga / Tender</h4>
 				</div>
-				{{-- <div class="col-md-6 col-lg-4 text-center">
-					<a class="mb-3 card overflow-hidden" href="dashboard-default.html" target="_blank">
-						<div class="px-4 pt-4">
-							<img src="img/screenshots/dashboard-default.png" class="img-fluid card-img-hover landing-img" width="" />
-						</div>
-					</a>
-					<h4>Default Dashboard</h4>
-				</div>
-				<div class="col-md-6 col-lg-4 text-center">
-					<a class="mb-3 card overflow-hidden" href="dashboard-analytics.html" target="_blank">
-						<div class="px-4 pt-4">
-							<img src="img/screenshots/dashboard-analytics.png" class="img-fluid card-img-hover landing-img"
-								alt="Analytics Bootstrap 5 Dashboard Theme" />
-						</div>
-					</a>
-					<h4>Analytics Dashboard</h4>
-				</div>
-				<div class="col-md-6 col-lg-4 text-center">
-					<a class="mb-3 card overflow-hidden" href="dashboard-e-commerce.html" target="_blank">
-						<div class="px-4 pt-4">
-							<img src="img/screenshots/dashboard-e-commerce.png" class="img-fluid card-img-hover landing-img"
-								alt="E-Commerce Bootstrap 5 Dashboard Theme" />
-						</div>
-					</a>
-					<h4>E-commerce Dashboard</h4>
-				</div> --}}
 			</div>
 		</div>
 	</section>
@@ -129,48 +103,6 @@
 			<div class="mb-4 text-center">
 				<h2>Soalan Lazim</h2>
 			</div>
-			{{-- @foreach ($faq as $faq)
-			<div class="row">
-				<div class="col-md-6 col-lg-4">
-
-					<blockquote class="card border">
-						<div class="card-body p-4">
-							<div class="d-flex align-items-center mb-3">
-								<div class="ps-3">
-									<h5 class="mb-1 mt-2">{{$faq->faq_question}}</h5><small class="d-block text-muted h5 fw-normal">{{$faq->faq_section}}</small>
-								</div>
-							</div>
-							<p class="lead mb-2">{{$faq->faq_answer}}</p>
-						</div>
-					</blockquote>
-			</div>
-		</div>
-		@endforeach
-
-	</div>
-
-</section> --}}
-
-			 {{-- <div class="mb-4 text-center" id="faq">
-				<h2>Soalan Lazim</h2>
-				<p class="text-muted"></p>
-			</div>
-			<div class="text-center my-6">
-				<h2></h2>
-			</div>
-			<div class="row">
-			@foreach ($faq as $faq)
-				<div class="col-sm-6">
-					<div class="card">
-						<div class="card-body">
-							<h5 class="h6 card-title">{{$faq->faq_question}}</h5>
-							<p class="mb-0">{{$faq->faq_answer}}</p>
-						</div>
-					</div>
-				</div>
-				@endforeach
-
-		</div> --}}
 
 		<div class="row">
 			<div class="col-12 col-lg-12">
@@ -186,7 +118,7 @@
 								</a>
 							</h5>
 						</div>
-						<div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+						<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
 							<div class="card-body">
 								{{$faq->faq_answer}}
 							</div>
@@ -225,7 +157,7 @@
 				</div>
 				<div class="col-4 text-end">
 					<p class="mb-0">
-						&copy; 2021 - <a href="dashboard-default.html" class="text-muted">Perbadanan Labuan</a>
+						&copy; 2021-Perbadanan Labuan</a>
 					</p>
 				</div>
 			</div>

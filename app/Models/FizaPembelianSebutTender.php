@@ -31,7 +31,7 @@ class FizaPembelianSebutTender extends Model
 
     public function kehadirantaklimat()
     {
-        return $this->hasMany(FizaKehadiranTaklimat::class,'pst_id','id');
+        return $this->hasMany(FizaKehadiranTaklimat::class);
     }
 
 }

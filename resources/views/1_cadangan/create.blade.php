@@ -22,7 +22,10 @@
             <div class="card-body">
                     <form method="POST" action="/Cadangan">
                     @csrf
-                        
+
+                    <input type="hidden" name="spesifikasi_id" value="{{$spesifikasi->id}}">
+
+
                     <div class="row">
                         <div class="mb-3 col-md-6">
                            <label class="col-form-label col-sm-6">Cadangan Tarikh Mesyuarat </label>

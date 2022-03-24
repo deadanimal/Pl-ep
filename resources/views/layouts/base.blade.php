@@ -216,18 +216,6 @@
                                         <li class="sidebar-header">
                                             Permohonan
                                         </li>
-                                        <li class="sidebar-item">
-                                            <a data-bs-target="#ui" data-bs-toggle="collapse" class="sidebar-link collapsed">
-                                                <i class="align-middle me-2 fas fa-fw fa-shopping-bag"></i> <span class="align-middle">Pembelian</span>
-                                            </a>
-                                            <ul id="ui" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-                                                    <li class="sidebar-item"><a class="sidebar-link" href="/NotaMinta">Senarai Nota Minta</a></li>
-                                                    <li class="sidebar-item"><a class="sidebar-link" href="/NotaMinta/create">Cipta Nota Minta</a></li>
-                                                    <li class="sidebar-item"><a class="sidebar-link" href="/NotaPenerimaan">Senarai Nota Penerimaan</a>
-                                                    <li class="sidebar-item"><a class="sidebar-link" href="/NotaPenerimaan/create">Cipta Nota Penerimaan</a>
-                                                </li>
-                                            </ul>
-                                        </li>
 
                                         <li class="sidebar-item">
                                             <a data-bs-target="#pst" data-bs-toggle="collapse" class="sidebar-link collapsed">
@@ -240,6 +228,19 @@
                                                     <li class="sidebar-item"><a class="sidebar-link" href="/JadualPemenuhan">Jadual Pemenuhan</a></li>
                                                     <li class="sidebar-item"><a class="sidebar-link" href="/PerincianPengiklanan">Perincian Pengiklanan</a></li>
                                                     <li class="sidebar-item"><a class="sidebar-link" href="/KehadiranTaklimat">Senarai Kehadiran Taklimat</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="sidebar-item">
+                                            <a data-bs-target="#ui" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                                                <i class="align-middle me-2 fas fa-fw fa-shopping-bag"></i> <span class="align-middle">Pembelian</span>
+                                            </a>
+                                            <ul id="ui" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+                                                    <li class="sidebar-item"><a class="sidebar-link" href="/NotaMinta">Senarai Nota Minta</a></li>
+                                                    <li class="sidebar-item"><a class="sidebar-link" href="/NotaMinta/create">Cipta Nota Minta</a></li>
+                                                    <li class="sidebar-item"><a class="sidebar-link" href="/NotaPenerimaan">Senarai Nota Penerimaan</a>
+                                                    <li class="sidebar-item"><a class="sidebar-link" href="/NotaPenerimaan/create">Cipta Nota Penerimaan</a>
+                                                </li>
                                             </ul>
                                         </li>
 
@@ -321,20 +322,34 @@
                                 <li class="sidebar-header">
                                     Permohonan
                                 </li>
-                                <li class="sidebar-item">
-                                    <a data-bs-target="#ui" data-bs-toggle="collapse" class="sidebar-link collapsed">
-                                        <i class="align-middle me-2 fas fa-fw fa-shopping-bag"></i> <span class="align-middle">Pembelian</span>
-                                    </a>
-                                    <ul id="ui" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-                                            <li class="sidebar-item"><a class="sidebar-link" href="/NotaMinta">Senarai Nota Minta</a></li>
-                                            <li class="sidebar-item"><a class="sidebar-link" href="/NotaMinta/create">Cipta Nota Minta</a></li>
-                                            <li class="sidebar-item"><a class="sidebar-link" href="/PembelianSebutTender">Senarai SebutHarga/ Tender</a>
-                                            <li class="sidebar-item"><a class="sidebar-link" href="/PembelianSebutTender/create">Cipta SebutHarga/ Tender</a></li>
-                                            <li class="sidebar-item"><a class="sidebar-link" href="/NotaPenerimaan">Senarai Nota Penerimaan</a>
-                                            <li class="sidebar-item"><a class="sidebar-link" href="/NotaPenerimaan/create">Cipta Nota Penerimaan</a>
-                                        </li>
-                                    </ul>
-                                </li>
+
+                                    <li class="sidebar-item">
+                                        <a data-bs-target="#pst" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                                            <i class="align-middle me-2 fas fa-fw fa-shopping-cart"></i> <span class="align-middle">Sebutharga/Tender</span>
+                                        </a>
+                                        <ul id="pst" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+                                                <li class="sidebar-item"><a class="sidebar-link" href="/PembelianSebutTender">Senarai SebutHarga/ Tender</a>
+                                                <li class="sidebar-item"><a class="sidebar-link" href="/PembelianSebutTender/create">Cipta SebutHarga/ Tender</a></li>
+                                                <li class="sidebar-item"><a class="sidebar-link" href="/PenyediaanSpesifikasi">Penyediaan Spesifikasi</a></li>
+                                                <li class="sidebar-item"><a class="sidebar-link" href="/JadualPemenuhan">Jadual Pemenuhan</a></li>
+                                                <li class="sidebar-item"><a class="sidebar-link" href="/PerincianPengiklanan">Perincian Pengiklanan</a></li>
+                                                <li class="sidebar-item"><a class="sidebar-link" href="/KehadiranTaklimat">Senarai Kehadiran Taklimat</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="sidebar-item">
+                                        <a data-bs-target="#ui" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                                            <i class="align-middle me-2 fas fa-fw fa-shopping-bag"></i> <span class="align-middle">Pembelian</span>
+                                        </a>
+                                        <ul id="ui" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+                                                <li class="sidebar-item"><a class="sidebar-link" href="/NotaMinta">Senarai Nota Minta</a></li>
+                                                <li class="sidebar-item"><a class="sidebar-link" href="/NotaMinta/create">Cipta Nota Minta</a></li>
+                                                <li class="sidebar-item"><a class="sidebar-link" href="/NotaPenerimaan">Senarai Nota Penerimaan</a>
+                                                <li class="sidebar-item"><a class="sidebar-link" href="/NotaPenerimaan/create">Cipta Nota Penerimaan</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
 
                                     <li class="sidebar-item">
                                         <a data-bs-target="#forms" data-bs-toggle="collapse" class="sidebar-link collapsed">
@@ -402,6 +417,18 @@
                             <ul id="ui" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
                                     <li class="sidebar-item"><a class="sidebar-link" href="/NotaMinta">Senarai Nota Minta</a></li>
                                     <li class="sidebar-item"><a class="sidebar-link" href="/NotaPenerimaan">Senarai Nota Penerimaan</a>
+                                    <li class="sidebar-item"><a class="sidebar-link" href="/kehadiranPembekal">Kehadiran Taklimat</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a data-bs-target="#cadangan" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                                <i class="align-middle me-2 fas fa-fw fa-shopping-bag"></i> <span class="align-middle">Cadangan</span>
+                            </a>
+                            <ul id="cadangan" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+                                    <li class="sidebar-item"><a class="sidebar-link" href="/Cadangan">Cipta Cadangan </a></li>
+                                    {{-- <li class="sidebar-item"><a class="sidebar-link" href="/Cadangan/create">Senarai Cadangan</a></li> --}}
                                 </li>
                             </ul>
                         </li>

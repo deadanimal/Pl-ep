@@ -14,7 +14,7 @@ Kemaskini Sebutharga / Tender</a></li>
 </div>
 <div class="row">
     <div class="col-12">
-    
+
             <div class="card-header">
                 <h5 class="card-title mb-0"></h5>
             </div>
@@ -43,7 +43,7 @@ Kemaskini Sebutharga / Tender</a></li>
                                         <input type="text" class="form-control" name="pst_item_panel" value="{{$PembelianSebutTender->pst_item_panel}}" readonly>
                                     </div>
                                 </div>
-                                
+
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
                                     <label class="col-form-label col-sm-6">Sistem Panel </label>
@@ -52,7 +52,7 @@ Kemaskini Sebutharga / Tender</a></li>
                                         <input type="text" class="form-control" name="pst_sistem_panel" value="{{$PembelianSebutTender->pst_sistem_panel}}" readonly>
                                     </div>
                                 </div>
-                                            
+
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
                                     <label class="col-form-label col-sm-6">No1PP </label>
@@ -61,7 +61,7 @@ Kemaskini Sebutharga / Tender</a></li>
                                         <input type="text" class="form-control" name="pst_no1pp" value="{{$PembelianSebutTender->pst_no1pp}}" readonly>
                                     </div>
                                 </div>
-                                
+
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
                                     <label class="col-form-label col-sm-6">Tajuk Pembelian SebutHarga & Tender </label>
@@ -70,17 +70,17 @@ Kemaskini Sebutharga / Tender</a></li>
                                         <input type="text" class="form-control" name="pst_tajuk" value="{{$PembelianSebutTender->pst_tajuk}}" readonly>
                                     </div>
                                 </div>
-                                
+
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
                                     <label class="col-form-label col-sm-6">No Rujukan Fail</label>
                                     </div>
-                                    <div class="mb-3 col-md-6">                      
+                                    <div class="mb-3 col-md-6">
                                         <input type="text" class="form-control" name="pst_no_rujukan_fail" value="{{$PembelianSebutTender->pst_no_rujukan_fail}}" readonly>
                                     </div>
                                 </div>
 
-                                
+
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
                                     <label class="col-form-label col-sm-6">Jumlah Harga Jangkaan Indikatif </label>
@@ -90,7 +90,7 @@ Kemaskini Sebutharga / Tender</a></li>
                                     </div>
                                 </div>
 
-                                    
+
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
                                         <label class="col-form-label col-sm-6">Kaedah Perolehan</label>
@@ -99,7 +99,7 @@ Kemaskini Sebutharga / Tender</a></li>
                                         <input type="text" class="form-control" name="pst_kaedah_perolehan" value="{{$PembelianSebutTender->pst_kaedah_perolehan}}" readonly>
                                     </div>
                                 </div>
-                            
+
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
                                     <label class="col-form-label col-sm-6">Jenis PST </label>
@@ -118,8 +118,8 @@ Kemaskini Sebutharga / Tender</a></li>
                                     </div>
                                 </div>
 
-                                
-                                
+
+
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
                                     <label class="col-form-label col-sm-6">Zon </label>
@@ -128,8 +128,8 @@ Kemaskini Sebutharga / Tender</a></li>
                                     <input type="text" class="form-control" name="pst_zon_lokasi" value="{{$PembelianSebutTender->pst_zon_lokasi}}" readonly>
                                     </div>
                                 </div>
-                                
-                                                        
+
+
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
                                     <label class="col-form-label col-sm-6"> Kategori Jenis Perolehan </label>
@@ -139,15 +139,6 @@ Kemaskini Sebutharga / Tender</a></li>
                                     </div>
                                 </div>
 
-
-                                <div class="row">
-                                    <div class="mb-3 col-md-6">
-                                    <label class="col-form-label col-sm-6">Kategori Perolehan</label>
-                                    </div>
-                                    <div class="mb-3 col-md-6">
-                                        <input type="text" class="form-control" name="pst_kategori_perolehan" value="{{$PembelianSebutTender->pst_kategori_perolehan}}" readonly readonly>
-                                    </div>
-                                </div>
 
 
                                 <div class="row">
@@ -164,7 +155,7 @@ Kemaskini Sebutharga / Tender</a></li>
                                     <label class="col-form-label col-sm-6">Jenis Pemenuhan</label>
                                     </div>
                                     <div class="mb-3 col-md-6">
-                                        <input type="text" class="form-control" name="pst_jenis_pemenuhan" value="{{$PembelianSebutTender->pst_jenis_pemenuhan}}" readonly> 
+                                        <input type="text" class="form-control" name="pst_jenis_pemenuhan" value="{{$PembelianSebutTender->pst_jenis_pemenuhan}}" readonly>
                                     </div>
                                 </div>
 
@@ -176,7 +167,7 @@ Kemaskini Sebutharga / Tender</a></li>
                                         <input type="text" class="form-control" name="pst_tempoh_kontrak" value="{{$PembelianSebutTender->pst_tempoh_kontrak}}" readonly>
                                     </div>
                                 </div>
-                            {{--     
+                            {{--
                             item_id
                             kod_id
                             pembekal_id --}}
@@ -199,7 +190,7 @@ Kemaskini Sebutharga / Tender</a></li>
                                         {{-- <input type="text" class="form-control" name="pst_katalog_kumpulan" value="{{$PembelianSebutTender->pst_pelulus}}" readonly> --}}
                                         <select  class="form-control" name="pst_pelulus" disabled>
                                             @foreach ($user as $user)
-                                            <option @if ($PembelianSebutTender->pst_pelulus == $user->id) selected @endif value={{$user->id}}>{{$user->user_name}}</option>    
+                                            <option @if ($PembelianSebutTender->pst_pelulus == $user->id) selected @endif value={{$user->id}}>{{$user->user_name}}</option>
                                             @endforeach
                                         </select>
 
@@ -227,8 +218,8 @@ Kemaskini Sebutharga / Tender</a></li>
                             <input type="text" class="form-control" name="pst_perihal_taklimat" value="{{$PembelianSebutTender->pst_perihal_taklimat}}" >
                         </div>
                     </div>
-        
-        
+
+
                     <div class="row">
                         <div class="mb-3 col-md-6">
                            <label class="col-form-label col-sm-6">Tarikh Taklimat</label>
@@ -237,8 +228,8 @@ Kemaskini Sebutharga / Tender</a></li>
                             <input type="date" class="form-control" name="pst_taklimat_date" value="{{$PembelianSebutTender->pst_taklimat_date}}" >
                         </div>
                     </div>
-        
-                    
+
+
                     <div class="row">
                         <div class="mb-3 col-md-6">
                            <label class="col-form-label col-sm-6">Alamat Taklimat</label>
@@ -247,7 +238,7 @@ Kemaskini Sebutharga / Tender</a></li>
                             <input type="text" class="form-control" name="pst_taklimat_alamat" value="{{$PembelianSebutTender->pst_taklimat_alamat}}" >
                         </div>
                     </div>
-        
+
                     <div class="row">
                         <div class="mb-3 col-md-6">
                            <label class="col-form-label col-sm-6">Link </label>
@@ -256,7 +247,7 @@ Kemaskini Sebutharga / Tender</a></li>
                             <input type="text" class="form-control" name="pst_link" value="{{$PembelianSebutTender->pst_link}}" >
                         </div>
                     </div>
-        
+
                     <div class="row">
                         <div class="mb-3 col-md-6">
                            <label class="col-form-label col-sm-6">Penyelaras</label>
@@ -264,13 +255,13 @@ Kemaskini Sebutharga / Tender</a></li>
                         <div class="mb-3 col-md-6">
                             <select name="pst_pelulus"  class="form-select" >
                             @foreach ($penyelaras as $penyelaras)
-                                <option @if ($PembelianSebutTender->pst_pelulus == $penyelaras->id) selected @endif value={{$penyelaras->id}}>{{$penyelaras->user_name}}</option>    
+                                <option @if ($PembelianSebutTender->pst_pelulus == $penyelaras->id) selected @endif value={{$penyelaras->id}}>{{$penyelaras->user_name}}</option>
                             @endforeach
                             </select>
                         </div>
                     </div>
-        
-                    
+
+
                     <div class="row">
                         <div class="mb-3 col-md-6">
                            <label class="col-form-label col-sm-6"> Kehadiran Maksimum</label>
@@ -279,10 +270,10 @@ Kemaskini Sebutharga / Tender</a></li>
                             <input type="text" class="form-control" name="pst_kehadiran_max" value="{{$PembelianSebutTender->pst_kehadiran_max}}" >
                         </div>
                     </div>
-        
+
         </div>
         <div id="pemotongan" class="tab-pane" role="tabpanel">
-        
+
                     <div class="row">
                         <div class="mb-3 col-md-6">
                            <label class="col-form-label col-sm-6">Jenis Pemotongan</label>
@@ -291,8 +282,8 @@ Kemaskini Sebutharga / Tender</a></li>
                             <input type="text" class="form-control" name="pst_jenis_potongan" value="{{$PembelianSebutTender->pst_jenis_potongan}}" >
                         </div>
                     </div>
-        
-        
+
+
                     <div class="row">
                         <div class="mb-3 col-md-6">
                            <label class="col-form-label col-sm-6">Deskripsi Pemotongan</label>
@@ -301,7 +292,7 @@ Kemaskini Sebutharga / Tender</a></li>
                             <input type="text" class="form-control" name="pst_potongan_description" value="{{$PembelianSebutTender->pst_potongan_description}}" >
                         </div>
                     </div>
-        
+
                     <div class="row">
                         <div class="mb-3 col-md-6">
                            <label class="col-form-label col-sm-6">Amaun Pemotongan</label>
@@ -310,11 +301,11 @@ Kemaskini Sebutharga / Tender</a></li>
                             <input type="text" class="form-control" name="pst_amaun_potongan" value="{{$PembelianSebutTender->pst_amaun_potongan}}" >
                         </div>
                     </div>
-        
+
                     <br>
-        
+
                     <div align=right>
-                        <button type="submit" class="btn btn-primary"> Hantar</button> 
+                        <button type="submit" class="btn btn-primary"> Hantar</button>
                     </div>
 
 		</div>
@@ -323,10 +314,10 @@ Kemaskini Sebutharga / Tender</a></li>
 </div>
 
 
-  
 
 
-                    
+
+
 
                     {{-- <div class="row">
                         <div class="mb-3 col-md-6">
@@ -344,10 +335,10 @@ Kemaskini Sebutharga / Tender</a></li>
                 pst_created_date
                 pst_updated_by
                 pst_updated_date --}}
-   
+
                 </form>
                 {{-- <a href="/Jawatankuasa/pst/{{$PembelianSebutTender->id}}/edit" class="btn btn-primary">Seterusnya</a> --}}
-                
+
             </div>
         </div>
     </div>
@@ -367,7 +358,7 @@ Kemaskini Sebutharga / Tender</a></li>
 				theme: "default",
 				showStepURLhash: false
 			});
-	
+
 			// Validation
 			var $validationForm = $("#smartwizard-validation");
 			$validationForm.validate({

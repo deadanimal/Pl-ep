@@ -11,7 +11,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">
-Kemaskini Perincian Iklan</a></li>
+Kelulusan Cadangan </a></li>
         </ol>
     </nav>
 </div>
@@ -22,16 +22,11 @@ Kemaskini Perincian Iklan</a></li>
             </div>
             <div class="card-body">
 
-                <form method="POST" action="/PerincianPengiklanan">
-                @csrf
-
-                <input type="hidden" name="pst_id" value="{{$pst->id}}">
-
                 <div id="smartwizard-default-primary" class="wizard wizard-primary mb-4">
                     <ul class="nav">
                         <li class="nav-item"><a class="nav-link" href="#sebutharga">1<br /><small>Maklumat SebutHarga</small></a></li>
-                        <li class="nav-item"><a class="nav-link" href="#pengiklanan">2<br /><small>Maklumat Pengiklanan</small></a></li>
-                        {{-- <li class="nav-item"><a class="nav-link" href="#jadualpemenuhan">3<br /><small>Maklumat Jadual Pemenuhan</small></a></li> --}}
+                        <li class="nav-item"><a class="nav-link" href="#spesifikasi">2<br /><small>Maklumat Spesifikasi</small></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#cadangan">3<br /><small>Maklumat Cadangan</small></a></li>
                     </ul>
 
                 <div class="tab-content">
@@ -137,7 +132,7 @@ Kemaskini Perincian Iklan</a></li>
 
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
-                                    <label class="col-form-label col-sm-6">Zon </label>
+                                    <label class="col-form-label col-sm-6">Zon</label>
                                     </div>
                                     <div class="mb-3 col-md-6">
                                     <input type="text" class="form-control" name="pst_zon_lokasi" value="{{$pst->pst_zon_lokasi}}" readonly>
@@ -217,61 +212,271 @@ Kemaskini Perincian Iklan</a></li>
 
                 </div>
 
-                <div id="pengiklanan" class="tab-pane" role="tabpanel">
+                <div id="spesifikasi" class="tab-pane" role="tabpanel">
+
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                           <label class="col-form-label col-sm-6">Tajuk Spesifikasi </label>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <input type="text"  class="form-control" name="spesifikasi_tajuk" value="{{$spesifikasi->spesifikasi_tajuk}}" readonly>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                               <label class="col-form-label col-sm-6">Jenis Barang </label>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <input type="text" class="form-control" name="spesifikasi_jenis_barang" value="{{$spesifikasi->spesifikasi_jenis_barang}}" readonly>
+                        </div>
+                    </div>
+
+                     <div class="row">
+                            <div class="mb-3 col-md-6">
+                               <label class="col-form-label col-sm-6">Butiran Item </label>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <input type="text" class="form-control" name="spesifikasi_description" value="{{$spesifikasi->spesifikasi_description}}" readonly>
+                            </div>
+                     </div>
+
+                     <div class="row">
+                         <div class="mb-3 col-md-6">
+                           <label class="col-form-label col-sm-6">Unit Ukuran</label>
+                         </div>
+                         <div class="mb-3 col-md-6">
+                            <input type="number" class="form-control" name="spesifikasi_unit_ukuran" value="{{$spesifikasi->spesifikasi_unit_ukuran}}" readonly>
+                         </div>
+                     </div>
+
+                     <div class="row">
+                        <div class="mb-3 col-md-6">
+                           <label class="col-form-label col-sm-6">Jenis Harga </label>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <input type="text" class="form-control" name="spesifikasi_jenis_harga" value="{{$spesifikasi->spesifikasi_jenis_harga}}" readonly>
+                        </div>
+                     </div>
 
 
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                           <label class="col-form-label col-sm-6">Jumlah Harga Indikatif</label>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <input type="number" class="form-control" name="spesifikasi_jumlah_harga_indikatif" value="{{$spesifikasi->spesifikasi_jumlah_harga_indikatif}}" readonly>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                           <label class="col-form-label col-sm-6">Jumlah Harga</label>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                             <input type="number" class="form-control" name="spesifikasi_jumlah_harga" value="{{$spesifikasi->spesifikasi_jumlah_harga}}" readonly>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                           <label class="col-form-label col-sm-6">Jumlah Harga</label>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                             <input type="number" class="form-control" name="spesifikasi_jumlah_harga" value="{{$spesifikasi->spesifikasi_jumlah_harga}}" readonly>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                           <label class="col-form-label col-sm-6">Alamat Penghantaran</label>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <textarea class="form-control" name="spesifikasi_alamat_penghantaran" rows="3" cols="4" readonly>{{$spesifikasi->spesifikasi_alamat_penghantaran}}</textarea>
+                        </div>
+                    </div>
+
+
+                    <fieldset>
+                        <legend>Spesifikasi Teknikal</legend>
+
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                           <label class="col-form-label col-sm-6">Skema Teknikal </label>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <div class="mb-2">
+                                <span class="align-middle"><a href="/storage/{{$spesifikasi->spesifikasi_skema_teknikal}}" target="_blank" download> <i class="align-middle me-2" data-feather="download-cloud"></i>Muat Turun Fail</a></span>
+                            </div>
+                        </div>
+                            {{-- <a href="/storage/{{$spesifikasi->spesifikasi_skema_kewangan}}" target="_blank" download>Muat Turun Fail</a> --}}
+                   </div>
+
+
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                           <label class="col-form-label col-sm-6">Skor Lulus Teknikal</label>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <input type="number" class="form-control" name="spesifikasi_skor_lulus_teknikal" value="{{$spesifikasi->spesifikasi_skor_lulus_teknikal}}" readonly>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                           <label class="col-form-label col-sm-6">Jumlah Skor Teknikal</label>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <input type="number" class="form-control" name="spesifikasi_jumlah_skor_teknikal" value="{{$spesifikasi->spesifikasi_jumlah_skor_teknikal}}" readonly>
+                        </div>
+                    </div>
+
+                    </fieldset>
+                    <br><br>
+
+
+                    <fieldset>
+                        <legend>Spesifikasi Kewangan</legend>
 
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                               <label class="col-form-label col-sm-6">Tarikh Pengiklanan</label>
+                              <label class="col-form-label col-sm-6">Skema Kewangan</label>
+                            </div>
+
+
+                            <div class="mb-3 col-md-6">
+                                <div class="mb-2">
+                                    <span class="align-middle"><a href="/storage/{{$spesifikasi->spesifikasi_skema_kewangan}}" target="_blank" download> <i class="align-middle me-2" data-feather="download-cloud"></i>Muat Turun Fail</a></span>
+                                 </div>
+                            </div>
+                                {{-- <a href="/storage/{{$spesifikasi->spesifikasi_skema_kewangan}}" target="_blank" download>Muat Turun Fail</a> --}}
+                       </div>
+
+                       <div class="row">
+                            <div class="mb-3 col-md-6">
+                                <label class="col-form-label col-sm-6">Skor Lulus Kewangan</label>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <input type="date"  class="form-control" name="iklan_date">
+                                <input type="number" class="form-control" name="spesifikasi_skor_lulus_kewangan" value="{{$spesifikasi->spesifikasi_skor_lulus_kewangan}}" readonly>
+                            </div>
+                       </div>
+
+                       <div class="row">
+                            <div class="mb-3 col-md-6">
+                                <label class="col-form-label col-sm-6">Jumlah Skor Kewangan</label>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <input type="number" class="form-control" name="spesifikasi_jumlah_skor_kewangan" value="{{$spesifikasi->spesifikasi_jumlah_skor_kewangan}}" readonly>
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="mb-3 col-md-6">
-                               <label class="col-form-label col-sm-6">Tarikh Akhir Iklan</label>
-                            </div>
-                            <div class="mb-3 col-md-6">
-                                <input class="form-control" type="date" name="iklan_last_date" />
-                            </div>
+                    </fieldset>
+                    <br><br>
+
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                           <label class="col-form-label col-sm-6">Skor Maksima</label>
                         </div>
-
-
-                        <div class="row">
-                            <div class="mb-3 col-md-6">
-                               <label class="col-form-label col-sm-6">Tarikh Taklimat Sebutharga</label>
-                            </div>
-                            <div class="mb-3 col-md-6">
-                                <input type="date" class="form-control" name="iklan_taklimat_date">
-                            </div>
+                        <div class="mb-3 col-md-6">
+                            <input type="number" class="form-control" name="spesifikasi_skor_maksima" value="{{$spesifikasi->spesifikasi_skor_maksima}}" readonly>
                         </div>
+                    </div>
 
-                        <div class="row">
-                            <div class="mb-3 col-md-6">
-                               <label class="col-form-label col-sm-6">Waktu Taklimat</label>
-                            </div>
-                            <div class="mb-3 col-md-6">
-                                <input type="time" class="form-control" name="iklan_taklimat_time">
-                            </div>
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                           <label class="col-form-label col-sm-6">Skor Lulus Keseluruhan</label>
                         </div>
+                        <div class="mb-3 col-md-6">
+                            <input type="number" class="form-control" name="spesifikasi_skor_lulus_keseluruhan" value="{{$spesifikasi->spesifikasi_skor_lulus_keseluruhan}}" readonly>
+                        </div>
+                    </div>
 
-                        {{-- <br>Tahun Mula <input type="" --}}
+
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                           <label class="col-form-label col-sm-6">Catatan Spesifikasi Item </label>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                             <textarea rows="3" cols="4" class="form-control" name="spesifikasi_catatan" readonly>{{$spesifikasi->spesifikasi_catatan}}</textarea>
+                        </div>
+                    </div>
+            </div>
+
+            <div id="cadangan" class="tab-pane" role="tabpanel">
+
+                <form method="POST" action="/Cadangan/{{$cadangan->id}}">
+                    @csrf
+                    @method('PUT')
+
+                    <input type="hidden" name="spesifikasi_id" value="{{$cadangan->spesifikasi_id}}">
+
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                           <label class="col-form-label col-sm-6">Cadangan Tarikh Mesyuarat </label>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <input type="date" class="form-control" name="cadangan_mesyuarat_date" value="{{$cadangan->cadangan_mesyuarat_date}}">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                           <label class="col-form-label col-sm-6">Cadangan Lokasi Mesyuarat</label>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                             <input type="text" class="form-control" name="cadangan_mesyuarat_place" value="{{$cadangan->cadangan_mesyuarat_place}}">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                           <label class="col-form-label col-sm-6">Kehadiran</label>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                             <input type="text" class="form-control" name="cadangan_kehadiran" value="{{$cadangan->cadangan_kehadiran}}">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                           <label class="col-form-label col-sm-6">Bilangan Pembekal yang Mendapat Kelulusan Teknikal </label>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <input type="number" class="form-control" name="cadangan_bil_pembekal_lulus_teknikal" value="{{$cadangan->cadangan_bil_pembekal_lulus_teknikal}}">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                           <label class="col-form-label col-sm-6">Bilangan Pembekal yang Mendapat Kelulus Kewangan</label>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                             <input type="number" class="form-control" name="cadangan_bil_pembekal_lulus_kewangan" value="{{$cadangan->cadangan_bil_pembekal_lulus_kewangan}}">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                           <label class="col-form-label col-sm-6">Cadangan Ulasan Penilaian </label>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <textarea class="form-control" name="cadangan_ulasan_penilaian" rows="4" cols="3">{{$cadangan->cadangan_ulasan_penilaian}}</textarea>
+                        </div>
+                    </div>
+
+                    <div align=right>
+                        <button class="btn btn-success" onclick="window.location.href='/Cadangan'">Kembali</a></button>
+                        <button type="submit" class="btn btn-primary"  value="sahkan" name="status_cadangan" >Sahkan</button>
+                    </div>
 
 
-
-                <div align="right">
-                    <button type="submit" class="btn btn-primary">Hantar</button>
+                    </form>
+            </div>
                 </div>
                 </div>
-                </div>
-                </form>
             </div>
     </div>
 </div>
-
 
 <script src="js/app.js"></script>
 

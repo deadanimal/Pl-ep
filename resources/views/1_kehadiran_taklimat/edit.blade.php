@@ -86,11 +86,37 @@
                 </div>
 
 
+                @if($kehadiran->status=="menunggu kelulusan")
+
                 <div class="col-md-4 text-right">
                     <button type="submit" name="status_kehadiran" value="dilulus" class="btn btn-primary"><i class="fas fa-check"></i> Diluluskan</button>
                     <button type="submit" name="status_kahadiran" value="ditolak" class="btn btn-danger"><i class="fas fa-times"></i> Ditolak</button>
 
                 </div>
+
+
+
+                @else
+
+                <div class="row">
+                    <div class=" col-md-6">
+                       <label class="col-form-label col-sm-6">Status Kehadiran</label>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <input type="url" class="form-control" name="status" value="{{$kehadiran->status}}">
+                    </div>
+                </div>
+
+
+                <div class="col-md-4 text-right">
+                    <a href="/senaraikehadiran" class="btn btn-primary">Kembali</a>
+
+
+                </div>
+
+
+
+                @endif
 
 
                 </form>
