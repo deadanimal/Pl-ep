@@ -465,7 +465,7 @@ Kelulusan Cadangan </a></li>
                     </div>
 
 
-                        <button type="submit" class="btn btn-primary"  value="luluskan" name="status_cadangan" >Luluskan</button>
+                        <button type="submit" class="btn btn-primary"  value="lulus" name="status_cadangan" >Luluskan</button>
                         <button class="btn btn-success" onclick="window.location.href='/Cadangan'">Kembali</a></button>
 
 

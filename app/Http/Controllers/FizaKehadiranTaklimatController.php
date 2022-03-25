@@ -120,8 +120,6 @@ class FizaKehadiranTaklimatController extends Controller
         $kehadiranTaklimat->link=$request->link;
         $kehadiranTaklimat->kehadiran_updated_by=Auth::user()->id;
 
-
-
         $ahli_hadir = User::where('id',$kehadiranTaklimat->kehadiran_created_by)->first();
 
 

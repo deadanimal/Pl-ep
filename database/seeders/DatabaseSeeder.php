@@ -13,9 +13,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'user_name' => 'Syafiza Senin',
+            'user_name' => 'admin',
             'id_pengguna' => '',
-            'email' => 'syafiza.senin@pipeline.com.my',
+            'email' => 'admin@admin.com',
             'user_identity_no'=>'9999',
             'jenis'=>'pekerja',
             'password' => Hash::make('password'),
@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
             'user_alamat'=>'No 91, Jalan Kenanga',
             'user_poskod'=>'839390',
             'user_negeri'=>'Melaka'
-          
+
         ]);
 
         DB::table('roles_user')->insert([
@@ -39,7 +39,7 @@ class DatabaseSeeder extends Seeder
             'role_name'=>'Admin',
             'role_staff_status'=>'aktif'
         ]);
-        
+
         DB::table('roles')->insert([
             'role_name'=>'Pegawai Perancang',
             'role_staff_status'=>'aktif'
@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
             'role_name'=>'Pegawai Pengesah',
             'role_staff_status'=>'aktif'
         ]);
-        
+
         DB::table('roles')->insert([
             'role_name'=>'Pegawai Pelulus',
             'role_staff_status'=>'aktif'

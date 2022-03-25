@@ -35,7 +35,9 @@ Senarai Cadangan</a></li>
                         <tr>
                             <td>{{$pst->pst_tajuk}}</td>
                             <td>{{$spesifikasi->spesifikasi_tajuk}}</td>
-                            <td> @if ($cadangan->cadangan_mesyuarat_status=='dalam semakan')
+                            <td> @if ($cadangan->cadangan_mesyuarat_status==null)
+                                        fjfjjf
+                                 @elseif ($cadangan->cadangan_mesyuarat_status=='dalam semakan')
                                     <span class="badge rounded-pill bg-primary">Dalam Semakan</span>
 
                                 @elseif ($cadangan->cadangan_mesyuarat_status=='menunggu kelulusan')
